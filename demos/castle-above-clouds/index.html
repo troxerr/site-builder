@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Castle Above Clouds · 3D showcase · Bartlett Website Design</title>
+<meta name="description" content="An interactive 3D scene of a castle on a floating island, built in the browser with WebGL by Bartlett Website Design.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#141a33">
+<link rel="preload" href="assets/fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:300 600;font-display:swap;src:url(assets/fonts/cormorant-garamond-latin.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:600;font-display:swap;src:url(assets/fonts/cormorant-garamond-italic-latin.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/ibm-plex-mono-400-latin.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/ibm-plex-mono-500-latin.woff2) format("woff2")}
+</style>
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}</style>
+<style>
+  /* Layout: full-bleed WebGL sky; title lockup top-left, hero line bottom-left, sky controls bottom-right. */
+  :root {
+    --ink: #fbf6ee;          /* text over sky */
+    --ink-dim: rgba(251, 246, 238, 0.72);
+    --night: #141a33;        /* page ground before the sky renders */
+    --glass: rgba(20, 26, 51, 0.32);
+    --glass-edge: rgba(251, 246, 238, 0.22);
+    --gilt: #e8c27a;         /* the gold of the spire finials */
+    --display: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    color-scheme: dark;
+  }
+  [hidden] { display: none !important; }
+  html, body { height: 100%; overflow: hidden; }
+  body { background: var(--night); color: var(--ink); font-family: var(--mono); }
+  #scene { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; cursor: grab; opacity: 0; transition: opacity 1.6s ease; }
+  #scene.ready { opacity: 1; }
+  #scene:active { cursor: grabbing; }
+
+  .overlay {
+    position: fixed; inset: 0; pointer-events: none;
+    display: grid; grid-template-rows: auto 1fr auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px), 4vw);
+    padding-right: max(16px, env(safe-area-inset-right, 0px), 4vw);
+    padding-block: calc(env(safe-area-inset-top, 0px) + clamp(18px, 4vh, 40px)) calc(env(safe-area-inset-bottom, 0px) + clamp(18px, 4vh, 40px));
+    background: linear-gradient(to top, rgba(14, 18, 40, 0.45), rgba(14, 18, 40, 0) 45%),
+                linear-gradient(to bottom, rgba(14, 18, 40, 0.28), rgba(14, 18, 40, 0) 22%);
+  }
+  .lockup { display: flex; flex-direction: column; gap: 6px; }
+  .lockup h1 {
+    margin: 0; font-family: var(--display); font-weight: 600; font-size: clamp(15px, 1.6vw, 20px);
+    letter-spacing: 0.32em; text-transform: uppercase;
+  }
+  .lockup p { margin: 0; font-size: 11px; letter-spacing: 0.24em; color: var(--ink-dim); text-transform: uppercase; }
+  .lockup p span { color: var(--gilt); }
+
+  .foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .hero {
+    margin: 0; font-family: var(--display); line-height: 0.86; font-size: clamp(60px, 11vw, 176px);
+    text-shadow: 0 2px 30px rgba(14, 18, 40, 0.35); text-wrap: balance; min-width: 0;
+  }
+  .hero .light { display: block; font-weight: 300; letter-spacing: -0.01em; }
+  .hero .heavy { display: block; font-weight: 600; font-style: italic; letter-spacing: -0.02em; padding-left: 0.42em; }
+
+  .panel { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; pointer-events: auto; }
+  .readout { display: flex; gap: 18px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim); font-variant-numeric: tabular-nums; }
+  .readout b { color: var(--ink); font-weight: 500; }
+  .seg { display: flex; border: 1px solid var(--glass-edge); border-radius: 999px; background: var(--glass); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 3px; }
+  .seg button {
+    font: 500 11px/1 var(--mono); letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-dim);
+    background: transparent; border: 0; border-radius: 999px; padding: 10px 16px; cursor: pointer; transition: color .3s, background .3s;
+  }
+  .seg button:hover { color: var(--ink); }
+  .seg button[aria-pressed="true"] { background: var(--ink); color: var(--night); }
+  .seg button:focus-visible { outline: 2px solid var(--gilt); outline-offset: 2px; }
+  .hint { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-dim); }
+
+  .fallback { position: fixed; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center; color: var(--ink-dim); font-size: 13px; }
+
+  @media (max-width: 640px) {
+    .foot { flex-direction: column; align-items: flex-start; }
+    .panel { align-items: flex-start; }
+    .hint { display: none; }
+  }
+  /* Bartlett Website Design demo bar sits on top of the scene */
+  .bwd-demo-bar{position:fixed!important;top:0;left:0;right:0;z-index:20!important}
+  .overlay{top:var(--bar-h,38px)}
+  @media (max-width:640px){.overlay{top:var(--bar-h,58px)}}
+</style>
+</head>
+<body>
+<div class="bwd-demo-bar" role="note" style="position:relative;z-index:9999;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 14px;padding:8px 14px;background:#0b1b3a;color:#cfd9ec;font:500 13px/1.4 system-ui,-apple-system,'Segoe UI',sans-serif;text-align:center"><span><b style="color:#fff;font-weight:600">Interactive 3D showcase</b> built by <a href="/" style="color:#fff">Bartlett Website Design</a>. Drag to look around.</span><a href="/demos/" style="color:#9cc2ff;font-weight:600;text-decoration:none">&larr; All demos</a></div>
+<script>(function(){var b=document.querySelector('.bwd-demo-bar');function s(){document.documentElement.style.setProperty('--bar-h',b.offsetHeight+'px')}s();addEventListener('resize',s)})();</script>
+<canvas id="scene" aria-label="A stone castle on a floating island above a sea of clouds"></canvas>
+<div class="fallback" id="fallback" hidden>This scene needs WebGL. Try a recent version of Chrome, Safari, Firefox or Edge.</div>
+
+<div class="overlay">
+  <header class="lockup">
+    <h1>Castle Above Clouds</h1>
+    <p>A Dream in the Sky <span>·</span> Rebuilt</p>
+  </header>
+  <div></div>
+  <div class="foot">
+    <h2 class="hero"><span class="light">Above the</span><span class="heavy">Clouds</span></h2>
+    <div class="panel">
+      <div class="readout" aria-live="polite">
+        <span>Alt <b id="alt">3,240</b> m</span>
+        <span>Sun <b id="sun">8</b>°</span>
+        <span>Cloud deck <b>2,900</b> m</span>
+      </div>
+      <div class="seg" role="group" aria-label="Time of day">
+        <button id="t-dawn" data-time="dawn" aria-pressed="true">Dawn</button>
+        <button id="t-noon" data-time="noon" aria-pressed="false">Noon</button>
+        <button id="t-dusk" data-time="dusk" aria-pressed="false">Dusk</button>
+      </div>
+      <div class="hint">Drag to orbit · Scroll to drift</div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/three.min.js"></script>
+<script>
+(function () {
+  const canvas = document.getElementById('scene');
+  if (!window.THREE || !(() => { try { return !!canvas.getContext('webgl2') || !!canvas.getContext('webgl'); } catch (e) { return false; } })()) {
+    document.getElementById('fallback').hidden = false;
+    return;
+  }
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---------- renderer / scene ----------
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.0;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.Fog(0xf3c7a8, 60, 300);
+  const camera = new THREE.PerspectiveCamera(38, 1, 0.5, 1200);
+
+  // ---------- noise ----------
+  function hash(x, y, z) { const h = Math.sin(x * 127.1 + y * 311.7 + z * 74.7) * 43758.5453; return h - Math.floor(h); }
+  function vnoise(x, y, z) {
+    const xi = Math.floor(x), yi = Math.floor(y), zi = Math.floor(z);
+    const xf = x - xi, yf = y - yi, zf = z - zi;
+    const u = xf * xf * (3 - 2 * xf), v = yf * yf * (3 - 2 * yf), w = zf * zf * (3 - 2 * zf);
+    const l = (a, b, t) => a + (b - a) * t;
+    const c = (i, j, k) => hash(xi + i, yi + j, zi + k);
+    return l(l(l(c(0,0,0), c(1,0,0), u), l(c(0,1,0), c(1,1,0), u), v),
+             l(l(c(0,0,1), c(1,0,1), u), l(c(0,1,1), c(1,1,1), u), v), w);
+  }
+  function fbm(x, y, z) { let s = 0, a = 0.5, f = 1; for (let i = 0; i < 4; i++) { s += a * vnoise(x * f, y * f, z * f); f *= 2.03; a *= 0.5; } return s / 0.9375; }
+
+  // ---------- sky ----------
+  const skyUniforms = {
+    topColor: { value: new THREE.Color() }, horizonColor: { value: new THREE.Color() },
+    bottomColor: { value: new THREE.Color() }, sunColor: { value: new THREE.Color() },
+    sunDir: { value: new THREE.Vector3(0, 0.2, -1).normalize() }
+  };
+  const skyMat = new THREE.ShaderMaterial({
+    uniforms: skyUniforms, side: THREE.BackSide, depthWrite: false, fog: false,
+    vertexShader: `varying vec3 vDir; void main(){ vDir = normalize(position); gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }`,
+    fragmentShader: `
+      uniform vec3 topColor, horizonColor, bottomColor, sunColor, sunDir; varying vec3 vDir;
+      void main(){
+        vec3 d = normalize(vDir); float h = d.y;
+        vec3 col = mix(horizonColor, topColor, pow(smoothstep(0.0, 1.0, h), 0.55));
+        col = mix(col, bottomColor, smoothstep(0.0, -0.35, h));
+        float s = max(dot(d, normalize(sunDir)), 0.0);
+        col += sunColor * (pow(s, 6.0) * 0.35 + pow(s, 64.0) * 0.6 + smoothstep(0.9993, 0.9997, s) * 6.0);
+        gl_FragColor = vec4(col, 1.0);
+        #include <tonemapping_fragment>
+        #include <colorspace_fragment>
+      }`
+  });
+  const skyGeo = new THREE.SphereGeometry(600, 48, 24);
+  scene.add(new THREE.Mesh(skyGeo, skyMat));
+  const envScene = new THREE.Scene();
+  envScene.add(new THREE.Mesh(skyGeo, skyMat));
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  let envRT = null;
+  function refreshEnv() {
+    const rt = pmrem.fromScene(envScene, 0.02);
+    scene.environment = rt.texture;
+    if (envRT) envRT.dispose();
+    envRT = rt;
+  }
+
+  // ---------- lights ----------
+  const sun = new THREE.DirectionalLight(0xffffff, 3);
+  sun.castShadow = true;
+  sun.shadow.mapSize.set(2048, 2048);
+  Object.assign(sun.shadow.camera, { left: -16, right: 16, top: 16, bottom: -16, near: 1, far: 140 });
+  sun.shadow.bias = -0.0004;
+  sun.shadow.normalBias = 0.03;
+  scene.add(sun, sun.target);
+  const hemi = new THREE.HemisphereLight(0xbfd4ff, 0xf0b090, 0.6);
+  scene.add(hemi);
+
+  // ---------- procedural textures ----------
+  function stoneTexture() {
+    const c = document.createElement('canvas'); c.width = c.height = 512;
+    const g = c.getContext('2d');
+    g.fillStyle = '#6f675c'; g.fillRect(0, 0, 512, 512);
+    const rowH = 32;
+    for (let r = 0; r < 512 / rowH; r++) {
+      let x = (r % 2) * -32;
+      while (x < 512) {
+        const w = 48 + Math.floor(Math.random() * 40);
+        const l = 150 + Math.random() * 45;
+        g.fillStyle = `rgb(${l + 14},${l + 8},${l - 6})`;
+        g.fillRect(x + 2, r * rowH + 2, w - 4, rowH - 4);
+        x += w;
+      }
+    }
+    const img = g.getImageData(0, 0, 512, 512);
+    for (let i = 0; i < img.data.length; i += 4) {
+      const n = (Math.random() - 0.5) * 26;
+      img.data[i] += n; img.data[i + 1] += n; img.data[i + 2] += n;
+    }
+    g.putImageData(img, 0, 0);
+    const t = new THREE.CanvasTexture(c);
+    t.wrapS = t.wrapT = THREE.RepeatWrapping;
+    t.colorSpace = THREE.SRGBColorSpace;
+    t.anisotropy = renderer.capabilities.getMaxAnisotropy();
+    return t;
+  }
+  function cloudTexture(seed) {
+    const c = document.createElement('canvas'); c.width = c.height = 256;
+    const g = c.getContext('2d');
+    let s = seed;
+    const rnd = () => { s = (s * 9301 + 49297) % 233280; return s / 233280; };
+    for (let i = 0; i < 26; i++) {
+      const a = rnd() * Math.PI * 2, d = Math.pow(rnd(), 0.7) * 70;
+      const x = 128 + Math.cos(a) * d, y = 140 + Math.sin(a) * d * 0.55 - rnd() * 20;
+      const r = 30 + rnd() * 48;
+      const grd = g.createRadialGradient(x, y, 0, x, y, r);
+      grd.addColorStop(0, 'rgba(255,255,255,0.55)');
+      grd.addColorStop(0.6, 'rgba(255,255,255,0.22)');
+      grd.addColorStop(1, 'rgba(255,255,255,0)');
+      g.fillStyle = grd; g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2); g.fill();
+    }
+    // underside shading: clouds read as lit from above
+    g.globalCompositeOperation = 'source-atop';
+    const sh = g.createLinearGradient(0, 70, 0, 230);
+    sh.addColorStop(0, 'rgba(255,255,255,0)');
+    sh.addColorStop(1, 'rgba(120,120,150,0.55)');
+    g.fillStyle = sh; g.fillRect(0, 0, 256, 256);
+    const t = new THREE.CanvasTexture(c);
+    t.colorSpace = THREE.SRGBColorSpace;
+    return t;
+  }
+
+  // ---------- materials ----------
+  const stoneMap = stoneTexture();
+  const stone = new THREE.MeshStandardMaterial({ color: 0xffffff, map: stoneMap, bumpMap: stoneMap, bumpScale: 1.2, roughness: 0.88, metalness: 0 });
+  const roof = new THREE.MeshStandardMaterial({ color: 0x3a4d7c, roughness: 0.42, metalness: 0.25 });
+  const gold = new THREE.MeshPhysicalMaterial({ color: 0xe0ac4a, roughness: 0.2, metalness: 1, clearcoat: 0.6 });
+  const banner = new THREE.MeshStandardMaterial({ color: 0x9a2f3e, roughness: 0.75, side: THREE.DoubleSide });
+  const windowMat = new THREE.MeshStandardMaterial({ color: 0x1b140d, emissive: 0xffb45e, emissiveIntensity: 1, roughness: 0.3 });
+  const doorMat = new THREE.MeshStandardMaterial({ color: 0x3b2817, roughness: 0.7 });
+  const leaf = new THREE.MeshStandardMaterial({ color: 0x3e6b3d, roughness: 0.9, flatShading: true });
+  const rockMat = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.92, metalness: 0, flatShading: true });
+
+  // ---------- floating island ----------
+  const world = new THREE.Group();
+  scene.add(world);
+
+  const ISL_R = 9.5, ISL_H = 12;
+  const islandGeo = new THREE.CylinderGeometry(ISL_R, 0.6, ISL_H, 72, 22);
+  islandGeo.translate(0, -ISL_H / 2, 0);
+  {
+    const p = islandGeo.attributes.position, col = [];
+    const grass = new THREE.Color(0x5f8a45), moss = new THREE.Color(0x4d6b3a), rockA = new THREE.Color(0x8a7a68), rockB = new THREE.Color(0x4e4440);
+    const v = new THREE.Vector3(), tmp = new THREE.Color();
+    for (let i = 0; i < p.count; i++) {
+      v.fromBufferAttribute(p, i);
+      const depth = -v.y; // 0 at top surface
+      const k = Math.min(Math.max(depth / 1.6, 0), 1);
+      const n = fbm(v.x * 0.35 + 3, v.y * 0.35, v.z * 0.35);
+      if (k > 0) {
+        const s = 1 + (n - 0.5) * 0.9 * k;
+        v.x *= s; v.z *= s;
+        v.y += (fbm(v.x * 0.6, v.z * 0.6, 7) - 0.5) * 1.6 * k;
+      } else {
+        v.y += (fbm(v.x * 0.25, v.z * 0.25, 1) - 0.5) * 0.25 * Math.max(0, (Math.hypot(v.x, v.z) - 6.5) / 3);
+      }
+      p.setXYZ(i, v.x, v.y, v.z);
+      if (depth < 0.4) tmp.copy(grass).lerp(moss, n);
+      else if (depth < 1.3) tmp.copy(moss).lerp(rockA, (depth - 0.4) / 0.9);
+      else tmp.copy(rockA).lerp(rockB, Math.min(1, depth / ISL_H + (n - 0.5) * 0.6));
+      col.push(tmp.r, tmp.g, tmp.b);
+    }
+    islandGeo.setAttribute('color', new THREE.Float32BufferAttribute(col, 3));
+    islandGeo.computeVertexNormals();
+  }
+  const island = new THREE.Mesh(islandGeo, rockMat);
+  island.receiveShadow = true; island.castShadow = true;
+  world.add(island);
+
+  // ---------- castle ----------
+  const castle = new THREE.Group();
+  world.add(castle);
+  const flags = [];
+
+  function makeFlag(y, parent) {
+    const geo = new THREE.PlaneGeometry(0.9, 0.42, 12, 3);
+    geo.translate(0.45, 0, 0);
+    const m = new THREE.Mesh(geo, banner);
+    m.position.y = y; m.castShadow = true;
+    m.userData.base = geo.attributes.position.array.slice();
+    m.userData.phase = Math.random() * 6;
+    parent.add(m); flags.push(m);
+  }
+
+  function tower(r, h, roofH, x, z, opts = {}) {
+    const g = new THREE.Group(); g.position.set(x, opts.y || 0, z);
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(r, r * 1.08, h, 24), stone.clone());
+    body.material.map = stoneMap.clone(); body.material.map.repeat.set(Math.max(1, Math.round(r * 2)), h / 2.2); body.material.map.needsUpdate = true;
+    body.material.bumpMap = body.material.map;
+    body.position.y = h / 2; g.add(body);
+    const corbel = new THREE.Mesh(new THREE.CylinderGeometry(r * 1.18, r * 1.0, 0.32, 24), stone);
+    corbel.position.y = h + 0.1; g.add(corbel);
+    const cone = new THREE.Mesh(new THREE.ConeGeometry(r * 1.32, roofH, 24), roof);
+    cone.position.y = h + 0.26 + roofH / 2; g.add(cone);
+    const top = h + 0.26 + roofH;
+    const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 1.1, 6), gold);
+    pole.position.y = top + 0.5; g.add(pole);
+    const orb = new THREE.Mesh(new THREE.SphereGeometry(0.09, 16, 12), gold);
+    orb.position.y = top + 0.05; g.add(orb);
+    if (opts.flag !== false) makeFlag(top + 0.82, g);
+    const wn = opts.windows ?? 3;
+    for (let i = 0; i < wn; i++) {
+      const a = (i / wn) * Math.PI * 2 + (opts.wa || 0);
+      for (let row = 0; row < (opts.rows || 1); row++) {
+        const wm = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.36, 0.08), windowMat);
+        wm.position.set(Math.sin(a) * r * 1.0, h * (0.72 - row * 0.28), Math.cos(a) * r * 1.0);
+        wm.rotation.y = a; g.add(wm);
+      }
+    }
+    castle.add(g);
+    return g;
+  }
+
+  // curtain wall: octagon with eight corner towers
+  const WALL_R = 5.4, WALL_H = 1.9, sides = 8;
+  const wallLen = 2 * WALL_R * Math.sin(Math.PI / sides);
+  const mid = WALL_R * Math.cos(Math.PI / sides);
+  for (let i = 0; i < sides; i++) {
+    const a = (i + 0.5) * (Math.PI * 2 / sides);
+    const seg = new THREE.Group();
+    seg.position.set(Math.cos(a) * mid, 0, Math.sin(a) * mid);
+    seg.rotation.y = -a - Math.PI / 2;
+    const wm = stone.clone(); wm.map = stoneMap.clone(); wm.map.repeat.set(wallLen / 2, WALL_H / 2.2); wm.map.needsUpdate = true; wm.bumpMap = wm.map;
+    const w = new THREE.Mesh(new THREE.BoxGeometry(wallLen, WALL_H, 0.55), wm);
+    w.position.y = WALL_H / 2; seg.add(w);
+    const n = Math.floor(wallLen / 0.5);
+    for (let j = 0; j < n; j += 2) {
+      const mer = new THREE.Mesh(new THREE.BoxGeometry(0.34, 0.34, 0.6), stone);
+      mer.position.set(-wallLen / 2 + 0.3 + j * 0.5, WALL_H + 0.17, 0);
+      seg.add(mer);
+    }
+    if (i === 1) { // gate faces the opening camera angle
+      const door = new THREE.Mesh(new THREE.BoxGeometry(0.9, 1.25, 0.1), doorMat);
+      door.position.set(0, 0.62, -0.3); seg.add(door);
+      const arch = new THREE.Mesh(new THREE.CylinderGeometry(0.45, 0.45, 0.1, 20, 1, false, 0, Math.PI), doorMat);
+      arch.rotation.set(Math.PI / 2, 0, Math.PI / 2); arch.position.set(0, 1.25, -0.3); seg.add(arch);
+    }
+    castle.add(seg);
+  }
+  for (let i = 0; i < sides; i++) {
+    const a = i * (Math.PI * 2 / sides);
+    tower(0.62, 2.9 + (i % 2) * 0.5, 1.5, Math.cos(a) * WALL_R, Math.sin(a) * WALL_R, { flag: i % 2 === 0, windows: 2, wa: -a });
+  }
+
+  // keep
+  {
+    const km = stone.clone(); km.map = stoneMap.clone(); km.map.repeat.set(1.6, 2); km.map.needsUpdate = true; km.bumpMap = km.map;
+    const keep = new THREE.Mesh(new THREE.BoxGeometry(3.4, 4.2, 3.4), km);
+    keep.position.y = 2.1; castle.add(keep);
+    for (let i = 0; i < 4; i++) {
+      const side = i * Math.PI / 2;
+      for (let j = -1; j <= 1; j++) {
+        const wm = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.5, 0.08), windowMat);
+        const d = 1.72;
+        wm.position.set(Math.sin(side) * d + Math.cos(side) * j * 0.9, 2.9, Math.cos(side) * d - Math.sin(side) * j * 0.9);
+        wm.rotation.y = side; castle.add(wm);
+      }
+    }
+    for (let i = 0; i < 4; i++) {
+      const a = i * Math.PI / 2 + Math.PI / 4;
+      tower(0.42, 1.4, 1.0, Math.cos(a) * 2.25, Math.sin(a) * 2.25, { y: 4.2, flag: false, windows: 1, wa: Math.PI / 2 - a });
+    }
+  }
+  tower(1.05, 8.2, 3.6, 0, 0, { windows: 4, rows: 2, wa: 0.4 });       // great tower
+  tower(0.75, 6.0, 2.4, 1.5, -1.2, { windows: 3, rows: 2 });             // second tower
+  tower(0.55, 5.0, 1.9, -1.4, 1.1, { windows: 2 });
+
+  // trees on the rim
+  {
+    const trunk = new THREE.MeshStandardMaterial({ color: 0x5a4030, roughness: 0.9 });
+    for (let i = 0; i < 22; i++) {
+      const a = Math.random() * Math.PI * 2, r = 6.6 + Math.random() * 1.9;
+      const t = new THREE.Group(); const s = 0.7 + Math.random() * 0.6;
+      t.position.set(Math.cos(a) * r, 0, Math.sin(a) * r);
+      const tr = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.09, 0.5, 6), trunk); tr.position.y = 0.25; t.add(tr);
+      for (let k = 0; k < 2; k++) {
+        const c = new THREE.Mesh(new THREE.ConeGeometry(0.5 - k * 0.14, 0.9, 7), leaf);
+        c.position.y = 0.75 + k * 0.45; t.add(c);
+      }
+      t.scale.setScalar(s); castle.add(t);
+    }
+  }
+  castle.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
+
+  // ---------- drifting rocks ----------
+  const shards = [];
+  for (let i = 0; i < 14; i++) {
+    const g = new THREE.DodecahedronGeometry(0.4 + Math.random() * 1.1, 1);
+    const p = g.attributes.position, col = [];
+    for (let j = 0; j < p.count; j++) {
+      const x = p.getX(j), y = p.getY(j), z = p.getZ(j);
+      const s = 0.75 + fbm(x * 1.5 + i, y * 1.5, z * 1.5) * 0.5;
+      p.setXYZ(j, x * s, y * s * (y > 0 ? 0.5 : 1.2), z * s);
+      const grassy = y > 0.15;
+      col.push(...(grassy ? [0.37, 0.54, 0.27] : [0.5, 0.45, 0.4]));
+    }
+    g.setAttribute('color', new THREE.Float32BufferAttribute(col, 3));
+    g.computeVertexNormals();
+    const m = new THREE.Mesh(g, rockMat);
+    m.castShadow = true;
+    m.userData = { r: 12 + Math.random() * 10, a: Math.random() * Math.PI * 2, y: -6 + Math.random() * 9, sp: 0.02 + Math.random() * 0.04, bob: Math.random() * 6 };
+    world.add(m); shards.push(m);
+  }
+
+  // ---------- waterfall ----------
+  const FALL_N = reduceMotion ? 0 : 500;
+  const fallGeo = new THREE.BufferGeometry();
+  const fallPos = new Float32Array(FALL_N * 3), fallVel = new Float32Array(FALL_N);
+  const fallA = -2.2;
+  function resetDrop(i, initial) {
+    const a = fallA + (Math.random() - 0.5) * 0.08;
+    const r = ISL_R * 0.98 + Math.random() * 0.2;
+    fallPos[i * 3] = Math.cos(a) * r;
+    fallPos[i * 3 + 1] = initial ? -Math.random() * 24 : 0;
+    fallPos[i * 3 + 2] = Math.sin(a) * r;
+    fallVel[i] = 0.5 + Math.random() * 0.5;
+  }
+  for (let i = 0; i < FALL_N; i++) resetDrop(i, true);
+  fallGeo.setAttribute('position', new THREE.BufferAttribute(fallPos, 3));
+  const fall = new THREE.Points(fallGeo, new THREE.PointsMaterial({ color: 0xeaf4ff, size: 0.16, transparent: true, opacity: 0.75, depthWrite: false }));
+  world.add(fall);
+  // stream channel across the meadow
+  const stream = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 0.5), new THREE.MeshPhysicalMaterial({ color: 0x9fc6e0, roughness: 0.05, metalness: 0, transmission: 0, clearcoat: 1 }));
+  stream.rotation.x = -Math.PI / 2;
+  stream.position.set(Math.cos(fallA) * (ISL_R - 1.25), 0.03, Math.sin(fallA) * (ISL_R - 1.25));
+  stream.rotation.z = -fallA;
+  stream.receiveShadow = true;
+  world.add(stream);
+
+  // ---------- clouds ----------
+  const cloudTex = [cloudTexture(11), cloudTexture(57), cloudTexture(203)];
+  const clouds = new THREE.Group();
+  scene.add(clouds);
+  const cloudMats = [];
+  function addCloud(x, y, z, s, op) {
+    const m = new THREE.SpriteMaterial({ map: cloudTex[Math.floor(Math.random() * 3)], transparent: true, opacity: op, depthWrite: false, fog: true });
+    const sp = new THREE.Sprite(m);
+    sp.position.set(x, y, z); sp.scale.set(s, s * 0.6, 1);
+    sp.userData = { baseY: y, ph: Math.random() * 6, op };
+    clouds.add(sp); cloudMats.push(m);
+  }
+  for (let i = 0; i < 340; i++) {   // the cloud deck below the island
+    const a = Math.random() * Math.PI * 2, r = 8 + Math.pow(Math.random(), 0.6) * 230;
+    addCloud(Math.cos(a) * r, -15 + Math.random() * 5 - r * 0.02, Math.sin(a) * r, 26 + Math.random() * 36, 0.9);
+  }
+  for (let i = 0; i < 26; i++) {    // stray cumulus at castle height
+    const a = Math.random() * Math.PI * 2, r = 26 + Math.random() * 70;
+    addCloud(Math.cos(a) * r, -4 + Math.random() * 16, Math.sin(a) * r, 12 + Math.random() * 18, 0.75);
+  }
+
+  // ---------- time of day ----------
+  const presets = {
+    dawn: { top: '#2c3f78', horizon: '#f7b48c', bottom: '#f0cdb8', sunCol: '#ffc49a', sunInt: 3.0, elev: 9, az: -40, win: 1.4, cloud: '#ffe2d0', fog: '#f1c3a6', hemiS: '#a9b9f0', hemiG: '#f0a882', hemiI: 0.7, exp: 1.0 },
+    noon: { top: '#2b68c4', horizon: '#c8e2f6', bottom: '#e6f1fa', sunCol: '#fff5e6', sunInt: 3.6, elev: 52, az: 20, win: 0.0, cloud: '#ffffff', fog: '#d4e7f6', hemiS: '#cfe4ff', hemiG: '#b6c7a0', hemiI: 0.9, exp: 0.95 },
+    dusk: { top: '#191637', horizon: '#ec7a58', bottom: '#b8607a', sunCol: '#ff8a55', sunInt: 2.4, elev: 3.5, az: 70, win: 3.2, cloud: '#f2a28e', fog: '#c9707a', hemiS: '#6d6aa8', hemiG: '#d47a62', hemiI: 0.55, exp: 1.1 }
+  };
+  const colorKeys = ['top', 'horizon', 'bottom', 'sunCol', 'cloud', 'fog', 'hemiS', 'hemiG'];
+  const numKeys = ['sunInt', 'elev', 'az', 'win', 'hemiI', 'exp'];
+  function toState(p) { const s = {}; colorKeys.forEach(k => s[k] = new THREE.Color(p[k])); numKeys.forEach(k => s[k] = p[k]); return s; }
+  let cur = toState(presets.dawn), from = null, to = null, tStart = 0;
+  const TRANS = 1800;
+
+  const sunDir = new THREE.Vector3();
+  function applyState(s) {
+    skyUniforms.topColor.value.copy(s.top);
+    skyUniforms.horizonColor.value.copy(s.horizon);
+    skyUniforms.bottomColor.value.copy(s.bottom);
+    skyUniforms.sunColor.value.copy(s.sunCol);
+    const e = THREE.MathUtils.degToRad(s.elev), a = THREE.MathUtils.degToRad(s.az);
+    sunDir.set(Math.sin(a) * Math.cos(e), Math.sin(e), -Math.cos(a) * Math.cos(e));
+    skyUniforms.sunDir.value.copy(sunDir);
+    sun.position.copy(sunDir).multiplyScalar(60);
+    sun.color.copy(s.sunCol); sun.intensity = s.sunInt;
+    hemi.color.copy(s.hemiS); hemi.groundColor.copy(s.hemiG); hemi.intensity = s.hemiI;
+    windowMat.emissiveIntensity = s.win;
+    scene.fog.color.copy(s.fog);
+    cloudMats.forEach(m => m.color.copy(s.cloud));
+    renderer.toneMappingExposure = s.exp;
+    document.getElementById('sun').textContent = Math.round(s.elev);
+  }
+  applyState(cur); refreshEnv();
+
+  function setTime(name) {
+    from = cur; to = toState(presets[name]); tStart = performance.now();
+    if (reduceMotion) { cur = to; from = to = null; applyState(cur); refreshEnv(); }
+    document.querySelectorAll('.seg button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.time === name)));
+  }
+  document.querySelectorAll('.seg button').forEach(b => b.addEventListener('click', () => setTime(b.dataset.time)));
+
+  // ---------- camera orbit ----------
+  const target = new THREE.Vector3(0, 1.5, 0);
+  let theta = 0.55, phi = 1.32, radius = 46, vTheta = 0, vPhi = 0, goalRadius = 46;
+  let dragging = false, lastX = 0, lastY = 0, idleSince = performance.now();
+  canvas.addEventListener('pointerdown', e => { dragging = true; lastX = e.clientX; lastY = e.clientY; canvas.setPointerCapture(e.pointerId); });
+  canvas.addEventListener('pointermove', e => {
+    if (!dragging) return;
+    vTheta = -(e.clientX - lastX) * 0.005; vPhi = -(e.clientY - lastY) * 0.004;
+    theta += vTheta; phi = THREE.MathUtils.clamp(phi + vPhi, 0.95, 1.72);
+    lastX = e.clientX; lastY = e.clientY; idleSince = performance.now();
+  });
+  const end = () => { dragging = false; idleSince = performance.now(); };
+  canvas.addEventListener('pointerup', end); canvas.addEventListener('pointercancel', end);
+  canvas.addEventListener('wheel', e => { e.preventDefault(); goalRadius = THREE.MathUtils.clamp(goalRadius + e.deltaY * 0.03, 20, 70); idleSince = performance.now(); }, { passive: false });
+
+  function resize() {
+    const w = innerWidth, h = innerHeight;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    // pull back on narrow screens so the whole castle fits
+    camera.fov = w / h < 0.8 ? 52 : 38;
+    camera.updateProjectionMatrix();
+  }
+  addEventListener('resize', resize); resize();
+
+  // ---------- loop ----------
+  const altEl = document.getElementById('alt');
+  let lastAlt = -1, frame = 0;
+  const clock = new THREE.Clock();
+  function tick(now) {
+    const dt = Math.min(clock.getDelta(), 0.05), t = clock.elapsedTime;
+    frame++;
+
+    if (to) {
+      const k = Math.min((now - tStart) / TRANS, 1), e = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+      const s = {};
+      colorKeys.forEach(key => s[key] = from[key].clone().lerp(to[key], e));
+      numKeys.forEach(key => s[key] = from[key] + (to[key] - from[key]) * e);
+      cur = s; applyState(s);
+      if (frame % 8 === 0 || k === 1) refreshEnv();
+      if (k === 1) { from = to = null; }
+    }
+
+    if (!dragging) {
+      vTheta *= 0.94; vPhi *= 0.9; theta += vTheta;
+      if (!reduceMotion && now - idleSince > 2500) theta += dt * 0.035;
+    }
+    radius += (goalRadius - radius) * 0.08;
+    const bob = reduceMotion ? 0 : Math.sin(t * 0.4) * 0.35;
+    camera.position.set(
+      target.x + radius * Math.sin(phi) * Math.sin(theta),
+      target.y + radius * Math.cos(phi) + bob,
+      target.z + radius * Math.sin(phi) * Math.cos(theta)
+    );
+    camera.lookAt(target);
+
+    const alt = Math.round((2900 + (camera.position.y + 15) * 16) / 10) * 10;
+    if (alt !== lastAlt) { altEl.textContent = alt.toLocaleString('en-US'); lastAlt = alt; }
+
+    if (!reduceMotion) {
+      world.position.y = Math.sin(t * 0.5) * 0.25;
+      world.rotation.z = Math.sin(t * 0.3) * 0.008;
+      clouds.rotation.y = t * 0.004;
+      clouds.children.forEach(c => { c.position.y = c.userData.baseY + Math.sin(t * 0.2 + c.userData.ph) * 0.6; });
+      shards.forEach(m => {
+        const u = m.userData; u.a += u.sp * dt;
+        m.position.set(Math.cos(u.a) * u.r, u.y + Math.sin(t * 0.6 + u.bob) * 0.5, Math.sin(u.a) * u.r);
+        m.rotation.y += dt * 0.1;
+      });
+      for (let i = 0; i < FALL_N; i++) {
+        fallVel[i] += dt * 9;
+        fallPos[i * 3 + 1] -= fallVel[i] * dt;
+        const out = 1 + dt * 0.02;
+        fallPos[i * 3] *= out; fallPos[i * 3 + 2] *= out;
+        if (fallPos[i * 3 + 1] < -26) resetDrop(i, false);
+      }
+      fallGeo.attributes.position.needsUpdate = true;
+      flags.forEach(f => {
+        const p = f.geometry.attributes.position, b = f.userData.base;
+        for (let i = 0; i < p.count; i++) {
+          const x = b[i * 3];
+          p.array[i * 3 + 2] = Math.sin(x * 6 - t * 5 + f.userData.phase) * 0.09 * x;
+          p.array[i * 3 + 1] = b[i * 3 + 1] - x * x * 0.05;
+        }
+        p.needsUpdate = true; f.geometry.computeVertexNormals();
+      });
+    }
+
+    renderer.render(scene, camera);
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+  requestAnimationFrame(() => canvas.classList.add('ready'));
+})();
+</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"095c357022034ae5ae42a67299fbf029","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

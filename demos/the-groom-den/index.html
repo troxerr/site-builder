@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, follow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Groom Den | Mobile Dog Grooming in Bartlett, Lakeland &amp; Arlington, TN</title>
+<meta name="description" content="Stress-free mobile dog grooming that comes to your driveway in Bartlett, Lakeland and Arlington, TN. Baths, full grooms and doodle and poodle specialty cuts.">
+<meta name="theme-color" content="#2a1f4d">
+<link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/fredoka-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<meta property="og:title" content="The Groom Den | Mobile Dog Grooming">
+<meta property="og:description" content="Stress-free mobile dog grooming that comes to your driveway in Bartlett, Lakeland &amp; Arlington.">
+<meta property="og:type" content="website">
+<!--
+  CONCEPT DRAFT (2026-10-27). The business has not been contacted.
+  Placeholders carry class="ph" (dotted underline while <html class="draft">). Before launch, confirm with the owner and:
+    - Phone: (901) 220-5850 comes from directory listings for The Groom Den's Bruton Ave storefront. Confirm it is the right number for the mobile service.
+    - Service details, prices, "one dog at a time / no crates" claims, hours and the service-area fringe line.
+    - Photos: assets/photos/*.svg are illustrated placeholders. Swap in real photos of the owner's grooms (keep the same width/height ratio).
+    - Booking form: FORM_ENDPOINT (bottom of this file) is empty, so a submitted request shows a call/text fallback.
+      Point it at Formspree, Web3Forms or a Pages Function that goes to the OWNER's inbox.
+    - Remove class="draft" from <html> and delete the .draft-bar element.
+-->
+<style>
+@font-face{font-family:Fredoka;src:url(assets/fonts/fredoka-latin.woff2) format("woff2");font-weight:400 700;font-display:swap}
+@font-face{font-family:"DM Sans";src:url(assets/fonts/dm-sans-latin.woff2) format("woff2");font-weight:400 700;font-display:swap}
+
+/* Design: a bubble bath. Deep plum for type, violet for every action, lilac as the soft neutral,
+   coral and butter yellow as playful accents. Round, soapy shapes everywhere. Every tap target is at least 48px tall. */
+:root{
+  --plum:#2a1f4d; --plum-2:#3b2d6b; --ink-soft:#544a72; --muted:#7a7194;
+  --violet:#6a4cdb; --violet-dark:#5236b8; --lilac:#f1edfd; --lilac-line:#ddd3fb;
+  --coral:#ff7a8a; --coral-soft:#ffe8eb; --butter:#ffd166;
+  --sand:#fbf7ff; --line:#e9e4f5; --bg:#fff;
+  --radius:28px; --wrap:1120px;
+  --display:Fredoka,ui-rounded,ui-sans-serif,system-ui,sans-serif;
+  --body:"DM Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;font:17px/1.6 var(--body);color:var(--plum);background:var(--bg);-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);line-height:1.04;letter-spacing:-.01em;margin:0;font-weight:600}
+p{margin:0}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 20px}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--violet);outline-offset:3px;border-radius:6px}
+section{scroll-margin-top:72px}
+
+/* draft markers */
+.draft .ph{text-decoration:underline dotted #d08a2c 2px;text-underline-offset:4px}
+.draft-bar{display:none}
+.draft .draft-bar{display:block;background:#fff6e5;color:#7a4b06;font-size:14px;text-align:center;padding:8px 16px;border-bottom:1px solid #f1dcb4}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 26px;border-radius:999px;font:600 18px/1 var(--body);text-decoration:none;border:2px solid transparent;cursor:pointer;white-space:nowrap;transition:background .15s,transform .15s}
+.btn svg{width:22px;height:22px;flex:none}
+.btn-primary{background:var(--violet);color:#fff;box-shadow:0 10px 24px -10px rgba(106,76,219,.8)}
+.btn-primary:hover{background:var(--violet-dark)}
+.btn-primary:active{transform:translateY(1px)}
+.btn-ghost{background:#fff;color:var(--plum);border-color:var(--lilac-line)}
+.btn-ghost:hover{border-color:var(--plum)}
+
+/* header */
+.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:600 21px/1 var(--display);letter-spacing:0}
+.brand img{width:40px;height:40px;border-radius:50%}
+.nav{display:none;gap:28px;font-weight:600;font-size:16px}
+.nav a{text-decoration:none;color:var(--ink-soft)}
+.nav a:hover{color:var(--plum)}
+.top-call{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;background:var(--coral);color:#fff;font-weight:700;text-decoration:none;font-size:16px}
+.top-call svg{width:18px;height:18px}
+.top-call .num{display:none}
+@media (min-width:860px){.nav{display:flex}.top-call .num{display:inline}.top-call .lbl{display:none}}
+
+/* hero */
+.hero{padding:36px 0 64px;background:radial-gradient(circle at 12% 18%,rgba(255,122,138,.18) 0 90px,transparent 91px),radial-gradient(circle at 88% 12%,rgba(255,209,102,.35) 0 60px,transparent 61px),radial-gradient(circle at 80% 70%,rgba(106,76,219,.10) 0 140px,transparent 141px),var(--lilac);overflow:hidden}
+.hero .wrap{display:grid;gap:36px;text-align:center;justify-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--violet-dark);background:#fff;border-radius:999px;padding:8px 14px;box-shadow:0 6px 16px -10px rgba(42,31,77,.4)}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--coral)}
+.hero h1{font-size:clamp(42px,10.5vw,78px);margin:18px auto 16px;max-width:15ch}
+.hero h1 em{font-style:normal;color:var(--violet);background:linear-gradient(transparent 62%,rgba(255,209,102,.7) 62% 92%,transparent 92%)}
+.hero .sub{font-size:19px;color:var(--ink-soft);max-width:44ch;margin:0 auto}
+.hero-cta{display:grid;gap:12px;margin:28px 0 22px;width:100%}
+.hero-cta .btn{width:100%;min-height:62px;font-size:19px}
+.trust{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-weight:600;font-size:16px;justify-content:center}
+.trust li{white-space:nowrap;display:flex;align-items:center;gap:10px}
+.trust svg{width:22px;height:22px;color:var(--violet);flex:none}
+.hero-art{position:relative;width:100%;max-width:420px;border-radius:220px 220px 32px 32px;overflow:hidden;background:#fff;aspect-ratio:1/1.05;border:10px solid #fff;box-shadow:0 30px 60px -30px rgba(42,31,77,.45)}
+.hero-art img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;left:50%;transform:translateX(-50%);bottom:22px;white-space:nowrap;text-align:left;display:flex;align-items:center;gap:10px;background:#fff;border-radius:16px;padding:10px 14px;font-size:14px;font-weight:600;box-shadow:0 10px 30px -14px rgba(42,31,77,.5)}
+.badge b{display:block;font-size:16px}
+.badge svg{width:30px;height:30px;color:var(--violet)}
+.ph-chip{position:absolute;top:14px;right:14px;background:rgba(42,31,77,.78);color:#fff;font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;display:none}
+.draft .ph-chip{display:block}
+.hero-art .ph-chip{top:auto;bottom:84px}
+@media (min-width:600px){.hero-cta{grid-template-columns:auto auto;justify-content:center}.hero-cta .btn{width:auto}.trust{display:flex;flex-wrap:wrap;gap:10px 22px}}
+@media (min-width:900px){.hero{padding:64px 0 0}.hero .wrap{gap:44px}.hero-art{max-width:none;width:min(860px,100%);aspect-ratio:860/400;border-radius:400px 400px 0 0;border-bottom:0;margin-bottom:-1px}.hero-art img{object-fit:cover;object-position:center 30%}}
+
+/* section heads */
+.sec{padding:72px 0}
+.kicker{font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--violet-dark);margin-bottom:10px}
+.sec h2{font-size:clamp(34px,7vw,52px);max-width:20ch}
+.lead{font-size:18px;color:var(--ink-soft);margin-top:14px;max-width:52ch}
+
+/* services */
+.services{display:grid;gap:20px;margin-top:36px}
+.svc{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;background:#fff}
+.svc figure{margin:12px 12px 0;position:relative;aspect-ratio:3/2;background:var(--lilac);border-radius:20px;overflow:hidden}
+.svc figure img{width:100%;height:100%;object-fit:cover}
+.svc-body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:12px;flex:1}
+.svc h3{font-size:26px}
+.svc .tagline{font-weight:600;color:var(--violet-dark);font-size:15px}
+.svc ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;color:var(--ink-soft);font-size:16px}
+.svc li{display:flex;gap:10px;align-items:flex-start}
+.svc li::before{content:"";flex:none;width:18px;height:18px;margin-top:4px;border-radius:50%;background:var(--lilac) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%236a4cdb' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.svc .foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:15px;color:var(--muted)}
+.svc .foot a{font-weight:700;color:var(--violet-dark);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.svc.pop{border-color:var(--violet);border-width:2px;box-shadow:0 24px 44px -30px rgba(106,76,219,.8)}
+.svc .tag{position:absolute;left:14px;top:14px;background:var(--coral);color:#fff;font-size:13px;font-weight:700;padding:5px 12px;border-radius:999px}
+@media (min-width:760px){.services{grid-template-columns:repeat(3,1fr)}}
+
+/* how it works */
+.how{background:var(--violet);color:#fff;border-radius:40px;margin:0 12px;padding:64px 0}
+.how .kicker{color:var(--butter)}
+.how .lead{color:#e6defd}
+.steps{list-style:none;margin:36px 0 0;padding:0;display:grid;gap:14px;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;background:#fff;color:var(--plum);border-radius:24px;padding:18px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--butter);color:var(--plum);font:600 24px/1 var(--display)}
+.steps h3{font-size:21px;margin:2px 0 4px}
+.steps p{color:var(--ink-soft);font-size:16px}
+@media (min-width:900px){.how{margin:0 24px}.steps{grid-template-columns:repeat(4,1fr)}.steps li{grid-template-columns:1fr;padding:24px}}
+
+/* area */
+.area-grid{display:grid;gap:28px;margin-top:36px;align-items:center}
+.towns{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.towns li{display:flex;align-items:center;gap:14px;padding:16px 20px;border:0;background:var(--lilac);border-radius:999px;font-weight:600;font-size:19px}
+.towns li span{display:block;font-weight:400;font-size:15px;color:var(--muted)}
+.towns svg{width:26px;height:26px;color:var(--violet);flex:none}
+.area-note{margin-top:16px;color:var(--ink-soft);font-size:16px}
+.area-note a{font-weight:700;color:var(--violet-dark)}
+.map{border-radius:var(--radius);background:var(--sand);overflow:hidden}
+@media (min-width:860px){.area-grid{grid-template-columns:.9fr 1.1fr;gap:48px}}
+
+/* booking */
+.book{background:var(--coral-soft)}
+.book-grid{display:grid;gap:32px}
+.form{background:#fff;border-radius:24px;padding:24px 20px;box-shadow:0 30px 60px -40px rgba(42,31,77,.5);display:grid;gap:18px}
+.field{display:grid;gap:8px}
+.field label,.field legend{font-weight:700;font-size:16px}
+.field .hint{font-weight:400;color:var(--muted);font-size:14px}
+input,select{width:100%;min-height:56px;padding:0 16px;border:1.5px solid var(--lilac-line);border-radius:16px;font:17px var(--body);color:var(--plum);background:#fff;-webkit-appearance:none;appearance:none}
+select{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 8l5 5 5-5' fill='none' stroke='%232a1f4d' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") right 14px center/20px no-repeat;padding-right:44px}
+input:focus,select:focus{outline:none;border-color:var(--violet);box-shadow:0 0 0 4px rgba(106,76,219,.18)}
+.row2{display:grid;gap:18px}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+.days{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+.days label{position:relative}
+.days input{position:absolute;opacity:0;width:1px;height:1px;min-height:0}
+.days span{display:grid;place-items:center;min-height:52px;border:1.5px solid var(--lilac-line);border-radius:999px;font-weight:600;font-size:16px;cursor:pointer;user-select:none}
+.days input:checked+span{background:var(--violet);border-color:var(--violet);color:#fff}
+.days input:focus-visible+span{outline:3px solid var(--violet);outline-offset:2px}
+.form .btn{width:100%;min-height:62px;font-size:19px}
+.form .small{font-size:14px;color:var(--muted);text-align:center}
+.form .small a{color:var(--violet-dark);font-weight:700}
+.done{display:none;text-align:center;padding:12px 4px;gap:14px}
+.done.show{display:grid}
+.done h3{font-size:26px}
+.done p{color:var(--ink-soft)}
+.done .btn{width:100%}
+.book-side{display:grid;gap:18px;align-content:start}
+.book-side .call-card{background:var(--plum);color:#fff;border-radius:28px;padding:26px}
+.call-card p{color:#d9d2ef;margin:8px 0 18px}
+.call-card .btn{width:100%;background:var(--butter);color:var(--plum)}
+.err{color:#b4321f;font-size:14px;font-weight:600;display:none}
+.invalid .err{display:block}
+.invalid input,.invalid select{border-color:#b4321f}
+@media (min-width:600px){.row2{grid-template-columns:1fr 1fr}.days{grid-template-columns:repeat(7,1fr)}.form{padding:32px}}
+@media (min-width:900px){.book-grid{grid-template-columns:.8fr 1.2fr;gap:56px}}
+
+/* footer */
+footer{padding:56px 0 120px;background:var(--plum);color:#d9d2ef;font-size:16px}
+footer .wrap{display:grid;gap:28px}
+footer .brand{color:#fff}
+footer h3{font:700 14px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--butter);margin-bottom:12px}
+footer a{color:#fff}
+footer .big{font:700 26px/1.2 var(--display);text-decoration:none;display:inline-flex;min-height:48px;align-items:center}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.legal{border-top:1px solid rgba(255,255,255,.12);padding-top:20px;font-size:14px;color:#a79fc4}
+@media (min-width:760px){footer{padding-bottom:56px}footer .wrap{grid-template-columns:1.4fr 1fr 1fr}.legal{grid-column:1/-1}}
+
+/* sticky mobile bar */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1.4fr;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line);backdrop-filter:blur(8px);transform:translateY(110%);transition:transform .25s}
+.dock.on{transform:none}
+.dock .btn{min-height:54px;padding:0 14px;font-size:17px}
+@media (min-width:760px){.dock{display:none}}
+</style>
+</head>
+<body>
+<!-- Demo bar added for bartlettwebsitedesign.online/demos -->
+<div class="bwd-demo-bar" role="note" style="position:relative;z-index:9999;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 14px;padding:8px 14px;background:#0b1b3a;color:#cfd9ec;font:500 13px/1.4 system-ui,-apple-system,'Segoe UI',sans-serif;text-align:center"><span><b style="color:#fff;font-weight:600">Concept site</b> designed by <a href="/" style="color:#fff">Bartlett Website Design</a>. Not the business's official website.</span><a href="/demos/" style="color:#9cc2ff;font-weight:600;text-decoration:none">&larr; All demos</a></div>
+<div class="draft-bar">Concept draft for The Groom Den. Dotted-underlined details are placeholders to confirm with the owner.</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="The Groom Den home"><img src="assets/logo-mark.svg" alt="" width="38" height="38">The Groom Den</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a><a href="#how">How it works</a><a href="#area">Service area</a><a href="#book">Book</a>
+    </nav>
+    <a class="top-call" href="tel:+19012205850"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span class="lbl">Call</span><span class="num ph">(901) 220-5850</span></a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Mobile dog grooming · Bartlett, TN</span>
+        <h1>Stress-free grooming that <em>comes to your driveway.</em></h1>
+        <p class="sub">No car rides, no crowded kennels. We pull up, groom your dog in our van, and hand back a clean, happy pup in Bartlett, Lakeland &amp; Arlington.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#book"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2v4M16 2v4M3 10h18M9 15l2 2 4-4"/></svg>Request Appointment</a>
+          <a class="btn btn-ghost" href="tel:+19012205850"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call <span class="ph">(901) 220-5850</span></a>
+        </div>
+        <ul class="trust">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span class="ph">One dog at a time</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span class="ph">No crates, no waiting</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Right in your driveway</li>
+        </ul>
+      </div>
+      <div class="hero-art">
+        <img src="assets/photos/hero-dog-bath.svg" alt="A happy dog in a bubble bath" width="640" height="560" fetchpriority="high">
+        <span class="ph-chip">Placeholder photo</span>
+        <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="6" width="15" height="11" rx="2"/><path d="M16 9h4l3 3v5h-7"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg><span class="ph"><b>Grooming van on site</b>Warm water &amp; power on board</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="services">
+    <div class="wrap">
+      <p class="kicker">Services</p>
+      <h2>Pick the groom your dog needs.</h2>
+      <p class="lead">Every visit is one-on-one with the same calm groomer. Prices depend on your dog's size and coat, so we'll quote you before we book.</p>
+      <div class="services">
+        <article class="svc">
+          <figure><img src="assets/photos/dogwash.svg" alt="A dog covered in bubbles next to a grooming brush" width="480" height="320" loading="lazy"><span class="ph-chip">Placeholder photo</span></figure>
+          <div class="svc-body">
+            <h3>DogWash</h3>
+            <p class="tagline">Bath + brush</p>
+            <ul class="ph">
+              <li>Warm-water bath with gentle shampoo</li>
+              <li>Hand blow-dry and full brush-out</li>
+              <li>Nail trim and ear cleaning</li>
+            </ul>
+            <div class="foot"><span class="ph">About 45–60 min</span><a href="#book" data-svc="DogWash">Book this</a></div>
+          </div>
+        </article>
+        <article class="svc pop">
+          <figure><img src="assets/photos/full-groom.svg" alt="A freshly trimmed dog with a bow, beside scissors and a comb" width="480" height="320" loading="lazy"><span class="tag">Most booked</span><span class="ph-chip">Placeholder photo</span></figure>
+          <div class="svc-body">
+            <h3>Full Groom</h3>
+            <p class="tagline">Bath, brush + haircut</p>
+            <ul class="ph">
+              <li>Everything in DogWash</li>
+              <li>Breed-style or all-over haircut</li>
+              <li>Face, feet and sanitary tidy</li>
+            </ul>
+            <div class="foot"><span class="ph">About 1.5–2 hrs</span><a href="#book" data-svc="Full Groom">Book this</a></div>
+          </div>
+        </article>
+        <article class="svc">
+          <figure><img src="assets/photos/doodle.svg" alt="A fluffy curly-coated doodle after a groom" width="480" height="320" loading="lazy"><span class="ph-chip">Placeholder photo</span></figure>
+          <div class="svc-body">
+            <h3>Doodle &amp; Poodle</h3>
+            <p class="tagline">Curly-coat specialty</p>
+            <ul class="ph">
+              <li>Thorough de-matting and line brushing</li>
+              <li>Teddy bear, lamb or poodle-style cuts</li>
+              <li>Coat-care tips to keep mats away</li>
+            </ul>
+            <div class="foot"><span class="ph">About 2–3 hrs</span><a href="#book" data-svc="Doodle / Poodle">Book this</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="wrap">
+      <p class="kicker">How it works</p>
+      <h2>Four easy steps. Zero car rides.</h2>
+      <p class="lead">You stay home. Your dog stays calm. We handle the rest.</p>
+      <ol class="steps">
+        <li><div><h3>Request a time</h3><p>Send the form below or call. Tell us about your dog and the day that suits you.</p></div></li>
+        <li><div><h3>We confirm</h3><p>We text you back with a quote and an arrival window.</p></div></li>
+        <li><div><h3>We arrive</h3><p>The van parks in your driveway. Your dog walks a few steps, not across town.</p></div></li>
+        <li><div><h3>Happy dog</h3><p>Fresh, fluffy and relaxed, handed right back to you at your door.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec" id="area">
+    <div class="wrap">
+      <p class="kicker">Service area</p>
+      <h2>Grooming at your door in three towns.</h2>
+      <div class="area-grid">
+        <div>
+          <ul class="towns">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><div>Bartlett<span>Home base</span></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><div>Lakeland<span>Every week</span></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><div>Arlington<span>Every week</span></div></li>
+          </ul>
+          <p class="area-note"><span class="ph">Just outside these towns?</span> <a href="tel:+19012205850">Call and ask</a>. We can often fit nearby streets in.</p>
+        </div>
+        <svg class="map" viewBox="0 0 560 360" role="img" aria-label="Simple map showing Bartlett, Lakeland and Arlington, Tennessee">
+          <rect width="560" height="360" fill="#fbf7ff"/>
+          <path d="M0 250C120 230 200 260 300 236S470 200 560 214" fill="none" stroke="#e4dcfc" stroke-width="16" stroke-linecap="round"/>
+          <path d="M60 0C90 120 150 200 140 360" fill="none" stroke="#efeafd" stroke-width="10"/>
+          <path d="M130 196C210 186 260 178 320 160S420 104 452 92" fill="none" stroke="#6a4cdb" stroke-width="4" stroke-dasharray="2 12" stroke-linecap="round"/>
+          <circle cx="130" cy="196" r="58" fill="#6a4cdb" opacity=".12"/>
+          <circle cx="320" cy="160" r="48" fill="#6a4cdb" opacity=".12"/>
+          <circle cx="452" cy="92" r="48" fill="#6a4cdb" opacity=".12"/>
+          <g font-family="DM Sans,system-ui,sans-serif" font-weight="700" fill="#2a1f4d" font-size="20">
+            <circle cx="130" cy="196" r="10" fill="#2a1f4d"/><circle cx="130" cy="196" r="4" fill="#fff"/><text x="130" y="236" text-anchor="middle">Bartlett</text>
+            <circle cx="320" cy="160" r="10" fill="#2a1f4d"/><circle cx="320" cy="160" r="4" fill="#fff"/><text x="320" y="200" text-anchor="middle">Lakeland</text>
+            <circle cx="452" cy="92" r="10" fill="#2a1f4d"/><circle cx="452" cy="92" r="4" fill="#fff"/><text x="452" y="132" text-anchor="middle">Arlington</text>
+          </g>
+          <text x="400" y="290" font-family="DM Sans,system-ui,sans-serif" font-size="14" fill="#7a7194">I-40</text>
+          <text x="24" y="338" font-family="DM Sans,system-ui,sans-serif" font-size="13" fill="#7a7194">Map not to scale</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec book" id="book">
+    <div class="wrap book-grid">
+      <div class="book-side">
+        <div>
+          <p class="kicker">Request an appointment</p>
+          <h2>Tell us about your dog.</h2>
+          <p class="lead">It takes under a minute. We'll text you back to confirm a time and price.</p>
+        </div>
+        <div class="call-card">
+          <h3>Rather talk it through?</h3>
+          <p>Call or text and we'll find a slot that works.</p>
+          <a class="btn" href="tel:+19012205850">Call <span class="ph">(901) 220-5850</span></a>
+        </div>
+      </div>
+
+      <form class="form" id="bookForm" novalidate>
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input id="f-name" name="name" autocomplete="name" required>
+          <p class="err">Please add your name.</p>
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone <span class="hint">(we'll text to confirm)</span></label>
+          <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required>
+          <p class="err">Please add a phone number we can reach.</p>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="f-breed">Dog's breed</label>
+            <input id="f-breed" name="breed" placeholder="e.g. Goldendoodle" required>
+            <p class="err">Please add the breed (a guess is fine).</p>
+          </div>
+          <div class="field">
+            <label for="f-size">Size</label>
+            <select id="f-size" name="size" required>
+              <option value="">Choose a size</option>
+              <option>Small (under 20 lb)</option>
+              <option>Medium (20–50 lb)</option>
+              <option>Large (50–90 lb)</option>
+              <option>Extra large (90+ lb)</option>
+            </select>
+            <p class="err">Please choose a size.</p>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-svc">Service</label>
+          <select id="f-svc" name="service">
+            <option>Not sure yet</option>
+            <option>DogWash</option>
+            <option>Full Groom</option>
+            <option>Doodle / Poodle</option>
+          </select>
+        </div>
+        <fieldset class="field" id="f-days">
+          <legend>Preferred day <span class="hint">(pick any that work)</span></legend>
+          <div class="days">
+            <label><input type="checkbox" name="day" value="Mon"><span>Mon</span></label>
+            <label><input type="checkbox" name="day" value="Tue"><span>Tue</span></label>
+            <label><input type="checkbox" name="day" value="Wed"><span>Wed</span></label>
+            <label><input type="checkbox" name="day" value="Thu"><span>Thu</span></label>
+            <label><input type="checkbox" name="day" value="Fri"><span>Fri</span></label>
+            <label><input type="checkbox" name="day" value="Sat"><span>Sat</span></label>
+            <label><input type="checkbox" name="day" value="Any"><span>Any</span></label>
+          </div>
+          <p class="err">Please pick at least one day.</p>
+        </fieldset>
+        <button class="btn btn-primary" type="submit">Request Appointment</button>
+        <p class="small">No payment needed now. Prefer the phone? <a href="tel:+19012205850">Call us</a>.</p>
+
+        <div class="done" id="done" role="status" aria-live="polite" tabindex="-1">
+          <h3>Almost there!</h3>
+          <p id="doneMsg">Online requests aren't switched on yet, so please call or text us to lock in your time. We've put your details in the text for you.</p>
+          <a class="btn btn-primary" href="tel:+19012205850">Call <span class="ph">(901) 220-5850</span></a>
+          <a class="btn btn-ghost" id="smsLink" href="sms:+19012205850">Text my request</a>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#top"><img src="assets/logo-mark.svg" alt="" width="38" height="38" loading="lazy">The Groom Den</a>
+      <p style="margin-top:14px;max-width:34ch">Stress-free mobile dog grooming that comes to your driveway.</p>
+    </div>
+    <div>
+      <h3>Call or text</h3>
+      <a class="big ph" href="tel:+19012205850">(901) 220-5850</a>
+      <p class="ph">By appointment, Mon–Sat</p>
+    </div>
+    <div>
+      <h3>Service area</h3>
+      <ul><li>Bartlett, TN</li><li>Lakeland, TN</li><li>Arlington, TN</li></ul>
+    </div>
+    <p class="legal">© <span id="yr">2026</span> The Groom Den. Mobile dog grooming in Bartlett, Lakeland &amp; Arlington, Tennessee.</p>
+  </div>
+</footer>
+
+<div class="dock" id="dock">
+  <a class="btn btn-ghost" href="tel:+19012205850">Call</a>
+  <a class="btn btn-primary" href="#book">Request Appointment</a>
+</div>
+
+<script>
+/* Set to a form endpoint that reaches the owner's inbox (Formspree, Web3Forms, or a Pages Function).
+   While empty, a submitted request shows the call / text fallback instead. */
+var FORM_ENDPOINT = "";
+var PHONE = "+19012205850";
+
+(function(){
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  // Show the mobile call/book dock once the hero CTA is off screen, hide it over the form.
+  var dock = document.getElementById("dock"), hero = document.querySelector(".hero-cta"), book = document.getElementById("book");
+  if ("IntersectionObserver" in window) {
+    var heroOut = false, bookIn = false;
+    var set = function(){ dock.classList.toggle("on", heroOut && !bookIn); };
+    new IntersectionObserver(function(e){ heroOut = !e[0].isIntersecting; set(); }).observe(hero);
+    new IntersectionObserver(function(e){ bookIn = e[0].isIntersecting; set(); }, {threshold:.25}).observe(book);
+  } else { dock.classList.add("on"); }
+
+  // "Book this" on a service card preselects that service.
+  var svc = document.getElementById("f-svc");
+  document.querySelectorAll("[data-svc]").forEach(function(a){
+    a.addEventListener("click", function(){ svc.value = a.getAttribute("data-svc"); });
+  });
+
+  var form = document.getElementById("bookForm");
+  form.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var ok = true, first = null;
+    ["f-name","f-phone","f-breed","f-size"].forEach(function(id){
+      var el = document.getElementById(id), bad = !el.value.trim() || (id === "f-phone" && el.value.replace(/\D/g,"").length < 10);
+      el.closest(".field").classList.toggle("invalid", bad);
+      el.setAttribute("aria-invalid", bad);
+      if (bad) { ok = false; first = first || el; }
+    });
+    var days = [].slice.call(form.querySelectorAll("input[name=day]:checked")).map(function(d){ return d.value; });
+    var daysBox = document.getElementById("f-days");
+    daysBox.classList.toggle("invalid", !days.length);
+    if (!days.length) { ok = false; first = first || daysBox.querySelector("input"); }
+    if (!ok) { first.focus(); return; }
+
+    var d = new FormData(form);
+    var summary = "Hi! I'd like to request a grooming appointment.\nName: " + d.get("name") + "\nPhone: " + d.get("phone") +
+      "\nDog: " + d.get("breed") + ", " + d.get("size") + "\nService: " + d.get("service") + "\nPreferred day(s): " + days.join(", ");
+
+    var showDone = function(sent){
+      [].forEach.call(form.children, function(c){ if (c.id !== "done") c.hidden = true; });
+      var done = document.getElementById("done");
+      if (sent) {
+        done.querySelector("h3").textContent = "Request sent!";
+        document.getElementById("doneMsg").textContent = "Thanks, " + d.get("name") + ". We'll text you soon to confirm a time. Need it sooner? Give us a call.";
+        document.getElementById("smsLink").hidden = true;
+      } else {
+        document.getElementById("smsLink").href = "sms:" + PHONE + "?&body=" + encodeURIComponent(summary);
+      }
+      done.classList.add("show");
+      done.focus();
+    };
+
+    if (!FORM_ENDPOINT) { showDone(false); return; }
+    d.set("day", days.join(", "));
+    fetch(FORM_ENDPOINT, {method:"POST", body:d, headers:{Accept:"application/json"}})
+      .then(function(r){ showDone(r.ok); })
+      .catch(function(){ showDone(false); });
+  });
+})();
+</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"095c357022034ae5ae42a67299fbf029","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
