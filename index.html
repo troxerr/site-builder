@@ -248,13 +248,10 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
 
 /* About */
 .about-card{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:24px;padding:42px;box-shadow:var(--shadow);max-width:980px;margin:0 auto}
-.headshot{position:relative;width:200px;margin:0}
-.avatar,.headshot img{width:200px;height:250px;border-radius:22px;box-shadow:0 0 0 8px var(--blue-50),0 20px 40px -12px rgba(18,56,184,.5)}
-.headshot img{object-fit:cover}
-.avatar{display:grid;place-items:center;background:linear-gradient(135deg,#2f7bff,#1238b8);color:#fff;font:800 5rem/1 Sora,sans-serif;letter-spacing:-.04em}
+.headshot{position:relative;width:170px;margin:0}
+.avatar{width:170px;height:170px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#2f7bff,#1238b8);color:#fff;font:800 4.4rem/1 Sora,sans-serif;letter-spacing:-.04em;box-shadow:0 0 0 8px var(--blue-50),0 20px 40px -12px rgba(18,56,184,.5)}
 .headshot figcaption{margin-top:18px;text-align:center;font-size:.86rem;font-weight:600;color:var(--navy)}
 .headshot figcaption span{display:block;font-weight:500;color:var(--muted)}
-.headshot .ph-note{margin-top:10px;text-align:center}
 .about-card .section-lede{margin-bottom:14px}
 .facts{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:6px 0 24px}
 .facts li{display:inline-flex;align-items:center;gap:6px;font-size:.86rem;font-weight:600;color:var(--blue-600);background:var(--blue-50);border-radius:999px;padding:6px 12px}
@@ -365,9 +362,8 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
   .float-chip .dot{width:28px;height:28px}
   .hero-actions{flex-direction:column}
   .about-card{grid-template-columns:1fr;padding:28px 22px;gap:22px;text-align:center}
-  .headshot{margin:0 auto;width:160px}
-  .avatar,.headshot img{width:160px;height:200px}
-  .avatar{font-size:4rem}
+  .headshot{margin:0 auto;width:auto}
+  .avatar{width:128px;height:128px;font-size:3.4rem;margin:0 auto}
   .facts,.about-actions{justify-content:center}
   .about-actions .btn{flex:1 1 100%}
   .footer-grid{grid-template-columns:1fr}
@@ -407,7 +403,7 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
   <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
 </svg>
 <a class="skip" href="#main">Skip to content</a>
-<div class="preview-banner" role="note">Preview mode: dashed boxes show where real photos and client proof go. Visitors without <code>?preview</code> don't see them.</div>
+<div class="preview-banner" role="note">Preview mode: dashed boxes show where client proof goes. Visitors without <code>?preview</code> don't see them.</div>
 
 <header class="site-header" id="header">
   <div class="wrap header-inner">
@@ -677,11 +673,8 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
     <div class="wrap">
       <div class="about-card">
         <figure class="headshot">
-          <!-- Headshot: save a 400x500 portrait as assets/austin.webp, then swap the .avatar div for:
-               <img src="assets/austin.webp" alt="Austin, owner of Bartlett Website Design, in Bartlett, TN" width="400" height="500" loading="lazy"> -->
           <div class="avatar" aria-hidden="true">A</div>
           <figcaption>Austin<span>Owner · Bartlett, TN</span></figcaption>
-          <p class="ph-only ph-note">Headshot goes here: shoulders up, natural light, smiling</p>
         </figure>
         <div>
           <p class="kicker">About</p>
