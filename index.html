@@ -23,7 +23,7 @@
 <link rel="preload" href="assets/work/summer-avenue-animal-hospital-desktop.webp" as="image" fetchpriority="high">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Bartlett Website Design","url":"https://bartlettwebsitedesign.online/","logo":"https://bartlettwebsitedesign.online/assets/logo-mark-512.png","image":"https://bartlettwebsitedesign.online/assets/og-image.png","telephone":"+1-901-321-0023","email":"bartlett.website.design@gmail.com","description":"Website design for small businesses in Bartlett, Memphis and the Mid-South. See a free draft before you pay.","founder":{"@type":"Person","name":"Austin"},"priceRange":"$350–$950","areaServed":["Bartlett, TN","Memphis, TN","Cordova, TN","Germantown, TN","Arlington, TN","Lakeland, TN"],"address":{"@type":"PostalAddress","addressLocality":"Bartlett","addressRegion":"TN","addressCountry":"US"},
-"makesOffer":[{"@type":"Offer","name":"Starter website","price":"350","priceCurrency":"USD"},{"@type":"Offer","name":"Business website","price":"950","priceCurrency":"USD"},{"@type":"Offer","name":"Care plan","price":"45","priceCurrency":"USD","description":"Per month, optional"}]}
+"makesOffer":[{"@type":"Offer","name":"Starter website","price":"350","priceCurrency":"USD"},{"@type":"Offer","name":"Business website","price":"950","priceCurrency":"USD"},{"@type":"Offer","name":"Care plan","price":"45","priceCurrency":"USD","description":"Per month, optional"},{"@type":"Offer","name":"Missed-call booking agent","description":"Texts back missed calls and books appointments. Setup and monthly price quoted per business."}]}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -33,9 +33,10 @@
 {"@type":"Question","name":"Can you use my existing logo, photos and content?","acceptedAnswer":{"@type":"Answer","text":"Yes. Send whatever you have: logo, photos, price list, menu or the text from your current site. If something's missing or blurry, I'll tell you and suggest options. The Business plan includes a custom logo if you need a new one."}},
 {"@type":"Question","name":"How long until my site is live?","acceptedAnswer":{"@type":"Answer","text":"Most sites go from first chat to live in about 7 days. The biggest factor is how quickly we can confirm your hours, services and photos."}},
 {"@type":"Question","name":"Do I own my website and domain?","acceptedAnswer":{"@type":"Answer","text":"Yes. Your domain is registered in your name and you get a copy of every file. You're never locked in."}},
-{"@type":"Question","name":"Are there monthly fees or contracts?","acceptedAnswer":{"@type":"Answer","text":"No long-term contracts. You pay once for your site. Hosting is free, and the domain is about $10 to $12 a year, paid straight to the registrar. The $45/month care plan is optional and you can cancel any time."}},
+{"@type":"Question","name":"Are there monthly fees or contracts?","acceptedAnswer":{"@type":"Answer","text":"No long-term contracts. You pay once for your site. Hosting is free, and the domain is about $10 to $12 a year, paid straight to the registrar. The $45/month care plan is optional and you can cancel any time. The missed-call booking agent has its own monthly fee, quoted in writing before it's set up."}},
 {"@type":"Question","name":"What happens if I need changes after the site is live?","acceptedAnswer":{"@type":"Answer","text":"Text me what you need. On the care plan, updates like hours, prices and photos are included. Without it, I'll tell you the price before I do any work, so there are no surprise bills. And since you have every file, you're free to have anyone make changes."}},
 {"@type":"Question","name":"I already take bookings on Square, MoeGo or Vagaro. Will that change?","acceptedAnswer":{"@type":"Answer","text":"No. Your Book online buttons go straight to the booking page you already use, so nothing changes for you or your regulars."}},
+{"@type":"Question","name":"How does the missed-call booking agent work?","acceptedAnswer":{"@type":"Answer","text":"When a call goes unanswered, it texts the caller within a minute, says it's an automated assistant and asks what they need. It offers times that are really open in your schedule, books the one they pick, sends the confirmation and posts a summary for your front desk. Anything urgent, unclear or outside booking goes straight to a person."}},
 {"@type":"Question","name":"I'm not a tech person. Is that a problem?","acceptedAnswer":{"@type":"Answer","text":"Not at all. That's who I build for. You won't need to log in to anything. Just tell me what you need in plain words."}}
 ]}
 </script>
@@ -86,7 +87,8 @@ img{max-width:100%;height:auto;display:block}
 .logo-top{font:700 1.2rem/1 Sora,sans-serif;letter-spacing:-.03em}
 .logo-bottom{font:600 .66rem/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-top:5px}
 .nav{display:flex;gap:26px}
-.nav a{color:var(--muted);text-decoration:none;font-weight:500;font-size:.95rem}
+.nav a{color:var(--muted);text-decoration:none;font-weight:500;font-size:.95rem;white-space:nowrap}
+.header-inner .btn{white-space:nowrap}
 .nav a:hover{color:var(--ink)}
 .header-phone{display:inline-flex;align-items:center;gap:7px;font-weight:600;color:var(--navy);text-decoration:none;font-size:.95rem;white-space:nowrap}
 .header-phone .icon{color:var(--blue);width:1em;height:1em}
@@ -195,6 +197,16 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
 .step .free{display:inline-block;margin-left:6px;font:600 .68rem/1 Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--green);background:var(--green-50);border-radius:999px;padding:4px 8px;vertical-align:3px}
 .step .when{display:block;font-size:.8rem;font-weight:600;color:var(--blue);margin-bottom:6px}
 
+/* Booking agent */
+.agent{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.agent-points{list-style:none;padding:0;margin:26px 0 30px;display:grid;gap:16px}
+.agent-points li{display:flex;gap:14px;align-items:flex-start;color:var(--muted);font-size:.97rem;line-height:1.5}
+.agent-points .ic{flex:none;width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:var(--blue-50);color:var(--blue)}
+.agent-points .icon{width:1.05em;height:1.05em}
+.agent-points b{display:block;color:var(--ink)}
+.agent-actions{display:flex;flex-wrap:wrap;gap:12px}
+.agent-fit{margin:18px 0 0;font-size:.9rem;color:var(--muted)}
+
 /* Pricing */
 .pricing{background:var(--navy);color:#fff;position:relative;overflow:hidden}
 .pricing::before{content:"";position:absolute;inset:-40% -10% auto auto;width:700px;height:700px;background:radial-gradient(circle,rgba(47,123,255,.35),transparent 65%);pointer-events:none}
@@ -215,6 +227,17 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
 .plan .btn{margin-top:auto}
 .plan:not(.featured) .btn{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.2)}
 .plan:not(.featured) .btn:hover{background:rgba(255,255,255,.16)}
+.addon{position:relative;margin-top:20px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) auto;gap:20px 36px;align-items:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:26px}
+.addon .plan-name{justify-content:flex-start;flex-wrap:wrap;gap:8px 10px;margin-bottom:10px;line-height:1.3}
+.addon .badge{white-space:nowrap}
+.addon .plan-for{margin:0}
+.addon ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:.95rem}
+.addon li{display:flex;gap:10px;align-items:flex-start}
+.addon li .icon{color:var(--sky);margin-top:3px;width:1.05em;height:1.05em}
+.addon-cta{display:grid;gap:12px;justify-items:start}
+.addon .price{font-size:2rem;margin:0}
+.addon .btn{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.2)}
+.addon .btn:hover{background:rgba(255,255,255,.16)}
 .pay-note{position:relative;margin:28px auto 0;max-width:760px;display:flex;align-items:center;gap:14px;justify-content:center;flex-wrap:wrap;text-align:center;color:#b9c6e0;font-size:.96rem}
 .pay-note strong{color:#fff}
 
@@ -324,18 +347,20 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
 .mobile-bar{display:none}
 
 /* Responsive */
+@media (max-width:1180px){.header-phone{display:none}}
 @media (max-width:1060px){
   .hero-inner{grid-template-columns:1fr;gap:56px}
   .mockup{max-width:620px;margin:0 auto;width:100%}
   .steps{grid-template-columns:1fr 1fr}
   .plans{grid-template-columns:1fr;max-width:480px;margin:0 auto}
   .faq-grid,.contact,.proof{grid-template-columns:1fr;gap:32px}
+  .agent{grid-template-columns:1fr;gap:40px}
+  .addon{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto}
   .fit{grid-template-columns:1fr}
   .work-item,.work-item.big{grid-column:span 6}
   .risk{grid-template-columns:repeat(3,1fr)}
-  .header-phone{display:none}
 }
-@media (max-width:880px){
+@media (max-width:1040px){
   .nav{display:none;position:absolute;top:70px;left:0;right:0;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--line);padding:8px 20px 16px;box-shadow:0 20px 30px -20px rgba(10,26,58,.2)}
   .nav.open{display:flex}
   .nav a{padding:13px 0;border-bottom:1px solid var(--line);font-size:1.02rem}
@@ -366,6 +391,7 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
   .avatar{width:128px;height:128px;font-size:3.4rem;margin:0 auto}
   .facts,.about-actions{justify-content:center}
   .about-actions .btn{flex:1 1 100%}
+  .agent-actions .btn{flex:1 1 100%}
   .footer-grid{grid-template-columns:1fr}
   .direct,.checkable{padding:26px 22px}
   .promise{padding:14px}
@@ -412,7 +438,7 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
       <span class="logo-text"><span class="logo-top">Bartlett</span><span class="logo-bottom">Website Design</span></span>
     </a>
     <nav class="nav" id="nav" aria-label="Main">
-      <a href="#work">Work</a><a href="demos/">Demos</a><a href="#process">How it works</a><a href="#pricing">Pricing</a><a href="#about">About</a><a href="#faq">FAQ</a>
+      <a href="#work">Work</a><a href="demos/">Demos</a><a href="#process">How it works</a><a href="#booking-agent">Booking agent</a><a href="#pricing">Pricing</a><a href="#about">About</a><a href="#faq">FAQ</a>
     </nav>
     <a class="header-phone" href="tel:+19013210023"><svg class="icon"><use href="#i-phone"/></svg>(901) 321-0023</a>
     <a class="btn btn-primary btn-small" href="#contact">Get my free draft</a>
@@ -558,6 +584,28 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
     </div>
   </section>
 
+  <!-- BOOKING AGENT: add-on service. The linked demo uses a fictional practice, and says so. -->
+  <section class="section section-soft" id="booking-agent" aria-labelledby="agent-title">
+    <div class="wrap agent">
+      <div>
+        <p class="kicker">Add-on · Missed-call booking agent</p>
+        <h2 id="agent-title">Missed calls, booked while you're busy.</h2>
+        <p class="section-lede">When you can't get to the phone, the booking agent texts the caller back within a minute, finds out what they need, offers times that are really open and books the one they pick. You get a clean summary. Anything urgent or unclear goes straight to you instead.</p>
+        <ul class="agent-points">
+          <li><span class="ic"><svg class="icon"><use href="#i-phone"/></svg></span><span><b>Replies in under a minute</b>Callers hear back before they try the next business on Google.</span></li>
+          <li><span class="ic"><svg class="icon"><use href="#i-eye"/></svg></span><span><b>Always says it's automated</b>Callers know they're texting an assistant, and can reply STAFF to reach a person any time.</span></li>
+          <li><span class="ic"><svg class="icon"><use href="#i-check"/></svg></span><span><b>One clear job</b>It books appointments. Pain, billing, insurance and anything it isn't sure about go to your team.</span></li>
+          <li><span class="ic"><svg class="icon"><use href="#i-key"/></svg></span><span><b>Works with your schedule</b>It books into the system you already use. If yours can't connect, I'll tell you before you pay anything.</span></li>
+        </ul>
+        <div class="agent-actions"><a class="btn btn-primary" href="demos/missed-call-booking-agent/">Try the live demo<svg class="icon"><use href="#i-arrow"/></svg></a><a class="btn btn-ghost" href="#contact" data-plan="Missed-call booking agent">Ask about it</a></div>
+        <p class="agent-fit">Built for dental offices, vet clinics, groomers and salons: any business that books appointments by phone.</p>
+      </div>
+      <a class="work-card" href="demos/missed-call-booking-agent/">
+        <div class="browser"><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Live demo · Missed-call booking agent</span></div><img src="assets/work/demo-missed-call-booking-agent.webp" alt="Booking agent demo: a patient's text conversation on a phone, a seven-step checklist of what happens behind the scenes, and a calendar with Thursday 8 AM booked" loading="lazy" width="1120" height="700"></div>
+      </a>
+    </div>
+  </section>
+
   <!-- PRICING -->
   <section class="section pricing" id="pricing" aria-labelledby="pricing-title">
     <div class="wrap">
@@ -605,7 +653,23 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
           <a class="btn" href="#contact" data-plan="Care plan ($45/mo)">Ask about care</a>
         </li>
       </ul>
-      <p class="pay-note"><span>You pay <strong>after</strong> you approve your draft. After launch, your only running cost is the domain, <strong>about $10 to $12 a year</strong>.</span></p>
+      <div class="addon">
+        <div class="addon-head">
+          <p class="plan-name">Missed-call booking agent <span class="badge">Add-on</span></p>
+          <p class="plan-for">Texts back missed calls and books the appointment. Works with or without a new website.</p>
+        </div>
+        <ul>
+          <li><svg class="icon"><use href="#i-check"/></svg>Text-back within a minute</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Books into your schedule</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Front-desk summary for every booking</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Hands urgent requests to a person</li>
+        </ul>
+        <div class="addon-cta">
+          <p class="price">Quote<small>setup + monthly</small></p>
+          <a class="btn" href="#contact" data-plan="Missed-call booking agent">Get a quote</a>
+        </div>
+      </div>
+      <p class="pay-note"><span>For a website, you pay <strong>after</strong> you approve your draft, and your only running cost after launch is the domain, <strong>about $10 to $12 a year</strong>. The booking agent's setup and monthly price are quoted in writing before anything is turned on.</span></p>
     </div>
   </section>
 
@@ -723,9 +787,10 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
         <details><summary>Can you use my existing logo, photos and content?<svg class="icon"><use href="#i-plus"/></svg></summary><p>Yes. Send whatever you have: logo, photos, price list, menu or the text from your current site. If something's missing or blurry, I'll tell you and suggest options. The Business plan includes a custom logo if you need a new one.</p></details>
         <details><summary>How long until my site is live?<svg class="icon"><use href="#i-plus"/></svg></summary><p>Most sites go from first chat to live in about 7 days. The biggest factor is how quickly we can confirm your hours, services and photos.</p></details>
         <details><summary>Do I own my website and domain?<svg class="icon"><use href="#i-plus"/></svg></summary><p>Yes. Your domain is registered in your name and you get a copy of every file. You're never locked in.</p></details>
-        <details><summary>Are there monthly fees or contracts?<svg class="icon"><use href="#i-plus"/></svg></summary><p>No long-term contracts. You pay once for your site. Hosting is free, and the domain is about $10 to $12 a year, paid straight to the registrar. The $45/month care plan is optional and you can cancel any time.</p></details>
+        <details><summary>Are there monthly fees or contracts?<svg class="icon"><use href="#i-plus"/></svg></summary><p>No long-term contracts. You pay once for your site. Hosting is free, and the domain is about $10 to $12 a year, paid straight to the registrar. The $45/month care plan is optional and you can cancel any time. The missed-call booking agent has its own monthly fee, quoted in writing before it's set up.</p></details>
         <details><summary>What happens if I need changes after the site is live?<svg class="icon"><use href="#i-plus"/></svg></summary><p>Text me what you need. On the care plan, updates like hours, prices and photos are included. Without it, I'll tell you the price before I do any work, so there are no surprise bills. And since you have every file, you're free to have anyone make changes.</p></details>
         <details><summary>I already take bookings on Square, MoeGo or Vagaro. Will that change?<svg class="icon"><use href="#i-plus"/></svg></summary><p>No. Your Book online buttons go straight to the booking page you already use, so nothing changes for you or your regulars.</p></details>
+        <details><summary>How does the missed-call booking agent work?<svg class="icon"><use href="#i-plus"/></svg></summary><p>When a call goes unanswered, it texts the caller within a minute, says it's an automated assistant and asks what they need. It offers times that are really open in your schedule, books the one they pick, sends the confirmation and posts a summary for your front desk. Anything urgent, unclear or outside booking goes straight to a person. <a href="demos/missed-call-booking-agent/">Try the demo</a> to see a full conversation.</p></details>
         <details><summary>I'm not a tech person. Is that a problem?<svg class="icon"><use href="#i-plus"/></svg></summary><p>Not at all. That's who I build for. You won't need to log in to anything. Just tell me what you need in plain words.</p></details>
       </div>
     </div>
@@ -773,6 +838,7 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
             <option>Starter ($350)</option>
             <option>Business ($950)</option>
             <option>Care plan ($45/mo)</option>
+            <option>Missed-call booking agent</option>
           </select>
         </label>
         <label class="full"><span>Anything else? <span class="opt">(optional)</span></span><textarea name="message" placeholder="What you do, your website or Facebook page if you have one, and what customers should be able to do on your site"></textarea></label>
@@ -808,6 +874,7 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
         <ul>
           <li><a href="#work">Work</a></li>
           <li><a href="#process">How it works</a></li>
+          <li><a href="#booking-agent">Booking agent</a></li>
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#contact">Free draft</a></li>

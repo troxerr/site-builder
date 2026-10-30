@@ -143,7 +143,7 @@ button{font:inherit}
 
 /* Front desk */
 .fd{border-radius:14px;border:1px solid var(--line);background:var(--soft);padding:16px;min-height:120px;display:grid;place-items:center;color:var(--muted);font-size:.9rem;text-align:center}
-.fd.filled{display:block;text-align:left;background:#fff;animation:pop .35s ease-out both;color:var(--ink)}
+.fd.filled{display:block;place-items:normal;text-align:left;background:#fff;animation:pop .35s ease-out both;color:var(--ink)}
 .fd .top{display:flex;align-items:center;gap:10px;margin-bottom:12px}
 .fd .bot{width:34px;height:34px;border-radius:10px;background:var(--navy);color:#fff;display:grid;place-items:center;flex:none}
 .fd .bot svg{width:18px;height:18px}
@@ -244,7 +244,7 @@ button{font:inherit}
     <div class="wrap">
       <span class="kicker">Live demo · Missed-call booking agent</span>
       <h1 id="title">A missed call becomes a booked appointment in under a minute.</h1>
-      <p>When the front desk can't pick up, the agent texts the caller back, finds out what they need, offers real open times and books the one they choose. The front desk gets a clean summary. If anything is unclear or urgent, it hands off to a person instead of guessing.</p>
+      <p>When the front desk can't pick up, the agent texts the caller back, says it&rsquo;s an automated assistant, finds out what they need, offers real open times and books the one they choose. The front desk gets a clean summary. If anything is unclear or urgent, it hands off to a person instead of guessing.</p>
       <p class="note"><svg class="icon" style="margin-top:.2em"><use href="#i-info"/></svg><span>Bright Smile Dental and Dr. Patel are made up for this demo. The conversation is a scripted replay, so nothing is sent or booked.</span></p>
     </div>
   </section>
@@ -311,9 +311,9 @@ button{font:inherit}
     <div class="wrap">
       <span class="kicker">One clear job</span>
       <h2 id="explain-title">It books the appointment. Everything else goes to a person.</h2>
-      <p class="lede">This is the simple version that practices actually use: one job, a fast reply, and a human fallback. It works with the calendar you already have, so nobody has to learn a new system.</p>
+      <p class="lede">This is the simple version that practices actually use: one job, a fast reply, and a human fallback. It books into the scheduling system the practice already uses, so nobody has to learn a new one.</p>
       <div class="cols">
-        <div class="card"><h3>What it handles</h3><ul><li>Texts back every missed call within a minute</li><li>New or existing patient, visit type and preferred times</li><li>Offers only times that are really open</li><li>Books, confirms and sends a reminder</li></ul></div>
+        <div class="card"><h3>What it handles</h3><ul><li>Texts back every missed call within a minute</li><li>Says up front that it&rsquo;s automated</li><li>New or existing patient, visit type and preferred times</li><li>Offers only times that are really open</li><li>Gets the patient&rsquo;s name and email, then books, confirms and sends a reminder</li></ul></div>
         <div class="card"><h3>When it hands off</h3><ul><li>Pain, swelling, bleeding or anything urgent</li><li>Requests it can't match to a visit type</li><li>Billing, insurance and treatment questions</li><li>Any patient who asks for a person</li></ul></div>
         <div class="card"><h3>What the practice gets</h3><ul><li>Fewer patients lost to voicemail</li><li>A clean summary for every booking</li><li>A full log of every conversation</li><li>A front desk that isn't chasing callbacks</li></ul></div>
       </div>
@@ -413,24 +413,26 @@ button{font:inherit}
       [400, function(){ missed(); step(1,"active","Call to (901) 555-0123 went unanswered at 10:17 AM."); }],
       [1300, function(){ me("Hi, I need to get a cleaning and maybe a filling. I'm a new patient. Can I come in next week? Preferably mornings."); step(1,"done","Missed call at 10:17, patient texted at 10:18."); step(2,"active","Reading the message…"); typing(true); }],
       [1500, function(){ step(2,"done","New patient · cleaning + possible filling · mornings next week."); step(3,"active","Looking for 60-minute morning openings next week…"); slots.forEach(function(s){ s.classList.add("lit"); }); }],
-      [1600, function(){ step(3,"done","3 morning openings found: Tue 9:30, Thu 8:00, Fri 10:15."); them("Hi, this is the front desk assistant at Bright Smile Dental. I'd be happy to help you book that.\n\nYou're a new patient looking for a cleaning and possible filling, mornings next week — correct?\n\nWe have openings:\n• Tuesday 9:30 AM\n• Thursday 8:00 AM\n• Friday 10:15 AM\n\nWhich works best for you?"); add("sys","Replied in 40 seconds"); }],
-      [2600, function(){ me("Thursday 8am is perfect."); step(4,"active","Holding Thursday 8:00 AM…"); slots.forEach(function(s){ if (s !== thuSlot) { s.classList.remove("lit"); s.classList.add("dim"); } }); typing(true); }],
-      [1500, function(){
+      [1600, function(){ step(3,"done","3 morning openings found: Tue 9:30, Thu 8:00, Fri 10:15."); them("Hi, this is the automated booking assistant at Bright Smile Dental. Sorry we missed your call! I'd be happy to help you book that.\n\nYou're a new patient looking for a cleaning and possible filling, mornings next week — correct?\n\nWe have openings:\n• Tuesday 9:30 AM\n• Thursday 8:00 AM\n• Friday 10:15 AM\n\nWhich works best for you? (Reply STAFF any time to reach a person.)"); add("sys","Replied in 40 seconds"); }],
+      [2800, function(){ me("Thursday 8am is perfect."); step(4,"active","Holding Thursday 8:00 AM while it gets the patient's name and email…"); slots.forEach(function(s){ if (s !== thuSlot) { s.classList.remove("lit"); s.classList.add("dim"); } }); typing(true); }],
+      [1400, function(){ them("Thursday at 8:00 AM is open with Dr. Patel, our first available dentist that morning. I'm holding it for you.\n\nTo finish booking, what's your full name and the best email for your confirmation?"); }],
+      [2400, function(){ me("Jordan Lee, jordan.lee@example.com"); typing(true); }],
+      [1300, function(){
         thuSlot.className = "ev booked";
-        thuSlot.innerHTML = '<b>8:00 New patient</b><span class="x">Exam, cleaning, filling eval · Dr. Patel</span>';
-        step(4,"done","Booked " + thuLong + ", 8:00–9:00 AM with Dr. Patel.");
+        thuSlot.innerHTML = '<b>8:00 Jordan Lee</b><span class="x">New patient · Dr. Patel</span>';
+        step(4,"done","Booked Jordan Lee (new patient), " + thuLong + ", 8:00–9:00 AM with Dr. Patel.");
         step(5,"active","Writing the confirmation…");
       }],
-      [1000, function(){ them("Great — you're booked for Thursday at 8:00 AM with Dr. Patel for a new-patient exam, cleaning, and filling evaluation.\n\nYou'll get a confirmation text and email shortly. Please arrive 10 minutes early and bring your insurance card if you have one.\n\nAnything else I can help with?"); step(5,"done","Confirmation text and email sent. Reminder set for the day before."); step(6,"active","Sending the summary to the front desk…"); }],
+      [1000, function(){ them("Thanks, Jordan — you're booked for Thursday at 8:00 AM with Dr. Patel for a new-patient exam, cleaning, and filling evaluation.\n\nYou'll get a confirmation text and an email at jordan.lee@example.com shortly. Please arrive 10 minutes early and bring your insurance card if you have one.\n\nAnything else I can help with?"); step(5,"done","Confirmation text and email sent. Reminder set for the day before."); step(6,"active","Sending the summary to the front desk…"); }],
       [1200, function(){
         fd.className = "fd filled";
-        fd.innerHTML = '<div class="top"><span class="bot"><svg><use href="#i-bot"/></svg></span><span class="who"><b>Booking agent</b> · #front-desk · 10:19 AM</span></div>' +
+        fd.innerHTML = '<div class="top"><span class="bot"><svg><use href="#i-bot"/></svg></span><span class="who"><b>Booking agent</b> · #front-desk · 10:20 AM</span></div>' +
           '<h4>New patient booked <span class="pill ok">Confirmed</span></h4><p class="sub">Booked from a missed call. Confirmation sent to the patient.</p>' +
-          '<dl><dt>Patient</dt><dd>New patient · <span style="white-space:nowrap">(901) 555-0148</span></dd><dt>Visit</dt><dd>New-patient exam, cleaning, filling evaluation (60 min)</dd><dt>When</dt><dd>' + thuLong + ' · 8:00 AM · Dr. Patel</dd><dt>Notes</dt><dd>Asked for mornings. Mentioned a possible filling.</dd></dl>';
+          '<dl><dt>Patient</dt><dd>Jordan Lee (new) · <span style="white-space:nowrap">(901) 555-0148</span> · jordan.lee@example.com</dd><dt>Visit</dt><dd>New-patient exam, cleaning, filling evaluation (60 min)</dd><dt>When</dt><dd>' + thuLong + ' · 8:00 AM · Dr. Patel</dd><dt>Notes</dt><dd>Asked for mornings. Mentioned a possible filling.</dd></dl>';
         step(6,"done","Summary posted to the front desk.");
       }],
       [1800, function(){ me("No, that's it. Thanks!"); typing(true); }],
-      [1300, function(){ them("You're all set. See you Thursday at 8 AM. Have a great day!"); step(7,"active"); }],
+      [1300, function(){ them("You're all set, Jordan. See you Thursday at 8 AM. Have a great day!"); step(7,"active"); }],
       [900, function(){ step(7,"done","Full conversation saved to the patient's record."); finish(); }]
     ],
     urgent: [
@@ -445,7 +447,7 @@ button{font:inherit}
           '<dl><dt>Patient</dt><dd><span style="white-space:nowrap">(901) 555-0148</span> · new or existing not yet known</dd><dt>Why</dt><dd>Severe pain with swelling, wants to be seen today</dd><dt>Told patient</dt><dd>A team member will call shortly</dd></dl>';
         step(6,"done","Urgent alert sent to the front desk.");
       }],
-      [700, function(){ them("I'm sorry you're dealing with that. Pain with swelling is something our team should handle directly, so I've flagged this as urgent and someone from our office will call you shortly.\n\nIf the swelling spreads toward your eye or neck, or you have any trouble breathing or swallowing, call 911 or go to the nearest ER."); add("sys","Replied in 35 seconds"); step(7,"active"); }],
+      [700, function(){ them("This is the automated assistant at Bright Smile Dental. I'm sorry you're dealing with that. Pain with swelling is something our team should handle directly, so I've flagged this as urgent and someone from our office will call you shortly.\n\nIf the swelling spreads toward your eye or neck, or you have any trouble breathing or swallowing, call 911 or go to the nearest ER."); add("sys","Replied in 35 seconds"); step(7,"active"); }],
       [1100, function(){ step(7,"done","Conversation saved and marked for a callback."); finish(); }]
     ]
   };
