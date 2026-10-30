@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Missed-Call Booking Agent · Live demo | Bartlett Website Design</title>
+<meta name="description" content="Watch a missed call to a dental office turn into a booked appointment in under a minute: the patient gets a text back, picks a time, and the front desk gets a clean summary.">
+<meta name="theme-color" content="#0a1a3a">
+<link rel="icon" href="../../assets/logo-mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/logo-mark-512.png">
+<link rel="preload" href="../../assets/fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<!--
+  DEMO. Bright Smile Dental and Dr. Patel are fictional, made to show how the missed-call booking
+  agent works. The phone numbers are in the 555-01xx fictional range. Nothing on this page sends
+  a real text, books a real slot or contacts anyone; the conversation is a scripted replay.
+-->
+<style>
+@font-face{font-family:Sora;src:url(../../assets/fonts/sora-latin.woff2) format("woff2");font-weight:600 800;font-display:swap}
+@font-face{font-family:Inter;src:url(../../assets/fonts/inter-latin.woff2) format("woff2");font-weight:400 600;font-display:swap}
+:root{--blue:#1f5eff;--blue-600:#1747d6;--blue-50:#eef3ff;--navy:#0a1a3a;--ink:#0d1830;--muted:#55657f;--line:#e4eaf4;--soft:#f6f8fc;--amber-50:#fff4dc;--amber:#8a5a00;
+  --teal:#0f8b8d;--teal-50:#e3f5f4;--green:#14804a;--green-50:#e7f8ee;--red:#c62a2a;--red-50:#fdecec;--bubble:#e9edf3;--bar:0px}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font:400 17px/1.65 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--soft);-webkit-font-smoothing:antialiased;padding-bottom:var(--bar)}
+h1,h2,h3{font-family:Sora,Inter,system-ui,sans-serif;line-height:1.1;letter-spacing:-.03em;margin:0 0 .5em;font-weight:700;text-wrap:balance}
+p{margin:0 0 1em}
+a{color:var(--blue)}
+button{font:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.icon{width:1.1em;height:1.1em;flex:none}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:8px}
+
+.site-header{background:#fff;border-bottom:1px solid var(--line)}
+.header-inner{display:flex;align-items:center;gap:20px;min-height:72px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);margin-right:auto}
+.logo svg{width:40px;height:40px}
+.logo-text{display:flex;flex-direction:column;line-height:1.05;font-family:Sora,Inter,sans-serif}
+.logo-top{font-weight:800;font-size:1.05rem;letter-spacing:-.02em}
+.logo-bottom{font-weight:600;font-size:.72rem;color:var(--muted);letter-spacing:.02em}
+.back{font-weight:600;font-size:.95rem;text-decoration:none;color:var(--ink);display:inline-flex;align-items:center;gap:6px}
+.back:hover{color:var(--blue)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 22px;border-radius:12px;font-weight:600;font-size:1rem;text-decoration:none;border:0;cursor:pointer;transition:background .2s,transform .2s}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:var(--blue-600);transform:translateY(-1px)}
+.btn-white{background:#fff;color:var(--navy)}
+.btn-white:hover{background:var(--blue-50)}
+.btn-small{min-height:42px;padding:9px 16px;font-size:.92rem}
+
+.intro{background:#fff;padding:56px 0 44px;border-bottom:1px solid var(--line)}
+.kicker{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+.intro h1{font-size:clamp(2rem,4.6vw,3.2rem);font-weight:800;letter-spacing:-.045em;max-width:16em}
+.intro p{font-size:1.12rem;color:var(--muted);max-width:42em;margin:0}
+.intro .note{display:flex;gap:10px;align-items:flex-start;margin-top:22px;font-size:.95rem;color:var(--amber);background:var(--amber-50);border-radius:12px;padding:12px 14px;max-width:46em}
+
+/* Controls */
+.controls{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:28px 0 20px}
+.seg{display:inline-flex;background:#fff;border:1px solid var(--line);border-radius:12px;padding:4px;gap:4px}
+.seg button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:.92rem;padding:8px 14px;border-radius:9px;cursor:pointer;min-height:40px}
+.seg button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.ctl{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;color:var(--ink);font-weight:600;font-size:.92rem;padding:8px 14px;border-radius:10px;cursor:pointer;min-height:42px}
+.ctl:hover{border-color:#c8d3e6}
+.ctl[hidden]{display:none}
+.controls .spacer{flex:1}
+.elapsed{font-size:.88rem;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* Stage */
+.stage{display:grid;grid-template-columns:360px minmax(0,1fr);gap:28px;align-items:start;padding-bottom:64px}
+.panel-label{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;display:flex;align-items:center;gap:8px}
+.panel-label .dot{width:8px;height:8px;border-radius:50%;background:#c8d3e6}
+.right{display:grid;gap:24px;min-width:0}
+
+/* Phone */
+.phone-col{position:sticky;top:20px}
+.phone{background:#0d1117;border-radius:46px;padding:11px;box-shadow:0 30px 60px -24px rgba(10,26,58,.45);max-width:360px;margin:0 auto}
+.screen{background:#fff;border-radius:36px;overflow:hidden;display:flex;flex-direction:column;height:600px}
+.status{display:flex;justify-content:space-between;align-items:center;padding:12px 26px 4px;font:600 .82rem/1 Inter,system-ui,sans-serif}
+.status .notch{width:92px;height:24px;background:#0d1117;border-radius:14px}
+.thread-head{text-align:center;padding:4px 12px 10px;border-bottom:1px solid #eef1f6}
+.avatar{width:40px;height:40px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;margin:0 auto 4px}
+.avatar svg{width:22px;height:22px}
+.thread-head b{display:block;font-size:.88rem;line-height:1.2}
+.thread-head small{color:var(--muted);font-size:.72rem}
+.chat{flex:1;overflow-y:auto;padding:12px 12px 16px;display:flex;flex-direction:column;gap:8px;scroll-behavior:smooth;font-size:.86rem;line-height:1.42}
+.msg{max-width:84%;padding:8px 12px;border-radius:18px;white-space:pre-line;animation:pop .28s ease-out both}
+.msg.in{background:var(--bubble);color:var(--ink);align-self:flex-start;border-bottom-left-radius:6px}
+.msg.out{background:#1f7aff;color:#fff;align-self:flex-end;border-bottom-right-radius:6px}
+.msg .tag{display:block;font-size:.66rem;font-weight:600;color:var(--teal);margin-bottom:2px;letter-spacing:.02em}
+.sys{align-self:center;text-align:center;font-size:.7rem;color:var(--muted);padding:2px 8px;animation:pop .28s ease-out both}
+.missed{align-self:stretch;display:flex;align-items:center;gap:10px;border:1px solid #f3cccc;background:#fff7f7;border-radius:14px;padding:8px 12px;font-size:.78rem;animation:pop .28s ease-out both}
+.missed .ic{width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;flex:none}
+.missed .ic svg{width:15px;height:15px}
+.missed b{display:block;font-size:.82rem}
+.missed span{color:var(--muted)}
+.typing{align-self:flex-start;background:var(--bubble);border-radius:18px;border-bottom-left-radius:6px;padding:11px 14px;display:flex;gap:4px}
+.typing i{width:7px;height:7px;border-radius:50%;background:#8f9bb0;animation:blink 1.1s infinite}
+.typing i:nth-child(2){animation-delay:.18s}.typing i:nth-child(3){animation-delay:.36s}
+.composer{display:flex;align-items:center;gap:8px;padding:8px 12px 14px;border-top:1px solid #eef1f6}
+.composer span{flex:1;border:1px solid #dfe5ee;border-radius:999px;padding:7px 14px;font-size:.8rem;color:#98a3b6}
+.phone-cap{font-size:.85rem;color:var(--muted);text-align:center;margin:12px 0 0}
+@keyframes pop{from{opacity:0;transform:translateY(6px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes blink{0%,80%,100%{opacity:.35}40%{opacity:1}}
+
+/* Card shell */
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}
+
+/* Steps */
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:2px;counter-reset:s}
+.step{display:grid;grid-template-columns:30px minmax(0,1fr);gap:12px;padding:8px 6px;border-radius:10px;transition:background .3s}
+.step .n{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font:700 .8rem/1 Sora,Inter,sans-serif;background:var(--soft);color:var(--muted);border:1.5px solid var(--line);transition:all .3s}
+.step b{display:block;font-size:.95rem;line-height:1.3;margin-top:3px}
+.step .d{display:block;font-size:.84rem;color:var(--muted);line-height:1.45;min-height:0}
+.step.active{background:var(--blue-50)}
+.step.active .n{background:var(--blue);border-color:var(--blue);color:#fff}
+.step.done .n{background:var(--green);border-color:var(--green);color:#fff}
+.step.skip .n{background:#fff;border-style:dashed;color:#a0abbd}
+.step.skip b{color:var(--muted);text-decoration:line-through;text-decoration-color:#b9c3d3}
+.step.alert .n{background:var(--red);border-color:var(--red);color:#fff}
+.step.alert .d{color:var(--red)}
+
+/* Calendar */
+.cal-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 12px;margin-bottom:12px}
+.cal-head h3{font-size:1.05rem;margin:0}
+.cal-head small{color:var(--muted);font-size:.82rem}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:.78rem;color:var(--muted);margin-top:12px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.cal{display:grid;grid-template-columns:44px repeat(5,minmax(0,1fr));gap:0 6px}
+.cal .dh{text-align:center;font-size:.78rem;font-weight:600;color:var(--muted);padding-bottom:6px;line-height:1.25}
+.cal .dh b{display:block;color:var(--ink);font-size:.9rem}
+.times{position:relative;height:var(--h)}
+.times span{position:absolute;right:4px;font-size:.68rem;white-space:nowrap;color:var(--muted);transform:translateY(-50%)}
+.col{position:relative;height:var(--h);background:repeating-linear-gradient(to bottom,#eef1f6 0 1px,transparent 1px var(--hr));border-radius:8px;background-color:#fbfcfe}
+.ev{position:absolute;left:3px;right:3px;border-radius:7px;padding:4px 6px;font-size:.7rem;line-height:1.25;overflow:hidden;transition:all .4s}
+.ev.busy{background:#e7ebf2;color:#6b778c}
+.ev.open{background:#fff;border:1.5px dashed #b6c2d6;color:var(--muted)}
+.ev.open.lit{border-color:var(--teal);background:var(--teal-50);color:var(--teal);box-shadow:0 0 0 3px rgba(15,139,141,.15)}
+.ev.open.dim{opacity:.45}
+.ev.booked{background:var(--green-50);border:1.5px solid var(--green);color:#0c5c34;box-shadow:0 6px 16px -8px rgba(20,128,74,.5)}
+.ev b{display:block;font-weight:600}
+
+/* Front desk */
+.fd{border-radius:14px;border:1px solid var(--line);background:var(--soft);padding:16px;min-height:120px;display:grid;place-items:center;color:var(--muted);font-size:.9rem;text-align:center}
+.fd.filled{display:block;text-align:left;background:#fff;animation:pop .35s ease-out both;color:var(--ink)}
+.fd .top{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.fd .bot{width:34px;height:34px;border-radius:10px;background:var(--navy);color:#fff;display:grid;place-items:center;flex:none}
+.fd .bot svg{width:18px;height:18px}
+.fd .who{font-size:.8rem;color:var(--muted);line-height:1.3}
+.fd .who b{color:var(--ink);font-size:.9rem}
+.fd h4{font:700 1rem/1.3 Sora,Inter,sans-serif;margin:0 0 4px;display:flex;align-items:center;gap:8px}
+.fd .sub{font-size:.86rem;color:var(--muted);margin:0 0 12px}
+.fd dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:.86rem}
+.fd dt,.fd dd{padding:8px 12px;border-top:1px solid var(--line);margin:0}
+.fd dt{color:var(--muted);font-weight:600;background:var(--soft)}
+.fd dt:first-of-type,.fd dt:first-of-type+dd{border-top:0}
+.pill{display:inline-flex;align-items:center;gap:4px;font-size:.74rem;font-weight:600;border-radius:999px;padding:2px 9px}
+.pill.ok{background:var(--green-50);color:var(--green)}
+.pill.urgent{background:var(--red-50);color:var(--red)}
+.fd.urgent{border-color:#f0b9b9;box-shadow:0 0 0 3px rgba(198,42,42,.08)}
+.fd blockquote{margin:0 0 12px;padding:8px 12px;border-left:3px solid var(--red);background:var(--red-50);border-radius:0 8px 8px 0;font-size:.86rem}
+
+/* Explainer */
+.explain{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:64px 0}
+.explain h2{font-size:clamp(1.6rem,3vw,2.2rem);max-width:20em}
+.explain .lede{color:var(--muted);font-size:1.08rem;max-width:42em}
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:28px}
+.cols .card h3{font-size:1.05rem;margin-bottom:10px}
+.cols ul{margin:0;padding-left:1.1em;font-size:.95rem}
+.cols li{margin-bottom:6px}
+.cols p{font-size:.95rem;margin:0}
+
+.cta{background:var(--navy);color:#fff;border-radius:22px;padding:44px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;margin:64px auto}
+.cta h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:8px}
+.cta p{color:#c4d0e6;margin:0}
+.cta-actions{display:flex;flex-wrap:wrap;gap:12px}
+.cta .btn-line{color:#fff;border:1.5px solid rgba(255,255,255,.35);background:transparent}
+.cta .btn-line:hover{background:rgba(255,255,255,.08)}
+
+.site-footer{background:#fff;border-top:1px solid var(--line);font-size:.9rem;color:var(--muted)}
+.site-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding-top:24px;padding-bottom:28px}
+.site-footer a{color:var(--ink)}
+
+.mobile-bar{display:none}
+@media (max-width:980px){
+  .stage{grid-template-columns:minmax(0,1fr)}
+  .phone-col{position:static}
+  .cols{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:640px){
+  .intro{padding:36px 0 32px}
+  .header-inner .btn{display:none}
+  .controls .spacer{display:none}
+  .seg{width:100%}.seg button{flex:1}
+  .screen{height:540px}
+  .card{padding:16px}
+  .cal{grid-template-columns:34px repeat(5,minmax(0,1fr));gap:0 3px}
+  .ev{font-size:.62rem;padding:3px 4px;left:2px;right:2px}
+  .ev .x{display:none}
+  .times span{font-size:.6rem;right:2px}
+  .cta{grid-template-columns:1fr;padding:30px 22px}
+  .cta-actions .btn{width:100%}
+  .explain{padding:44px 0}
+}
+@media (max-width:760px){
+  :root{--bar:76px}
+  .mobile-bar{display:grid;grid-template-columns:1fr 1.4fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+  .mobile-bar .btn{min-height:52px;padding:10px 12px}
+  .mobile-bar .btn-line{border:1.5px solid var(--line);color:var(--ink);background:#fff}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.chat{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="bwd-demo-bar" role="note" style="position:relative;z-index:9999;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 14px;padding:8px 14px;background:#0b1b3a;color:#cfd9ec;font:500 13px/1.4 system-ui,-apple-system,'Segoe UI',sans-serif;text-align:center"><span><b style="color:#fff;font-weight:600">Demo</b> by <a href="/" style="color:#fff">Bartlett Website Design</a>. Bright Smile Dental is a fictional practice, and nothing here sends a real text.</span><a href="/demos/" style="color:#9cc2ff;font-weight:600;text-decoration:none">&larr; All demos</a></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-missed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M23 1 17 7M17 1l6 6"/><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-tooth" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3c-2.5 0-4 2-4 4.5 0 3 1.5 4.5 2 7 .5 2.5 1 6.5 3 6.5s2-4 4-4 2 4 4 4 2.5-4 3-6.5c.5-2.5 2-4 2-7C21 5 19.5 3 17 3c-2 0-3 1-5 1S9 3 7 3z"/></symbol>
+  <symbol id="i-bot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01M9 17h6"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></symbol>
+  <symbol id="i-replay" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></symbol>
+  <symbol id="i-skip" viewBox="0 0 24 24" fill="currentColor"><path d="M5 4.5v15L15 12zM17 4h3v16h-3z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol>
+</svg>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="../../" aria-label="Bartlett Website Design home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lg-h" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f7bff"/><stop offset="1" stop-color="#1238b8"/></linearGradient></defs><rect width="64" height="64" rx="15" fill="url(#lg-h)"/><rect x="2" y="2" width="60" height="60" rx="13" fill="none" stroke="#fff" stroke-opacity=".14"/><circle cx="13" cy="12" r="2" fill="#fff" fill-opacity=".55"/><circle cx="19.5" cy="12" r="2" fill="#fff" fill-opacity=".55"/><circle cx="26" cy="12" r="2" fill="#fff" fill-opacity=".55"/><path d="M19 21v28h15.5a7.5 7.5 0 0 0 0-15H19m0 0h13a6.5 6.5 0 0 0 0-13H19" fill="none" stroke="#fff" stroke-width="6" stroke-linejoin="round"/><path d="M38.5 37.5 51 42.6l-5.4 2.1 3.9 4.9-2.6 2.1-3.9-4.9-2.2 5.3z" fill="#9fd0ff" stroke="#1238b8" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      <span class="logo-text"><span class="logo-top">Bartlett</span><span class="logo-bottom">Website Design</span></span>
+    </a>
+    <a class="back" href="../"><svg class="icon"><use href="#i-back"/></svg>All demos</a>
+    <a class="btn btn-primary btn-small" href="../../#contact">Ask about this</a>
+  </div>
+</header>
+
+<main>
+  <section class="intro" aria-labelledby="title">
+    <div class="wrap">
+      <span class="kicker">Live demo · Missed-call booking agent</span>
+      <h1 id="title">A missed call becomes a booked appointment in under a minute.</h1>
+      <p>When the front desk can't pick up, the agent texts the caller back, finds out what they need, offers real open times and books the one they choose. The front desk gets a clean summary. If anything is unclear or urgent, it hands off to a person instead of guessing.</p>
+      <p class="note"><svg class="icon" style="margin-top:.2em"><use href="#i-info"/></svg><span>Bright Smile Dental and Dr. Patel are made up for this demo. The conversation is a scripted replay, so nothing is sent or booked.</span></p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="controls" role="group" aria-label="Demo controls">
+      <div class="seg" role="group" aria-label="Choose a scenario">
+        <button type="button" data-scenario="book" aria-pressed="true">Routine booking</button>
+        <button type="button" data-scenario="urgent" aria-pressed="false">Urgent: hand off to a person</button>
+      </div>
+      <span class="spacer"></span>
+      <button type="button" class="ctl" id="play"><svg class="icon"><use href="#i-pause"/></svg><span>Pause</span></button>
+      <button type="button" class="ctl" id="replay"><svg class="icon"><use href="#i-replay"/></svg>Replay</button>
+      <button type="button" class="ctl" id="skip"><svg class="icon"><use href="#i-skip"/></svg>Skip to end</button>
+    </div>
+
+    <div class="stage">
+      <div class="phone-col">
+        <p class="panel-label"><span class="dot"></span>What the patient sees</p>
+        <div class="phone">
+          <div class="screen">
+            <div class="status" aria-hidden="true"><span>10:18</span><span class="notch"></span><span>5G</span></div>
+            <div class="thread-head">
+              <div class="avatar"><svg><use href="#i-tooth"/></svg></div>
+              <b>Bright Smile Dental</b><small>(901) 555-0123</small>
+            </div>
+            <div class="chat" id="chat" role="log" aria-live="polite" aria-label="Text conversation"></div>
+            <div class="composer" aria-hidden="true"><span>Text Message</span></div>
+          </div>
+        </div>
+        <p class="phone-cap" id="phone-cap">Replies arrive within 30–60 seconds of the missed call.</p>
+      </div>
+
+      <div class="right">
+        <section class="card" aria-labelledby="steps-title">
+          <p class="panel-label" id="steps-title"><span class="dot"></span>Behind the scenes</p>
+          <ol class="steps" id="steps">
+            <li class="step"><span class="n">1</span><span><b>Missed call or form arrives</b><span class="d"></span></span></li>
+            <li class="step"><span class="n">2</span><span><b>Qualifies the request</b><span class="d"></span></span></li>
+            <li class="step"><span class="n">3</span><span><b>Checks the live calendar</b><span class="d"></span></span></li>
+            <li class="step"><span class="n">4</span><span><b>Books the slot</b><span class="d"></span></span></li>
+            <li class="step"><span class="n">5</span><span><b>Confirms with the patient</b><span class="d"></span></span></li>
+            <li class="step"><span class="n">6</span><span><b>Notifies the front desk</b><span class="d"></span></span></li>
+            <li class="step"><span class="n">7</span><span><b>Logs the conversation</b><span class="d"></span></span></li>
+          </ol>
+        </section>
+
+        <section class="card" aria-labelledby="cal-title">
+          <p class="panel-label"><span class="dot"></span>The practice calendar</p>
+          <div class="cal-head"><h3 id="cal-title">Next week · mornings</h3><small id="cal-range"></small></div>
+          <div class="cal" id="cal"></div>
+          <div class="legend" aria-hidden="true"><span><i style="background:#e7ebf2"></i>Already booked</span><span><i style="border:1.5px dashed #b6c2d6"></i>Open, 60 min</span><span><i style="background:var(--green-50);border:1.5px solid var(--green)"></i>Booked by the agent</span></div>
+        </section>
+
+        <section class="card" aria-labelledby="fd-title">
+          <p class="panel-label" id="fd-title"><span class="dot"></span>What the front desk sees</p>
+          <div class="fd" id="fd" aria-live="polite">The front desk gets a summary as soon as the conversation is handled.</div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <section class="explain" aria-labelledby="explain-title">
+    <div class="wrap">
+      <span class="kicker">One clear job</span>
+      <h2 id="explain-title">It books the appointment. Everything else goes to a person.</h2>
+      <p class="lede">This is the simple version that practices actually use: one job, a fast reply, and a human fallback. It works with the calendar you already have, so nobody has to learn a new system.</p>
+      <div class="cols">
+        <div class="card"><h3>What it handles</h3><ul><li>Texts back every missed call within a minute</li><li>New or existing patient, visit type and preferred times</li><li>Offers only times that are really open</li><li>Books, confirms and sends a reminder</li></ul></div>
+        <div class="card"><h3>When it hands off</h3><ul><li>Pain, swelling, bleeding or anything urgent</li><li>Requests it can't match to a visit type</li><li>Billing, insurance and treatment questions</li><li>Any patient who asks for a person</li></ul></div>
+        <div class="card"><h3>What the practice gets</h3><ul><li>Fewer patients lost to voicemail</li><li>A clean summary for every booking</li><li>A full log of every conversation</li><li>A front desk that isn't chasing callbacks</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="cta" aria-labelledby="cta-title">
+      <div><h2 id="cta-title">Want this answering your missed calls?</h2><p>Tell me how your office books appointments now, and I'll show you how this would fit.</p></div>
+      <div class="cta-actions"><a class="btn btn-white" href="../../#contact">Ask about this</a><a class="btn btn-line" href="tel:+19013210023"><svg class="icon"><use href="#i-phone"/></svg>(901) 321-0023</a></div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer"><div class="wrap"><span>Demo · Bright Smile Dental is a fictional practice · &copy; 2026 Bartlett Website Design</span><a href="../../">bartlettwebsitedesign.online</a></div></footer>
+
+<nav class="mobile-bar" aria-label="Quick actions">
+  <a class="btn btn-line" href="tel:+19013210023"><svg class="icon"><use href="#i-phone"/></svg>Call</a>
+  <a class="btn btn-primary" href="../../#contact">Ask about this</a>
+</nav>
+
+<script>
+(function(){
+  // Next week's Monday, so "next week" in the conversation always matches the calendar.
+  var now = new Date();
+  var mon = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  mon.setDate(mon.getDate() + ((8 - mon.getDay()) % 7 || 7));
+  var DAYS = ["Mon","Tue","Wed","Thu","Fri"];
+  var dates = DAYS.map(function(_, i){ var d = new Date(mon); d.setDate(mon.getDate() + i); return d; });
+  var md = function(d){ return d.toLocaleDateString("en-US", {month:"short", day:"numeric"}); };
+  var thu = dates[3];
+  var thuLong = thu.toLocaleDateString("en-US", {weekday:"short", month:"short", day:"numeric"});
+  document.getElementById("cal-range").textContent = md(dates[0]) + " – " + md(dates[4]) + " · 8 AM to noon";
+
+  // Calendar: 8:00 to 12:00, minutes from 8:00.
+  var START = 8*60, HOURS = 4, HR = window.matchMedia("(max-width:640px)").matches ? 50 : 56;
+  var cal = document.getElementById("cal");
+  cal.style.setProperty("--h", (HOURS*HR) + "px");
+  cal.style.setProperty("--hr", HR + "px");
+  var busy = [
+    [[0,60,"Cleaning"],[60,105,"Crown prep"],[165,240,"Exam + X-rays"]],
+    [[0,90,"Cleaning"],[150,240,"Root canal"]],
+    [[0,45,"Exam"],[45,150,"Crown seat"],[150,240,"Cleaning"]],
+    [[60,135,"Filling"],[135,240,"Cleaning"]],
+    [[0,135,"Implant consult"],[195,240,"Exam"]]
+  ];
+  var open = [null,[90,150,"9:30"],null,[0,60,"8:00"],[135,195,"10:15"]];
+  var html = '<span></span>' + DAYS.map(function(d,i){ return '<div class="dh">'+d+'<b>'+dates[i].getDate()+'</b></div>'; }).join("");
+  var t = '<div class="times">';
+  for (var h=0; h<=HOURS; h++) { var hh = 8+h; t += '<span style="top:'+(h*HR)+'px">'+(hh>12?hh-12:hh)+(hh<12?' AM':' PM')+'</span>'; }
+  html += t + '</div>';
+  var pos = function(a,b){ return 'top:'+(a/60*HR+1)+'px;height:'+((b-a)/60*HR-2)+'px'; };
+  DAYS.forEach(function(_, i){
+    html += '<div class="col" aria-label="'+dates[i].toLocaleDateString("en-US",{weekday:"long"})+'">';
+    busy[i].forEach(function(e){ html += '<div class="ev busy" style="'+pos(e[0],e[1])+'"><span class="x">'+e[2]+'</span></div>'; });
+    if (open[i]) html += '<div class="ev open" data-day="'+i+'" style="'+pos(open[i][0],open[i][1])+'"><b>'+open[i][2]+'</b><span class="x">Open</span></div>';
+    html += '</div>';
+  });
+  cal.innerHTML = html;
+  var slots = cal.querySelectorAll(".ev.open");
+  var thuSlot = cal.querySelector('.ev.open[data-day="3"]');
+
+  var chat = document.getElementById("chat");
+  var steps = document.querySelectorAll("#steps .step");
+  var fd = document.getElementById("fd");
+
+  function add(cls, text, tag){
+    var el = document.createElement("div");
+    el.className = cls;
+    if (tag) { var s = document.createElement("span"); s.className = "tag"; s.textContent = tag; el.appendChild(s); }
+    el.appendChild(document.createTextNode(text));
+    chat.appendChild(el);
+    chat.scrollTop = chat.scrollHeight;
+    return el;
+  }
+  function missed(){
+    var el = document.createElement("div");
+    el.className = "missed";
+    el.innerHTML = '<span class="ic"><svg><use href="#i-missed"/></svg></span><span><b>Missed call</b><span>Bright Smile Dental · 10:17 AM</span></span>';
+    chat.appendChild(el);
+  }
+  var typingEl = null;
+  function typing(on){
+    if (on && !typingEl) { typingEl = document.createElement("div"); typingEl.className = "typing"; typingEl.setAttribute("aria-label","Bright Smile Dental is typing"); typingEl.innerHTML = "<i></i><i></i><i></i>"; chat.appendChild(typingEl); chat.scrollTop = chat.scrollHeight; }
+    if (!on && typingEl) { typingEl.remove(); typingEl = null; }
+  }
+  function step(n, state, detail){
+    var s = steps[n-1];
+    s.className = "step " + state;
+    if (detail != null) s.querySelector(".d").textContent = detail;
+  }
+  var them = function(text){ typing(false); add("msg in", text); };
+  var me = function(text){ add("msg out", text); };
+
+  var SCRIPTS = {
+    book: [
+      [400, function(){ missed(); step(1,"active","Call to (901) 555-0123 went unanswered at 10:17 AM."); }],
+      [1300, function(){ me("Hi, I need to get a cleaning and maybe a filling. I'm a new patient. Can I come in next week? Preferably mornings."); step(1,"done","Missed call at 10:17, patient texted at 10:18."); step(2,"active","Reading the message…"); typing(true); }],
+      [1500, function(){ step(2,"done","New patient · cleaning + possible filling · mornings next week."); step(3,"active","Looking for 60-minute morning openings next week…"); slots.forEach(function(s){ s.classList.add("lit"); }); }],
+      [1600, function(){ step(3,"done","3 morning openings found: Tue 9:30, Thu 8:00, Fri 10:15."); them("Hi, this is the front desk assistant at Bright Smile Dental. I'd be happy to help you book that.\n\nYou're a new patient looking for a cleaning and possible filling, mornings next week — correct?\n\nWe have openings:\n• Tuesday 9:30 AM\n• Thursday 8:00 AM\n• Friday 10:15 AM\n\nWhich works best for you?"); add("sys","Replied in 40 seconds"); }],
+      [2600, function(){ me("Thursday 8am is perfect."); step(4,"active","Holding Thursday 8:00 AM…"); slots.forEach(function(s){ if (s !== thuSlot) { s.classList.remove("lit"); s.classList.add("dim"); } }); typing(true); }],
+      [1500, function(){
+        thuSlot.className = "ev booked";
+        thuSlot.innerHTML = '<b>8:00 New patient</b><span class="x">Exam, cleaning, filling eval · Dr. Patel</span>';
+        step(4,"done","Booked " + thuLong + ", 8:00–9:00 AM with Dr. Patel.");
+        step(5,"active","Writing the confirmation…");
+      }],
+      [1000, function(){ them("Great — you're booked for Thursday at 8:00 AM with Dr. Patel for a new-patient exam, cleaning, and filling evaluation.\n\nYou'll get a confirmation text and email shortly. Please arrive 10 minutes early and bring your insurance card if you have one.\n\nAnything else I can help with?"); step(5,"done","Confirmation text and email sent. Reminder set for the day before."); step(6,"active","Sending the summary to the front desk…"); }],
+      [1200, function(){
+        fd.className = "fd filled";
+        fd.innerHTML = '<div class="top"><span class="bot"><svg><use href="#i-bot"/></svg></span><span class="who"><b>Booking agent</b> · #front-desk · 10:19 AM</span></div>' +
+          '<h4>New patient booked <span class="pill ok">Confirmed</span></h4><p class="sub">Booked from a missed call. Confirmation sent to the patient.</p>' +
+          '<dl><dt>Patient</dt><dd>New patient · <span style="white-space:nowrap">(901) 555-0148</span></dd><dt>Visit</dt><dd>New-patient exam, cleaning, filling evaluation (60 min)</dd><dt>When</dt><dd>' + thuLong + ' · 8:00 AM · Dr. Patel</dd><dt>Notes</dt><dd>Asked for mornings. Mentioned a possible filling.</dd></dl>';
+        step(6,"done","Summary posted to the front desk.");
+      }],
+      [1800, function(){ me("No, that's it. Thanks!"); typing(true); }],
+      [1300, function(){ them("You're all set. See you Thursday at 8 AM. Have a great day!"); step(7,"active"); }],
+      [900, function(){ step(7,"done","Full conversation saved to the patient's record."); finish(); }]
+    ],
+    urgent: [
+      [400, function(){ missed(); step(1,"active","Call to (901) 555-0123 went unanswered at 10:17 AM."); }],
+      [1300, function(){ me("Hi, I chipped a tooth last night and now the pain is really bad and my cheek is starting to swell. Can someone see me today?"); step(1,"done","Missed call at 10:17, patient texted at 10:18."); step(2,"active","Reading the message…"); typing(true); }],
+      [1600, function(){ step(2,"alert","Urgent: severe pain and swelling. Not a routine booking."); [3,4,5].forEach(function(n){ step(n,"skip","Skipped. A person decides how to fit this in."); }); step(6,"active","Alerting the front desk now…"); }],
+      [1100, function(){
+        fd.className = "fd filled urgent";
+        fd.innerHTML = '<div class="top"><span class="bot"><svg><use href="#i-bot"/></svg></span><span class="who"><b>Booking agent</b> · #front-desk · 10:18 AM</span></div>' +
+          '<h4>Call this patient back now <span class="pill urgent">Urgent</span></h4><p class="sub">Not booked. Handed off to a person.</p>' +
+          '<blockquote>&ldquo;I chipped a tooth last night and now the pain is really bad and my cheek is starting to swell. Can someone see me today?&rdquo;</blockquote>' +
+          '<dl><dt>Patient</dt><dd><span style="white-space:nowrap">(901) 555-0148</span> · new or existing not yet known</dd><dt>Why</dt><dd>Severe pain with swelling, wants to be seen today</dd><dt>Told patient</dt><dd>A team member will call shortly</dd></dl>';
+        step(6,"done","Urgent alert sent to the front desk.");
+      }],
+      [700, function(){ them("I'm sorry you're dealing with that. Pain with swelling is something our team should handle directly, so I've flagged this as urgent and someone from our office will call you shortly.\n\nIf the swelling spreads toward your eye or neck, or you have any trouble breathing or swallowing, call 911 or go to the nearest ER."); add("sys","Replied in 35 seconds"); step(7,"active"); }],
+      [1100, function(){ step(7,"done","Conversation saved and marked for a callback."); finish(); }]
+    ]
+  };
+
+  var scenario = "book", i = 0, timer = null, paused = false;
+  var playBtn = document.getElementById("play");
+  function setPlay(label, icon){ playBtn.querySelector("span").textContent = label; playBtn.querySelector("use").setAttribute("href", icon); }
+  function reset(){
+    clearTimeout(timer); typing(false);
+    chat.innerHTML = ""; i = 0; paused = false;
+    steps.forEach(function(s){ s.className = "step"; s.querySelector(".d").textContent = ""; });
+    slots.forEach(function(s){ var d = +s.dataset.day; s.className = "ev open"; s.innerHTML = "<b>"+open[d][2]+'</b><span class="x">Open</span>'; });
+    fd.className = "fd"; fd.textContent = "The front desk gets a summary as soon as the conversation is handled.";
+    document.getElementById("phone-cap").textContent = scenario === "book" ? "Replies arrive within 30–60 seconds of the missed call." : "Urgent requests go straight to a person.";
+    setPlay("Pause","#i-pause"); playBtn.hidden = false;
+  }
+  function finish(){ clearTimeout(timer); timer = null; i = SCRIPTS[scenario].length; playBtn.hidden = true; }
+  function tick(){
+    var s = SCRIPTS[scenario];
+    if (i >= s.length) return;
+    timer = setTimeout(function(){ s[i++][1](); tick(); }, s[i][0]);
+  }
+  function runAll(){ clearTimeout(timer); var s = SCRIPTS[scenario]; while (i < s.length) s[i++][1](); typing(false); }
+  function start(){ reset(); if (reduce) runAll(); else tick(); }
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  playBtn.addEventListener("click", function(){
+    if (paused) { paused = false; setPlay("Pause","#i-pause"); tick(); }
+    else { paused = true; clearTimeout(timer); setPlay("Play","#i-play"); }
+  });
+  document.getElementById("replay").addEventListener("click", start);
+  document.getElementById("skip").addEventListener("click", runAll);
+  document.querySelectorAll("[data-scenario]").forEach(function(b){
+    b.addEventListener("click", function(){
+      scenario = b.dataset.scenario;
+      document.querySelectorAll("[data-scenario]").forEach(function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      start();
+    });
+  });
+
+  // Start when the demo scrolls into view (it's above the fold on most screens).
+  var started = false;
+  var go = function(){ if (!started) { started = true; start(); } };
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(es){ if (es[0].isIntersecting) { io.disconnect(); go(); } }, {threshold:.3});
+    io.observe(document.querySelector(".phone"));
+  } else go();
+})();
+</script>
+</body>
+</html>
