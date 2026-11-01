@@ -162,6 +162,9 @@ img{max-width:100%;height:auto;display:block}
 .work{display:grid;grid-template-columns:repeat(12,1fr);gap:28px 24px;list-style:none;padding:0;margin:0}
 .work-item{grid-column:span 4}
 .work-item.big{grid-column:span 6}
+.work-item.wide{grid-column:1/-1}
+.work-item.wide .yours{min-height:0;flex-direction:row;flex-wrap:wrap;align-items:center;gap:12px 24px}
+.work-item.wide .yours p{flex:1 1 320px}
 .work-card{display:block;color:inherit;text-decoration:none;height:100%}
 .work-card .browser{transition:transform .25s,box-shadow .25s}
 a.work-card:hover .browser{transform:translateY(-4px)}
@@ -331,7 +334,8 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
   .plans{grid-template-columns:1fr;max-width:480px;margin:0 auto}
   .faq-grid,.contact,.proof{grid-template-columns:1fr;gap:32px}
   .fit{grid-template-columns:1fr}
-  .work-item,.work-item.big{grid-column:span 6}
+  .work-item,.work-item.big,.work-item.wide{grid-column:span 6}
+  .work-item.wide .yours{flex-direction:column;align-items:flex-start}
   .risk{grid-template-columns:repeat(3,1fr)}
   .header-phone{display:none}
 }
@@ -353,7 +357,7 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
   .lede{font-size:1.06rem}
   .steps,.risk{grid-template-columns:1fr}
   .work{grid-template-columns:1fr;gap:36px}
-  .work-item,.work-item.big{grid-column:1/-1}
+  .work-item,.work-item.big,.work-item.wide{grid-column:1/-1}
   .form{grid-template-columns:1fr;padding:22px}
   .header-inner .btn-small{display:none}
   .phone{right:-6px;width:33%}
@@ -454,7 +458,7 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
           <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Live demo · Summer Avenue Animal Hospital</span></div>
           <img src="assets/work/summer-avenue-animal-hospital-desktop.webp" alt="Summer Avenue Animal Hospital demo homepage with today's hours, a live open or closed badge and a tap-to-call button" width="1120" height="700" fetchpriority="high">
         </div>
-        <div class="phone"><img src="assets/work/waggles-stay-n-play-mobile.webp" alt="Waggles Stay 'n Play demo on a phone, with Contact Us and tap-to-call buttons above the fold" width="390" height="780"></div>
+        <div class="phone"><img src="assets/work/linen-and-lark-salon-mobile.webp" alt="Linen &amp; Lark sample salon site on a phone, with an open or closed badge and a Request an appointment button" width="390" height="780"></div>
         <div class="float-chip chip-a" aria-hidden="true"><span class="dot"><svg class="icon"><use href="#i-phone"/></svg></span><span><strong>Tap to call &amp; book</strong><span>Built into every site</span></span></div>
         <div class="float-chip chip-b" aria-hidden="true"><span class="dot"><svg class="icon"><use href="#i-eye"/></svg></span><span><strong>Free draft first</strong><span>Pay only if you love it</span></span></div>
       </div>
@@ -506,7 +510,7 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
       <div class="section-head">
         <p class="kicker">Live demos</p>
         <h2 id="work-title">Working examples, built the same way I'll build yours.</h2>
-        <p class="section-lede">Each demo is a full, working site for a kind of Memphis-area business, with its own logo, colors and layout. Open one on your phone and tap around. Your free draft gets the same care.</p>
+        <p class="section-lede">Clinics, contractors, salons, groomers and property managers: each demo is a full, working site with its own logo, colors and layout. Open one on your phone and tap around. Your free draft gets the same care.</p>
       </div>
       <ul class="work">
         <li class="work-item big"><a class="work-card" href="demos/summer-avenue-animal-hospital/">
@@ -515,29 +519,35 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
             <p class="outcome">Turns &ldquo;vet near me&rdquo; searches into phone calls with live hours and one-tap directions.</p>
             <ul class="built"><li><svg class="icon"><use href="#i-check"/></svg>Shows open or closed automatically, so staff stop answering &ldquo;are you open?&rdquo; calls</li><li><svg class="icon"><use href="#i-check"/></svg>Visit request form and a step-by-step first-visit guide</li></ul>
             <div class="work-foot"><span class="visit">Try the live demo<svg class="icon"><use href="#i-arrow"/></svg></span><span class="chips"><span class="chip chip-demo">Live demo</span><span class="chip">Tap to call</span></span></div></div></a></li>
-        <li class="work-item big"><a class="work-card" href="https://waggles-stay-n-play.com/" target="_blank" rel="noopener">
-          <div class="browser"><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>waggles-stay-n-play.com</span></div><img src="assets/work/waggles-stay-n-play-desktop.webp" alt="Waggles Stay 'n Play demo homepage with Contact Us and call buttons and a row of services: boarding, daycare, walks and rescue support" loading="lazy" width="1120" height="700"></div>
-          <div class="work-meta"><h3>Waggles Stay &rsquo;n Play</h3><p>Dog boarding &amp; daycare · Cordova</p>
-            <p class="outcome">Collects boarding and daycare requests without constant phone tag.</p>
-            <ul class="built"><li><svg class="icon"><use href="#i-check"/></svg>Prices, hours and FAQs answered before anyone has to call</li><li><svg class="icon"><use href="#i-check"/></svg>Runs on its own domain, the way your site will</li></ul>
-            <div class="work-foot"><span class="visit">Try it live<svg class="icon"><use href="#i-out"/></svg><span class="sr-only"> (opens in a new tab)</span></span><span class="chips"><span class="chip chip-demo">Live demo</span><span class="chip">Request form</span></span></div></div></a></li>
-        <li class="work-item"><a class="work-card" href="demos/broadmoor-property-management/">
-          <div class="browser"><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>bartlettwebsitedesign.online/demos/broadmoor-property-management/</span></div><img src="assets/work/demo-broadmoor-property-management.webp" alt="Broadmoor Property Management demo homepage with View Available Homes and Free Owner Consultation buttons and a call-our-office panel" loading="lazy" width="1120" height="700"></div>
-          <div class="work-meta"><h3>Broadmoor Property Management</h3><p>Property management · Memphis</p>
-            <p class="outcome">Sends renters to listings and owners to a consultation, so the phone isn't the front desk.</p>
-            <ul class="built"><li><svg class="icon"><use href="#i-check"/></svg>Four pages: searchable rentals, an owners page and a consultation form</li></ul>
-            <div class="work-foot"><span class="visit">Try the live demo<svg class="icon"><use href="#i-arrow"/></svg></span><span class="chips"><span class="chip chip-demo">Live demo</span></span></div></div></a></li>
+        <li class="work-item big"><a class="work-card" href="demos/jim-fields-plumbing/">
+          <div class="browser"><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>bartlettwebsitedesign.online/demos/jim-fields-plumbing/</span></div><img src="assets/work/demo-jim-fields-plumbing.webp" alt="Jim Fields Plumbing Heating &amp; A/C demo homepage with a large phone number, Call Now and Request Service buttons" loading="lazy" width="1120" height="700"></div>
+          <div class="work-meta"><h3>Jim Fields Plumbing Heating &amp; A/C</h3><p>Plumbing &amp; HVAC · Bartlett</p>
+            <p class="outcome">Gets the phone ringing for leaks, clogs and dead A/C, with the number up top on every page.</p>
+            <ul class="built"><li><svg class="icon"><use href="#i-check"/></svg>Five pages: services, about, contact and a service request form</li><li><svg class="icon"><use href="#i-check"/></svg>Hours and service area answered before anyone has to call</li></ul>
+            <div class="work-foot"><span class="visit">Try the live demo<svg class="icon"><use href="#i-arrow"/></svg></span><span class="chips"><span class="chip chip-demo">Live demo</span><span class="chip">Request form</span></span></div></div></a></li>
+        <li class="work-item"><a class="work-card" href="demos/linen-and-lark-salon/">
+          <div class="browser"><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>bartlettwebsitedesign.online/demos/linen-and-lark-salon/</span></div><img src="assets/work/demo-linen-and-lark-salon.webp" alt="Linen &amp; Lark sample salon homepage with an open or closed badge, Request an appointment button and a price callout" loading="lazy" width="1120" height="700"></div>
+          <div class="work-meta"><h3>Linen &amp; Lark Salon</h3><p>Hair salon · Sample business</p>
+            <p class="outcome">Shows every price and stylist up front, then books appointments without phone tag.</p>
+            <ul class="built"><li><svg class="icon"><use href="#i-check"/></svg>Live open or closed status and &ldquo;book with this stylist&rdquo; buttons</li></ul>
+            <div class="work-foot"><span class="visit">Try the live demo<svg class="icon"><use href="#i-arrow"/></svg></span><span class="chips"><span class="chip chip-concept">Sample</span></span></div></div></a></li>
         <li class="work-item"><a class="work-card" href="demos/lynns-dog-house/">
           <div class="browser"><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>bartlettwebsitedesign.online/demos/lynns-dog-house/</span></div><img src="assets/work/demo-lynns-dog-house.webp" alt="Lynn's Dog House demo homepage with a hand-drawn schnauzer, a large Call to book button and open days" loading="lazy" width="1120" height="700"></div>
           <div class="work-meta"><h3>Lynn&rsquo;s Dog House</h3><p>Dog grooming · Bartlett</p>
             <p class="outcome">Puts &ldquo;Call to book&rdquo; and open days right up top, where phone-first customers look.</p>
             <ul class="built"><li><svg class="icon"><use href="#i-check"/></svg>Simple appointment request for people who'd rather not call</li></ul>
             <div class="work-foot"><span class="visit">Try the live demo<svg class="icon"><use href="#i-arrow"/></svg></span><span class="chips"><span class="chip chip-demo">Live demo</span></span></div></div></a></li>
-        <li class="work-item"><a class="work-card" href="#contact" data-plan="Not sure yet">
+        <li class="work-item"><a class="work-card" href="demos/reedy-company/">
+          <div class="browser"><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>bartlettwebsitedesign.online/demos/reedy-company/</span></div><img src="assets/work/demo-reedy-company.webp" alt="Reedy &amp; Company demo homepage that splits visitors into property owners and renters" loading="lazy" width="1120" height="700"></div>
+          <div class="work-meta"><h3>Reedy &amp; Company</h3><p>Property management · Memphis</p>
+            <p class="outcome">Sends owners to a rent analysis and renters to rent pay, so the office phone isn&rsquo;t the help desk.</p>
+            <ul class="built"><li><svg class="icon"><use href="#i-check"/></svg>Separate owner and tenant paths, pricing and FAQs</li></ul>
+            <div class="work-foot"><span class="visit">Try the live demo<svg class="icon"><use href="#i-arrow"/></svg></span><span class="chips"><span class="chip chip-demo">Live demo</span></span></div></div></a></li>
+        <li class="work-item wide"><a class="work-card" href="#contact" data-plan="Not sure yet">
           <div class="yours"><span class="chip">Your business here</span><h3>Want to see yours next?</h3><p>Tell me about your business and I'll build a free working draft in 2&ndash;3 days. Groomers, clinics, salons, contractors, shops and restaurants all welcome.</p><span class="visit">Get my free draft<svg class="icon"><use href="#i-arrow"/></svg></span></div></a></li>
       </ul>
-      <p class="work-more"><a class="btn btn-primary" href="demos/">See all 8 live demos<svg class="icon"><use href="#i-arrow"/></svg></a></p>
-      <p class="work-note">More on the demos page: a sample BBQ restaurant, two mobile groomers and an interactive 3D scene. These are demos I built to show the approach, not the businesses' official websites.</p>
+      <p class="work-more"><a class="btn btn-primary" href="demos/">See all 11 live demos<svg class="icon"><use href="#i-arrow"/></svg></a></p>
+      <p class="work-note">More on the demos page: a sample BBQ restaurant, mobile groomers, dog boarding and an interactive 3D scene. Demos of real businesses aren&rsquo;t their official websites, and Linen &amp; Lark is a made-up salon.</p>
     </div>
   </section>
 
@@ -650,7 +660,7 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
         <div class="checkable">
           <h3>Check it yourself</h3>
           <ul>
-            <li><span class="ic"><svg class="icon"><use href="#i-out"/></svg></span><span><b>Try a live demo</b>Open <a href="demos/summer-avenue-animal-hospital/">Summer Avenue</a> or <a href="https://waggles-stay-n-play.com/" target="_blank" rel="noopener">Waggles</a> on your phone and see how fast it loads.</span></li>
+            <li><span class="ic"><svg class="icon"><use href="#i-out"/></svg></span><span><b>Try a live demo</b>Open <a href="demos/summer-avenue-animal-hospital/">Summer Avenue</a> or <a href="demos/jim-fields-plumbing/">Jim Fields Plumbing</a> on your phone and see how fast it loads.</span></li>
             <li><span class="ic"><svg class="icon"><use href="#i-home"/></svg></span><span><b>Local since day one</b>Born in Memphis, living in Bartlett for over 15 years.</span></li>
             <li><span class="ic"><svg class="icon"><use href="#i-code"/></svg></span><span><b>Hand-built, not a template</b>Every site is coded from scratch for that business.</span></li>
             <li><span class="ic"><svg class="icon"><use href="#i-key"/></svg></span><span><b>Everything stays in your name</b>Your domain, your files, your accounts. If we ever part ways, you keep it all.</span></li>
