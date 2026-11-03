@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Website Demos for Memphis Businesses | Bartlett Website Design</title>
-<meta name="description" content="Click through live website demos built by Bartlett Website Design for Memphis-area vets, contractors, salons, groomers, property managers and dental offices.">
+<meta name="description" content="Click through live website demos built by Bartlett Website Design for Memphis-area vets, contractors, salons, auto shops, remodelers, roofers, groomers, property managers and dental offices.">
 <meta name="theme-color" content="#0a1a3a">
 <link rel="canonical" href="https://bartlettwebsitedesign.online/demos/">
 <meta property="og:type" content="website">
@@ -208,6 +208,36 @@ img{max-width:100%;height:auto;display:block}
         <div class="meta"><h2>Castle Above Clouds</h2><p class="type">Interactive 3D showcase</p><p class="what">A castle on a floating island that you can drag to look around, with dawn, noon and dusk skies. It runs right in the browser.</p>
           <div class="foot"><div class="chips"><span class="chip chip-concept">Showcase</span><span class="chip">3D + animation</span></div><span class="open">Open demo<svg class="icon"><use href="#i-arrow"/></svg></span></div></div>
       </a></li>
+      <li><a class="card" href="effective-automotive/">
+        <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>bartlettwebsitedesign.online/demos/effective-automotive/</span></div>
+        <img src="../assets/work/demo-effective-automotive.webp" alt="Effective Automotive Repair demo homepage with a symptom and service finder and a Book Appointment button" width="1120" height="700" loading="lazy">
+        <div class="meta"><h2>Effective Automotive Repair</h2><p class="type">Auto repair · Memphis</p><p class="what">Turns &ldquo;what&rsquo;s that noise?&rdquo; into a booked appointment, with a symptom finder, price ranges and a digital inspection preview.</p>
+          <div class="foot"><div class="chips"><span class="chip chip-demo">Live demo</span><span class="chip">Price calculator</span></div><span class="open">Open demo<svg class="icon"><use href="#i-arrow"/></svg></span></div></div>
+      </a></li>
+      <li><a class="card" href="prestige-baths/">
+        <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>bartlettwebsitedesign.online/demos/prestige-baths/</span></div>
+        <img src="../assets/work/demo-prestige-baths.webp" alt="Prestige Baths demo homepage with Get a Free Estimate, call and Text us a photo buttons" width="1120" height="700" loading="lazy">
+        <div class="meta"><h2>Prestige Baths</h2><p class="type">Bath &amp; kitchen remodeling · Cordova</p><p class="what">Lets homeowners text a photo or request an itemized estimate instead of calling around.</p>
+          <div class="foot"><div class="chips"><span class="chip chip-demo">Live demo</span><span class="chip">Text a photo</span></div><span class="open">Open demo<svg class="icon"><use href="#i-arrow"/></svg></span></div></div>
+      </a></li>
+      <li><a class="card" href="big-m-roofing/">
+        <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>bartlettwebsitedesign.online/demos/big-m-roofing/</span></div>
+        <img src="../assets/work/demo-big-m-roofing.webp" alt="Big M Roofing demo homepage with a free roof inspection form beside a bold headline" width="1120" height="700" loading="lazy">
+        <div class="meta"><h2>Big M Roofing</h2><p class="type">Roofing · Memphis</p><p class="what">Books free roof inspections fast after a storm, with the phone number and quote form right up front.</p>
+          <div class="foot"><div class="chips"><span class="chip chip-demo">Live demo</span><span class="chip">Inspection form</span></div><span class="open">Open demo<svg class="icon"><use href="#i-arrow"/></svg></span></div></div>
+      </a></li>
+      <li><a class="card" href="morris-general-construction/">
+        <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>bartlettwebsitedesign.online/demos/morris-general-construction/</span></div>
+        <img src="../assets/work/demo-morris-general-construction.webp" alt="Morris General Construction demo homepage on a blueprint-grid background with a project estimate form" width="1120" height="700" loading="lazy">
+        <div class="meta"><h2>Morris General Construction</h2><p class="type">General contractor · Memphis</p><p class="what">Spells out the process and itemized quotes, so homeowners request an estimate with confidence.</p>
+          <div class="foot"><div class="chips"><span class="chip chip-demo">Live demo</span><span class="chip">Estimate form</span></div><span class="open">Open demo<svg class="icon"><use href="#i-arrow"/></svg></span></div></div>
+      </a></li>
+      <li><a class="card" href="dorsey-contracting/">
+        <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>bartlettwebsitedesign.online/demos/dorsey-contracting/</span></div>
+        <img src="../assets/work/demo-dorsey-contracting.webp" alt="Dorsey Contracting demo homepage with a project estimate form and Text us a photo button" width="1120" height="700" loading="lazy">
+        <div class="meta"><h2>Dorsey Contracting</h2><p class="type">Remodeling · Germantown</p><p class="what">Answers &ldquo;what will it cost and how long?&rdquo; up front, then takes estimate requests with photos.</p>
+          <div class="foot"><div class="chips"><span class="chip chip-demo">Live demo</span><span class="chip">Text a photo</span></div><span class="open">Open demo<svg class="icon"><use href="#i-arrow"/></svg></span></div></div>
+      </a></li>
     </ul>
 
     <section class="cta" aria-labelledby="cta-title">
@@ -223,6 +253,16 @@ img{max-width:100%;height:auto;display:block}
   <a class="btn btn-line" href="tel:+19013210023"><svg class="icon"><use href="#i-phone"/></svg>Call</a>
   <a class="btn btn-primary" href="../#contact">Get my free draft</a>
 </nav>
+<script>
+// Fresh order on every visit (Fisher-Yates); without JS the list keeps its HTML order
+(function () {
+  var list = document.querySelector(".demos");
+  if (!list) return;
+  var items = Array.prototype.slice.call(list.children);
+  for (var i = items.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = items[i]; items[i] = items[j]; items[j] = t; }
+  items.forEach(function (li) { list.appendChild(li); });
+})();
+</script>
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"095c357022034ae5ae42a67299fbf029","r":1,"spa":2}' crossorigin="anonymous"></script>
 </body>
 </html>
