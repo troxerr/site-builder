@@ -3,7 +3,8 @@
   "name": "site-builder",
   "compatibility_date": "2026-10-01",
   "assets": {
-    "directory": "."
+    "directory": ".",
+    "not_found_handling": "404-page"
   },
   "previews": {}
 }

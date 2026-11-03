@@ -1,0 +1,13 @@
+# Cloudflare Workers static assets: response headers by path
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# File names aren't content-hashed, so cache for a week rather than forever
+/assets/*
+  Cache-Control: public, max-age=604800
+
+/demos/*/assets/*
+  Cache-Control: public, max-age=604800
