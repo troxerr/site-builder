@@ -484,7 +484,7 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
           <li><svg class="icon"><use href="#i-check"/></svg>Domain in your name</li>
           <li><svg class="icon"><use href="#i-check"/></svg>No long-term contract</li>
         </ul>
-        <p class="service-area"><svg class="icon"><use href="#i-pin"/></svg><span>Serving <a href="bartlett/">Bartlett</a>, <a href="memphis/">Memphis</a>, <a href="cordova/">Cordova</a>, <a href="germantown/">Germantown</a>, Arlington &amp; Lakeland</span></p>
+        <p class="service-area"><svg class="icon"><use href="#i-pin"/></svg><span>Serving <a href="bartlett/">Bartlett</a>, <a href="memphis/">Memphis</a>, <a href="cordova/">Cordova</a>, <a href="germantown/">Germantown</a>, <a href="arlington/">Arlington</a> &amp; <a href="lakeland/">Lakeland</a></span></p>
       </div>
       <div class="mockup">
         <div class="browser">
@@ -924,6 +924,8 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
           <li><a href="memphis/">Memphis</a></li>
           <li><a href="germantown/">Germantown</a></li>
           <li><a href="cordova/">Cordova</a></li>
+          <li><a href="arlington/">Arlington</a></li>
+          <li><a href="lakeland/">Lakeland</a></li>
         </ul>
       </div>
     </div>
@@ -995,6 +997,8 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
         status.className = "form-note full ok";
         status.textContent = "Got it, thanks! I'll reply within one business day with a couple of quick questions, then send you a link to your working draft. Nothing to pay unless you love it.";
         btn.textContent = "Sent";
+        // A /thanks/ page view is how Cloudflare Web Analytics counts a lead; the message above stays if this navigation fails
+        window.location.assign("thanks/");
       })
       .catch(function () {
         btn.disabled = false; btn.textContent = "Get my free draft";
