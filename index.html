@@ -403,6 +403,7 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
   .facts,.about-actions{justify-content:center}
   .about-actions .btn{flex:1 1 100%}
   .agent-actions .btn{flex:1 1 100%}
+  .browser img.agent-img{aspect-ratio:4/5}
   .footer-grid{grid-template-columns:1fr}
   .direct,.checkable{padding:26px 22px}
   .promise{padding:14px}
@@ -648,7 +649,7 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
         <p class="agent-fit">Built for dental offices, vet clinics, groomers and salons: any business that books appointments by phone. Run a dental office? <a href="dental/">See how it works for practices</a>.</p>
       </div>
       <a class="work-card" href="demos/missed-call-booking-agent/">
-        <div class="browser"><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Live demo · Missed-call booking agent</span></div><img src="assets/work/demo-missed-call-booking-agent-sm.webp" srcset="assets/work/demo-missed-call-booking-agent-sm.webp 560w, assets/work/demo-missed-call-booking-agent.webp 1120w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1060px) 50vw, 560px" alt="Booking agent demo: a patient's text conversation on a phone, a seven-step checklist of what happens behind the scenes, and a calendar with Thursday 8 AM booked" loading="lazy" width="1120" height="700"></div>
+        <div class="browser"><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Live demo · Missed-call booking agent</span></div><picture><source media="(max-width:640px)" srcset="assets/work/demo-missed-call-booking-agent-mobile.webp" width="720" height="900"><img class="agent-img" src="assets/work/demo-missed-call-booking-agent-sm.webp" srcset="assets/work/demo-missed-call-booking-agent-sm.webp 560w, assets/work/demo-missed-call-booking-agent.webp 1120w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1060px) 50vw, 560px" alt="Booking agent demo: a patient's text conversation on a phone, a seven-step checklist of what happens behind the scenes, and a calendar with Thursday 8 AM booked" loading="lazy" width="1120" height="700"></picture></div>
       </a>
     </div>
   </section>
@@ -999,7 +1000,8 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
     e.preventDefault();
     var f = form.elements, btn = form.querySelector("button[type=submit]");
     var data = new FormData(form);
-    data.append("subject", "Free draft request: " + f.business.value + " (" + f.plan.value + ")");
+    var agent = f.plan.value.indexOf("Missed-call booking agent") === 0;
+    data.append("subject", (agent ? "Booking agent inquiry: " : "Free draft request: ") + f.business.value + " (" + f.plan.value + ")");
     btn.disabled = true; btn.textContent = "Sending...";
     fetch(form.action, { method: "POST", body: data, headers: { Accept: "application/json" } })
       .then(function (r) { return r.json(); })
@@ -1009,8 +1011,8 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
         status.className = "form-note full ok";
         status.textContent = "Got it, thanks! I'll reply within one business day with a couple of quick questions, then send you a link to your working draft. Nothing to pay unless you love it.";
         btn.textContent = "Sent";
-        // A /thanks/ page view is how Cloudflare Web Analytics counts a lead; the message above stays if this navigation fails
-        window.location.assign("thanks/");
+        // A /thanks/ page view is how Cloudflare Web Analytics counts a lead (booking-agent leads under /thanks/booking-agent/); the message above stays if this navigation fails
+        window.location.assign(agent ? "thanks/booking-agent/" : "thanks/");
       })
       .catch(function () {
         btn.disabled = false; btn.textContent = "Get my free draft";
