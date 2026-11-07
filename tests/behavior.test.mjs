@@ -1,0 +1,188 @@
+// What visitors can do: send the form, open the menu, drag the slider, browse the demos.
+// The form provider (Web3Forms) is replaced by a stand-in that records what would have been sent.
+import { test, before, after } from "node:test";
+import assert from "node:assert/strict";
+import { startEnv } from "./helpers.mjs";
+
+let env;
+before(async () => { env = await startEnv(); });
+after(async () => { await env.close(); });
+
+/** A page whose Web3Forms calls are recorded in `sent` and answered with `reply`. */
+async function pageWithForm({ reply = { success: true }, width = 1280, rewriteHome } = {}) {
+  const sent = [];
+  const page = await env.newPage({
+    width,
+    route: async (context) => {
+      await context.route("https://api.web3forms.com/**", (route) => {
+        sent.push(Object.fromEntries([...route.request().postData().matchAll(/name="([^"]+)"\r\n\r\n([^\r]*)/g)].map((m) => [m[1], m[2]])));
+        return route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(reply) });
+      });
+      if (rewriteHome) await context.route(env.site.url + "/", async (route) => { const res = await route.fetch(); await route.fulfill({ response: res, body: rewriteHome(await res.text()) }); });
+    },
+  });
+  return { page, sent };
+}
+async function fillAndSend(page, { name = "Test Person", business = "Test Shop", reach = "9015551234" } = {}) {
+  await page.fill("#contact-form [name=name]", name);
+  await page.fill("#contact-form [name=business]", business);
+  await page.fill("#contact-form [name=reach]", reach);
+  await page.click("#contact-form button[type=submit]");
+}
+
+test("homepage form: a website plan sends the request and lands on /thanks/", async () => {
+  const { page, sent } = await pageWithForm();
+  await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
+  await page.locator('a[data-plan^="Starter"]').click();
+  await fillAndSend(page);
+  await page.waitForURL(/\/thanks\/$/);
+  assert.equal(sent.length, 1);
+  assert.match(sent[0].subject, /^Free draft request: Test Shop \(Starter/);
+  assert.equal(sent[0].business, "Test Shop");
+  assert.equal(sent[0].from_name, "bartlettwebsitedesign.online");
+  assert.ok(sent[0].access_key, "has the form key");
+  await page.context().close();
+});
+
+test("homepage form: the booking agent plan is counted separately", async () => {
+  const { page, sent } = await pageWithForm();
+  await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
+  await page.selectOption("#plan", { index: 6 });
+  await fillAndSend(page);
+  await page.waitForURL(/\/thanks\/booking-agent\/$/);
+  assert.match(sent[0].subject, /^Booking agent inquiry: Test Shop/);
+  await page.context().close();
+});
+
+test("homepage form: the text-back plan is labelled in the email subject", async () => {
+  const { page, sent } = await pageWithForm();
+  await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
+  await page.locator('a[data-plan^="Missed-call text-back"]').first().click();
+  await fillAndSend(page);
+  await page.waitForURL(/\/thanks\/$/);
+  assert.match(sent[0].subject, /^Text-back inquiry: Test Shop/);
+  await page.context().close();
+});
+
+test("homepage form: a failed send keeps the visitor on the page with a way to reach Austin", async () => {
+  const { page } = await pageWithForm({ reply: { success: false, message: "nope" } });
+  await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
+  await fillAndSend(page);
+  await page.waitForFunction(() => /Something went wrong/.test(document.getElementById("form-status").textContent));
+  assert.ok(await page.locator("#form-status a[href^='tel:']").count(), "offers the phone number");
+  assert.ok(await page.locator("#form-status a[href^='mailto:']").count(), "offers the email");
+  assert.equal(await page.locator("#contact-form button[type=submit]").isEnabled(), true);
+  assert.equal(new URL(page.url()).pathname, "/");
+  await page.context().close();
+});
+
+test("homepage form: required fields stop an empty send", async () => {
+  const { page, sent } = await pageWithForm();
+  await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
+  await page.click("#contact-form button[type=submit]");
+  assert.equal(sent.length, 0);
+  assert.equal(await page.evaluate(() => document.querySelector("#contact-form").checkValidity()), false);
+  await page.context().close();
+});
+
+test("dental form and calculator", async () => {
+  const { page, sent } = await pageWithForm();
+  await page.goto(env.site.url + "/dental/", { waitUntil: "networkidle" });
+  await page.fill("#c-calls", "20");
+  assert.equal(await page.textContent("#o-callers"), "26");
+  assert.equal(await page.textContent("#o-value"), "$5,200");
+  await page.fill("#c-value", "0");
+  assert.match(await page.textContent("#o-even"), /Enter what a booked visit is worth/);
+  await fillAndSend(page, { business: "Test Dental" });
+  await page.waitForURL(/\/thanks\/booking-agent\/$/);
+  assert.match(sent[0].subject, /^Booking agent inquiry: Test Dental/);
+  await page.context().close();
+});
+
+test("phone menu opens, closes on a link tap, and reports its state", async () => {
+  const { page } = await pageWithForm({ width: 375 });
+  for (const path of ["/", "/dental/", "/bartlett/", "/demos/"]) {
+    await page.goto(env.site.url + path, { waitUntil: "networkidle" });
+    const toggle = page.locator("#menu-toggle");
+    assert.equal(await toggle.getAttribute("aria-expanded"), "false");
+    await toggle.click();
+    assert.equal(await toggle.getAttribute("aria-expanded"), "true");
+    assert.ok(await page.locator("#nav a").first().isVisible(), `${path}: menu links visible`);
+    await page.locator("#nav a").first().click();
+    assert.equal(await toggle.getAttribute("aria-expanded"), "false", `${path}: closes after a tap`);
+  }
+  await page.context().close();
+});
+
+test("before/after slider: keyboard, buttons, drag and trade tabs", async () => {
+  const { page } = await pageWithForm();
+  await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
+  const now = async () => Number(await page.getAttribute("#slider-handle", "aria-valuenow"));
+  assert.equal(await now(), 50);
+  await page.focus("#slider-handle");
+  await page.keyboard.press("ArrowRight"); await page.keyboard.press("ArrowRight");
+  assert.equal(await now(), 60);
+  await page.keyboard.press("Home"); assert.equal(await now(), 4);
+  await page.click('[data-slide="92"]'); assert.equal(await now(), 92);
+  await page.click('[data-slide="8"]'); assert.equal(await now(), 8);
+  const box = await page.locator("#comparison-stage").boundingBox();
+  await page.mouse.move(box.x + box.width * 0.5, box.y + 200); await page.mouse.down();
+  await page.mouse.move(box.x + box.width * 0.8, box.y + 200, { steps: 5 }); await page.mouse.up();
+  assert.equal(await now(), 80);
+  await page.click("#tab-auto");
+  assert.equal(await page.isVisible("#after-auto"), true);
+  assert.equal(await page.isVisible("#after-roofing"), false);
+  assert.equal(await page.getAttribute("#tab-auto", "aria-selected"), "true");
+  assert.match(await page.textContent("#before-title"), /Auto/);
+  await page.context().close();
+});
+
+test("homepage shows five random demos from the pool", async () => {
+  const { page } = await pageWithForm();
+  const orders = new Set();
+  for (let i = 0; i < 6; i++) {
+    await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
+    const shown = await page.$$eval(".work > .work-item:not([hidden]):not(.wide) h3", (hs) => hs.map((h) => h.textContent));
+    assert.equal(shown.length, 5);
+    assert.equal(new Set(shown).size, 5, "no repeats");
+    orders.add(shown.join("|"));
+  }
+  assert.ok(orders.size > 1, "order changes between visits");
+  await page.context().close();
+});
+
+test("demos page lists every demo and shuffles", async () => {
+  const { page } = await pageWithForm();
+  const orders = new Set();
+  for (let i = 0; i < 5; i++) {
+    await page.goto(env.site.url + "/demos/", { waitUntil: "networkidle" });
+    const names = await page.$$eval(".demo-list > li h2", (hs) => hs.map((h) => h.textContent));
+    assert.equal(names.length, 23);
+    assert.equal(new Set(names).size, 23);
+    orders.add(names.join("|"));
+  }
+  assert.ok(orders.size > 1);
+  await page.context().close();
+});
+
+test("founding-client deal: spots left update everywhere, and the deal ends cleanly at zero", async () => {
+  const withSpots = (n) => (html) => html.replace('data-spots="3"', `data-spots="${n}"`);
+  for (const [spots, label] of [[3, "3 of 3 spots left"], [1, "1 of 3 spots left"]]) {
+    const { page } = await pageWithForm({ rewriteHome: withSpots(spots) });
+    await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
+    const labels = await page.$$eval(".spots-left", (els) => els.filter((e) => e.offsetParent).map((e) => e.textContent));
+    assert.deepEqual(labels, [label, label]);
+    assert.ok(await page.locator("#founding").isVisible());
+    await page.context().close();
+  }
+  const { page } = await pageWithForm({ rewriteHome: withSpots(0) });
+  await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
+  assert.equal(await page.locator("#founding").isVisible(), false, "banner hidden");
+  assert.equal(await page.locator("#founding-faq").count(), 0, "FAQ entry removed");
+  const options = await page.$$eval("#plan option", (os) => os.map((o) => o.textContent));
+  assert.ok(options.every((o) => !/founding/i.test(o)), "plan menu back to regular prices");
+  assert.ok(options.includes("Starter ($350)") && options.includes("Business ($950)"));
+  await page.locator('a[data-plan^="Starter"]').click();
+  assert.equal(await page.inputValue("#plan"), "Starter ($350)");
+  await page.context().close();
+});

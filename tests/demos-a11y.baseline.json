@@ -1,0 +1,157 @@
+{
+  "/demos/aa-bail-bonds/": {
+    "color-contrast (serious)": 20,
+    "label-content-name-mismatch (serious)": 1,
+    "region (moderate)": 3
+  },
+  "/demos/ace-bonding/": {
+    "color-contrast (serious)": 37,
+    "region (moderate)": 3
+  },
+  "/demos/big-m-roofing/": {
+    "color-contrast (serious)": 1,
+    "label-content-name-mismatch (serious)": 1,
+    "region (moderate)": 4
+  },
+  "/demos/broadmoor-property-management/": {
+    "label-content-name-mismatch (serious)": 2,
+    "region (moderate)": 1
+  },
+  "/demos/broadmoor-property-management/about.html": {
+    "label-content-name-mismatch (serious)": 2,
+    "region (moderate)": 1
+  },
+  "/demos/broadmoor-property-management/homes.html": {
+    "heading-order (moderate)": 1,
+    "label-content-name-mismatch (serious)": 8,
+    "region (moderate)": 1
+  },
+  "/demos/broadmoor-property-management/owners.html": {
+    "aria-prohibited-attr (serious)": 3,
+    "label-content-name-mismatch (serious)": 2,
+    "region (moderate)": 1
+  },
+  "/demos/castle-above-clouds/": {
+    "region (moderate)": 4
+  },
+  "/demos/cedar-and-hickory-bbq/": {
+    "color-contrast (serious)": 9,
+    "label-content-name-mismatch (serious)": 1,
+    "region (moderate)": 1
+  },
+  "/demos/dorsey-contracting/": {
+    "color-contrast (serious)": 1,
+    "label-content-name-mismatch (serious)": 1,
+    "region (moderate)": 4
+  },
+  "/demos/effective-automotive/": {
+    "color-contrast (serious)": 65,
+    "label-content-name-mismatch (serious)": 3,
+    "link-in-text-block (serious)": 1,
+    "region (moderate)": 2
+  },
+  "/demos/elite-roofing-solutions/": {
+    "color-contrast (serious)": 5,
+    "region (moderate)": 2
+  },
+  "/demos/elite-roofing-solutions/get-an-estimate/": {
+    "color-contrast (serious)": 4,
+    "link-in-text-block (serious)": 2,
+    "region (moderate)": 2
+  },
+  "/demos/elite-roofing-solutions/instant-roof-quote/": {
+    "color-contrast (serious)": 5,
+    "link-in-text-block (serious)": 1,
+    "region (moderate)": 2
+  },
+  "/demos/elite-roofing-solutions/roof-repair/": {
+    "color-contrast (serious)": 5,
+    "link-in-text-block (serious)": 1,
+    "region (moderate)": 2
+  },
+  "/demos/elite-roofing-solutions/storm-damage/": {
+    "color-contrast (serious)": 4,
+    "link-in-text-block (serious)": 1,
+    "region (moderate)": 2
+  },
+  "/demos/jim-fields-plumbing/": {
+    "region (moderate)": 2
+  },
+  "/demos/jim-fields-plumbing/about.html": {
+    "region (moderate)": 2
+  },
+  "/demos/jim-fields-plumbing/contact.html": {
+    "region (moderate)": 2
+  },
+  "/demos/jim-fields-plumbing/services.html": {
+    "region (moderate)": 2
+  },
+  "/demos/jim-fields-plumbing/thank-you.html": {
+    "region (moderate)": 2
+  },
+  "/demos/linen-and-lark-salon/": {
+    "color-contrast (serious)": 15,
+    "label-content-name-mismatch (serious)": 1,
+    "region (moderate)": 1
+  },
+  "/demos/lynns-dog-house/": {
+    "color-contrast (serious)": 7,
+    "region (moderate)": 3
+  },
+  "/demos/missed-call-booking-agent/": {
+    "aria-prohibited-attr (serious)": 2,
+    "color-contrast (serious)": 1,
+    "heading-order (moderate)": 1,
+    "label-content-name-mismatch (serious)": 1,
+    "region (moderate)": 1
+  },
+  "/demos/morris-general-construction/": {
+    "color-contrast (serious)": 6,
+    "label-content-name-mismatch (serious)": 1,
+    "region (moderate)": 4
+  },
+  "/demos/paws-n-motion/": {
+    "empty-table-header (minor)": 1,
+    "heading-order (moderate)": 2,
+    "label-content-name-mismatch (serious)": 1,
+    "region (moderate)": 3
+  },
+  "/demos/prestige-baths/": {
+    "color-contrast (serious)": 7,
+    "label-content-name-mismatch (serious)": 1,
+    "region (moderate)": 4
+  },
+  "/demos/reedy-company/": {
+    "aria-input-field-name (serious)": 1,
+    "color-contrast (serious)": 46,
+    "link-in-text-block (serious)": 1,
+    "region (moderate)": 1
+  },
+  "/demos/storm-front-roofing/": {
+    "color-contrast (serious)": 17,
+    "label-content-name-mismatch (serious)": 1,
+    "region (moderate)": 2,
+    "scrollable-region-focusable (serious)": 1
+  },
+  "/demos/summer-avenue-animal-hospital/": {
+    "aria-prohibited-attr (serious)": 1,
+    "color-contrast (serious)": 1,
+    "heading-order (moderate)": 1,
+    "label-content-name-mismatch (serious)": 2,
+    "region (moderate)": 2
+  },
+  "/demos/summit-roofing/": {
+    "color-contrast (serious)": 40,
+    "label-content-name-mismatch (serious)": 2,
+    "region (moderate)": 2
+  },
+  "/demos/the-groom-den/": {
+    "color-contrast (serious)": 7,
+    "region (moderate)": 2
+  },
+  "/demos/top-quality-roofing/": {
+    "color-contrast (serious)": 64,
+    "label-content-name-mismatch (serious)": 1,
+    "region (moderate)": 2
+  }
+}

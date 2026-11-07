@@ -12,6 +12,25 @@ The full static site for Bartlett Website Design: the homepage (`index.html`: da
 - The city pages link back to the homepage's `#showcase`, `#work`, `#booking-agent`, `#pricing`, `#about`, `#faq` and `#contact` sections, so keep those ids.
 - Cloudflare Web Analytics (cookieless) is the one `static.cloudflareinsights.com/beacon.min.js` tag before `</body>`, on the homepage, city pages, dental page, demos page and 404.
 
+## Development
+
+Needs Node 22 (`.nvmrc`) and Python 3. Setup once: `npm ci`, then `npx playwright install chromium`.
+
+| Command | What it does |
+|---|---|
+| `npm run build` | Regenerates the generated pages and the compiled CSS |
+| `npm run build:check` | Rebuilds, then fails if any committed file changed (CI runs this) |
+| `npm run serve` | Serves the site locally at http://127.0.0.1:8080 with the same headers and 404 page as the host |
+| `npm run lint` | Validates the HTML |
+| `npm test` | Links, SEO tags, accessibility, forms, headers, deploy contents and the URL contract |
+| `npm run test:live` | Checks the deployed site (all contract URLs, headers, console errors) |
+| `npm run snapshot -- before` / `after`, then `npm run snapshot:compare` | Pixel-compares every main page at three widths before and after a refactor |
+| `npm run baseline` | Records the demos' current accessibility violations; the test then only lets them go down |
+
+Sandbox note: in a sandbox that needs a proxy, set `CHROMIUM_PATH` to a Chromium binary, and `NODE_USE_ENV_PROXY=1` for `npm run test:live`.
+
+`tests/url-contract.json` lists every URL that has been shared (texts, posts, the sitemap). They must keep working. Add to it, and remove from it only on purpose.
+
 ## Founding-client deal
 
 The first 3 website clients get $100 off (Starter $250, Business $850). In return, if they're happy, they're asked for a Google review, a short quote and permission to show their site.

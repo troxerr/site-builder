@@ -5,6 +5,10 @@ Run from the repo root after changing the homepage header or footer, or the data
 (needs Node; it fetches tailwindcss@3.4.17 with npx)"""
 import json, os, re, subprocess, tempfile
 
+# Use the Tailwind pinned in package-lock.json when installed (reproducible output); otherwise fetch it with npx
+_local = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "node_modules", ".bin", "tailwindcss")
+TAILWIND = [_local] if os.path.exists(_local) else ["npx", "--yes", "tailwindcss@3.4.17"]
+
 SITE = "https://bartlettwebsitedesign.online"
 # Founding-client deal: $100 off a website for the first 3 clients. Set to the spots left (0 ends the deal);
 # also change data-spots on #founding in index.html.
@@ -454,7 +458,7 @@ with tempfile.TemporaryDirectory() as d:
     for i, html in enumerate(pages.values()):
         open(os.path.join(d, f"p{i}.html"), "w", encoding="utf8").write(html)
     out = os.path.join(d, "out.css")
-    subprocess.run(["npx", "--yes", "tailwindcss@3.4.17", "-c", os.path.join(here, "tailwind.config.js"), "-i", os.path.join(here, "in.css"),
+    subprocess.run([*TAILWIND, "-c", os.path.join(here, "tailwind.config.js"), "-i", os.path.join(here, "in.css"),
                     "-o", out, "--minify"], check=True, capture_output=True, env={**os.environ, "HOME_HTML": os.path.join(d, "p*.html")})
     css = open(out, encoding="utf8").read().strip()
 for path, html in pages.items():
