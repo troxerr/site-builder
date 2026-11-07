@@ -361,6 +361,7 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
   .facts,.about-actions{justify-content:center}
   .about-actions .btn{flex:1 1 100%}
   .agent-actions .btn{flex:1 1 100%}
+  .browser img.agent-img{aspect-ratio:4/5}
   .footer-grid{grid-template-columns:1fr}
   .direct,.checkable{padding:26px 22px}
   .promise{padding:14px}
