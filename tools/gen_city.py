@@ -6,6 +6,22 @@ Run from the repo root after changing the homepage header or footer, or the data
 import json, os, re, subprocess, tempfile
 
 SITE = "https://bartlettwebsitedesign.online"
+# Founding-client deal: $100 off a website for the first 3 clients. Set to the spots left (0 ends the deal);
+# also change data-spots on #founding in index.html.
+FOUNDING_SPOTS = 3
+
+def money(reg):
+    """A website price, with the founding price while the deal runs."""
+    if FOUNDING_SPOTS <= 0:
+        return f"${reg}"
+    return f'<s class="mr-2 text-xl font-bold text-slate-500">${reg}</s>${reg - 100}'
+
+def founding_note(extra_cls=""):
+    if FOUNDING_SPOTS <= 0:
+        return ""
+    return (f'<p class="{extra_cls} rounded-xl border border-amber-400/40 bg-amber-400/10 px-4 py-3 text-sm text-amber-100">'
+            f'<b class="text-white">Founding-client deal:</b> $100 off any website for my first 3 clients &middot; '
+            f'<b class="text-white">{FOUNDING_SPOTS} of 3 spots left</b> &middot; <a class="link font-semibold" href="/#founding">See the terms</a></p>')
 home = open("index.html", encoding="utf8").read()
 
 def grab(pattern):
@@ -212,6 +228,8 @@ def promise():
 
 def city_page(slug, c):
     url = f"{SITE}/{slug}/"
+    if FOUNDING_SPOTS > 0:  # mention the founding deal wherever a city FAQ quotes website prices
+        c = dict(c, faqs=[(q, a.replace("both one-time.", "both one-time. My first 3 clients get $100 off either one.")) for q, a in c["faqs"]])
     ld = [
         {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE}/"},
@@ -261,9 +279,10 @@ def city_page(slug, c):
     <div class="mx-auto max-w-6xl">
       <p class="kicker">Pricing</p>
       <h2 id="price-title" class="h2">Clear prices. Paid only after you approve your draft.</h2>
+      {founding_note("mt-6 max-w-3xl")}
       <ul class="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
-        {price("Starter", "$350", "one time", "A polished one-page site with services, hours, map and tap to call.")}
-        {price("Business", "$950", "one time", "Custom logo, online booking or price list, Google Business Profile setup.")}
+        {price("Starter", money(350), "one time", "A polished one-page site with services, hours, map and tap to call.")}
+        {price("Business", money(950), "one time", "Custom logo, online booking or price list, Google Business Profile setup.")}
         {price("Care plan", "$45", "/ month", "Optional. Text me changes any time. Cancel any time.")}
       </ul>
       <p class="mt-6 rounded-2xl border border-blue-900/50 bg-blue-950/30 p-5 text-sm text-slate-300"><b class="text-white">Contractors and shops:</b> missed-call text-back is $297/month, or get a website with text-back built in for $497/month + $497 setup. Month to month, no long-term contract.</p>
@@ -418,7 +437,7 @@ pages["demos/index.html"] = demos_head + f"""
       <ul class="demo-list grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 {"".join(demo_card(r) for r in DEMO_PAGE)}      </ul>
       <div class="mt-14 flex flex-col gap-6 rounded-3xl border border-blue-900/50 bg-gradient-to-r from-blue-950/50 via-slate-900 to-slate-900 p-7 sm:p-10 lg:flex-row lg:items-center lg:justify-between">
-        <div><h2 class="font-display text-2xl font-extrabold sm:text-3xl">Want to see yours next?</h2><p class="mt-2 text-slate-300">Tell me about your business and I'll build a free working draft. You only pay if you love it.</p></div>
+        <div><h2 class="font-display text-2xl font-extrabold sm:text-3xl">Want to see yours next?</h2><p class="mt-2 text-slate-300">Tell me about your business and I'll build a free working draft. You only pay if you love it.</p>{founding_note("mt-4")}</div>
         <div class="flex shrink-0 flex-col gap-3 sm:flex-row"><a class="btn btn-primary" href="/#contact">Get my free draft</a><a class="btn btn-dark" href="{TEL}">{ic("phone")}{PHONE}</a></div>
       </div>
     </div>

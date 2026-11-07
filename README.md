@@ -12,6 +12,16 @@ The full static site for Bartlett Website Design: the homepage (`index.html`: da
 - The city pages link back to the homepage's `#showcase`, `#work`, `#booking-agent`, `#pricing`, `#about`, `#faq` and `#contact` sections, so keep those ids.
 - Cloudflare Web Analytics (cookieless) is the one `static.cloudflareinsights.com/beacon.min.js` tag before `</body>`, on the homepage, city pages, dental page, demos page and 404.
 
+## Founding-client deal
+
+The first 3 website clients get $100 off (Starter $250, Business $850). In return, if they're happy, they're asked for a Google review, a short quote and permission to show their site.
+
+- **When a spot is taken:** lower the count in two places, then push.
+  - `data-spots="3"` on `#founding` in `index.html`. The homepage script updates every "N of 3 spots left".
+  - `FOUNDING_SPOTS = 3` at the top of `tools/gen_city.py`. Then run `python3 -I tools/gen_city.py`.
+- **At 0:** the homepage hides the deal, the FAQ entry and the founding prices on its own. The city and demos pages drop it on the next `gen_city.py` run.
+- **After the deal ends:** remove the FAQ entry from the homepage's FAQPage structured data too.
+
 ## Adding a demo
 
 1. Put the site in `demos/<slug>/` with the dark "Demo site" bar right after `<body>` (copy it from any demo), `<meta name="robots" content="noindex, follow">`, and no canonical, `og:url` or structured data that claims to be the business.
