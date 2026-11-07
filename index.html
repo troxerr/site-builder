@@ -988,7 +988,8 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
     e.preventDefault();
     var f = form.elements, btn = form.querySelector("button[type=submit]");
     var data = new FormData(form);
-    data.append("subject", "Free draft request: " + f.business.value + " (" + f.plan.value + ")");
+    var agent = f.plan.value.indexOf("Missed-call booking agent") === 0;
+    data.append("subject", (agent ? "Booking agent inquiry: " : "Free draft request: ") + f.business.value + " (" + f.plan.value + ")");
     btn.disabled = true; btn.textContent = "Sending...";
     fetch(form.action, { method: "POST", body: data, headers: { Accept: "application/json" } })
       .then(function (r) { return r.json(); })
@@ -998,8 +999,8 @@ a.work-card:hover .visit .icon{transform:translateX(3px)}
         status.className = "form-note full ok";
         status.textContent = "Got it, thanks! I'll reply within one business day with a couple of quick questions, then send you a link to your working draft. Nothing to pay unless you love it.";
         btn.textContent = "Sent";
-        // A /thanks/ page view is how Cloudflare Web Analytics counts a lead; the message above stays if this navigation fails
-        window.location.assign("thanks/");
+        // A /thanks/ page view is how Cloudflare Web Analytics counts a lead (booking-agent leads under /thanks/booking-agent/); the message above stays if this navigation fails
+        window.location.assign(agent ? "thanks/booking-agent/" : "thanks/");
       })
       .catch(function () {
         btn.disabled = false; btn.textContent = "Get my free draft";

@@ -337,4 +337,28 @@ thanks = head("Thanks | Bartlett Website Design", "Your free draft request was s
 """ + tail(bar=False)  # they just asked for a draft; no "Get my free draft" bar
 os.makedirs("thanks", exist_ok=True)
 open("thanks/index.html", "w", encoding="utf8").write(thanks)
-print("built", list(CITIES), "+ 404.html + thanks/")
+# Booking-agent leads (dental page, or the homepage with that plan) land here, so they count separately from website leads
+thanks_agent = head("Thanks | Bartlett Website Design", "Your booking agent request was sent.", None, robots="noindex") + """
+<main id="main">
+  <section class="notfound" aria-labelledby="ty-title">
+    <div class="wrap" style="max-width:720px">
+      <p class="pill" style="margin:0 auto 20px"><b>Sent</b>Your booking agent request</p>
+      <h1 id="ty-title">Got it, thanks!</h1>
+      <p class="section-lede" style="margin:0 auto 26px">Here's what happens next:</p>
+      <ol class="next" style="text-align:left;max-width:30em;margin:0 auto">
+        <li><span><b>I reply within one business day</b>By text or email, to set up a short call.</span></li>
+        <li><span><b>We check your phones and calendar</b>I confirm your scheduling software can connect before you pay anything.</span></li>
+        <li><span><b>You decide</b>The price is in writing before setup starts. No long-term contract.</span></li>
+      </ol>
+      <div class="hero-actions" style="justify-content:center;margin-top:32px">
+        <a class="btn btn-primary" href="tel:+19013210023"><svg class="icon"><use href="#i-phone"/></svg>Call or text (901) 321-0023</a>
+        <a class="btn btn-ghost" href="/demos/missed-call-booking-agent/">Watch the demo again</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+""" + tail(bar=False)
+os.makedirs("thanks/booking-agent", exist_ok=True)
+open("thanks/booking-agent/index.html", "w", encoding="utf8").write(thanks_agent)
+print("built", list(CITIES), "+ 404.html + thanks/ + thanks/booking-agent/")

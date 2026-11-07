@@ -489,6 +489,8 @@ button{font:inherit}
         status.className = "form-note full ok";
         status.textContent = "Got it, thanks! I'll reply within one business day to set up a short call about your phones and calendar.";
         btn.textContent = "Sent";
+        // A /thanks/booking-agent/ page view is how Cloudflare Web Analytics counts a booking-agent lead; the message above stays if this navigation fails
+        window.location.assign("../thanks/booking-agent/");
       })
       .catch(function () {
         btn.disabled = false; btn.textContent = "See if it fits my office";
