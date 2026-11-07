@@ -1,56 +1,60 @@
-"""Builds the city landing pages, /thanks/ and 404.html from the shared header, footer and mobile bar in tools/chrome.html.
-Run from the repo root after changing tools/chrome.html: python3 -I tools/gen_city.py"""
-import json, os, re
+"""Builds the city landing pages, /thanks/, /thanks/booking-agent/ and 404.html in the homepage's design.
+The header, footer, icon sprite and mobile bar are copied from index.html, and the CSS is Tailwind 3 compiled
+from these pages with the homepage's config (tools/home/), then inlined.
+Run from the repo root after changing the homepage header or footer, or the data below: python3 -I tools/gen_city.py
+(needs Node; it fetches tailwindcss@3.4.17 with npx)"""
+import json, os, re, subprocess, tempfile
 
 SITE = "https://bartlettwebsitedesign.online"
-home = open("tools/chrome.html", encoding="utf8").read()
+home = open("index.html", encoding="utf8").read()
 
 def grab(pattern):
     return re.search(pattern, home).group(0)
 
 sprite = grab(r'<svg width="0" height="0" style="position:absolute" aria-hidden="true">[\s\S]*?</svg>')
-header = grab(r'<header class="site-header" id="header">[\s\S]*?</header>')
-footer = grab(r'<footer class="site-footer">[\s\S]*?</footer>')
-mbar = grab(r'<nav class="mobile-bar"[\s\S]*?</nav>')
+header = grab(r'<header id="header"[\s\S]*?</header>')
+footer = grab(r'<footer class="border-t[\s\S]*?</footer>')
+mbar = grab(r'<nav class="mobile-bar[\s\S]*?</nav>')
 beacon = grab(r'<!-- Cloudflare Web Analytics[\s\S]*?</script>')
 
 def absolutize(html):
     # Homepage-relative links become root-relative so they work from /bartlett/ and from any 404 path
     html = re.sub(r'href="#(?!i-)', 'href="/#', html)
     html = html.replace('href="/#top"', 'href="/"')
-    html = re.sub(r'href="(demos|dental|bartlett|memphis|germantown|cordova|arlington|lakeland)/"', r'href="/\1/"', html)
-    return re.sub(r'\s*<!-- Add once verified:.*?-->', '', html)
+    return re.sub(r'href="(demos|dental|bartlett|memphis|germantown|cordova|arlington|lakeland)/"', r'href="/\1/"', html)
 
 header, footer, mbar = absolutize(header), absolutize(footer), absolutize(mbar)
-# These pages have no h3 before the footer, so its column titles are h2s (styled like the homepage h4s)
-footer = footer.replace("<h4>", "<h2>").replace("</h4>", "</h2>")
 
 SCRIPT = """<script>
 (function () {
-  var header = document.getElementById("header");
-  var onScroll = function () { header.classList.toggle("scrolled", window.scrollY > 8); };
-  window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
   var nav = document.getElementById("nav"), toggle = document.getElementById("menu-toggle");
   toggle.addEventListener("click", function () {
     var open = nav.classList.toggle("open");
     toggle.setAttribute("aria-expanded", open);
     toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
   });
-  nav.addEventListener("click", function (e) { if (e.target.tagName === "A") { nav.classList.remove("open"); toggle.setAttribute("aria-expanded", false); } });
+  nav.addEventListener("click", function (e) { if (e.target.tagName === "A") { nav.classList.remove("open"); toggle.setAttribute("aria-expanded", false); toggle.setAttribute("aria-label", "Open menu"); } });
   document.getElementById("year").textContent = new Date().getFullYear();
 })();
 </script>"""
 
+def ic(name, cls="w-5 h-5"):
+    return f'<svg class="icon {cls}" aria-hidden="true"><use href="#i-{name}"/></svg>'
+
+CHECK = ic("check", "w-4 h-4 shrink-0 mt-1 text-blue-400")
+HL = '<span class="bg-gradient-to-r from-blue-400 via-sky-300 to-white bg-clip-text text-transparent">'
+TEL, PHONE = "tel:+19013210023", "(901) 321-0023"
+
 def head(title, desc, canonical, robots=None, ld=()):
     lds = "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False, separators=(",", ":"))}</script>\n' for x in ld)
     return f"""<!doctype html>
-<html lang="en">
+<html lang="en" class="motion-safe:scroll-smooth">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-{f'<meta name="robots" content="{robots}">' + chr(10) if robots else ''}<meta name="theme-color" content="#0a1a3a">
+{f'<meta name="robots" content="{robots}">' + chr(10) if robots else ''}<meta name="theme-color" content="#143fc5">
 {f'<link rel="canonical" href="{canonical}">' + chr(10) if canonical else ''}<meta property="og:type" content="website">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
@@ -60,9 +64,11 @@ def head(title, desc, canonical, robots=None, ld=()):
 <link rel="apple-touch-icon" href="/assets/logo-mark-512.png">
 <link rel="preload" href="/assets/fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css">
-{lds}</head>
-<body>
+{lds}<style>
+/*CSS*/
+</style>
+</head>
+<body class="bg-slate-950 font-sans text-white antialiased selection:bg-blue-600 selection:text-white">
 {sprite}
 <a class="skip" href="#main">Skip to content</a>
 {header}
@@ -95,16 +101,6 @@ DEMOS = {
     "prestige": ("prestige-baths", "Prestige Baths", "Bath &amp; kitchen remodeling · Cordova", "Lets homeowners text a photo or request an itemized estimate instead of calling around.", "Live demo"),
     "paws": ("paws-n-motion", "Paws &rsquo;n Motion", "Mobile dog grooming · Bartlett &amp; Cordova", "A ZIP code checker shows the travel fee up front, so nobody has to call to ask.", "Live demo"),
 }
-
-def card(key):
-    slug, name, typ, what, chip = DEMOS[key]
-    cls = "chip chip-demo" if chip == "Live demo" else "chip chip-concept"
-    return f"""        <li><a class="work-card" href="/demos/{slug}/">
-          <div class="browser"><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>bartlettwebsitedesign.online/demos/{slug}/</span></div><img src="/assets/work/demo-{slug}-sm.webp" srcset="/assets/work/demo-{slug}-sm.webp 560w, /assets/work/demo-{slug}.webp 1120w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1060px) 50vw, 370px" alt="{name} demo homepage" loading="lazy" width="1120" height="700"></div>
-          <div class="work-meta"><h3>{name}</h3><p>{typ}</p>
-            <p class="outcome">{what}</p>
-            <div class="work-foot"><span class="visit">Try the live demo<svg class="icon"><use href="#i-arrow"/></svg></span><span class="chips"><span class="{cls}">{chip}</span></span></div></div></a></li>
-"""
 
 AREAS = [("bartlett", "Bartlett"), ("memphis", "Memphis"), ("germantown", "Germantown"), ("cordova", "Cordova"), ("arlington", "Arlington"), ("lakeland", "Lakeland")]
 
@@ -195,6 +191,25 @@ CITIES = {
     ),
 }
 
+
+def card(key):
+    slug, name, typ, what, chip = DEMOS[key]
+    return f"""        <li><a class="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 transition hover:-translate-y-0.5 hover:border-blue-500/60" href="/demos/{slug}/">
+          <div class="truncate border-b border-slate-800 bg-slate-950 px-3 py-2 font-mono text-[11px] text-slate-400" aria-hidden="true">bartlettwebsitedesign.online/demos/{slug}/</div>
+          <img class="aspect-[8/5] w-full object-cover object-top" src="/assets/work/demo-{slug}-sm.webp" srcset="/assets/work/demo-{slug}-sm.webp 560w, /assets/work/demo-{slug}.webp 1120w" sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 50vw, 380px" alt="{name} demo homepage" loading="lazy" width="1120" height="700">
+          <div class="flex flex-1 flex-col p-5">
+            <h3 class="font-display text-lg font-extrabold text-white">{name}</h3><p class="text-sm text-slate-400">{typ}</p>
+            <p class="mt-3 text-[15px] text-slate-300">{what}</p>
+            <div class="mt-auto flex items-center justify-between pt-5"><span class="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-400 group-hover:text-blue-300">Try the live demo{ic("arrow", "w-4 h-4")}</span><span class="rounded-full border border-slate-700 px-2.5 py-0.5 text-[11px] font-semibold text-slate-300">{chip}</span></div>
+          </div></a></li>
+"""
+
+def promise():
+    return f"""<div class="mt-8 flex max-w-2xl items-start gap-4 rounded-2xl border border-blue-500/30 bg-blue-500/10 p-5">
+        <span class="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-blue-600 font-display text-lg font-extrabold" aria-hidden="true">$0</span>
+        <div><p class="font-display font-extrabold text-white">See a free working draft of your site before you pay.</p><p class="mt-1 text-sm text-slate-300">Send me a few details and I'll build a real, clickable draft with your name, services and hours in 2&ndash;3 days. Love it, then we talk price. Don't, and you owe nothing.</p></div>
+      </div>"""
+
 def city_page(slug, c):
     url = f"{SITE}/{slug}/"
     ld = [
@@ -202,88 +217,81 @@ def city_page(slug, c):
             {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE}/"},
             {"@type": "ListItem", "position": 2, "name": f"Website design in {c['name']}", "item": url}]},
         {"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Bartlett Website Design", "url": f"{SITE}/",
-         "telephone": "+1-901-321-0023", "email": "bartlett.website.design@gmail.com", "priceRange": "$350–$950",
+         "telephone": "+1-901-321-0023", "email": "bartlett.website.design@gmail.com", "priceRange": "$297–$1,500",
          "address": {"@type": "PostalAddress", "addressLocality": "Bartlett", "addressRegion": "TN", "addressCountry": "US"},
          "areaServed": {"@type": "City", "name": f"{c['name']}, TN"}},
         {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in c["faqs"]]},
     ]
-    points = "".join(f'<li><b>{t}</b><span>{d}</span></li>' for t, d in c["points"])
+    h1 = c["h1"].replace('<span class="hl">', HL)
+    points = "".join(f'<li class="rounded-2xl border border-slate-800 bg-slate-900/80 p-5"><p class="flex gap-2 font-display font-extrabold text-white">{CHECK}<span>{t}</span></p><p class="mt-1 pl-6 text-sm text-slate-400">{d}</p></li>' for t, d in c["points"])
     demos = "".join(card(k) for k in c["demos"])
-    faqs = "\n".join(f'        <details{" open" if i == 0 else ""}><summary>{q}<svg class="icon"><use href="#i-plus"/></svg></summary><p>{a}</p></details>' for i, (q, a) in enumerate(c["faqs"]))
-    areas = "".join(f'<li><a href="/{s}/"{" aria-current=\"page\"" if s == slug else ""}>{n}</a></li>' for s, n in AREAS)
+    faqs = "\n".join(f'        <details class="group rounded-2xl border border-slate-800 bg-slate-900/80 open:border-blue-900/70"{" open" if i == 0 else ""}><summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-display text-[17px] font-extrabold text-white">{q}<span class="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-slate-700 text-blue-400 transition group-open:rotate-45">{ic("plus", "w-4 h-4")}</span></summary><p class="px-5 pb-5 text-[15px] leading-relaxed text-slate-400">{a}</p></details>' for i, (q, a) in enumerate(c["faqs"]))
+    areas = "".join(f'<li><a class="inline-block rounded-full border px-4 py-2 text-sm font-semibold transition {"border-blue-500 bg-blue-600 text-white" if s == slug else "border-slate-700 text-slate-200 hover:border-blue-500 hover:text-white"}" href="/{s}/"{" aria-current=\"page\"" if s == slug else ""}>{n}</a></li>' for s, n in AREAS)
+    price = lambda name, amt, unit, what: f'<li class="rounded-2xl border border-slate-800 bg-slate-900/90 p-6"><p class="text-xs font-semibold uppercase tracking-wider text-blue-400">{name}</p><p class="mt-1 font-display text-3xl font-extrabold">{amt}<span class="ml-1 font-sans text-sm font-normal text-slate-400">{unit}</span></p><p class="mt-2 text-sm text-slate-400">{what}</p></li>'
     body = f"""
 <main id="main">
-  <section class="city-hero" aria-labelledby="hero-title">
-    <div class="wrap">
-      <p class="crumbs"><a href="/">Home</a> &rsaquo; Website design in {c['name']}</p>
-      <p class="pill"><b>Local</b>{c['name']}, TN</p>
-      <h1 id="hero-title">{c['h1']}</h1>
-      <p class="lede">{c['lede']}</p>
-      <div class="promise">
-        <span class="promise-badge" aria-hidden="true">$0</span>
-        <div>
-          <strong>See a free working draft of your site before you pay.</strong>
-          <p>Send me a few details and I'll build a real, clickable draft with your name, services and hours in 2&ndash;3 days. Love it, then we talk price. Don't, and you owe nothing.</p>
-        </div>
+  <section class="relative overflow-hidden bg-gradient-to-b from-[#143fc5]/25 via-slate-950 to-slate-950 px-4 pb-14 pt-10 sm:px-6 sm:pt-14 lg:px-8 lg:pb-20" aria-labelledby="hero-title">
+    <div class="mx-auto max-w-6xl">
+      <p class="text-sm text-slate-400"><a class="link" href="/">Home</a> &rsaquo; Website design in {c['name']}</p>
+      <p class="mt-6 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-300">{ic("pin", "w-3.5 h-3.5")}{c['name']}, TN</p>
+      <h1 id="hero-title" class="mt-5 max-w-4xl font-display text-[2.3rem] font-extrabold leading-[1.08] tracking-tight sm:text-6xl">{h1}</h1>
+      <p class="mt-6 max-w-3xl text-lg leading-relaxed text-slate-300 sm:text-xl">{c['lede']}</p>
+      {promise()}
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a class="btn btn-primary btn-lg" href="/#contact">Get my free draft{ic("arrow")}</a>
+        <a class="btn btn-dark btn-lg" href="{TEL}">{ic("phone")}Call or text {PHONE}</a>
       </div>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="/#contact">Get my free draft<svg class="icon"><use href="#i-arrow"/></svg></a>
-        <a class="btn btn-ghost" href="tel:+19013210023"><svg class="icon"><use href="#i-phone"/></svg>Call or text (901) 321-0023</a>
-      </div>
-      <ul class="city-points">{points}</ul>
+      <ul class="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">{points}</ul>
     </div>
   </section>
 
-  <section class="section section-soft" aria-labelledby="demos-title">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker">Live demos</p>
-        <h2 id="demos-title">{c['demos_title']}</h2>
-        <p class="section-lede">Working examples, built the same way I'll build yours. Demos of real businesses aren't their official websites.</p>
-      </div>
-      <ul class="city-demos">
+  <section class="border-t border-slate-900 bg-slate-900/40 px-4 py-16 sm:px-6 sm:py-20 lg:px-8" aria-labelledby="demos-title">
+    <div class="mx-auto max-w-6xl">
+      <p class="kicker">Live demos</p>
+      <h2 id="demos-title" class="h2">{c['demos_title']}</h2>
+      <p class="mt-4 max-w-3xl text-lg text-slate-400">Working examples, built the same way I'll build yours. Demos of real businesses aren't their official websites.</p>
+      <ul class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 {demos}      </ul>
-      <p class="work-more"><a class="btn btn-primary" href="/demos/">See all live demos<svg class="icon"><use href="#i-arrow"/></svg></a></p>
+      <p class="mt-10 text-center"><a class="btn btn-primary" href="/demos/">See all live demos{ic("arrow")}</a></p>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="price-title">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker">Pricing</p>
-        <h2 id="price-title">Clear prices. Paid only after you approve your draft.</h2>
-      </div>
-      <ul class="price-strip">
-        <li><span>Starter</span><b>$350</b><span>A polished one-page site with services, hours, map and tap to call.</span></li>
-        <li><span>Business</span><b>$950</b><span>Custom logo, online booking or price list, Google Business Profile setup.</span></li>
-        <li><span>Care plan (optional)</span><b>$45/mo</b><span>Text me changes any time. Cancel any time.</span></li>
+  <section class="border-t border-slate-900 px-4 py-16 sm:px-6 sm:py-20 lg:px-8" aria-labelledby="price-title">
+    <div class="mx-auto max-w-6xl">
+      <p class="kicker">Pricing</p>
+      <h2 id="price-title" class="h2">Clear prices. Paid only after you approve your draft.</h2>
+      <ul class="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
+        {price("Starter", "$350", "one time", "A polished one-page site with services, hours, map and tap to call.")}
+        {price("Business", "$950", "one time", "Custom logo, online booking or price list, Google Business Profile setup.")}
+        {price("Care plan", "$45", "/ month", "Optional. Text me changes any time. Cancel any time.")}
       </ul>
-      <p style="margin-top:20px"><a href="/#pricing">See everything included &rarr;</a></p>
+      <p class="mt-6 rounded-2xl border border-blue-900/50 bg-blue-950/30 p-5 text-sm text-slate-300"><b class="text-white">Contractors and shops:</b> missed-call text-back is $297/month, or get a website with text-back built in for $497/month + $497 setup. Month to month, no long-term contract.</p>
+      <p class="mt-6"><a class="link font-semibold" href="/#pricing">See everything included &rarr;</a></p>
     </div>
   </section>
 
-  <section class="section section-soft" aria-labelledby="faq-title">
-    <div class="wrap faq-grid">
+  <section class="border-t border-slate-900 bg-slate-900/40 px-4 py-16 sm:px-6 sm:py-20 lg:px-8" aria-labelledby="faq-title">
+    <div class="mx-auto grid max-w-6xl grid-cols-1 gap-10 lg:grid-cols-[1fr_2fr]">
       <div>
         <p class="kicker">FAQ</p>
-        <h2 id="faq-title">Questions from {c['name']} owners.</h2>
-        <p class="section-lede">Don't see yours? <a href="tel:+19013210023">Call or text</a> or <a href="/#contact">send a message</a>.</p>
+        <h2 id="faq-title" class="h2">Questions from {c['name']} owners.</h2>
+        <p class="mt-4 text-slate-400">Don't see yours? <a class="link" href="{TEL}">Call or text</a> or <a class="link" href="/#contact">send a message</a>.</p>
       </div>
-      <div class="faq">
+      <div class="space-y-3">
 {faqs}
       </div>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="cta-title">
-    <div class="wrap">
-      <div class="cta-band">
-        <div><h2 id="cta-title">Let's see what your site could look like.</h2><p>Free working draft in 2&ndash;3 days. No payment, no card and no obligation.</p></div>
-        <div class="hero-actions" style="margin:0"><a class="btn btn-primary" href="/#contact">Get my free draft</a><a class="btn btn-ghost" href="tel:+19013210023">(901) 321-0023</a></div>
+  <section class="border-t border-slate-900 px-4 py-16 sm:px-6 sm:py-20 lg:px-8" aria-labelledby="cta-title">
+    <div class="mx-auto max-w-6xl">
+      <div class="flex flex-col gap-6 rounded-3xl border border-blue-900/50 bg-gradient-to-r from-blue-950/50 via-slate-900 to-slate-900 p-7 sm:p-10 lg:flex-row lg:items-center lg:justify-between">
+        <div><h2 id="cta-title" class="font-display text-2xl font-extrabold sm:text-3xl">Let's see what your site could look like.</h2><p class="mt-2 text-slate-300">Free working draft in 2&ndash;3 days. No payment, no card and no obligation.</p></div>
+        <div class="flex shrink-0 flex-col gap-3 sm:flex-row"><a class="btn btn-primary" href="/#contact">Get my free draft</a><a class="btn btn-dark" href="{TEL}">{PHONE}</a></div>
       </div>
-      <h2 class="kicker" style="display:block;margin:48px 0 14px">Other areas I serve</h2>
-      <ul class="areas">{areas}<li><a href="/">All of the Memphis area</a></li></ul>
+      <h2 class="kicker mt-12">Other areas I serve</h2>
+      <ul class="mt-4 flex flex-wrap gap-2">{areas}<li><a class="inline-block rounded-full border border-slate-700 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:border-blue-500 hover:text-white" href="/">All of the Memphis area</a></li></ul>
     </div>
   </section>
 </main>
@@ -291,74 +299,62 @@ def city_page(slug, c):
 """
     return head(c["title"], c["desc"], url, ld=ld) + body + tail()
 
+def simple(pill, h1, lede, steps, buttons, after=""):
+    items = "".join(f'<li class="flex gap-3"><span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-blue-600 font-display text-xs font-extrabold">{n}</span><span><b class="block text-white">{t}</b>{d}</span></li>' for n, (t, d) in enumerate(steps, 1))
+    lst = f'<ol class="mx-auto mt-8 max-w-md space-y-4 text-left text-sm text-slate-300">{items}</ol>' if steps else ""
+    pill_html = f'<p class="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-300">{pill}</p>' if pill else ""
+    return f"""
+<main id="main">
+  <section class="relative overflow-hidden bg-gradient-to-b from-[#143fc5]/25 via-slate-950 to-slate-950 px-4 py-20 sm:px-6 sm:py-28 lg:px-8" aria-labelledby="pg-title">
+    <div class="mx-auto max-w-2xl text-center">
+      {pill_html}
+      <h1 id="pg-title" class="font-display text-4xl font-extrabold tracking-tight sm:text-6xl">{h1}</h1>
+      <p class="mt-5 text-lg text-slate-300">{lede}</p>
+      {lst}
+      <div class="mt-10 flex flex-col justify-center gap-3 sm:flex-row">{buttons}</div>
+      {after}
+    </div>
+  </section>
+</main>
+
+"""
+
+pages = {}
 for slug, c in CITIES.items():
-    os.makedirs(slug, exist_ok=True)
-    open(f"{slug}/index.html", "w", encoding="utf8").write(city_page(slug, c))
+    pages[f"{slug}/index.html"] = city_page(slug, c)
 
-notfound = head("Page not found | Bartlett Website Design", "That page doesn't exist. See live website demos or get a free draft of your site.", None, robots="noindex") + """
-<main id="main">
-  <section class="notfound" aria-labelledby="nf-title">
-    <div class="wrap">
-      <p class="big" aria-hidden="true">404</p>
-      <h1 id="nf-title">That page isn't here.</h1>
-      <p class="section-lede" style="max-width:32em;margin:0 auto 28px">The link may be old or mistyped. Here's where most people are headed:</p>
-      <div class="hero-actions" style="justify-content:center">
-        <a class="btn btn-primary" href="/#contact">Get my free draft<svg class="icon"><use href="#i-arrow"/></svg></a>
-        <a class="btn btn-ghost" href="/demos/">See live demos</a>
-        <a class="btn btn-ghost" href="/">Home</a>
-      </div>
-      <p style="margin-top:22px;color:var(--muted)">Or call or text <a href="tel:+19013210023">(901) 321-0023</a>.</p>
-    </div>
-  </section>
-</main>
+pages["404.html"] = head("Page not found | Bartlett Website Design", "That page doesn't exist. See live website demos or get a free draft of your site.", None, robots="noindex") + simple(
+    "", f'<span class="block font-display text-7xl text-blue-400 sm:text-8xl" aria-hidden="true">404</span>That page isn\'t here.',
+    "The link may be old or mistyped. Here's where most people are headed:", [],
+    f'<a class="btn btn-primary" href="/#contact">Get my free draft{ic("arrow")}</a><a class="btn btn-dark" href="/demos/">See live demos</a><a class="btn btn-dark" href="/">Home</a>',
+    after=f'<p class="mt-6 text-sm text-slate-400">Or call or text <a class="link" href="{TEL}">{PHONE}</a>.</p>'
+) + tail()
 
-""" + tail()
-open("404.html", "w", encoding="utf8").write(notfound)
-thanks = head("Thanks | Bartlett Website Design", "Your free draft request was sent.", None, robots="noindex") + """
-<main id="main">
-  <section class="notfound" aria-labelledby="ty-title">
-    <div class="wrap" style="max-width:720px">
-      <p class="pill" style="margin:0 auto 20px"><b>Sent</b>Your free draft request</p>
-      <h1 id="ty-title">Got it, thanks!</h1>
-      <p class="section-lede" style="margin:0 auto 26px">Here's what happens next:</p>
-      <ol class="next" style="text-align:left;max-width:30em;margin:0 auto">
-        <li><span><b>I reply within one business day</b>By text or email, with a couple of quick questions about your business.</span></li>
-        <li><span><b>You get a link to your draft in 2&ndash;3 days</b>A real, working site you can open on your phone and share.</span></li>
-        <li><span><b>You decide</b>Love it, and we agree on a price before you pay. If not, you owe nothing.</span></li>
-      </ol>
-      <div class="hero-actions" style="justify-content:center;margin-top:32px">
-        <a class="btn btn-primary" href="tel:+19013210023"><svg class="icon"><use href="#i-phone"/></svg>Call or text (901) 321-0023</a>
-        <a class="btn btn-ghost" href="/demos/">Browse live demos</a>
-      </div>
-    </div>
-  </section>
-</main>
-
-""" + tail(bar=False)  # they just asked for a draft; no "Get my free draft" bar
-os.makedirs("thanks", exist_ok=True)
-open("thanks/index.html", "w", encoding="utf8").write(thanks)
+# They just asked for a draft, so the thanks pages have no "Get my free draft" bar
+pages["thanks/index.html"] = head("Thanks | Bartlett Website Design", "Your free draft request was sent.", None, robots="noindex") + simple(
+    "Sent &middot; your request", "Got it, thanks!", "Here's what happens next:",
+    [("I reply within one business day", "By text or email, with a couple of quick questions about your business."),
+     ("You get a link to your draft in 2&ndash;3 days", "A real, working site you can open on your phone and share."),
+     ("You decide", "Love it, and we agree on a price before you pay. If not, you owe nothing.")],
+    f'<a class="btn btn-primary" href="{TEL}">{ic("phone")}Call or text {PHONE}</a><a class="btn btn-dark" href="/demos/">Browse live demos</a>') + tail(bar=False)
 # Booking-agent leads (dental page, or the homepage with that plan) land here, so they count separately from website leads
-thanks_agent = head("Thanks | Bartlett Website Design", "Your booking agent request was sent.", None, robots="noindex") + """
-<main id="main">
-  <section class="notfound" aria-labelledby="ty-title">
-    <div class="wrap" style="max-width:720px">
-      <p class="pill" style="margin:0 auto 20px"><b>Sent</b>Your booking agent request</p>
-      <h1 id="ty-title">Got it, thanks!</h1>
-      <p class="section-lede" style="margin:0 auto 26px">Here's what happens next:</p>
-      <ol class="next" style="text-align:left;max-width:30em;margin:0 auto">
-        <li><span><b>I reply within one business day</b>By text or email, to set up a short call.</span></li>
-        <li><span><b>We check your phones and calendar</b>I confirm your scheduling software can connect before you pay anything.</span></li>
-        <li><span><b>You decide</b>The price is in writing before setup starts. No long-term contract.</span></li>
-      </ol>
-      <div class="hero-actions" style="justify-content:center;margin-top:32px">
-        <a class="btn btn-primary" href="tel:+19013210023"><svg class="icon"><use href="#i-phone"/></svg>Call or text (901) 321-0023</a>
-        <a class="btn btn-ghost" href="/demos/missed-call-booking-agent/">Watch the demo again</a>
-      </div>
-    </div>
-  </section>
-</main>
+pages["thanks/booking-agent/index.html"] = head("Thanks | Bartlett Website Design", "Your booking agent request was sent.", None, robots="noindex") + simple(
+    "Sent &middot; your booking agent request", "Got it, thanks!", "Here's what happens next:",
+    [("I reply within one business day", "By text or email, to set up a short call."),
+     ("We check your phones and calendar", "I confirm your scheduling software can connect before you pay anything."),
+     ("You decide", "The price is in writing before setup starts. No long-term contract.")],
+    f'<a class="btn btn-primary" href="{TEL}">{ic("phone")}Call or text {PHONE}</a><a class="btn btn-dark" href="/demos/missed-call-booking-agent/">Watch the demo again</a>') + tail(bar=False)
 
-""" + tail(bar=False)
-os.makedirs("thanks/booking-agent", exist_ok=True)
-open("thanks/booking-agent/index.html", "w", encoding="utf8").write(thanks_agent)
-print("built", list(CITIES), "+ 404.html + thanks/ + thanks/booking-agent/")
+# Compile one Tailwind build from all of these pages and inline it into each
+here = os.path.join(os.path.dirname(os.path.abspath(__file__)), "home")
+with tempfile.TemporaryDirectory() as d:
+    for i, html in enumerate(pages.values()):
+        open(os.path.join(d, f"p{i}.html"), "w", encoding="utf8").write(html)
+    out = os.path.join(d, "out.css")
+    subprocess.run(["npx", "--yes", "tailwindcss@3.4.17", "-c", os.path.join(here, "tailwind.config.js"), "-i", os.path.join(here, "in.css"),
+                    "-o", out, "--minify"], check=True, capture_output=True, env={**os.environ, "HOME_HTML": os.path.join(d, "p*.html")})
+    css = open(out, encoding="utf8").read().strip()
+for path, html in pages.items():
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+    open(path, "w", encoding="utf8").write(html.replace("/*CSS*/", css, 1))
+print("built", list(CITIES), "+ 404.html + thanks/ + thanks/booking-agent/ with", len(css), "bytes of CSS")
