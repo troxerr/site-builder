@@ -9,8 +9,8 @@ import { join } from "node:path";
 import { ROOT } from "./helpers.mjs";
 
 // Known gaps, fixed in the SEO pass (Phase 3). The test fails if one is fixed but left in the list.
-const LONG_TITLE = new Set(["/", "/dental/", "/memphis/"]);
-const LONG_DESCRIPTION = new Set(["/", "/dental/", "/demos/"]);
+const LONG_TITLE = new Set([]);
+const LONG_DESCRIPTION = new Set([]);
 
 // The Broadmoor "homes" page loads the Leaflet map library from unpkg.com. It gets bundled into the demo in the demo cleanup.
 const KNOWN_CDN = new Set(["/demos/broadmoor-property-management/homes.html"]);
