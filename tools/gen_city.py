@@ -1,9 +1,9 @@
-"""Builds the city landing pages, /thanks/ and 404.html from the homepage's header, footer and mobile bar.
-Run from the repo root after changing the homepage header or footer: python3 -I tools/gen_city.py"""
+"""Builds the city landing pages, /thanks/ and 404.html from the shared header, footer and mobile bar in tools/chrome.html.
+Run from the repo root after changing tools/chrome.html: python3 -I tools/gen_city.py"""
 import json, os, re
 
 SITE = "https://bartlettwebsitedesign.online"
-home = open("index.html", encoding="utf8").read()
+home = open("tools/chrome.html", encoding="utf8").read()
 
 def grab(pattern):
     return re.search(pattern, home).group(0)
