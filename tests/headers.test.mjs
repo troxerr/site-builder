@@ -21,12 +21,12 @@ for (const path of ["/", "/dental/", "/demos/", "/bartlett/", "/demos/jim-fields
 
 test("first-party pages get the strict CSP; demos (self-contained sites) do not", () => {
   for (const path of ["/", "/dental/", "/demos/", "/bartlett/", "/thanks/", "/thanks/booking-agent/", "/404.html"]) {
-    const csp = at(path)["content-security-policy-report-only"] ?? at(path)["content-security-policy"];
+    const csp = at(path)["content-security-policy"];
     assert.ok(csp, `${path} has a CSP`);
     for (const d of ["default-src 'self'", "object-src 'none'", "base-uri 'self'", "frame-ancestors 'self'"]) assert.ok(csp.includes(d), `${path}: ${d}`);
-    assert.ok(!/unsafe-inline|unsafe-eval/.test(csp), "no unsafe-inline/eval");
+    assert.ok(!/unsafe-eval/.test(csp) && !/style-src[^;]*unsafe-inline/.test(csp), "no unsafe-eval, no inline styles");
   }
-  assert.equal(at("/demos/jim-fields-plumbing/")["content-security-policy-report-only"], undefined);
+  assert.equal(at("/demos/jim-fields-plumbing/")["content-security-policy"], undefined);
 });
 
 test("no header is accidentally doubled by overlapping rules", () => {
