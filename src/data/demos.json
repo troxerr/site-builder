@@ -1,0 +1,482 @@
+[
+  {
+    "id": "summer-avenue-animal-hospital",
+    "href": "summer-avenue-animal-hospital/",
+    "thumb": "demo-summer-avenue-animal-hospital",
+    "alt": "Summer Avenue Animal Hospital demo homepage",
+    "name": "Summer Avenue Animal Hospital",
+    "type": "Veterinary clinic · Memphis",
+    "what": "Turns &ldquo;vet near me&rdquo; searches into calls, with live open-now hours, a visit request form and a first-visit guide.",
+    "chips": [
+      "Live demo",
+      "Request form"
+    ],
+    "city": {
+      "key": "summer",
+      "name": "Summer Avenue Animal Hospital",
+      "type": "Veterinary clinic · Memphis",
+      "what": "Turns &ldquo;vet near me&rdquo; searches into phone calls with live hours and one-tap directions.",
+      "chip": "Live demo"
+    },
+    "home": {
+      "name": "Summer Avenue Animal Hospital",
+      "type": "Veterinary clinic · Memphis",
+      "alt": "Summer Avenue Animal Hospital demo homepage with an open-now badge, phone number and Request a visit button",
+      "outcome": "Turns &ldquo;vet near me&rdquo; searches into phone calls with live hours and one-tap directions.",
+      "built": "Shows open or closed automatically, so staff stop answering &ldquo;are you open?&rdquo; calls",
+      "chip": "Live demo",
+      "order": 1
+    }
+  },
+  {
+    "id": "jim-fields-plumbing",
+    "href": "jim-fields-plumbing/",
+    "thumb": "demo-jim-fields-plumbing",
+    "alt": "Jim Fields Plumbing Heating &amp; A/C demo homepage with a large phone number, Call Now and Request Service buttons",
+    "name": "Jim Fields Plumbing Heating &amp; A/C",
+    "type": "Plumbing &amp; HVAC · Bartlett",
+    "what": "Gets the phone ringing for leaks, clogs and dead A/C, with the number up top and a service request on every page.",
+    "chips": [
+      "Live demo",
+      "5 pages"
+    ],
+    "city": {
+      "key": "jim",
+      "name": "Jim Fields Plumbing Heating &amp; A/C",
+      "type": "Plumbing &amp; HVAC · Bartlett",
+      "what": "Gets the phone ringing for leaks, clogs and dead A/C, with the number up top on every page.",
+      "chip": "Live demo"
+    },
+    "home": {
+      "name": "Jim Fields Plumbing Heating &amp; A/C",
+      "type": "Plumbing &amp; HVAC · Bartlett",
+      "alt": "Jim Fields Plumbing Heating &amp; A/C demo homepage with a large phone number, Call Now and Request Service buttons",
+      "outcome": "Gets the phone ringing for leaks, clogs and dead A/C, with the number up top on every page.",
+      "built": "Five pages: services, about, contact and a service request form",
+      "chip": "Live demo",
+      "order": 2
+    }
+  },
+  {
+    "id": "linen-and-lark-salon",
+    "href": "linen-and-lark-salon/",
+    "thumb": "demo-linen-and-lark-salon",
+    "alt": "Linen &amp; Lark sample salon homepage with an open or closed badge, Request an appointment button and price callout",
+    "name": "Linen &amp; Lark Salon",
+    "type": "Hair salon · Sample business",
+    "what": "Shows every price and stylist up front, then takes appointment requests without a phone call.",
+    "chips": [
+      "Sample",
+      "Booking + price menu"
+    ],
+    "city": {
+      "key": "linen",
+      "name": "Linen &amp; Lark Salon",
+      "type": "Hair salon · Sample business",
+      "what": "Shows every price and stylist up front, then books appointments without phone tag.",
+      "chip": "Sample"
+    },
+    "home": {
+      "name": "Linen &amp; Lark Salon",
+      "type": "Hair salon · Sample business",
+      "alt": "Linen &amp; Lark sample salon homepage with an open or closed badge, Request an appointment button and a price callout",
+      "outcome": "Shows every price and stylist up front, then books appointments without phone tag.",
+      "built": "Live open or closed status and &ldquo;book with this stylist&rdquo; buttons",
+      "chip": "Sample",
+      "order": 3
+    }
+  },
+  {
+    "id": "reedy-company",
+    "href": "reedy-company/",
+    "thumb": "demo-reedy-company",
+    "alt": "Reedy &amp; Company demo homepage that splits visitors into property owners and renters",
+    "name": "Reedy &amp; Company",
+    "type": "Property management · Memphis",
+    "what": "Sends owners to a free rent analysis and renters to rent pay and repair requests, so each finds their next step fast.",
+    "chips": [
+      "Live demo",
+      "Owner + tenant paths"
+    ],
+    "city": {
+      "key": "reedy",
+      "name": "Reedy &amp; Company",
+      "type": "Property management · Memphis",
+      "what": "Sends owners to a rent analysis and renters to rent pay, so the office phone isn&rsquo;t the help desk.",
+      "chip": "Live demo"
+    },
+    "home": {
+      "name": "Reedy &amp; Company",
+      "type": "Property management · Memphis",
+      "alt": "Reedy &amp; Company demo homepage that splits visitors into property owners and renters",
+      "outcome": "Sends owners to a rent analysis and renters to rent pay, so the office phone isn&rsquo;t the help desk.",
+      "built": "Separate owner and tenant paths, pricing and FAQs",
+      "chip": "Live demo",
+      "order": 5
+    }
+  },
+  {
+    "id": "cedar-and-hickory-bbq",
+    "href": "cedar-and-hickory-bbq/",
+    "thumb": "demo-cedar-and-hickory-bbq",
+    "alt": "Cedar &amp; Hickory BBQ sample restaurant homepage",
+    "name": "Cedar &amp; Hickory BBQ",
+    "type": "Restaurant · Sample business",
+    "what": "Answers &ldquo;what's on the menu?&rdquo; before anyone calls, and brings in catering leads with a quote form.",
+    "chips": [
+      "Sample",
+      "Menu + catering"
+    ],
+    "city": {
+      "key": "cedar",
+      "name": "Cedar &amp; Hickory BBQ",
+      "type": "Restaurant · Sample business",
+      "what": "Answers &ldquo;what&rsquo;s on the menu?&rdquo; before anyone calls, and brings in catering leads.",
+      "chip": "Sample"
+    }
+  },
+  {
+    "id": "lynns-dog-house",
+    "href": "lynns-dog-house/",
+    "thumb": "demo-lynns-dog-house",
+    "alt": "Lynn's Dog House demo homepage",
+    "name": "Lynn&rsquo;s Dog House",
+    "type": "Dog grooming · Bartlett",
+    "what": "Puts &ldquo;Call to book&rdquo; and open days right up top, plus a simple appointment request.",
+    "chips": [
+      "Live demo",
+      "Custom art"
+    ],
+    "city": {
+      "key": "lynn",
+      "name": "Lynn&rsquo;s Dog House",
+      "type": "Dog grooming · Bartlett",
+      "what": "Puts &ldquo;Call to book&rdquo; and open days right up top, where phone-first customers look.",
+      "chip": "Live demo"
+    },
+    "home": {
+      "name": "Lynn&rsquo;s Dog House",
+      "type": "Dog grooming · Bartlett",
+      "alt": "Lynn's Dog House demo homepage with a hand-drawn schnauzer, a large Call to book button and open days",
+      "outcome": "Puts &ldquo;Call to book&rdquo; and open days right up top, where phone-first customers look.",
+      "built": "Simple appointment request for people who'd rather not call",
+      "chip": "Live demo",
+      "order": 4
+    }
+  },
+  {
+    "id": "the-groom-den",
+    "href": "the-groom-den/",
+    "thumb": "demo-the-groom-den",
+    "alt": "The Groom Den demo homepage",
+    "name": "The Groom Den",
+    "type": "Mobile grooming · Bartlett, Lakeland &amp; Arlington",
+    "what": "Explains driveway grooming and shows the service area, so the calls that come in are already a fit.",
+    "chips": [
+      "Live demo",
+      "Booking form"
+    ],
+    "city": {
+      "key": "groomden",
+      "name": "The Groom Den",
+      "type": "Mobile grooming · Bartlett, Lakeland &amp; Arlington",
+      "what": "Explains driveway grooming and shows the service area, so the calls that come in are already a fit.",
+      "chip": "Live demo"
+    }
+  },
+  {
+    "id": "paws-n-motion",
+    "href": "paws-n-motion/",
+    "thumb": "demo-paws-n-motion",
+    "alt": "Paws 'n Motion demo homepage",
+    "name": "Paws &rsquo;n Motion",
+    "type": "Mobile dog grooming · Bartlett &amp; Cordova",
+    "what": "A ZIP code checker shows the travel fee up front, so nobody has to call to ask.",
+    "chips": [
+      "Live demo",
+      "ZIP checker"
+    ],
+    "city": {
+      "key": "paws",
+      "name": "Paws &rsquo;n Motion",
+      "type": "Mobile dog grooming · Bartlett &amp; Cordova",
+      "what": "A ZIP code checker shows the travel fee up front, so nobody has to call to ask.",
+      "chip": "Live demo"
+    }
+  },
+  {
+    "id": "missed-call-booking-agent",
+    "href": "missed-call-booking-agent/",
+    "thumb": "demo-missed-call-booking-agent",
+    "alt": "Missed-call booking agent demo: a text conversation on a phone, a seven-step behind-the-scenes checklist and a calendar with Thursday 8 AM booked",
+    "name": "Missed-Call Booking Agent",
+    "type": "Dental office · Sample practice",
+    "what": "Texts back a missed call, offers real open times and books the patient in under a minute. Urgent requests go straight to a person.",
+    "chips": [
+      "Live demo",
+      "Text-back booking"
+    ]
+  },
+  {
+    "id": "waggles-stay-n-play",
+    "href": "https://waggles-stay-n-play.com/",
+    "thumb": "waggles-stay-n-play-desktop",
+    "alt": "Waggles Stay 'n Play demo homepage",
+    "name": "Waggles Stay &rsquo;n Play",
+    "type": "Dog boarding &amp; daycare · Cordova",
+    "what": "Collects boarding and daycare requests without constant phone tag, with prices, hours and FAQs up front.",
+    "chips": [
+      "Live demo",
+      "Own domain"
+    ]
+  },
+  {
+    "id": "broadmoor-property-management",
+    "href": "broadmoor-property-management/",
+    "thumb": "demo-broadmoor-property-management",
+    "alt": "Broadmoor Property Management demo homepage",
+    "name": "Broadmoor Property Management",
+    "type": "Property management · Memphis",
+    "what": "Sends renters to searchable listings and owners to a consultation form, across four pages.",
+    "chips": [
+      "Live demo",
+      "4 pages"
+    ]
+  },
+  {
+    "id": "castle-above-clouds",
+    "href": "castle-above-clouds/",
+    "thumb": "demo-castle-above-clouds",
+    "alt": "Castle Above Clouds interactive 3D scene of a castle on a floating island",
+    "name": "Castle Above Clouds",
+    "type": "Interactive 3D showcase",
+    "what": "A castle on a floating island that you can drag to look around, with dawn, noon and dusk skies. It runs right in the browser.",
+    "chips": [
+      "Showcase",
+      "3D + animation"
+    ]
+  },
+  {
+    "id": "effective-automotive",
+    "href": "effective-automotive/",
+    "thumb": "demo-effective-automotive",
+    "alt": "Effective Automotive Repair demo homepage with a symptom and service finder and a Book Appointment button",
+    "name": "Effective Automotive Repair",
+    "type": "Auto repair · Memphis",
+    "what": "Turns &ldquo;what&rsquo;s that noise?&rdquo; into a booked appointment, with a symptom finder, price ranges and a digital inspection preview.",
+    "chips": [
+      "Live demo",
+      "Price calculator"
+    ],
+    "city": {
+      "key": "effective",
+      "name": "Effective Automotive Repair",
+      "type": "Auto repair · Memphis",
+      "what": "Turns &ldquo;what&rsquo;s that noise?&rdquo; into a booked appointment, with a symptom finder and price ranges.",
+      "chip": "Live demo"
+    },
+    "home": {
+      "name": "Effective Automotive Repair",
+      "type": "Auto repair · Memphis",
+      "alt": "Effective Automotive Repair demo homepage with a symptom and service finder and a Book Appointment button",
+      "outcome": "Turns &ldquo;what&rsquo;s that noise?&rdquo; into a booked appointment.",
+      "built": "Symptom finder, price ranges and a digital inspection preview",
+      "chip": "Live demo",
+      "order": 6
+    }
+  },
+  {
+    "id": "prestige-baths",
+    "href": "prestige-baths/",
+    "thumb": "demo-prestige-baths",
+    "alt": "Prestige Baths demo homepage with Get a Free Estimate, call and Text us a photo buttons",
+    "name": "Prestige Baths",
+    "type": "Bath &amp; kitchen remodeling · Cordova",
+    "what": "Lets homeowners text a photo or request an itemized estimate instead of calling around.",
+    "chips": [
+      "Live demo",
+      "Text a photo"
+    ],
+    "city": {
+      "key": "prestige",
+      "name": "Prestige Baths",
+      "type": "Bath &amp; kitchen remodeling · Cordova",
+      "what": "Lets homeowners text a photo or request an itemized estimate instead of calling around.",
+      "chip": "Live demo"
+    },
+    "home": {
+      "name": "Prestige Baths",
+      "type": "Bath &amp; kitchen remodeling · Cordova",
+      "alt": "Prestige Baths demo homepage with Get a Free Estimate, call and Text us a photo buttons",
+      "outcome": "Lets homeowners text a photo or request an itemized estimate instead of calling around.",
+      "built": "Free-estimate form and tap-to-text right up top",
+      "chip": "Live demo",
+      "order": 7
+    }
+  },
+  {
+    "id": "big-m-roofing",
+    "href": "big-m-roofing/",
+    "thumb": "demo-big-m-roofing",
+    "alt": "Big M Roofing demo homepage with a free roof inspection form beside a bold headline",
+    "name": "Big M Roofing",
+    "type": "Roofing · Memphis",
+    "what": "Books free roof inspections fast after a storm, with the phone number and quote form right up front.",
+    "chips": [
+      "Live demo",
+      "Inspection form"
+    ],
+    "city": {
+      "key": "bigm",
+      "name": "Big M Roofing",
+      "type": "Roofing · Memphis",
+      "what": "Books free roof inspections fast after a storm, with the phone and quote form up front.",
+      "chip": "Live demo"
+    },
+    "home": {
+      "name": "Big M Roofing",
+      "type": "Roofing · Memphis",
+      "alt": "Big M Roofing demo homepage with a free roof inspection form beside a bold headline",
+      "outcome": "Books free roof inspections fast after a storm.",
+      "built": "Phone number and inspection form on the first screen",
+      "chip": "Live demo",
+      "order": 8
+    }
+  },
+  {
+    "id": "summit-roofing",
+    "href": "summit-roofing/",
+    "thumb": "demo-summit-roofing",
+    "alt": "Summit Roofing demo homepage with an orange Get Free Estimate button beside a house photo",
+    "name": "Summit Roofing Co.",
+    "type": "Roofing · Bartlett (sample business)",
+    "what": "Shows a ballpark roof price with a live slider, then books a free inspection.",
+    "chips": [
+      "Sample",
+      "Price estimator"
+    ],
+    "home": {
+      "name": "Summit Roofing Co. (sample)",
+      "type": "Roofing · Bartlett",
+      "alt": "Summit Roofing demo homepage with an orange Get Free Estimate button beside a house photo",
+      "outcome": "Gives homeowners a ballpark roof price before anyone knocks.",
+      "built": "Live price slider and before-and-after photo comparison",
+      "chip": "Sample",
+      "order": 9
+    }
+  },
+  {
+    "id": "elite-roofing-solutions",
+    "href": "elite-roofing-solutions/",
+    "thumb": "demo-elite-roofing-solutions",
+    "alt": "Elite Roofing Solutions demo homepage with an aerial photo of Memphis rooftops and Request a roof inspection and Check my roof price online buttons",
+    "name": "Elite Roofing Solutions",
+    "type": "Roofing · Memphis",
+    "what": "Five pages built around two paths: request an inspection, or check a roof price online first.",
+    "chips": [
+      "Live demo",
+      "5 pages"
+    ],
+    "home": {
+      "name": "Elite Roofing Solutions",
+      "type": "Roofing · Memphis",
+      "alt": "Elite Roofing Solutions demo homepage with an aerial photo of Memphis rooftops and Request a roof inspection and Check my roof price online buttons",
+      "outcome": "Five pages built around two paths: request an inspection, or check a roof price online first.",
+      "built": "Instant roof price check and an inspection form",
+      "chip": "Live demo",
+      "order": 10
+    }
+  },
+  {
+    "id": "aa-bail-bonds",
+    "href": "aa-bail-bonds/",
+    "thumb": "demo-aa-bail-bonds",
+    "alt": "A &amp; A Bail Bonds demo homepage with a large red tap-to-call button and a checklist of what to have ready",
+    "name": "A &amp; A Bail Bonds",
+    "type": "Bail bonds · Downtown Memphis",
+    "what": "Puts one big call button first, then explains the bond process in three plain steps.",
+    "chips": [
+      "Live demo",
+      "24/7 call line"
+    ]
+  },
+  {
+    "id": "ace-bonding",
+    "href": "ace-bonding/",
+    "thumb": "demo-ace-bonding",
+    "alt": "Ace Bonding Company demo homepage with Bail bonds, answered around the clock and a 24/7 dispatch phone card",
+    "name": "Ace Bonding Company",
+    "type": "Bail bonds · Downtown Memphis",
+    "what": "Answers the phone first: call or text dispatch, the bond process and directions to the office.",
+    "chips": [
+      "Live demo",
+      "Call or text"
+    ]
+  },
+  {
+    "id": "top-quality-roofing",
+    "href": "top-quality-roofing/",
+    "thumb": "demo-top-quality-roofing",
+    "alt": "Top Quality Roofing demo homepage with the headline Craftsmanship you can stand on over a house photo",
+    "name": "Top Quality Roofing",
+    "type": "Roofing · Bartlett",
+    "what": "Leads with the owner and the public ratings, then takes free inspection requests.",
+    "chips": [
+      "Live demo",
+      "Inspection form"
+    ]
+  },
+  {
+    "id": "storm-front-roofing",
+    "href": "storm-front-roofing/",
+    "thumb": "demo-storm-front-roofing",
+    "alt": "Storm Front Roofing demo homepage on a dark background with the headline The storm hits. We are already moving.",
+    "name": "Storm Front Roofing",
+    "type": "Storm restoration · Bartlett",
+    "what": "Built for storm season: emergency tarping, insurance help and a 24/7 call button up front.",
+    "chips": [
+      "Live demo",
+      "24/7 storm line"
+    ]
+  },
+  {
+    "id": "morris-general-construction",
+    "href": "morris-general-construction/",
+    "thumb": "demo-morris-general-construction",
+    "alt": "Morris General Construction demo homepage on a blueprint-grid background with a project estimate form",
+    "name": "Morris General Construction",
+    "type": "General contractor · Memphis",
+    "what": "Spells out the process and itemized quotes, so homeowners request an estimate with confidence.",
+    "chips": [
+      "Live demo",
+      "Estimate form"
+    ],
+    "city": {
+      "key": "morris",
+      "name": "Morris General Construction",
+      "type": "General contractor · Memphis",
+      "what": "Spells out the process and itemized quotes, so homeowners request an estimate with confidence.",
+      "chip": "Live demo"
+    }
+  },
+  {
+    "id": "dorsey-contracting",
+    "href": "dorsey-contracting/",
+    "thumb": "demo-dorsey-contracting",
+    "alt": "Dorsey Contracting demo homepage with a project estimate form and Text us a photo button",
+    "name": "Dorsey Contracting",
+    "type": "Remodeling · Germantown",
+    "what": "Answers &ldquo;what will it cost and how long?&rdquo; up front, then takes estimate requests with photos.",
+    "chips": [
+      "Live demo",
+      "Text a photo"
+    ],
+    "city": {
+      "key": "dorsey",
+      "name": "Dorsey Contracting",
+      "type": "Remodeling · Germantown",
+      "what": "Answers &ldquo;what will it cost and how long?&rdquo; up front, then takes estimate requests with photos.",
+      "chip": "Live demo"
+    }
+  }
+]

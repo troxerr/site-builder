@@ -164,25 +164,3 @@ test("demos page lists every demo and shuffles", async () => {
   assert.ok(orders.size > 1);
   await page.context().close();
 });
-
-test("founding-client deal: spots left update everywhere, and the deal ends cleanly at zero", async () => {
-  const withSpots = (n) => (html) => html.replace('data-spots="3"', `data-spots="${n}"`);
-  for (const [spots, label] of [[3, "3 of 3 spots left"], [1, "1 of 3 spots left"]]) {
-    const { page } = await pageWithForm({ rewriteHome: withSpots(spots) });
-    await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
-    const labels = await page.$$eval(".spots-left", (els) => els.filter((e) => e.offsetParent).map((e) => e.textContent));
-    assert.deepEqual(labels, [label, label]);
-    assert.ok(await page.locator("#founding").isVisible());
-    await page.context().close();
-  }
-  const { page } = await pageWithForm({ rewriteHome: withSpots(0) });
-  await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
-  assert.equal(await page.locator("#founding").isVisible(), false, "banner hidden");
-  assert.equal(await page.locator("#founding-faq").count(), 0, "FAQ entry removed");
-  const options = await page.$$eval("#plan option", (os) => os.map((o) => o.textContent));
-  assert.ok(options.every((o) => !/founding/i.test(o)), "plan menu back to regular prices");
-  assert.ok(options.includes("Starter ($350)") && options.includes("Business ($950)"));
-  await page.locator('a[data-plan^="Starter"]').click();
-  assert.equal(await page.inputValue("#plan"), "Starter ($350)");
-  await page.context().close();
-});

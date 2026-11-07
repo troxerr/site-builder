@@ -1,6 +1,6 @@
-// Tailwind 3 config for the homepage. tools/home/build_css.py passes the page to scan in HOME_HTML.
+// Tailwind 3 config. tools/build.mjs sets SITE_CONTENT to the rendered pages it compiles for.
 module.exports = {
-  content: [process.env.HOME_HTML],
+  content: (process.env.SITE_CONTENT || "").split(",").filter(Boolean),
   theme: {
     extend: {
       fontFamily: {

@@ -32,6 +32,7 @@ async function take(name) {
       await page.addStyleTag({ content: "*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}" });
       await page.evaluate(() => document.fonts.ready);
       await page.screenshot({ path: join(out, `${slug(path)}-${width}.png`), fullPage: true });
+      if (width === 1280) await writeFile(join(out, `${slug(path)}.txt`), await page.evaluate(() => document.body.innerText));
       await page.close();
     }
     await ctx.close();
@@ -59,6 +60,11 @@ async function compare(a, b, max) {
     worst = Math.max(worst, pct);
     if (n) { await writeFile(join(dir("diff"), f), PNG.sync.write(diff)); console.log(`DIFF  ${f}: ${n} pixels (${pct.toFixed(3)}%)`); }
     else console.log(`same  ${f}`);
+  }
+  for (const f of (await readdir(dir(a))).filter((f) => f.endsWith(".txt"))) {
+    const same = (await readFile(join(dir(a), f), "utf8")) === (await readFile(join(dir(b), f), "utf8").catch(() => null));
+    console.log(`${same ? "same" : "DIFF"}  ${f} (visible text)`);
+    if (!same) worst = Math.max(worst, 100);
   }
   console.log(`Worst difference: ${worst.toFixed(3)}% (limit ${max}%)`);
   process.exit(worst > max ? 1 : 0);

@@ -1,0 +1,303 @@
+{
+  "areas": [
+    [
+      "bartlett",
+      "Bartlett"
+    ],
+    [
+      "memphis",
+      "Memphis"
+    ],
+    [
+      "germantown",
+      "Germantown"
+    ],
+    [
+      "cordova",
+      "Cordova"
+    ],
+    [
+      "arlington",
+      "Arlington"
+    ],
+    [
+      "lakeland",
+      "Lakeland"
+    ]
+  ],
+  "cities": {
+    "bartlett": {
+      "name": "Bartlett",
+      "title": "Website Design in Bartlett, TN | Bartlett Website Design",
+      "desc": "Website design for Bartlett, TN small businesses, from $350. A local designer you can call or text, and a free working draft before you pay.",
+      "h1": "Website design for <span class=\"hl\">Bartlett</span> small businesses.",
+      "lede": "I'm Austin, and Bartlett is home. I've lived here for over 15 years, and I build fast, mobile-friendly websites that help Bartlett shops, salons, groomers and contractors get found on Google and get the call.",
+      "points": [
+        [
+          "Local and easy to meet",
+          "I'm in Bartlett, so a coffee or a visit to your shop is easy to set up."
+        ],
+        [
+          "Free draft first",
+          "You see a working draft of your site before you pay anything."
+        ],
+        [
+          "Yours to keep",
+          "Your domain and every file stay in your name. No long-term contract."
+        ]
+      ],
+      "demos_title": "Demos for Bartlett businesses",
+      "demos": [
+        "jim",
+        "lynn",
+        "groomden"
+      ],
+      "faqs": [
+        [
+          "Can we meet in person?",
+          "Yes. I'm based in Bartlett, so meeting at your shop or over coffee is easy. Plenty of owners prefer to just call or text, and that works too."
+        ],
+        [
+          "Do you only work with Bartlett businesses?",
+          "No. I also work with businesses in Memphis, Cordova, Germantown, Arlington and Lakeland. Bartlett is just home base."
+        ],
+        [
+          "How fast will I hear back?",
+          "Within one business day. Call or text (901) 321-0023 and you reach me directly, not a call center."
+        ],
+        [
+          "What does a website cost?",
+          "A one-page Starter site is $350 and the Business site is $950, both one-time. Hosting is free, and the domain is about $10 to $12 a year."
+        ]
+      ]
+    },
+    "memphis": {
+      "name": "Memphis",
+      "title": "Website Design in Memphis, TN for Small Businesses | Bartlett Website Design",
+      "desc": "Fast, mobile-friendly websites for Memphis small businesses, from $350. Call or text a local designer, and see a free working draft before you pay.",
+      "h1": "Website design for <span class=\"hl\">Memphis</span> small businesses.",
+      "lede": "From Midtown shops to East Memphis clinics, customers check their phones before they call. I build fast websites that turn those searches into calls and bookings, from a one-person studio in Bartlett.",
+      "points": [
+        [
+          "Built for phone searches",
+          "Tap to call, live hours and directions, on pages that load fast on a weak signal."
+        ],
+        [
+          "Free draft first",
+          "You see a working draft of your site before you pay anything."
+        ],
+        [
+          "One person, start to finish",
+          "The person you text is the person who builds and updates your site."
+        ]
+      ],
+      "demos_title": "Demos for Memphis businesses",
+      "demos": [
+        "summer",
+        "effective",
+        "reedy",
+        "bigm",
+        "morris",
+        "cedar"
+      ],
+      "faqs": [
+        [
+          "Do you work with businesses all over Memphis?",
+          "Yes. Midtown, East Memphis, Downtown, Whitehaven, Raleigh, Frayser and everywhere in between. Most of the work happens by phone, text and email."
+        ],
+        [
+          "Can you meet in person?",
+          "Yes. I'm in Bartlett, about 20 minutes from most of Memphis, and happy to stop by your business."
+        ],
+        [
+          "I already have a website. Can you replace it?",
+          "Yes. I keep what's working, like your content, photos and web address, and build the free draft as a replacement. Your address doesn't change."
+        ],
+        [
+          "How long does it take?",
+          "Your free draft is usually ready in 2 to 3 days, and most sites go live in about a week."
+        ]
+      ]
+    },
+    "germantown": {
+      "name": "Germantown",
+      "title": "Website Design in Germantown, TN | Bartlett Website Design",
+      "desc": "Polished, fast websites for Germantown small businesses, from $350. A local designer you can call or text, with a free working draft before you pay.",
+      "h1": "Website design for <span class=\"hl\">Germantown</span> small businesses.",
+      "lede": "Germantown customers expect a polished first impression. I build clean, fast websites for Germantown clinics, salons, contractors and shops, and you see a working draft before you spend a dime.",
+      "points": [
+        [
+          "A polished first impression",
+          "A custom design that matches the quality of your work, not a template."
+        ],
+        [
+          "Free draft first",
+          "You see a working draft of your site before you pay anything."
+        ],
+        [
+          "Easy to keep current",
+          "Text me new prices, hours or photos and your site stays up to date."
+        ]
+      ],
+      "demos_title": "Demos for Germantown-area businesses",
+      "demos": [
+        "dorsey",
+        "linen",
+        "summer"
+      ],
+      "faqs": [
+        [
+          "Do you work with Germantown businesses?",
+          "Yes. I'm based in nearby Bartlett and work with businesses across Germantown and the rest of Shelby County."
+        ],
+        [
+          "Can I take bookings online?",
+          "Yes. If you already use Square, Vagaro, MoeGo or a similar tool, your Book online buttons go straight to it. If not, I can add a simple request form."
+        ],
+        [
+          "Will my site work well on phones?",
+          "Every site is built phone-first, with big tap-to-call and booking buttons that stay within reach."
+        ],
+        [
+          "Are there monthly fees?",
+          "No. You pay once for your site. The $45/month care plan is optional, and you can cancel any time."
+        ]
+      ]
+    },
+    "cordova": {
+      "name": "Cordova",
+      "title": "Website Design in Cordova, TN | Bartlett Website Design",
+      "desc": "Websites that bring in calls and bookings for Cordova small businesses, from $350. Call or text a local designer, and see a free draft before you pay.",
+      "h1": "Website design for <span class=\"hl\">Cordova</span> small businesses.",
+      "lede": "Cordova businesses compete with all of east Memphis for the same searches. I build fast, mobile-friendly websites that make it easy to pick you: clear prices, live hours, and one tap to call or book.",
+      "points": [
+        [
+          "Stand out in local search",
+          "A real website, set up for local search, plus help with your Google Business Profile."
+        ],
+        [
+          "Free draft first",
+          "You see a working draft of your site before you pay anything."
+        ],
+        [
+          "Yours to keep",
+          "Your domain and every file stay in your name. No long-term contract."
+        ]
+      ],
+      "demos_title": "Demos for Cordova businesses",
+      "demos": [
+        "prestige",
+        "linen",
+        "paws"
+      ],
+      "faqs": [
+        [
+          "Do you work with Cordova businesses?",
+          "Yes. I'm based in Bartlett, just up the road, and work with businesses all over Cordova and east Memphis."
+        ],
+        [
+          "Can you set up my Google Business Profile?",
+          "Yes. It's included in the Business plan, and it's one of the biggest things that helps local customers find you."
+        ],
+        [
+          "What do you need from me to start?",
+          "Your business name, services, hours and any photos or logo you have. A Facebook page or Google listing is often enough to start."
+        ],
+        [
+          "What happens if I need changes later?",
+          "Text me. On the care plan, updates like hours, prices and photos are included. Without it, I tell you the price before I do any work."
+        ]
+      ]
+    },
+    "arlington": {
+      "name": "Arlington",
+      "title": "Website Design in Arlington, TN | Bartlett Website Design",
+      "desc": "Website design for Arlington, TN small businesses, from $350. A designer just down the road in Bartlett, and a free working draft before you pay.",
+      "h1": "Website design for <span class=\"hl\">Arlington</span> small businesses.",
+      "lede": "Arlington is growing fast, and new neighbors look up local businesses on their phones before they call. I build fast, mobile-friendly websites for Arlington shops, groomers, contractors and service businesses, from a studio just down the road in Bartlett.",
+      "points": [
+        [
+          "Just down the road",
+          "I'm in Bartlett, so meeting at your business is easy."
+        ],
+        [
+          "Free draft first",
+          "You see a working draft of your site before you pay anything."
+        ],
+        [
+          "Yours to keep",
+          "Your domain and every file stay in your name. No long-term contract."
+        ]
+      ],
+      "demos_title": "Demos for Arlington-area businesses",
+      "demos": [
+        "groomden",
+        "jim",
+        "lynn"
+      ],
+      "faqs": [
+        [
+          "Do you work with Arlington businesses?",
+          "Yes. Arlington is right next to Bartlett, where I'm based, and I'm glad to work with businesses all over town."
+        ],
+        [
+          "Can we meet in person?",
+          "Yes. I'm about 15 minutes away and happy to stop by. Calling or texting works just as well."
+        ],
+        [
+          "My customers mostly find me on Facebook. Do I still need a website?",
+          "A website shows up in Google searches where Facebook pages often don't, and it answers hours, prices and directions in one place. Your Facebook page can link right to it."
+        ],
+        [
+          "What does a website cost?",
+          "A one-page Starter site is $350 and the Business site is $950, both one-time. Hosting is free, and the domain is about $10 to $12 a year."
+        ]
+      ]
+    },
+    "lakeland": {
+      "name": "Lakeland",
+      "title": "Website Design in Lakeland, TN | Bartlett Website Design",
+      "desc": "Fast, mobile-friendly websites for Lakeland, TN small businesses, from $350. A local designer you can call or text, with a free working draft before you pay.",
+      "h1": "Website design for <span class=\"hl\">Lakeland</span> small businesses.",
+      "lede": "Lakeland customers search for services from home, often on their phones. I build fast websites that show up for those searches and make it easy to call, book or request a quote, from a one-person studio in nearby Bartlett.",
+      "points": [
+        [
+          "Built for &ldquo;near me&rdquo; searches",
+          "Set up for local search, with your service area spelled out clearly."
+        ],
+        [
+          "Free draft first",
+          "You see a working draft of your site before you pay anything."
+        ],
+        [
+          "One person, start to finish",
+          "The person you text is the person who builds and updates your site."
+        ]
+      ],
+      "demos_title": "Demos for Lakeland-area businesses",
+      "demos": [
+        "groomden",
+        "paws",
+        "jim"
+      ],
+      "faqs": [
+        [
+          "Do you work with Lakeland businesses?",
+          "Yes. I'm based in nearby Bartlett and work with businesses across Lakeland, Arlington and the rest of the area."
+        ],
+        [
+          "I serve customers at their homes. Can my site show where I go?",
+          "Yes. Service-area businesses get a clear list or map of where they travel, and even a ZIP code checker like the one in the Paws &rsquo;n Motion demo."
+        ],
+        [
+          "How long does it take?",
+          "Your free draft is usually ready in 2 to 3 days, and most sites go live in about a week."
+        ],
+        [
+          "How fast will I hear back?",
+          "Within one business day. Call or text (901) 321-0023 and you reach me directly."
+        ]
+      ]
+    }
+  }
+}

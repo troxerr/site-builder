@@ -34,8 +34,8 @@ test("no oversized images or media", () => {
   assert.deepEqual(big.map((f) => `${f.rel} (${Math.round(f.size / 1024)} KB)`), []);
 });
 
-// Size ratchets for main pages (bytes of HTML including any inline CSS/JS). Lower these as the pages get lighter.
-const PAGE_BUDGET = { "/": 200_000, "/dental/": 90_000, "/demos/": 85_000, default: 70_000 };
+// Size ratchets for main pages (bytes of HTML; CSS and JS are separate cached files). Lower these as the pages get lighter.
+const PAGE_BUDGET = { "/": 115_000, "/dental/": 48_000, "/demos/": 62_000, default: 40_000 };
 for (const page of FIRST_PARTY) {
   test(`weight and hygiene: ${page}`, () => {
     const html = read(page);
@@ -45,8 +45,32 @@ for (const page of FIRST_PARTY) {
       const src = attrs.match(/src="([^"]+)"/)?.[1];
       if (src) assert.ok(!/^https?:/.test(src) || src.startsWith("https://static.cloudflareinsights.com/"), `external script ${src}`);
     }
-    assert.ok(count(html, /<script(?![^>]*(?:src=|ld\+json))[^>]*>/g) <= 2, "too many inline scripts");
+    assert.equal(count(html, /<script(?![^>]*(?:src=|ld\+json))[^>]*>/g), 0, "inline script (move it to src/js)");
+    assert.equal(count(html, /<style\b/g), 0, "inline <style> (CSS lives in assets/css)");
     assert.ok(!/\b(?:href|src|action|srcset)="http:\/\//.test(html), "insecure http:// link or resource");
     assert.ok(!/<link[^>]+href="https:\/\/(?!fonts\.(googleapis|gstatic)\.com)/.test(html.replace(/<link[^>]+rel="(?:canonical|alternate|preconnect)"[^>]*>/g, "")), "unexpected external stylesheet");
   });
 }
+
+test("every first-party page shares one stylesheet and loads only hashed scripts of its own", () => {
+  const sheets = new Set(), scripts = [];
+  for (const page of FIRST_PARTY) {
+    const html = read(page);
+    const css = [...html.matchAll(/<link[^>]+rel="stylesheet"[^>]+href="([^"]+)"/g)].map((m) => m[1]);
+    assert.equal(css.length, 1, `${page} should link exactly one stylesheet`);
+    css.forEach((c) => sheets.add(c));
+    for (const m of html.matchAll(/<script[^>]+src="(\/assets\/js\/[^"]+)"/g)) scripts.push(m[1]);
+  }
+  assert.equal(sheets.size, 1, `pages link different stylesheets: ${[...sheets]}`);
+  assert.match([...sheets][0], /^\/assets\/css\/site\.[0-9a-f]{10}\.css$/);
+  assert.ok(scripts.every((s) => /^\/assets\/js\/[a-z]+\.[0-9a-f]{10}\.js$/.test(s)), "scripts are content-hashed");
+  const css = shipped.find((f) => f.rel === [...sheets][0].slice(1));
+  assert.ok(css && css.size <= 45 * 1024, "stylesheet over 45 KB");
+  for (const f of shipped.filter((f) => f.rel.startsWith("assets/js/"))) assert.ok(f.size <= 8 * 1024, `${f.rel} over 8 KB`);
+});
+
+test("no stale generated files are left in assets/css or assets/js", () => {
+  const used = new Set(FIRST_PARTY.flatMap((p) => [...read(p).matchAll(/(?:href|src)="(\/assets\/(?:css|js)\/[^"]+)"/g)].map((m) => m[1].slice(1))));
+  const onDisk = shipped.filter((f) => /^assets\/(css|js)\//.test(f.rel)).map((f) => f.rel);
+  assert.deepEqual(onDisk.filter((f) => !used.has(f)), []);
+});

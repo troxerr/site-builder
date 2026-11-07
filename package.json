@@ -8,7 +8,7 @@
     "node": ">=22"
   },
   "scripts": {
-    "build": "python3 -I tools/home/build_css.py && python3 -I tools/home/build_css.py dental/index.html && python3 -I tools/gen_city.py",
+    "build": "node tools/build.mjs",
     "build:check": "npm run build && git diff --exit-code && test -z \"$(git ls-files --others --exclude-standard)\"",
     "serve": "node tools/serve.mjs",
     "lint": "html-validate index.html dental/ demos/index.html bartlett/ memphis/ germantown/ cordova/ arlington/ lakeland/ thanks/ 404.html",
@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "axe-core": "4.14.0",
+    "esbuild": "^0.25.5",
     "html-validate": "^11.19.0",
     "ignore": "^7.0.5",
     "pixelmatch": "^7.1.0",
