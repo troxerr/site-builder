@@ -1,4 +1,4 @@
-"""Builds the city landing pages, /thanks/, /thanks/booking-agent/ and 404.html in the homepage's design.
+"""Builds the city landing pages, the /demos/ page, /thanks/, /thanks/booking-agent/ and 404.html in the homepage's design.
 The header, footer, icon sprite and mobile bar are copied from index.html, and the CSS is Tailwind 3 compiled
 from these pages with the homepage's config (tools/home/), then inlined.
 Run from the repo root after changing the homepage header or footer, or the data below: python3 -I tools/gen_city.py
@@ -345,6 +345,88 @@ pages["thanks/booking-agent/index.html"] = head("Thanks | Bartlett Website Desig
      ("You decide", "The price is in writing before setup starts. No long-term contract.")],
     f'<a class="btn btn-primary" href="{TEL}">{ic("phone")}Call or text {PHONE}</a><a class="btn btn-dark" href="/demos/missed-call-booking-agent/">Watch the demo again</a>') + tail(bar=False)
 
+DEMO_PAGE = [  # (link, thumbnail name in assets/work without -sm.webp, alt text, name, type, what it does, chips). The page shuffles them.
+    ["summer-avenue-animal-hospital/", "demo-summer-avenue-animal-hospital", "Summer Avenue Animal Hospital demo homepage", "Summer Avenue Animal Hospital", "Veterinary clinic · Memphis", "Turns &ldquo;vet near me&rdquo; searches into calls, with live open-now hours, a visit request form and a first-visit guide.", ["Live demo", "Request form"]],
+    ["jim-fields-plumbing/", "demo-jim-fields-plumbing", "Jim Fields Plumbing Heating &amp; A/C demo homepage with a large phone number, Call Now and Request Service buttons", "Jim Fields Plumbing Heating &amp; A/C", "Plumbing &amp; HVAC · Bartlett", "Gets the phone ringing for leaks, clogs and dead A/C, with the number up top and a service request on every page.", ["Live demo", "5 pages"]],
+    ["linen-and-lark-salon/", "demo-linen-and-lark-salon", "Linen &amp; Lark sample salon homepage with an open or closed badge, Request an appointment button and price callout", "Linen &amp; Lark Salon", "Hair salon · Sample business", "Shows every price and stylist up front, then takes appointment requests without a phone call.", ["Sample", "Booking + price menu"]],
+    ["reedy-company/", "demo-reedy-company", "Reedy &amp; Company demo homepage that splits visitors into property owners and renters", "Reedy &amp; Company", "Property management · Memphis", "Sends owners to a free rent analysis and renters to rent pay and repair requests, so each finds their next step fast.", ["Live demo", "Owner + tenant paths"]],
+    ["cedar-and-hickory-bbq/", "demo-cedar-and-hickory-bbq", "Cedar &amp; Hickory BBQ sample restaurant homepage", "Cedar &amp; Hickory BBQ", "Restaurant · Sample business", "Answers &ldquo;what's on the menu?&rdquo; before anyone calls, and brings in catering leads with a quote form.", ["Sample", "Menu + catering"]],
+    ["lynns-dog-house/", "demo-lynns-dog-house", "Lynn's Dog House demo homepage", "Lynn&rsquo;s Dog House", "Dog grooming · Bartlett", "Puts &ldquo;Call to book&rdquo; and open days right up top, plus a simple appointment request.", ["Live demo", "Custom art"]],
+    ["the-groom-den/", "demo-the-groom-den", "The Groom Den demo homepage", "The Groom Den", "Mobile grooming · Bartlett, Lakeland &amp; Arlington", "Explains driveway grooming and shows the service area, so the calls that come in are already a fit.", ["Live demo", "Booking form"]],
+    ["paws-n-motion/", "demo-paws-n-motion", "Paws 'n Motion demo homepage", "Paws &rsquo;n Motion", "Mobile dog grooming · Bartlett &amp; Cordova", "A ZIP code checker shows the travel fee up front, so nobody has to call to ask.", ["Live demo", "ZIP checker"]],
+    ["missed-call-booking-agent/", "demo-missed-call-booking-agent", "Missed-call booking agent demo: a text conversation on a phone, a seven-step behind-the-scenes checklist and a calendar with Thursday 8 AM booked", "Missed-Call Booking Agent", "Dental office · Sample practice", "Texts back a missed call, offers real open times and books the patient in under a minute. Urgent requests go straight to a person.", ["Live demo", "Text-back booking"]],
+    ["https://waggles-stay-n-play.com/", "waggles-stay-n-play-desktop", "Waggles Stay 'n Play demo homepage", "Waggles Stay &rsquo;n Play", "Dog boarding &amp; daycare · Cordova", "Collects boarding and daycare requests without constant phone tag, with prices, hours and FAQs up front.", ["Live demo", "Own domain"]],
+    ["broadmoor-property-management/", "demo-broadmoor-property-management", "Broadmoor Property Management demo homepage", "Broadmoor Property Management", "Property management · Memphis", "Sends renters to searchable listings and owners to a consultation form, across four pages.", ["Live demo", "4 pages"]],
+    ["castle-above-clouds/", "demo-castle-above-clouds", "Castle Above Clouds interactive 3D scene of a castle on a floating island", "Castle Above Clouds", "Interactive 3D showcase", "A castle on a floating island that you can drag to look around, with dawn, noon and dusk skies. It runs right in the browser.", ["Showcase", "3D + animation"]],
+    ["effective-automotive/", "demo-effective-automotive", "Effective Automotive Repair demo homepage with a symptom and service finder and a Book Appointment button", "Effective Automotive Repair", "Auto repair · Memphis", "Turns &ldquo;what&rsquo;s that noise?&rdquo; into a booked appointment, with a symptom finder, price ranges and a digital inspection preview.", ["Live demo", "Price calculator"]],
+    ["prestige-baths/", "demo-prestige-baths", "Prestige Baths demo homepage with Get a Free Estimate, call and Text us a photo buttons", "Prestige Baths", "Bath &amp; kitchen remodeling · Cordova", "Lets homeowners text a photo or request an itemized estimate instead of calling around.", ["Live demo", "Text a photo"]],
+    ["big-m-roofing/", "demo-big-m-roofing", "Big M Roofing demo homepage with a free roof inspection form beside a bold headline", "Big M Roofing", "Roofing · Memphis", "Books free roof inspections fast after a storm, with the phone number and quote form right up front.", ["Live demo", "Inspection form"]],
+    ["summit-roofing/", "demo-summit-roofing", "Summit Roofing demo homepage with an orange Get Free Estimate button beside a house photo", "Summit Roofing Co.", "Roofing · Bartlett (sample business)", "Shows a ballpark roof price with a live slider, then books a free inspection.", ["Sample", "Price estimator"]],
+    ["elite-roofing-solutions/", "demo-elite-roofing-solutions", "Elite Roofing Solutions demo homepage with a serif headline reading A roof is architecture beside a lit-up house", "Elite Roofing Solutions", "Roofing · Memphis", "An upscale look for a premium roofer, with a price range tool and a consultation form.", ["Live demo", "Consultation form"]],
+    ["top-quality-roofing/", "demo-top-quality-roofing", "Top Quality Roofing demo homepage with the headline Craftsmanship you can stand on over a house photo", "Top Quality Roofing", "Roofing · Bartlett", "Leads with the owner and the public ratings, then takes free inspection requests.", ["Live demo", "Inspection form"]],
+    ["storm-front-roofing/", "demo-storm-front-roofing", "Storm Front Roofing demo homepage on a dark background with the headline The storm hits. We are already moving.", "Storm Front Roofing", "Storm restoration · Bartlett", "Built for storm season: emergency tarping, insurance help and a 24/7 call button up front.", ["Live demo", "24/7 storm line"]],
+    ["morris-general-construction/", "demo-morris-general-construction", "Morris General Construction demo homepage on a blueprint-grid background with a project estimate form", "Morris General Construction", "General contractor · Memphis", "Spells out the process and itemized quotes, so homeowners request an estimate with confidence.", ["Live demo", "Estimate form"]],
+    ["dorsey-contracting/", "demo-dorsey-contracting", "Dorsey Contracting demo homepage with a project estimate form and Text us a photo button", "Dorsey Contracting", "Remodeling · Germantown", "Answers &ldquo;what will it cost and how long?&rdquo; up front, then takes estimate requests with photos.", ["Live demo", "Text a photo"]],
+]
+
+def demo_card(r):
+    href, img, alt, name, typ, what, chips = r
+    ext = href.startswith("http")
+    link = href if ext else f"/demos/{href}"
+    url = href.replace("https://", "").rstrip("/") if ext else f"bartlettwebsitedesign.online/demos/{href}"
+    target = ' target="_blank" rel="noopener"' if ext else ""
+    label = f'Open site{ic("out", "w-4 h-4")}<span class="sr-only"> (opens in a new tab)</span>' if ext else f'Open demo{ic("arrow", "w-4 h-4")}'
+    chip_html = "".join(f'<span class="rounded-full border px-2.5 py-0.5 text-[11px] font-semibold {"border-blue-500/50 bg-blue-500/10 text-blue-200" if i == 0 else "border-slate-700 text-slate-300"}">{c}</span>' for i, c in enumerate(chips))
+    return f"""      <li><a class="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 transition hover:-translate-y-0.5 hover:border-blue-500/60" href="{link}"{target}>
+        <div class="truncate border-b border-slate-800 bg-slate-950 px-3 py-2 font-mono text-[11px] text-slate-400" aria-hidden="true">{url}</div>
+        <img class="aspect-[8/5] w-full object-cover object-top" src="/assets/work/{img}-sm.webp" srcset="/assets/work/{img}-sm.webp 560w, /assets/work/{img}.webp 1120w" sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 50vw, 380px" alt="{alt}" width="1120" height="700" loading="lazy">
+        <div class="flex flex-1 flex-col p-5">
+          <h2 class="font-display text-lg font-extrabold text-white">{name}</h2><p class="text-sm text-slate-400">{typ}</p>
+          <p class="mt-3 text-[15px] text-slate-300">{what}</p>
+          <div class="mt-auto flex flex-wrap items-center justify-between gap-3 pt-5"><div class="flex flex-wrap gap-1.5">{chip_html}</div><span class="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-400 group-hover:text-blue-300">{label}</span></div>
+        </div></a></li>
+"""
+
+SHUFFLE = """<script>
+// Fresh order on every visit (Fisher-Yates); without JS the list keeps its HTML order
+(function () {
+  var list = document.querySelector(".demo-list");
+  if (!list) return;
+  var items = Array.prototype.slice.call(list.children);
+  for (var i = items.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = items[i]; items[i] = items[j]; items[j] = t; }
+  items.forEach(function (li) { list.appendChild(li); });
+})();
+</script>
+"""
+demos_head = head("Website Demos for Memphis Businesses | Bartlett Website Design",
+    "Click through live website demos built by Bartlett Website Design for Memphis-area vets, contractors, salons, auto shops, remodelers, roofers, groomers, property managers and dental offices.",
+    f"{SITE}/demos/").replace('<meta property="og:type" content="website">', f'<meta property="og:type" content="website">\n<meta property="og:url" content="{SITE}/demos/">', 1)
+pages["demos/index.html"] = demos_head + f"""
+<main id="main">
+  <section class="relative overflow-hidden bg-gradient-to-b from-[#143fc5]/25 via-slate-950 to-slate-950 px-4 pb-10 pt-12 sm:px-6 sm:pt-16 lg:px-8" aria-labelledby="pg-title">
+    <div class="mx-auto max-w-6xl">
+      <p class="text-sm text-slate-400"><a class="link" href="/">Home</a> &rsaquo; Website demos</p>
+      <p class="kicker mt-6">Website demos</p>
+      <h1 id="pg-title" class="mt-2 max-w-4xl font-display text-[2.3rem] font-extrabold leading-[1.08] tracking-tight sm:text-6xl">Live demos, built the same way I'll build {HL}yours.</span></h1>
+      <p class="mt-6 max-w-3xl text-lg leading-relaxed text-slate-300">Every demo below is a full website you can scroll, tap and try on your phone. Each one has its own logo, colors and layout, built around how that business actually gets customers.</p>
+      <p class="mt-6 flex max-w-3xl gap-3 rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-sm text-slate-300">{ic("eye", "w-5 h-5 shrink-0 text-blue-400")}<span>These are demos I built to show what's possible. They aren't the businesses' official websites, and Cedar &amp; Hickory BBQ, Linen &amp; Lark Salon, Summit Roofing and Bright Smile Dental are made-up businesses.</span></p>
+    </div>
+  </section>
+
+  <section class="px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8" aria-label="All demos">
+    <div class="mx-auto max-w-6xl">
+      <ul class="demo-list grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+{"".join(demo_card(r) for r in DEMO_PAGE)}      </ul>
+      <div class="mt-14 flex flex-col gap-6 rounded-3xl border border-blue-900/50 bg-gradient-to-r from-blue-950/50 via-slate-900 to-slate-900 p-7 sm:p-10 lg:flex-row lg:items-center lg:justify-between">
+        <div><h2 class="font-display text-2xl font-extrabold sm:text-3xl">Want to see yours next?</h2><p class="mt-2 text-slate-300">Tell me about your business and I'll build a free working draft. You only pay if you love it.</p></div>
+        <div class="flex shrink-0 flex-col gap-3 sm:flex-row"><a class="btn btn-primary" href="/#contact">Get my free draft</a><a class="btn btn-dark" href="{TEL}">{ic("phone")}{PHONE}</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+""" + tail().replace(SCRIPT, SCRIPT + "\n" + SHUFFLE, 1)
+
 # Compile one Tailwind build from all of these pages and inline it into each
 here = os.path.join(os.path.dirname(os.path.abspath(__file__)), "home")
 with tempfile.TemporaryDirectory() as d:
@@ -357,4 +439,4 @@ with tempfile.TemporaryDirectory() as d:
 for path, html in pages.items():
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     open(path, "w", encoding="utf8").write(html.replace("/*CSS*/", css, 1))
-print("built", list(CITIES), "+ 404.html + thanks/ + thanks/booking-agent/ with", len(css), "bytes of CSS")
+print("built", list(CITIES), "+ demos/ + 404.html + thanks/ + thanks/booking-agent/ with", len(css), "bytes of CSS")

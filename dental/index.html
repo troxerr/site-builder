@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="motion-safe:scroll-smooth">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Missed-Call Booking Agent for Dental Offices | Bartlett Website Design</title>
 <meta name="description" content="For dental offices in Bartlett, Memphis and the Mid-South: missed calls get a text back within a minute and are booked into your schedule. $1,500 setup + $1,000/month, no long-term contract.">
-<meta name="theme-color" content="#0a1a3a">
+<meta name="theme-color" content="#143fc5">
 <link rel="canonical" href="https://bartlettwebsitedesign.online/dental/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bartlettwebsitedesign.online/dental/">
@@ -16,437 +16,283 @@
 <meta name="twitter:title" content="Missed calls, booked · for dental offices">
 <meta name="twitter:description" content="Missed calls get a text back within a minute and are booked into your schedule. Anything urgent goes straight to your team.">
 <meta name="twitter:image" content="https://bartlettwebsitedesign.online/assets/og-dental.png">
-<link rel="icon" href="../assets/logo-mark.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="../assets/logo-mark-512.png">
-<link rel="preload" href="../assets/fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="/assets/logo-mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/logo-mark-512.png">
+<link rel="preload" href="/assets/fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Service","name":"Missed-call booking agent for dental offices","serviceType":"Missed-call text-back and appointment booking","url":"https://bartlettwebsitedesign.online/dental/","provider":{"@type":"ProfessionalService","name":"Bartlett Website Design","url":"https://bartlettwebsitedesign.online/","telephone":"+1-901-321-0023"},"areaServed":["Bartlett, TN","Memphis, TN","Cordova, TN","Germantown, TN","Arlington, TN","Lakeland, TN"],"audience":{"@type":"BusinessAudience","name":"Dental offices"},"offers":{"@type":"Offer","price":"1500","priceCurrency":"USD","description":"One-time setup, then $1,000 per month. No long-term contract."}}
 </script>
 <!-- Landing page for dental offices. The phone conversation in the hero is from the demo; Bright Smile Dental is fictional and the caption says so. -->
 <style>
-@font-face{font-family:Sora;src:url(../assets/fonts/sora-latin.woff2) format("woff2");font-weight:600 800;font-display:swap}
-@font-face{font-family:Inter;src:url(../assets/fonts/inter-latin.woff2) format("woff2");font-weight:400 600;font-display:swap}
-:root{--blue:#1f5eff;--blue-600:#1747d6;--blue-50:#eef3ff;--blue-100:#dce7ff;--navy:#0a1a3a;--ink:#0d1830;--muted:#55657f;--line:#e4eaf4;--soft:#f6f8fc;--sky:#9fd0ff;--green:#14804a;--green-50:#e7f8ee;--teal:#0f8b8d;--red:#c62a2a;--red-50:#fdecec;--radius:18px;--shadow:0 1px 2px rgba(10,26,58,.05),0 12px 32px rgba(10,26,58,.08);--bar:0px}
-*,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:20px}
-body{margin:0;font:400 17px/1.65 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;padding-bottom:var(--bar)}
-h1,h2,h3{font-family:Sora,Inter,system-ui,sans-serif;line-height:1.1;letter-spacing:-.03em;margin:0 0 .5em;font-weight:700;text-wrap:balance}
-h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;letter-spacing:-.045em}
-h2{font-size:clamp(1.7rem,3.4vw,2.5rem);letter-spacing:-.04em}
-p{margin:0 0 1em}
-a{color:var(--blue)}
-button{font:inherit}
-.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
-.icon{width:1.15em;height:1.15em;flex:none}
-.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:8px}
-.skip{position:absolute;left:12px;top:-60px;z-index:50;background:var(--navy);color:#fff;padding:10px 14px;border-radius:10px}
-.skip:focus{top:12px}
-
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:48px;padding:13px 22px;border-radius:12px;font:600 1rem/1.1 Inter,sans-serif;text-decoration:none;border:1.5px solid transparent;cursor:pointer;white-space:nowrap;transition:transform .15s,background .15s,border-color .15s}
-.btn-primary{background:var(--blue);color:#fff;box-shadow:0 8px 20px rgba(31,94,255,.28)}
-.btn-primary:hover{background:var(--blue-600);transform:translateY(-1px)}
-.btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
-.btn-ghost:hover{border-color:#c7d3e8}
-.btn-small{min-height:40px;padding:9px 16px;font-size:.93rem;border-radius:10px}
-
-.site-header{background:#fff;border-bottom:1px solid var(--line)}
-.header-inner{display:flex;align-items:center;gap:26px;min-height:70px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);margin-right:auto}
-.logo svg{width:40px;height:40px;flex:none}
-.logo-text{display:flex;flex-direction:column;line-height:1;font-family:Sora,Inter,sans-serif}
-.logo-top{font-weight:800;font-size:1.1rem;letter-spacing:-.02em}
-.logo-bottom{font-weight:600;font-size:.7rem;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
-.nav{display:flex;gap:24px}
-.nav a{color:var(--muted);text-decoration:none;font-weight:500;font-size:.95rem;white-space:nowrap}
-.nav a:hover{color:var(--ink)}
-.header-phone{display:inline-flex;align-items:center;gap:7px;font-weight:600;color:var(--navy);text-decoration:none;font-size:.95rem;white-space:nowrap}
-.header-phone .icon{color:var(--blue);width:1em;height:1em}
-
-.section{padding:88px 0}
-.section-soft{background:var(--soft)}
-.section-head{max-width:700px;margin-bottom:40px}
-.section-head.center{text-align:center;margin-left:auto;margin-right:auto}
-.kicker{display:inline-block;font:600 .78rem/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
-.section-lede{color:var(--muted);font-size:1.07rem}
-
-/* Hero */
-.hero{padding:64px 0 80px;background:radial-gradient(900px 500px at 85% 10%,#eaf1ff,transparent 70%)}
-.hero-inner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center}
-.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 8px;border-radius:999px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);font-size:.86rem;font-weight:500;color:var(--muted);margin-bottom:20px}
-.pill b{white-space:nowrap;background:var(--blue-50);color:var(--blue);border-radius:999px;padding:3px 9px;font-size:.76rem;font-weight:600}
-.lede{font-size:1.15rem;color:var(--muted);max-width:34em;margin-bottom:24px}
-.price-line{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;margin:0 0 26px;font-size:.95rem;color:var(--muted)}
-.price-line strong{font:700 1.05rem/1.2 Sora,sans-serif;color:var(--navy);letter-spacing:-.02em}
-.price-line span{display:inline-flex;align-items:center;gap:6px}
-.price-line .icon{color:var(--green);width:1em;height:1em}
-.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
-.hero-reach{margin:16px 0 0;font-size:.9rem;color:var(--muted)}
-
-.phone{background:#0d1117;border-radius:44px;padding:10px;box-shadow:0 30px 60px -24px rgba(10,26,58,.45);max-width:330px;margin:0 auto}
-.screen{background:#fff;border-radius:35px;overflow:hidden}
-.thread-head{text-align:center;padding:16px 12px 10px;border-bottom:1px solid #eef1f6}
-.avatar{width:36px;height:36px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;margin:0 auto 4px}
-.avatar svg{width:20px;height:20px}
-.thread-head b{display:block;font-size:.85rem;line-height:1.2}
-.chat{padding:12px;display:flex;flex-direction:column;gap:7px;font-size:.82rem;line-height:1.4}
-.msg{max-width:86%;padding:7px 11px;border-radius:17px}
-.msg.in{background:#e9edf3;align-self:flex-start;border-bottom-left-radius:6px}
-.msg.out{background:#1a66db;color:#fff;align-self:flex-end;border-bottom-right-radius:6px}
-.sys{align-self:center;font-size:.68rem;color:var(--muted)}
-.missed{display:flex;align-items:center;gap:9px;border:1px solid #f3cccc;background:#fff7f7;border-radius:13px;padding:7px 11px;font-size:.75rem}
-.missed .ic{width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;flex:none}
-.missed .ic svg{width:13px;height:13px}
-.missed b{display:block;font-size:.8rem}
-.booked{align-self:stretch;display:flex;align-items:center;gap:8px;background:var(--green-50);color:var(--green);border-radius:12px;padding:7px 11px;font-size:.75rem;font-weight:600}
-.booked .icon{width:1.1em;height:1.1em}
-.phone-cap{font-size:.82rem;color:var(--muted);text-align:center;margin:14px auto 0;max-width:320px}
-
-/* Steps */
-.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;list-style:none;padding:0;margin:0;counter-reset:step}
-.step{position:relative;padding:26px 22px;background:#fff;border:1px solid var(--line);border-radius:var(--radius)}
-.step::before{counter-increment:step;content:counter(step);display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--blue);color:#fff;font:700 .95rem/1 Sora,sans-serif;margin-bottom:16px}
-.step h3{font-size:1.08rem;margin-bottom:8px}
-.step p{color:var(--muted);margin:0;font-size:.95rem}
-.demo-link{margin:32px 0 0;text-align:center}
-
-/* Calculator */
-.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:stretch}
-.calc-in,.calc-out{border-radius:22px;padding:30px}
-.calc-in{background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);display:grid;gap:22px;align-content:start}
-.calc-in label{display:grid;gap:8px;font-weight:600;font-size:.95rem}
-.calc-in label small{font-weight:400;color:var(--muted);font-size:.85rem}
-.field{display:flex;align-items:center;gap:10px}
-.field input[type=range]{flex:1;accent-color:var(--blue);min-width:0}
-.field input[type=number]{width:96px;font:600 1rem/1.2 Inter,sans-serif;color:var(--ink);padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fbfcfe}
-.field .unit{color:var(--muted);font-size:.9rem;font-weight:500}
-.calc-out{background:var(--navy);color:#fff;display:grid;gap:18px;align-content:start}
-.calc-out .row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.12)}
-.calc-out .row span{color:#c4d0e6;font-size:.95rem}
-.calc-out .row b{font:700 1.5rem/1 Sora,sans-serif;letter-spacing:-.03em;white-space:nowrap}
-.calc-out .big b{font-size:2.3rem;color:var(--sky)}
-.calc-out .even{background:rgba(255,255,255,.07);border-radius:14px;padding:14px 16px;font-size:.95rem;color:#dbe4f3}
-.calc-out .even b{color:#fff}
-.calc-note{font-size:.84rem;color:#9fb0cc;margin:0}
-
-/* Features */
-.feats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;list-style:none;padding:0;margin:0}
-.feats li{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px}
-.feats .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--blue-50);color:var(--blue);margin-bottom:14px}
-.feats .ic.warn{background:var(--red-50);color:var(--red)}
-.feats h3{font-size:1.05rem;margin-bottom:6px}
-.feats p{color:var(--muted);font-size:.95rem;margin:0}
-
-/* Pricing */
-.pricing{background:var(--navy);color:#fff;position:relative;overflow:hidden}
-.pricing::before{content:"";position:absolute;inset:-40% -10% auto auto;width:700px;height:700px;background:radial-gradient(circle,rgba(47,123,255,.35),transparent 65%);pointer-events:none}
-.pricing .kicker{color:var(--sky)}
-.pricing .section-lede{color:#c4d0e6}
-.price-card{position:relative;max-width:760px;margin:0 auto;background:#fff;color:var(--ink);border-radius:24px;padding:36px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 40px;box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
-.price-card .amount{font:800 2.8rem/1 Sora,sans-serif;letter-spacing:-.04em;margin:0}
-.price-card .amount small{font:500 .95rem/1 Inter,sans-serif;letter-spacing:0;color:var(--muted);margin-left:4px}
-.price-card .amount.sub{font-size:1.8rem;margin-top:8px}
-.price-card .terms{margin:18px 0 0;color:var(--muted);font-size:.95rem}
-.price-card ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:.97rem}
-.price-card li{display:flex;gap:10px;align-items:flex-start}
-.price-card li .icon{color:var(--blue);margin-top:3px;width:1.05em;height:1.05em}
-.price-card .btn{grid-column:1/-1}
-
-/* FAQ */
-.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
-.faq details{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;font:600 1.04rem/1.35 Sora,sans-serif;letter-spacing:-.015em}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary .icon{color:var(--blue);transition:transform .2s}
-.faq details[open] summary .icon{transform:rotate(45deg)}
-.faq details p{color:var(--muted);margin:0 0 20px;max-width:40em}
-
-/* Contact */
-.contact{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:start}
-.next{list-style:none;padding:0;margin:24px 0 28px;display:grid;gap:16px;counter-reset:nx}
-.next li{display:grid;grid-template-columns:32px 1fr;gap:14px;align-items:start;color:var(--muted);font-size:.96rem}
-.next li::before{counter-increment:nx;content:counter(nx);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;font:700 .88rem/1 Sora,sans-serif}
-.next b{display:block;color:var(--ink)}
-.big-call{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
-.big-call .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:var(--blue);color:#fff;flex:none}
-.big-call small{display:block;color:var(--muted);font-size:.85rem}
-.big-call b{font:700 1.3rem/1.2 Sora,sans-serif;letter-spacing:-.02em}
-.form{background:#fff;border:1px solid var(--line);border-radius:22px;padding:30px;box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.form h3{margin:0}
-.form-sub{margin:-8px 0 0;color:var(--muted);font-size:.92rem}
-.form .full{grid-column:1/-1}
-.form label{display:grid;gap:6px;font-size:.88rem;font-weight:600}
-.form .opt{font-weight:400;color:var(--muted)}
-.form input,.form select,.form textarea{font:400 16px/1.4 Inter,sans-serif;color:var(--ink);padding:12px 14px;min-height:48px;border:1.5px solid var(--line);border-radius:11px;background:#fbfcfe;width:100%}
-.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(31,94,255,.14)}
-.form textarea{min-height:96px;resize:vertical}
-.form-note{font-size:.84rem;color:var(--muted);margin:0}
-.form-note.ok{color:var(--green);background:var(--green-50);border-radius:12px;padding:14px 16px;font-size:.95rem;font-weight:600}
-.form-note.err{color:#b4232c;font-size:.95rem;font-weight:600}
-.privacy{font-size:.8rem;color:var(--muted);margin:0;display:flex;gap:6px;align-items:flex-start}
-.privacy .icon{width:1em;height:1em;margin-top:.2em}
-.hp{display:none}
-
-.site-footer{border-top:1px solid var(--line);font-size:.9rem;color:var(--muted)}
-.site-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;padding-top:26px;padding-bottom:30px}
-.site-footer a{color:var(--ink)}
-
-.mobile-bar{display:none}
-@media (max-width:1100px){.header-phone{display:none}}
-@media (max-width:1000px){
-  .hero-inner,.calc,.faq-grid,.contact{grid-template-columns:minmax(0,1fr);gap:40px}
-  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .feats{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .nav{display:none}
-}
-@media (max-width:640px){
-  body{font-size:16px}
-  .section{padding:60px 0}
-  .hero{padding:36px 0 56px}
-  .header-inner .btn{display:none}
-  .steps,.feats{grid-template-columns:minmax(0,1fr)}
-  .hero-actions .btn{flex:1 1 100%}
-  .calc-in,.calc-out{padding:22px}
-  .price-card{grid-template-columns:minmax(0,1fr);padding:26px 22px}
-  .form{grid-template-columns:minmax(0,1fr);padding:22px}
-}
-@media (max-width:760px){
-  :root{--bar:76px}
-  .mobile-bar{display:grid;grid-template-columns:1fr 1.4fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(10,26,58,.08)}
-  .mobile-bar .btn{min-height:52px;padding:10px 12px}
-}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@font-face{font-family:Sora;src:url(/assets/fonts/sora-latin.woff2) format("woff2");font-weight:600 800;font-display:swap}@font-face{font-family:Inter;src:url(/assets/fonts/inter-latin.woff2) format("woff2");font-weight:400 600;font-display:swap}*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }
+/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}html{scroll-padding-top:88px;-webkit-text-size-adjust:100%}b,strong{font-weight:600}.icon{display:inline-block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}:focus-visible{outline:3px solid #7dd3fc;outline-offset:2px}.skip{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}.skip:focus{position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto;white-space:normal;position:fixed;left:.75rem;top:.75rem;z-index:100;border-radius:.5rem;--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1));padding:.5rem 1rem;font-weight:600;--tw-text-opacity:1;color:rgb(2 6 23/var(--tw-text-opacity,1))}.kicker{font-size:.75rem;line-height:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;--tw-text-opacity:1;color:rgb(96 165 250/var(--tw-text-opacity,1))}.h2{margin-top:.5rem;font-family:Sora,Inter,system-ui,sans-serif;font-size:1.875rem;line-height:2.25rem;font-weight:800;line-height:1.25;letter-spacing:-.025em;--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}@media (min-width:640px){.h2{font-size:3rem;line-height:1}}.link{--tw-text-opacity:1;color:rgb(147 197 253/var(--tw-text-opacity,1));text-decoration-line:underline;text-decoration-color:rgba(96,165,250,.5);text-underline-offset:2px}.link:hover{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.btn{display:inline-flex;min-height:48px;align-items:center;justify-content:center;gap:.5rem;border-radius:.75rem;padding:.75rem 1.5rem;text-align:center;font-family:Sora,Inter,system-ui,sans-serif;font-size:15px;font-weight:800;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.btn-lg{padding:1rem 2rem;font-size:1rem;line-height:1.5rem}.btn-primary{--tw-bg-opacity:1;background-color:rgb(37 99 235/var(--tw-bg-opacity,1));--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1));--tw-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color),0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);--tw-shadow-color:rgba(37,99,235,.3);--tw-shadow:var(--tw-shadow-colored)}.btn-primary:hover{--tw-bg-opacity:1;background-color:rgb(59 130 246/var(--tw-bg-opacity,1))}.btn-dark{border-width:1px;--tw-border-opacity:1;border-color:rgb(51 65 85/var(--tw-border-opacity,1));--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1));--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.btn-dark:hover{--tw-bg-opacity:1;background-color:rgb(51 65 85/var(--tw-bg-opacity,1))}.field{display:flex;flex-direction:column;gap:.375rem;font-size:.75rem;line-height:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.025em;--tw-text-opacity:1;color:rgb(203 213 225/var(--tw-text-opacity,1))}.field input,.field select,.field textarea{width:100%;border-radius:.75rem;border-width:1px;--tw-border-opacity:1;border-color:rgb(51 65 85/var(--tw-border-opacity,1));--tw-bg-opacity:1;background-color:rgb(2 6 23/var(--tw-bg-opacity,1));padding:.75rem 1rem;font-size:15px;font-weight:400;text-transform:none;letter-spacing:0;--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.field input::-moz-placeholder,.field select::-moz-placeholder,.field textarea::-moz-placeholder{--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1))}.field input::placeholder,.field select::placeholder,.field textarea::placeholder{--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1))}.field input:focus,.field select:focus,.field textarea:focus{--tw-border-opacity:1;border-color:rgb(59 130 246/var(--tw-border-opacity,1));outline:2px solid transparent;outline-offset:2px;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000);--tw-ring-color:rgba(59,130,246,.4)}.foot-h{font-family:Sora,Inter,system-ui,sans-serif;font-size:.875rem;line-height:1.25rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.static{position:static}.fixed{position:fixed}.relative{position:relative}.sticky{position:sticky}.inset-x-0{left:0;right:0}.bottom-0{bottom:0}.top-0{top:0}.z-40{z-index:40}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.-mt-2{margin-top:-.5rem}.ml-1{margin-left:.25rem}.ml-2{margin-left:.5rem}.ml-8{margin-left:2rem}.ml-auto{margin-left:auto}.mr-6{margin-right:1.5rem}.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-10{margin-top:2.5rem}.mt-12{margin-top:3rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-6{margin-top:1.5rem}.mt-7{margin-top:1.75rem}.mt-8{margin-top:2rem}.mt-auto{margin-top:auto}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-11{height:2.75rem}.h-12{height:3rem}.h-2{height:.5rem}.h-3\.5{height:.875rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-7{height:1.75rem}.h-9{height:2.25rem}.h-\[72px\]{height:72px}.w-10{width:2.5rem}.w-11{width:2.75rem}.w-12{width:3rem}.w-14{width:3.5rem}.w-24{width:6rem}.w-3\.5{width:.875rem}.w-4{width:1rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-7{width:1.75rem}.w-9{width:2.25rem}.w-fit{width:-moz-fit-content;width:fit-content}.min-w-0{min-width:0}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-6xl{max-width:72rem}.max-w-\[360px\]{max-width:360px}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.cursor-pointer{cursor:pointer}.list-none{list-style-type:none}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.place-items-center{place-items:center}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1\.5{gap:.375rem}.gap-10{gap:2.5rem}.gap-12{gap:3rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.gap-x-5{-moz-column-gap:1.25rem;column-gap:1.25rem}.gap-y-2{row-gap:.5rem}.space-y-2>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.5rem*var(--tw-space-y-reverse))}.space-y-2\.5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.625rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.625rem*var(--tw-space-y-reverse))}.space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem*var(--tw-space-y-reverse))}.space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem*var(--tw-space-y-reverse))}.space-y-7>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.75rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.75rem*var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.break-all{word-break:break-all}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-\[2\.5rem\]{border-radius:2.5rem}.rounded-full{border-radius:9999px}.rounded-xl{border-radius:.75rem}.rounded-bl-md{border-bottom-left-radius:.375rem}.rounded-br-md{border-bottom-right-radius:.375rem}.border{border-width:1px}.border-2{border-width:2px}.border-\[10px\]{border-width:10px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-blue-500\/30{border-color:rgba(59,130,246,.3)}.border-blue-600{--tw-border-opacity:1;border-color:rgb(37 99 235/var(--tw-border-opacity,1))}.border-blue-800\/80{border-color:rgba(30,64,175,.8)}.border-blue-900\/50{border-color:rgba(30,58,138,.5)}.border-red-500\/30{border-color:rgba(239,68,68,.3)}.border-slate-700{--tw-border-opacity:1;border-color:rgb(51 65 85/var(--tw-border-opacity,1))}.border-slate-800{--tw-border-opacity:1;border-color:rgb(30 41 59/var(--tw-border-opacity,1))}.border-slate-900{--tw-border-opacity:1;border-color:rgb(15 23 42/var(--tw-border-opacity,1))}.border-white\/25{border-color:hsla(0,0%,100%,.25)}.bg-\[\#143fc5\]\/95{background-color:rgba(20,63,197,.95)}.bg-amber-500\/15{background-color:rgba(245,158,11,.15)}.bg-blue-500\/10{background-color:rgba(59,130,246,.1)}.bg-blue-500\/15{background-color:rgba(59,130,246,.15)}.bg-blue-600{--tw-bg-opacity:1;background-color:rgb(37 99 235/var(--tw-bg-opacity,1))}.bg-emerald-500\/15{background-color:rgba(16,185,129,.15)}.bg-red-500\/10{background-color:rgba(239,68,68,.1)}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1))}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42/var(--tw-bg-opacity,1))}.bg-slate-900\/40{background-color:rgba(15,23,42,.4)}.bg-slate-900\/80{background-color:rgba(15,23,42,.8)}.bg-slate-950{--tw-bg-opacity:1;background-color:rgb(2 6 23/var(--tw-bg-opacity,1))}.bg-slate-950\/95{background-color:rgba(2,6,23,.95)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.bg-gradient-to-b{background-image:linear-gradient(to bottom,var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-gradient-stops))}.from-\[\#143fc5\]\/25{--tw-gradient-from:rgba(20,63,197,.25) var(--tw-gradient-from-position);--tw-gradient-to:rgba(20,63,197,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-blue-400{--tw-gradient-from:#60a5fa var(--tw-gradient-from-position);--tw-gradient-to:rgba(96,165,250,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-blue-950\/50{--tw-gradient-from:rgba(23,37,84,.5) var(--tw-gradient-from-position);--tw-gradient-to:rgba(23,37,84,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-blue-950\/60{--tw-gradient-from:rgba(23,37,84,.6) var(--tw-gradient-from-position);--tw-gradient-to:rgba(23,37,84,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.via-sky-300{--tw-gradient-to:rgba(125,211,252,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),#7dd3fc var(--tw-gradient-via-position),var(--tw-gradient-to)}.via-slate-900{--tw-gradient-to:rgba(15,23,42,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),#0f172a var(--tw-gradient-via-position),var(--tw-gradient-to)}.via-slate-950{--tw-gradient-to:rgba(2,6,23,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),#020617 var(--tw-gradient-via-position),var(--tw-gradient-to)}.to-slate-900{--tw-gradient-to:#0f172a var(--tw-gradient-to-position)}.to-slate-950{--tw-gradient-to:#020617 var(--tw-gradient-to-position)}.to-white{--tw-gradient-to:#fff var(--tw-gradient-to-position)}.bg-clip-text{-webkit-background-clip:text;background-clip:text}.p-3{padding:.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-7{padding:1.75rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-3\.5{padding-left:.875rem;padding-right:.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-16{padding-bottom:4rem}.pb-28{padding-bottom:7rem}.pb-3{padding-bottom:.75rem}.pb-4{padding-bottom:1rem}.pb-5{padding-bottom:1.25rem}.pt-12{padding-top:3rem}.pt-14{padding-top:3.5rem}.pt-6{padding-top:1.5rem}.text-center{text-align:center}.text-right{text-align:right}.font-display{font-family:Sora,Inter,system-ui,sans-serif}.font-sans{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-\[11px\]{font-size:11px}.text-\[13px\]{font-size:13px}.text-\[15px\]{font-size:15px}.text-\[17px\]{font-size:17px}.text-\[2\.3rem\]{font-size:2.3rem}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-\[1\.08\]{line-height:1.08}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-.025em}.tracking-wider{letter-spacing:.05em}.text-\[\#143fc5\]{--tw-text-opacity:1;color:rgb(20 63 197/var(--tw-text-opacity,1))}.text-amber-300{--tw-text-opacity:1;color:rgb(252 211 77/var(--tw-text-opacity,1))}.text-blue-100{--tw-text-opacity:1;color:rgb(219 234 254/var(--tw-text-opacity,1))}.text-blue-300{--tw-text-opacity:1;color:rgb(147 197 253/var(--tw-text-opacity,1))}.text-blue-400{--tw-text-opacity:1;color:rgb(96 165 250/var(--tw-text-opacity,1))}.text-blue-50{--tw-text-opacity:1;color:rgb(239 246 255/var(--tw-text-opacity,1))}.text-emerald-300{--tw-text-opacity:1;color:rgb(110 231 183/var(--tw-text-opacity,1))}.text-red-200{--tw-text-opacity:1;color:rgb(254 202 202/var(--tw-text-opacity,1))}.text-red-300{--tw-text-opacity:1;color:rgb(252 165 165/var(--tw-text-opacity,1))}.text-sky-300{--tw-text-opacity:1;color:rgb(125 211 252/var(--tw-text-opacity,1))}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240/var(--tw-text-opacity,1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225/var(--tw-text-opacity,1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.text-transparent{color:transparent}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.accent-blue-500{accent-color:#3b82f6}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgba(0,0,0,.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color)}.shadow-2xl,.shadow-lg{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.shadow-md{--tw-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-blue-600\/10{--tw-shadow-color:rgba(37,99,235,.1);--tw-shadow:var(--tw-shadow-colored)}.shadow-blue-900\/40{--tw-shadow-color:rgba(30,58,138,.4);--tw-shadow:var(--tw-shadow-colored)}.backdrop-blur{--tw-backdrop-blur:blur(8px)}.backdrop-blur,.backdrop-blur-md{-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.no-select{-webkit-user-select:none;-moz-user-select:none;user-select:none}.slide-anim{transition:all .3s ease}.ph-only{display:none}.preview .ph-only{display:block}.mobile-bar{transition:transform .25s ease}.mobile-bar.is-hidden{transform:translateY(110%)}@media (max-width:1023px){.nav-panel.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#143fc5;border-bottom:1px solid #1e40af;padding:8px 16px 16px}.nav-panel.open a{padding:12px 4px;border-bottom:1px solid hsla(0,0%,100%,.12)}}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mobile-bar,.slide-anim{transition:none}}.selection\:bg-blue-600 ::-moz-selection{--tw-bg-opacity:1;background-color:rgb(37 99 235/var(--tw-bg-opacity,1))}.selection\:bg-blue-600 ::selection{--tw-bg-opacity:1;background-color:rgb(37 99 235/var(--tw-bg-opacity,1))}.selection\:text-white ::-moz-selection{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.selection\:text-white ::selection{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.selection\:bg-blue-600::-moz-selection{--tw-bg-opacity:1;background-color:rgb(37 99 235/var(--tw-bg-opacity,1))}.selection\:bg-blue-600::selection{--tw-bg-opacity:1;background-color:rgb(37 99 235/var(--tw-bg-opacity,1))}.selection\:text-white::-moz-selection{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.open\:border-blue-900\/70[open]{border-color:rgba(30,58,138,.7)}.hover\:border-blue-600:hover{--tw-border-opacity:1;border-color:rgb(37 99 235/var(--tw-border-opacity,1))}.hover\:bg-blue-50:hover{--tw-bg-opacity:1;background-color:rgb(239 246 255/var(--tw-bg-opacity,1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.focus\:border-blue-500:focus{--tw-border-opacity:1;border-color:rgb(59 130 246/var(--tw-border-opacity,1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.group[open] .group-open\:rotate-45{--tw-rotate:45deg;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@media (prefers-reduced-motion:no-preference){.motion-safe\:scroll-smooth{scroll-behavior:smooth}}@media (min-width:640px){.sm\:col-span-2{grid-column:span 2/span 2}.sm\:block{display:block}.sm\:inline-block{display:inline-block}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:flex-row{flex-direction:row}.sm\:p-10{padding:2.5rem}.sm\:p-8{padding:2rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:py-20{padding-top:5rem;padding-bottom:5rem}.sm\:pt-16{padding-top:4rem}.sm\:text-6xl{font-size:3.75rem;line-height:1}}@media (min-width:768px){.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:flex{display:flex}.lg\:hidden{display:none}.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.lg\:grid-cols-\[1\.15fr_1fr\]{grid-template-columns:1.15fr 1fr}.lg\:grid-cols-\[1\.2fr_1fr\]{grid-template-columns:1.2fr 1fr}.lg\:grid-cols-\[1fr_1\.15fr\]{grid-template-columns:1fr 1.15fr}.lg\:grid-cols-\[1fr_2fr\]{grid-template-columns:1fr 2fr}.lg\:px-8{padding-left:2rem;padding-right:2rem}.lg\:pb-14{padding-bottom:3.5rem}.lg\:pb-24{padding-bottom:6rem}}@media (min-width:1280px){.xl\:inline-flex{display:inline-flex}}.\[\&\>svg\]\:h-full>svg{height:100%}.\[\&\>svg\]\:w-full>svg{width:100%}
 </style>
 </head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
+<body class="bg-slate-950 font-sans text-white antialiased selection:bg-blue-600 selection:text-white">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
-  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
-  <symbol id="i-missed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M23 1 17 7M17 1l6 6"/><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
-  <symbol id="i-tooth" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3c-2.5 0-4 2-4 4.5 0 3 1.5 4.5 2 7 .5 2.5 1 6.5 3 6.5s2-4 4-4 2 4 4 4 2.5-4 3-6.5c.5-2.5 2-4 2-7C21 5 19.5 3 17 3c-2 0-3 1-5 1S9 3 7 3z"/></symbol>
-  <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
-  <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
-  <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0zM12 9v4M12 17h.01"/></symbol>
-  <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
-  <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></symbol>
-  <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></symbol>
-  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="4.5"/><path d="m10.7 12.3 9.8-9.8M17 6l3 3M14.5 8.5l2 2"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 1 0-1.4-8.8A6 6 0 1 0 6 17.7"/><path d="M6 19h11.5"/></symbol>
+  <symbol id="i-unlock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.7-1.5"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
   <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
-</svg>
 
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a class="logo" href="../">
-      <svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lg-h" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f7bff"/><stop offset="1" stop-color="#1238b8"/></linearGradient></defs><rect width="64" height="64" rx="15" fill="url(#lg-h)"/><rect x="2" y="2" width="60" height="60" rx="13" fill="none" stroke="#fff" stroke-opacity=".14"/><circle cx="13" cy="12" r="2" fill="#fff" fill-opacity=".55"/><circle cx="19.5" cy="12" r="2" fill="#fff" fill-opacity=".55"/><circle cx="26" cy="12" r="2" fill="#fff" fill-opacity=".55"/><path d="M19 21v28h15.5a7.5 7.5 0 0 0 0-15H19m0 0h13a6.5 6.5 0 0 0 0-13H19" fill="none" stroke="#fff" stroke-width="6" stroke-linejoin="round"/><path d="M38.5 37.5 51 42.6l-5.4 2.1 3.9 4.9-2.6 2.1-3.9-4.9-2.2 5.3z" fill="#9fd0ff" stroke="#1238b8" stroke-width="1.6" stroke-linejoin="round"/></svg>
-      <span class="logo-text"><span class="logo-top">Bartlett</span> <span class="logo-bottom">Website Design</span></span>
+  <symbol id="i-missed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M23 1 17 7M17 1l6 6"/><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+
+  <symbol id="i-tooth" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3c-2.5 0-4 2-4 4.5 0 3 1.5 4.5 2 7 .5 2.5 1 6.5 3 6.5s2-4 4-4 2 4 4 4 2.5-4 3-6.5c.5-2.5 2-4 2-7C21 5 19.5 3 17 3c-2 0-3 1-5 1S9 3 7 3z"/></symbol>
+
+  <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+
+  <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+
+  <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0zM12 9v4M12 17h.01"/></symbol>
+
+  <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+
+  <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></symbol>
+
+  <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></symbol>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<header id="header" class="sticky top-0 z-50 border-b border-blue-800/80 bg-[#143fc5]/95 shadow-md backdrop-blur-md">
+  <div class="mx-auto flex h-[72px] max-w-6xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
+    <a class="flex min-w-0 items-center gap-3" href="/">
+      <span class="block h-11 w-11 shrink-0 [&>svg]:h-full [&>svg]:w-full"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lg-h" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f7bff"/><stop offset="1" stop-color="#1238b8"/></linearGradient></defs><rect width="64" height="64" rx="15" fill="url(#lg-h)"/><rect x="2" y="2" width="60" height="60" rx="13" fill="none" stroke="#fff" stroke-opacity=".14"/><circle cx="13" cy="12" r="2" fill="#fff" fill-opacity=".55"/><circle cx="19.5" cy="12" r="2" fill="#fff" fill-opacity=".55"/><circle cx="26" cy="12" r="2" fill="#fff" fill-opacity=".55"/><path d="M19 21v28h15.5a7.5 7.5 0 0 0 0-15H19m0 0h13a6.5 6.5 0 0 0 0-13H19" fill="none" stroke="#fff" stroke-width="6" stroke-linejoin="round"/><path d="M38.5 37.5 51 42.6l-5.4 2.1 3.9 4.9-2.6 2.1-3.9-4.9-2.2 5.3z" fill="#9fd0ff" stroke="#1238b8" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+      <span class="min-w-0"><span class="block font-display text-[15px] font-extrabold leading-none tracking-tight text-white">BARTLETT WEBSITE DESIGN</span><span class="mt-1 hidden text-[11px] font-medium text-blue-100 sm:block">Built locally in Bartlett, TN</span></span>
     </a>
-    <nav class="nav" aria-label="On this page"><a href="#how">How it works</a><a href="#cost">Missed-call cost</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></nav>
-    <a class="header-phone" href="tel:+19013210023"><svg class="icon"><use href="#i-phone"/></svg>(901) 321-0023</a>
-    <a class="btn btn-primary btn-small" href="#contact">See if it fits</a>
+    <nav id="nav" aria-label="On this page" class="nav-panel hidden items-center gap-6 text-sm font-semibold text-blue-50 lg:flex">
+      <a class="hover:text-white" href="#how">How it works</a><a class="hover:text-white" href="#cost">Missed-call cost</a><a class="hover:text-white" href="#pricing">Pricing</a><a class="hover:text-white" href="#faq">FAQ</a><a class="hover:text-white" href="/">Websites</a>
+    </nav>
+    <div class="flex shrink-0 items-center gap-2">
+      <a class="hidden items-center gap-1.5 text-sm font-semibold text-white xl:inline-flex" href="tel:+19013210023"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-phone"/></svg>(901) 321-0023</a>
+      <a class="hidden rounded-xl bg-white px-4 py-2.5 font-display text-sm font-extrabold text-[#143fc5] shadow-lg transition hover:bg-blue-50 sm:inline-block" href="#contact">See if it fits</a>
+      <button id="menu-toggle" class="grid h-11 w-11 place-items-center rounded-xl border border-white/25 text-white lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><svg class="icon w-6 h-6" aria-hidden="true"><use href="#i-menu"/></svg></button>
+    </div>
   </div>
 </header>
 
 <main id="main">
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="wrap hero-inner">
+  <section class="relative overflow-hidden bg-gradient-to-b from-[#143fc5]/25 via-slate-950 to-slate-950 px-4 pb-16 pt-12 sm:px-6 sm:pt-16 lg:px-8 lg:pb-24" aria-labelledby="hero-title">
+    <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-[1.15fr_1fr]">
       <div>
-        <p class="pill"><b>Dental offices</b>Bartlett, Memphis &amp; the Mid-South</p>
-        <h1 id="hero-title">Missed calls, booked before they call the next office.</h1>
-        <p class="lede">When your front desk can't pick up, the booking agent texts the caller back within a minute, offers times that are really open and books the one they pick. Your team gets a clean summary. Anything urgent goes straight to a person.</p>
-        <p class="price-line"><strong>$1,500 setup + $1,000/mo</strong><span><svg class="icon"><use href="#i-check"/></svg>No long-term contract</span><span><svg class="icon"><use href="#i-check"/></svg>No new website needed</span></p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="../demos/missed-call-booking-agent/">Watch it book a patient<svg class="icon"><use href="#i-arrow"/></svg></a>
-          <a class="btn btn-ghost" href="#contact">See if it fits your office</a>
+        <p class="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-300"><svg class="icon w-3.5 h-3.5" aria-hidden="true"><use href="#i-tooth"/></svg>Dental offices &middot; Bartlett, Memphis &amp; the Mid-South</p>
+        <h1 id="hero-title" class="mt-5 font-display text-[2.3rem] font-extrabold leading-[1.08] tracking-tight sm:text-6xl">Missed calls, booked before they call the <span class="bg-gradient-to-r from-blue-400 via-sky-300 to-white bg-clip-text text-transparent">next office.</span></h1>
+        <p class="mt-6 text-lg leading-relaxed text-slate-300">When your front desk can't pick up, the booking agent texts the caller back within a minute, offers times that are really open and books the one they pick. Your team gets a clean summary. Anything urgent goes straight to a person.</p>
+        <p class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-slate-300"><strong class="font-display text-lg font-extrabold text-white">$1,500 setup + $1,000/mo</strong><span class="flex items-center gap-1.5"><svg class="icon w-4 h-4 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg>No long-term contract</span><span class="flex items-center gap-1.5"><svg class="icon w-4 h-4 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg>No new website needed</span></p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a class="btn btn-primary btn-lg" href="/demos/missed-call-booking-agent/">Watch it book a patient<svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-dark btn-lg" href="#contact">See if it fits your office</a>
         </div>
-        <p class="hero-reach">Questions? Call or text Austin at <a href="tel:+19013210023">(901) 321-0023</a>. You'll reach me, not a call center.</p>
+        <p class="mt-4 text-sm text-slate-400">Questions? Call or text Austin at <a class="link font-semibold text-white" href="tel:+19013210023">(901) 321-0023</a>. You'll reach me, not a call center.</p>
       </div>
       <div>
-        <div class="phone" role="img" aria-label="Example text conversation: after a missed call, a new patient asks for a cleaning, the automated assistant offers three morning times, and books Thursday at 8 AM.">
-          <div class="screen">
-            <div class="thread-head"><div class="avatar"><svg><use href="#i-tooth"/></svg></div><b>Bright Smile Dental</b></div>
-            <div class="chat" aria-hidden="true">
-              <div class="missed"><span class="ic"><svg><use href="#i-missed"/></svg></span><span><b>Missed call</b>10:17 AM</span></div>
-              <div class="msg out">Hi, I need a cleaning. I'm a new patient. Any mornings next week?</div>
-              <div class="msg in">Hi, this is the automated booking assistant at Bright Smile Dental. Sorry we missed your call! We have Tue 9:30, Thu 8:00 or Fri 10:15. Which works best? (Reply STAFF for a person.)</div>
-              <div class="sys">Replied in 40 seconds</div>
-              <div class="msg out">Thursday 8am</div>
-              <div class="sys">Name and email collected</div>
-              <div class="msg in">You're booked for Thursday at 8:00 AM with Dr. Patel. Your confirmation is on its way.</div>
-              <div class="booked"><svg class="icon"><use href="#i-check"/></svg>Booked · front desk notified</div>
-            </div>
+        <div class="mx-auto max-w-[360px] rounded-[2.5rem] border-[10px] border-slate-800 bg-slate-900 p-4 shadow-2xl shadow-blue-900/40" role="img" aria-label="Example text conversation: after a missed call, a new patient asks for a cleaning, the automated assistant offers three morning times, and books Thursday at 8 AM.">
+          <div class="flex items-center gap-2 border-b border-slate-800 pb-3"><span class="grid h-9 w-9 place-items-center rounded-full bg-blue-600"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-tooth"/></svg></span><b class="font-display text-sm font-extrabold">Bright Smile Dental</b></div>
+          <div class="mt-3 space-y-2.5 text-[13px]" aria-hidden="true">
+            <div class="flex items-center gap-2 rounded-xl border border-red-500/30 bg-red-500/10 px-3 py-2 text-red-200"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-missed"/></svg><span><b>Missed call</b> &middot; 10:17 AM</span></div>
+            <div class="ml-8 rounded-2xl rounded-br-md bg-blue-600 px-3 py-2">Hi, I need a cleaning. I'm a new patient. Any mornings next week?</div>
+            <div class="mr-6 rounded-2xl rounded-bl-md bg-slate-800 px-3 py-2">Hi, this is the automated booking assistant at Bright Smile Dental. Sorry we missed your call! We have Tue 9:30, Thu 8:00 or Fri 10:15. Which works best? (Reply STAFF for a person.)</div>
+            <p class="text-center text-[11px] text-slate-400">Replied in 40 seconds</p>
+            <div class="ml-auto w-fit rounded-2xl rounded-br-md bg-blue-600 px-3 py-2">Thursday 8am</div>
+            <p class="text-center text-[11px] text-slate-400">Name and email collected</p>
+            <div class="mr-6 rounded-2xl rounded-bl-md bg-slate-800 px-3 py-2">You're booked for Thursday at 8:00 AM with Dr. Patel. Your confirmation is on its way.</div>
+            <div class="flex items-center justify-center gap-1.5 rounded-xl bg-emerald-500/15 px-3 py-2 text-xs font-semibold text-emerald-300"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-check"/></svg>Booked &middot; front desk notified</div>
           </div>
         </div>
-        <p class="phone-cap">From the <a href="../demos/missed-call-booking-agent/">live demo</a>. Bright Smile Dental is a made-up practice.</p>
+        <p class="mt-4 text-center text-sm text-slate-400">From the <a class="link" href="/demos/missed-call-booking-agent/">live demo</a>. Bright Smile Dental is a made-up practice.</p>
       </div>
     </div>
   </section>
 
-  <section class="section section-soft" id="how" aria-labelledby="how-title">
-    <div class="wrap">
-      <div class="section-head center">
+  <section id="how" class="border-t border-slate-900 bg-slate-900/40 px-4 py-16 sm:px-6 sm:py-20 lg:px-8" aria-labelledby="how-title">
+    <div class="mx-auto max-w-6xl">
+      <div class="mx-auto max-w-3xl text-center">
         <p class="kicker">How it works</p>
-        <h2 id="how-title">One job: turn a missed call into an appointment.</h2>
-        <p class="section-lede">It doesn't answer insurance questions or give clinical advice. It books, and it hands everything else to your team.</p>
+        <h2 id="how-title" class="h2">One job: turn a missed call into an appointment.</h2>
+        <p class="mt-4 text-lg text-slate-400">It doesn't answer insurance questions or give clinical advice. It books, and it hands everything else to your team.</p>
       </div>
-      <ol class="steps">
-        <li class="step"><h3>A call goes unanswered</h3><p>Your team is with a patient, at lunch or closed for the day. The caller gets a text instead of voicemail.</p></li>
-        <li class="step"><h3>It finds out what they need</h3><p>New or existing patient, the kind of visit, and the days and times that suit them.</p></li>
-        <li class="step"><h3>It offers real openings</h3><p>Only times that are open in your schedule, then it holds the one they pick while it gets their name and email.</p></li>
-        <li class="step"><h3>It books and tells your team</h3><p>The appointment goes on your calendar, the patient gets a confirmation and reminder, and your front desk gets a summary.</p></li>
+      <ol class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <li class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><p class="text-xs font-semibold uppercase tracking-wider text-blue-400">Step 1</p><h3 class="mt-1 font-display text-lg font-extrabold">A call goes unanswered</h3><p class="mt-2 text-sm text-slate-400">Your team is with a patient, at lunch or closed for the day. The caller gets a text instead of voicemail.</p></li>
+        <li class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><p class="text-xs font-semibold uppercase tracking-wider text-blue-400">Step 2</p><h3 class="mt-1 font-display text-lg font-extrabold">It finds out what they need</h3><p class="mt-2 text-sm text-slate-400">New or existing patient, the kind of visit, and the days and times that suit them.</p></li>
+        <li class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><p class="text-xs font-semibold uppercase tracking-wider text-blue-400">Step 3</p><h3 class="mt-1 font-display text-lg font-extrabold">It offers real openings</h3><p class="mt-2 text-sm text-slate-400">Only times that are open in your schedule, then it holds the one they pick while it gets their name and email.</p></li>
+        <li class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><p class="text-xs font-semibold uppercase tracking-wider text-blue-400">Step 4</p><h3 class="mt-1 font-display text-lg font-extrabold">It books and tells your team</h3><p class="mt-2 text-sm text-slate-400">The appointment goes on your calendar, the patient gets a confirmation and reminder, and your front desk gets a summary.</p></li>
       </ol>
-      <p class="demo-link"><a class="btn btn-primary" href="../demos/missed-call-booking-agent/">Watch the full conversation<svg class="icon"><use href="#i-arrow"/></svg></a></p>
+      <p class="mt-10 text-center"><a class="btn btn-primary" href="/demos/missed-call-booking-agent/">Watch the full conversation<svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
     </div>
   </section>
 
-  <section class="section" id="cost" aria-labelledby="cost-title">
-    <div class="wrap">
-      <div class="section-head">
+  <section id="cost" class="border-t border-slate-900 px-4 py-16 sm:px-6 sm:py-20 lg:px-8" aria-labelledby="cost-title">
+    <div class="mx-auto max-w-6xl">
+      <div class="max-w-3xl">
         <p class="kicker">Missed-call cost</p>
-        <h2 id="cost-title">What are missed calls costing your office?</h2>
-        <p class="section-lede">The starting numbers are only examples. Change them to match your phone log and your fees.</p>
+        <h2 id="cost-title" class="h2">What are missed calls costing your office?</h2>
+        <p class="mt-4 text-lg text-slate-400">The starting numbers are only examples. Change them to match your phone log and your fees.</p>
       </div>
-      <div class="calc">
-        <form class="calc-in" id="calc" aria-label="Missed-call calculator" onsubmit="return false">
-          <label for="c-calls">Missed calls a week<small>Calls that went to voicemail or rang out.</small>
-            <span class="field"><input type="range" id="c-calls-r" min="0" max="100" value="10" aria-hidden="true" tabindex="-1"><input type="number" id="c-calls" min="0" max="500" value="10" inputmode="numeric"><span class="unit">calls</span></span></label>
-          <label for="c-share">How many of those wanted an appointment<small>The rest were questions, vendors or wrong numbers.</small>
-            <span class="field"><input type="range" id="c-share-r" min="0" max="100" value="30" aria-hidden="true" tabindex="-1"><input type="number" id="c-share" min="0" max="100" value="30" inputmode="numeric"><span class="unit">%</span></span></label>
-          <label for="c-value">What one booked visit is worth to you<small>For example, your fee for a new-patient exam and cleaning.</small>
-            <span class="field"><input type="range" id="c-value-r" min="0" max="1000" step="10" value="200" aria-hidden="true" tabindex="-1"><input type="number" id="c-value" min="0" max="10000" step="10" value="200" inputmode="numeric"><span class="unit">dollars</span></span></label>
+      <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-[1.2fr_1fr]">
+        <form class="space-y-7 rounded-3xl border border-slate-800 bg-slate-900 p-6 sm:p-8" id="calc" aria-label="Missed-call calculator" onsubmit="return false">
+          <label class="block" for="c-calls"><span class="font-display font-extrabold text-white">Missed calls a week</span><small class="mt-0.5 block text-sm text-slate-400">Calls that went to voicemail or rang out.</small>
+            <span class="mt-3 flex items-center gap-3"><input class="h-2 flex-1 cursor-pointer accent-blue-500" type="range" id="c-calls-r" min="0" max="100" value="10" aria-hidden="true" tabindex="-1"><input class="w-24 rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-right text-white focus:border-blue-500 focus:outline-none" type="number" id="c-calls" min="0" max="500" value="10" inputmode="numeric"><span class="w-14 text-sm text-slate-400">calls</span></span></label>
+          <label class="block" for="c-share"><span class="font-display font-extrabold text-white">How many of those wanted an appointment</span><small class="mt-0.5 block text-sm text-slate-400">The rest were questions, vendors or wrong numbers.</small>
+            <span class="mt-3 flex items-center gap-3"><input class="h-2 flex-1 cursor-pointer accent-blue-500" type="range" id="c-share-r" min="0" max="100" value="30" aria-hidden="true" tabindex="-1"><input class="w-24 rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-right text-white focus:border-blue-500 focus:outline-none" type="number" id="c-share" min="0" max="100" value="30" inputmode="numeric"><span class="w-14 text-sm text-slate-400">%</span></span></label>
+          <label class="block" for="c-value"><span class="font-display font-extrabold text-white">What one booked visit is worth to you</span><small class="mt-0.5 block text-sm text-slate-400">For example, your fee for a new-patient exam and cleaning.</small>
+            <span class="mt-3 flex items-center gap-3"><input class="h-2 flex-1 cursor-pointer accent-blue-500" type="range" id="c-value-r" min="0" max="1000" step="10" value="200" aria-hidden="true" tabindex="-1"><input class="w-24 rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-right text-white focus:border-blue-500 focus:outline-none" type="number" id="c-value" min="0" max="10000" step="10" value="200" inputmode="numeric"><span class="w-14 text-sm text-slate-400">dollars</span></span></label>
         </form>
-        <div class="calc-out" aria-live="polite">
-          <div class="row"><span>Callers a month who wanted to book</span><b id="o-callers">13</b></div>
-          <div class="row big"><span>Visits at stake each month</span><b id="o-value">$2,600</b></div>
-          <p class="even" id="o-even">The agent's monthly fee is covered once it books <b>5 visits</b> a month that would otherwise have gone to voicemail.</p>
-          <p class="calc-note">An estimate from your numbers, not a promise. Some callers would have called back anyway, and not everyone who gets a text will book.</p>
+        <div class="flex flex-col rounded-3xl border border-blue-900/50 bg-gradient-to-b from-blue-950/60 via-slate-900 to-slate-900 p-6 sm:p-8" aria-live="polite">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-4"><span class="text-slate-300">Callers a month who wanted to book</span><b class="font-display text-2xl font-extrabold" id="o-callers">13</b></div>
+          <div class="flex items-center justify-between border-b border-slate-800 py-4"><span class="text-slate-300">Visits at stake each month</span><b class="font-display text-4xl font-extrabold text-sky-300" id="o-value">$2,600</b></div>
+          <p class="mt-4 text-slate-200" id="o-even">The agent's monthly fee is covered once it books <b>5 visits</b> a month that would otherwise have gone to voicemail.</p>
+          <p class="mt-auto pt-6 text-xs text-slate-400">An estimate from your numbers, not a promise. Some callers would have called back anyway, and not everyone who gets a text will book.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section section-soft" aria-labelledby="feat-title">
-    <div class="wrap">
-      <div class="section-head center">
+  <section class="border-t border-slate-900 bg-slate-900/40 px-4 py-16 sm:px-6 sm:py-20 lg:px-8" aria-labelledby="feat-title">
+    <div class="mx-auto max-w-6xl">
+      <div class="mx-auto max-w-3xl text-center">
         <p class="kicker">Built for a dental front desk</p>
-        <h2 id="feat-title">Fast for patients. Safe for your practice.</h2>
+        <h2 id="feat-title" class="h2">Fast for patients. Safe for your practice.</h2>
       </div>
-      <ul class="feats">
-        <li><span class="ic"><svg class="icon"><use href="#i-chat"/></svg></span><h3>Replies within a minute</h3><p>Callers hear back while they're still deciding, not after they've booked somewhere else.</p></li>
-        <li><span class="ic"><svg class="icon"><use href="#i-user"/></svg></span><h3>Always says it's automated</h3><p>Every conversation starts by saying it's an assistant. Patients can reply STAFF to reach a person any time.</p></li>
-        <li><span class="ic warn"><svg class="icon"><use href="#i-alert"/></svg></span><h3>Urgent goes to a person</h3><p>Pain, swelling, bleeding or a broken tooth isn't booked by a bot. Your team gets an urgent alert to call back.</p></li>
-        <li><span class="ic"><svg class="icon"><use href="#i-cal"/></svg></span><h3>Books into your schedule</h3><p>It works with most practice calendars and only offers times that are really open. If yours can't connect, I'll tell you before you pay.</p></li>
-        <li><span class="ic"><svg class="icon"><use href="#i-bell"/></svg></span><h3>A summary for every booking</h3><p>Who it is, new or existing, what they need and when. Your team doesn't have to read the whole thread.</p></li>
-        <li><span class="ic"><svg class="icon"><use href="#i-list"/></svg></span><h3>Every conversation logged</h3><p>A full record of what was said and booked, so nothing depends on someone remembering a voicemail.</p></li>
+      <ul class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <li class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><span class="grid h-11 w-11 place-items-center rounded-xl bg-blue-500/15 text-blue-300"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-chat"/></svg></span><h3 class="mt-4 font-display text-lg font-extrabold">Replies within a minute</h3><p class="mt-2 text-sm text-slate-400">Callers hear back while they're still deciding, not after they've booked somewhere else.</p></li>
+        <li class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><span class="grid h-11 w-11 place-items-center rounded-xl bg-blue-500/15 text-blue-300"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-user"/></svg></span><h3 class="mt-4 font-display text-lg font-extrabold">Always says it's automated</h3><p class="mt-2 text-sm text-slate-400">Every conversation starts by saying it's an assistant. Patients can reply STAFF to reach a person any time.</p></li>
+        <li class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><span class="grid h-11 w-11 place-items-center rounded-xl bg-amber-500/15 text-amber-300"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-alert"/></svg></span><h3 class="mt-4 font-display text-lg font-extrabold">Urgent goes to a person</h3><p class="mt-2 text-sm text-slate-400">Pain, swelling, bleeding or a broken tooth isn't booked by a bot. Your team gets an urgent alert to call back.</p></li>
+        <li class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><span class="grid h-11 w-11 place-items-center rounded-xl bg-blue-500/15 text-blue-300"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-cal"/></svg></span><h3 class="mt-4 font-display text-lg font-extrabold">Books into your schedule</h3><p class="mt-2 text-sm text-slate-400">It works with most practice calendars and only offers times that are really open. If yours can't connect, I'll tell you before you pay.</p></li>
+        <li class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><span class="grid h-11 w-11 place-items-center rounded-xl bg-blue-500/15 text-blue-300"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-bell"/></svg></span><h3 class="mt-4 font-display text-lg font-extrabold">A summary for every booking</h3><p class="mt-2 text-sm text-slate-400">Who it is, new or existing, what they need and when. Your team doesn't have to read the whole thread.</p></li>
+        <li class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><span class="grid h-11 w-11 place-items-center rounded-xl bg-blue-500/15 text-blue-300"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-list"/></svg></span><h3 class="mt-4 font-display text-lg font-extrabold">Every conversation logged</h3><p class="mt-2 text-sm text-slate-400">A full record of what was said and booked, so nothing depends on someone remembering a voicemail.</p></li>
       </ul>
     </div>
   </section>
 
-  <section class="section pricing" id="pricing" aria-labelledby="pricing-title">
-    <div class="wrap">
-      <div class="section-head center">
+  <section id="pricing" class="border-t border-slate-900 px-4 py-16 sm:px-6 sm:py-20 lg:px-8" aria-labelledby="pricing-title">
+    <div class="mx-auto max-w-6xl">
+      <div class="mx-auto max-w-3xl text-center">
         <p class="kicker">Pricing</p>
-        <h2 id="pricing-title">One setup fee, one monthly fee.</h2>
-        <p class="section-lede">Confirmed in writing before any work starts. No long-term contract.</p>
+        <h2 id="pricing-title" class="h2">One setup fee, one monthly fee.</h2>
+        <p class="mt-4 text-lg text-slate-400">Confirmed in writing before any work starts. No long-term contract.</p>
       </div>
-      <div class="price-card">
+      <div class="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-8 rounded-3xl border-2 border-blue-600 bg-gradient-to-b from-blue-950/50 via-slate-900 to-slate-900 p-7 shadow-2xl shadow-blue-600/10 sm:p-10 md:grid-cols-2">
         <div>
-          <p class="amount">$1,500<small>one-time setup</small></p>
-          <p class="amount sub">+ $1,000<small>/ month</small></p>
-          <p class="terms">Works with or without a website from me. You don't need a new one.</p>
+          <p class="font-display text-5xl font-extrabold">$1,500<span class="ml-2 font-sans text-base font-normal text-slate-400">one-time setup</span></p>
+          <p class="mt-2 font-display text-3xl font-extrabold text-slate-200">+ $1,000<span class="ml-1 font-sans text-base font-normal text-slate-400">/ month</span></p>
+          <p class="mt-4 text-sm text-slate-400">Works with or without a website from me. You don't need a new one.</p>
+          <a class="btn btn-primary mt-7" href="#contact">See if it fits your office<svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
-        <ul>
-          <li><svg class="icon"><use href="#i-check"/></svg>Setup and calendar connection</li>
-          <li><svg class="icon"><use href="#i-check"/></svg>Text-back within a minute</li>
-          <li><svg class="icon"><use href="#i-check"/></svg>Booking, confirmations and reminders</li>
-          <li><svg class="icon"><use href="#i-check"/></svg>Urgent handoff to your team</li>
-          <li><svg class="icon"><use href="#i-check"/></svg>Front-desk summaries and a full log</li>
-          <li><svg class="icon"><use href="#i-check"/></svg>Monthly monitoring</li>
+        <ul class="space-y-3 text-sm text-slate-300">
+          <li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Setup and calendar connection</span></li>
+          <li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Text-back within a minute</span></li>
+          <li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Booking, confirmations and reminders</span></li>
+          <li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Urgent handoff to your team</span></li>
+          <li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Front-desk summaries and a full log</span></li>
+          <li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Monthly monitoring</span></li>
         </ul>
-        <a class="btn btn-primary" href="#contact">See if it fits your office<svg class="icon"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
   </section>
 
-  <section class="section" id="faq" aria-labelledby="faq-title">
-    <div class="wrap faq-grid">
+  <section id="faq" class="border-t border-slate-900 bg-slate-900/40 px-4 py-16 sm:px-6 sm:py-20 lg:px-8" aria-labelledby="faq-title">
+    <div class="mx-auto grid max-w-6xl grid-cols-1 gap-10 lg:grid-cols-[1fr_2fr]">
       <div>
         <p class="kicker">FAQ</p>
-        <h2 id="faq-title">Questions practices ask me.</h2>
-        <p class="section-lede">Don't see yours? <a href="tel:+19013210023">Call or text</a> or <a href="#contact">send a message</a>.</p>
+        <h2 id="faq-title" class="h2">Questions practices ask me.</h2>
+        <p class="mt-4 text-slate-400">Don't see yours? <a class="link" href="tel:+19013210023">Call or text</a> or <a class="link" href="#contact">send a message</a>.</p>
       </div>
-      <div class="faq">
-        <details open><summary>Will patients know they're texting an automated assistant?<svg class="icon"><use href="#i-plus"/></svg></summary><p>Yes. The first text says it's your office's automated booking assistant, and patients can reply STAFF at any point to reach a person.</p></details>
-        <details><summary>What happens when someone has an emergency?<svg class="icon"><use href="#i-plus"/></svg></summary><p>It doesn't try to book it. Pain, swelling, bleeding or a broken tooth sends your front desk an urgent alert to call the patient back, and the patient is told someone will call shortly. If they mention trouble breathing or swallowing, they're told to call 911 or go to the ER.</p></details>
-        <details><summary>Does it work with our practice software?<svg class="icon"><use href="#i-plus"/></svg></summary><p>It works with most practice calendars. Tell me what you use and I'll confirm it connects before you pay anything. If it can't, I'll say so.</p></details>
-        <details><summary>Do we need a new website?<svg class="icon"><use href="#i-plus"/></svg></summary><p>No. The agent works with the phone number and calendar you already have. If you do want a new site too, that's priced separately on the <a href="../#pricing">main pricing page</a>.</p></details>
-        <details><summary>What does it cost, and is there a contract?<svg class="icon"><use href="#i-plus"/></svg></summary><p>$1,500 to set up and $1,000 a month after that, confirmed in writing before any work starts. There's no long-term contract.</p></details>
-        <details><summary>Can we see it before we commit?<svg class="icon"><use href="#i-plus"/></svg></summary><p>Yes. <a href="../demos/missed-call-booking-agent/">Watch the demo</a> for a full conversation, including an urgent request handed to a person. Then send the form below and I'll walk you through how it would work with your phones and calendar.</p></details>
+      <div class="space-y-3">
+        <details class="group rounded-2xl border border-slate-800 bg-slate-900/80 open:border-blue-900/70" open><summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-display text-[17px] font-extrabold text-white">Will patients know they're texting an automated assistant?<span class="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-slate-700 text-blue-400 transition group-open:rotate-45"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="px-5 pb-5 text-[15px] leading-relaxed text-slate-400">Yes. The first text says it's your office's automated booking assistant, and patients can reply STAFF at any point to reach a person.</p></details>
+        <details class="group rounded-2xl border border-slate-800 bg-slate-900/80 open:border-blue-900/70"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-display text-[17px] font-extrabold text-white">What happens when someone has an emergency?<span class="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-slate-700 text-blue-400 transition group-open:rotate-45"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="px-5 pb-5 text-[15px] leading-relaxed text-slate-400">It doesn't try to book it. Pain, swelling, bleeding or a broken tooth sends your front desk an urgent alert to call the patient back, and the patient is told someone will call shortly. If they mention trouble breathing or swallowing, they're told to call 911 or go to the ER.</p></details>
+        <details class="group rounded-2xl border border-slate-800 bg-slate-900/80 open:border-blue-900/70"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-display text-[17px] font-extrabold text-white">Does it work with our practice software?<span class="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-slate-700 text-blue-400 transition group-open:rotate-45"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="px-5 pb-5 text-[15px] leading-relaxed text-slate-400">It works with most practice calendars. Tell me what you use and I'll confirm it connects before you pay anything. If it can't, I'll say so.</p></details>
+        <details class="group rounded-2xl border border-slate-800 bg-slate-900/80 open:border-blue-900/70"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-display text-[17px] font-extrabold text-white">Do we need a new website?<span class="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-slate-700 text-blue-400 transition group-open:rotate-45"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="px-5 pb-5 text-[15px] leading-relaxed text-slate-400">No. The agent works with the phone number and calendar you already have. If you do want a new site too, that's priced separately on the <a class="link" href="/#pricing">main pricing page</a>.</p></details>
+        <details class="group rounded-2xl border border-slate-800 bg-slate-900/80 open:border-blue-900/70"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-display text-[17px] font-extrabold text-white">What does it cost, and is there a contract?<span class="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-slate-700 text-blue-400 transition group-open:rotate-45"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="px-5 pb-5 text-[15px] leading-relaxed text-slate-400">$1,500 to set up and $1,000 a month after that, confirmed in writing before any work starts. There's no long-term contract.</p></details>
+        <details class="group rounded-2xl border border-slate-800 bg-slate-900/80 open:border-blue-900/70"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-display text-[17px] font-extrabold text-white">Can we see it before we commit?<span class="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-slate-700 text-blue-400 transition group-open:rotate-45"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="px-5 pb-5 text-[15px] leading-relaxed text-slate-400">Yes. <a class="link" href="/demos/missed-call-booking-agent/">Watch the demo</a> for a full conversation, including an urgent request handed to a person. Then send the form below and I'll walk you through how it would work with your phones and calendar.</p></details>
       </div>
     </div>
   </section>
 
-  <section class="section section-soft" id="contact" aria-labelledby="contact-title">
-    <div class="wrap contact">
+  <section id="contact" class="border-t border-slate-900 px-4 py-16 sm:px-6 sm:py-20 lg:px-8" aria-labelledby="contact-title">
+    <div class="mx-auto grid max-w-6xl grid-cols-1 gap-10 lg:grid-cols-[1fr_1.15fr]">
       <div>
         <p class="kicker">Next step</p>
-        <h2 id="contact-title">See if it fits your office.</h2>
-        <p class="section-lede">Tell me a little about your practice. There's no cost and no obligation to ask.</p>
-        <ol class="next">
-          <li><span><b>I reply within one business day</b>By text or email, to set up a short call.</span></li>
-          <li><span><b>We check your phones and calendar</b>I confirm your scheduling software can connect before you pay anything.</span></li>
-          <li><span><b>You decide</b>If it's a fit, you get the price in writing before setup starts.</span></li>
+        <h2 id="contact-title" class="h2">See if it fits your office.</h2>
+        <p class="mt-4 text-lg text-slate-400">Tell me a little about your practice. There's no cost and no obligation to ask.</p>
+        <ol class="mt-8 space-y-4 text-sm text-slate-300">
+          <li class="flex gap-3"><span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-blue-600 font-display text-xs font-extrabold">1</span><span><b class="block text-white">I reply within one business day</b>By text or email, to set up a short call.</span></li>
+          <li class="flex gap-3"><span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-blue-600 font-display text-xs font-extrabold">2</span><span><b class="block text-white">We check your phones and calendar</b>I confirm your scheduling software can connect before you pay anything.</span></li>
+          <li class="flex gap-3"><span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-blue-600 font-display text-xs font-extrabold">3</span><span><b class="block text-white">You decide</b>If it's a fit, you get the price in writing before setup starts.</span></li>
         </ol>
-        <a class="big-call" href="tel:+19013210023"><span class="ic"><svg class="icon"><use href="#i-phone"/></svg></span><span><small>Rather talk? Call or text Austin</small><b>(901) 321-0023</b></span></a>
+        <a class="mt-8 flex items-center gap-4 rounded-2xl border border-slate-800 bg-slate-900 p-5 transition hover:border-blue-600" href="tel:+19013210023"><span class="grid h-12 w-12 place-items-center rounded-xl bg-blue-600"><svg class="icon w-6 h-6" aria-hidden="true"><use href="#i-phone"/></svg></span><span><small class="block text-sm text-slate-400">Rather talk? Call or text Austin</small><b class="font-display text-2xl font-extrabold">(901) 321-0023</b></span></a>
       </div>
-      <form class="form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
-        <h3 class="full">Tell me about your practice</h3>
-        <p class="form-sub full">Takes about a minute. Only your name, practice and a way to reach you are required.</p>
+      <form id="contact-form" class="grid grid-cols-1 gap-4 rounded-3xl border border-blue-900/50 bg-slate-900 p-6 shadow-2xl sm:grid-cols-2 sm:p-8" action="https://api.web3forms.com/submit" method="POST">
+        <h3 class="font-display text-xl font-extrabold sm:col-span-2">Tell me about your practice</h3>
+        <p class="-mt-2 text-sm text-slate-400 sm:col-span-2">Takes about a minute. Only your name, practice and a way to reach you are required.</p>
         <input type="hidden" name="access_key" value="20844a35-5000-46b3-997a-be5114bb4edf">
         <input type="hidden" name="from_name" value="bartlettwebsitedesign.online/dental">
         <input type="hidden" name="plan" value="Missed-call booking agent ($1,500 setup + $1,000/mo)">
-        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <label>Your name<input name="name" autocomplete="name" required></label>
-        <label>Practice name<input name="business" autocomplete="organization" required></label>
-        <label class="full">Phone or email<input name="reach" required placeholder="Best number to text, or your email"></label>
-        <label>Scheduling software
-          <select name="software">
-            <option>Not sure</option>
-            <option>Dentrix</option>
-            <option>Open Dental</option>
-            <option>Eaglesoft</option>
-            <option>Curve Dental</option>
-            <option>Denticon</option>
-            <option>Something else</option>
-          </select>
+        <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="field">Your name<input name="name" autocomplete="name" required></label>
+        <label class="field">Practice name<input name="business" autocomplete="organization" required></label>
+        <label class="field sm:col-span-2">Phone or email<input name="reach" required placeholder="Best number to text, or your email"></label>
+        <label class="field">Scheduling software
+          <select name="software"><option>Not sure</option><option>Dentrix</option><option>Open Dental</option><option>Eaglesoft</option><option>Curve Dental</option><option>Denticon</option><option>Something else</option></select>
         </label>
-        <label>Missed calls a week
-          <select name="missed_calls">
-            <option>Not sure</option>
-            <option>Under 5</option>
-            <option>5 to 15</option>
-            <option>15 to 30</option>
-            <option>More than 30</option>
-          </select>
+        <label class="field">Missed calls a week
+          <select name="missed_calls"><option>Not sure</option><option>Under 5</option><option>5 to 15</option><option>15 to 30</option><option>More than 30</option></select>
         </label>
-        <label class="full"><span>Anything else? <span class="opt">(optional)</span></span><textarea name="message" placeholder="How many locations, when calls get missed most, or anything you want the agent to handle differently"></textarea></label>
-        <button class="btn btn-primary full" type="submit">See if it fits my office</button>
-        <p class="privacy full"><svg class="icon"><use href="#i-lock"/></svg>I only use your details to reply about the booking agent. No mailing lists, never shared.</p>
-        <p class="form-note full" id="form-status" role="status" aria-live="polite">Prefer to talk? Call or text <a href="tel:+19013210023">(901) 321-0023</a>.</p>
+        <label class="field sm:col-span-2"><span>Anything else? <span class="font-normal text-slate-400">(optional)</span></span><textarea name="message" rows="4" placeholder="How many locations, when calls get missed most, or anything you want the agent to handle differently"></textarea></label>
+        <button class="btn btn-primary btn-lg sm:col-span-2" type="submit">See if it fits my office</button>
+        <p class="flex items-center gap-2 text-xs text-slate-400 sm:col-span-2"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-lock"/></svg>I only use your details to reply about the booking agent. No mailing lists, never shared.</p>
+        <p class="text-sm text-slate-400 sm:col-span-2" id="form-status" role="status" aria-live="polite">Prefer to talk? Call or text <a class="link" href="tel:+19013210023">(901) 321-0023</a>.</p>
       </form>
     </div>
   </section>
 </main>
 
-<footer class="site-footer"><div class="wrap"><span>&copy; 2026 Bartlett Website Design · Bartlett, TN</span><span><a href="../">Websites for small businesses</a> · <a href="tel:+19013210023">(901) 321-0023</a></span></div></footer>
+<footer class="border-t border-slate-900 bg-slate-950 px-4 pb-28 pt-14 sm:px-6 lg:px-8 lg:pb-14">
+  <div class="mx-auto max-w-6xl">
+    <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <a class="flex items-center gap-3" href="/"><span class="block h-10 w-10 [&>svg]:h-full [&>svg]:w-full"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lg-f" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f7bff"/><stop offset="1" stop-color="#1238b8"/></linearGradient></defs><rect width="64" height="64" rx="15" fill="url(#lg-f)"/><rect x="2" y="2" width="60" height="60" rx="13" fill="none" stroke="#fff" stroke-opacity=".14"/><circle cx="13" cy="12" r="2" fill="#fff" fill-opacity=".55"/><circle cx="19.5" cy="12" r="2" fill="#fff" fill-opacity=".55"/><circle cx="26" cy="12" r="2" fill="#fff" fill-opacity=".55"/><path d="M19 21v28h15.5a7.5 7.5 0 0 0 0-15H19m0 0h13a6.5 6.5 0 0 0 0-13H19" fill="none" stroke="#fff" stroke-width="6" stroke-linejoin="round"/><path d="M38.5 37.5 51 42.6l-5.4 2.1 3.9 4.9-2.6 2.1-3.9-4.9-2.2 5.3z" fill="#9fd0ff" stroke="#1238b8" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span class="font-display font-extrabold leading-tight">Bartlett<br>Website Design</span></a>
+        <p class="mt-4 text-sm text-slate-400">Websites and missed-call text-back for Bartlett, Memphis, Cordova, Germantown, Arlington and Lakeland businesses. See a free draft before you pay.</p>
+      </div>
+      <div><h2 class="foot-h">Contact</h2><ul class="mt-3 space-y-2 text-sm text-slate-300"><li><a class="hover:text-white" href="tel:+19013210023">(901) 321-0023</a></li><li><a class="break-all hover:text-white" href="mailto:bartlett.website.design@gmail.com">bartlett.website.design@gmail.com</a></li><li>Bartlett, TN</li></ul></div>
+      <div><h2 class="foot-h">Explore</h2><ul class="mt-3 space-y-2 text-sm text-slate-300"><li><a class="hover:text-white" href="/#showcase">Before &amp; after</a></li><li><a class="hover:text-white" href="/demos/">All demos</a></li><li><a class="hover:text-white" href="/#booking-agent">Text-back &amp; booking agent</a></li><li><a class="hover:text-white" href="/dental/">For dental offices</a></li><li><a class="hover:text-white" href="/#pricing">Pricing</a></li><li><a class="hover:text-white" href="/#faq">FAQ</a></li></ul></div>
+      <div><h2 class="foot-h">Service areas</h2><ul class="mt-3 grid grid-cols-2 gap-2 text-sm text-slate-300"><li><a class="hover:text-white" href="/bartlett/">Bartlett</a></li><li><a class="hover:text-white" href="/memphis/">Memphis</a></li><li><a class="hover:text-white" href="/cordova/">Cordova</a></li><li><a class="hover:text-white" href="/germantown/">Germantown</a></li><li><a class="hover:text-white" href="/arlington/">Arlington</a></li><li><a class="hover:text-white" href="/lakeland/">Lakeland</a></li></ul></div>
+    </div>
+    <div class="mt-12 flex flex-col justify-between gap-2 border-t border-slate-900 pt-6 text-xs text-slate-400 sm:flex-row"><span>&copy; <span id="year">2026</span> Bartlett Website Design</span><span>bartlettwebsitedesign.online</span></div>
+  </div>
+</footer>
 
-<nav class="mobile-bar" aria-label="Quick actions">
-  <a class="btn btn-ghost" href="tel:+19013210023"><svg class="icon"><use href="#i-phone"/></svg>Call or text</a>
-  <a class="btn btn-primary" href="#contact">See if it fits</a>
+<nav class="mobile-bar fixed inset-x-0 bottom-0 z-40 flex gap-2 border-t border-slate-800 bg-slate-950/95 p-3 backdrop-blur lg:hidden" aria-label="Quick actions">
+  <a class="btn btn-dark flex-1 px-3 text-sm" href="tel:+19013210023"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-phone"/></svg>Call or text</a>
+  <a class="btn btn-primary flex-1 px-3 text-sm" href="#contact">See if it fits</a>
 </nav>
 
+<script>
+(function () {
+  var nav = document.getElementById("nav"), toggle = document.getElementById("menu-toggle");
+  toggle.addEventListener("click", function () {
+    var open = nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", open);
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  });
+  nav.addEventListener("click", function (e) { if (e.target.tagName === "A") { nav.classList.remove("open"); toggle.setAttribute("aria-expanded", false); toggle.setAttribute("aria-label", "Open menu"); } });
+  document.getElementById("year").textContent = new Date().getFullYear();
+  var bar = document.querySelector(".mobile-bar");
+  if ("IntersectionObserver" in window) new IntersectionObserver(function (en) { bar.classList.toggle("is-hidden", en[0].isIntersecting); }, { threshold: 0.15 }).observe(document.getElementById("contact-form"));
+})();
+</script>
 <script>
 (function () {
   // Missed-call calculator: every number comes from the visitor's inputs; 4.33 weeks a month.
@@ -486,16 +332,16 @@ button{font:inherit}
       .then(function (res) {
         if (!res.success) throw new Error(res.message);
         form.reset();
-        status.className = "form-note full ok";
+        status.className = "text-sm font-semibold text-emerald-300 sm:col-span-2";
         status.textContent = "Got it, thanks! I'll reply within one business day to set up a short call about your phones and calendar.";
         btn.textContent = "Sent";
         // A /thanks/booking-agent/ page view is how Cloudflare Web Analytics counts a booking-agent lead; the message above stays if this navigation fails
-        window.location.assign("../thanks/booking-agent/");
+        window.location.assign("/thanks/booking-agent/");
       })
       .catch(function () {
         btn.disabled = false; btn.textContent = "See if it fits my office";
-        status.className = "form-note full err";
-        status.innerHTML = 'Something went wrong. Please call or text <a href="tel:+19013210023">(901) 321-0023</a> or email <a href="mailto:bartlett.website.design@gmail.com">bartlett.website.design@gmail.com</a>.';
+        status.className = "text-sm font-semibold text-red-300 sm:col-span-2";
+        status.innerHTML = 'Something went wrong. Please call or text <a class="link" href="tel:+19013210023">(901) 321-0023</a> or email <a class="link" href="mailto:bartlett.website.design@gmail.com">bartlett.website.design@gmail.com</a>.';
       });
   });
 })();
