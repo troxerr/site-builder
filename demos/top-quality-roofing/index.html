@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#123A2E" />
+  <title>Demo: Top Quality Roofing LLC | Roof Repair &amp; Replacement | Bartlett, TN</title>
+  <meta name="description" content="Top Quality Roofing LLC is a family-owned Bartlett roofer since 2013. Roof repair and replacement, inspections, siding, doors and ramps. A+ BBB rating. Free estimates. Call (901) 236-1364." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Top Quality Roofing LLC | Bartlett, TN" />
+  <meta property="og:description" content="Craftsmanship you can stand on. Family-owned roofers serving Bartlett and Greater Memphis." />
+  <meta property="og:image" content="https://bartlettwebsitedesign.online/demos/top-quality-roofing/assets/photo-1449844908441-8829872d2607.webp" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      background: #FAF6EF;
+      color: #22201C;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+    ::selection { background: #B5713F; color: #fff; }
+    section[id] { scroll-margin-top: 138px; }
+
+    .header-shell { transition: box-shadow .35s ease, background-color .35s ease, border-color .35s ease; }
+    .header-shell.is-stuck {
+      background-color: rgba(250,246,239,.96);
+      box-shadow: 0 20px 40px -32px rgba(34,32,28,.5);
+      border-color: rgba(34,32,28,.12);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1);
+    }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    input[type="range"].copper-range {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: #E3D8C7;
+      outline: none;
+    }
+    input[type="range"].copper-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 26px;
+      width: 26px;
+      border-radius: 999px;
+      background: #B5713F;
+      border: 5px solid #FAF6EF;
+      box-shadow: 0 3px 10px rgba(181,113,63,.5);
+      cursor: grab;
+    }
+    input[type="range"].copper-range::-moz-range-thumb {
+      height: 16px;
+      width: 16px;
+      border-radius: 999px;
+      background: #B5713F;
+      border: 5px solid #FAF6EF;
+      cursor: grab;
+    }
+
+    input[type="range"].compare-range {
+      -webkit-appearance: none;
+      appearance: none;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      opacity: 0;
+      cursor: ew-resize;
+      z-index: 30;
+      margin: 0;
+    }
+    input[type="range"].compare-range::-webkit-slider-thumb { width: 52px; height: 100%; }
+    input[type="range"].compare-range::-moz-range-thumb { width: 52px; height: 100%; border: 0; }
+
+    .check-path { stroke-dasharray: 48; stroke-dashoffset: 48; }
+    .overlay-open .check-path { animation: drawCheck .5s .22s cubic-bezier(.65,0,.35,1) forwards; }
+    @keyframes drawCheck { to { stroke-dashoffset: 0; } }
+
+    .overlay-panel { animation: panelIn .38s cubic-bezier(.22,1,.36,1) both; }
+    @keyframes panelIn {
+      from { opacity: 0; transform: translateY(18px) scale(.97); }
+      to { opacity: 1; transform: none; }
+    }
+    .no-scroll { overflow: hidden; }
+
+    .rule-link { position: relative; }
+    .rule-link::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: -4px;
+      height: 1px; width: 100%;
+      background: #B5713F;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s ease;
+    }
+    .rule-link:hover::after { transform: scaleX(1); }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+    }
+  </style>
+</head>
+
+<body class="font-sans bg-cream text-ink">
+<div class="bwd-demo-bar" role="note" style="position:relative;z-index:9999;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 14px;padding:8px 14px;background:#0b1b3a;color:#cfd9ec;font:500 13px/1.4 system-ui,-apple-system,'Segoe UI',sans-serif;text-align:center"><span><b style="color:#fff;font-weight:600">Demo site</b> built by <a href="/" style="color:#fff;text-decoration:underline">Bartlett Website Design</a>. Not the business's official website. Some details are placeholders until confirmed with the owner.</span><a href="/demos/" style="color:#9cc2ff;font-weight:600;text-decoration:none">&larr; All demos</a></div>
+
+  <!-- DEMO BANNER + HEADER -->
+  <div class="sticky top-0 z-50">
+    <div class="bg-pineDeep text-cream">
+      <div class="mx-auto flex max-w-site flex-col items-center justify-center gap-1 px-4 py-2 text-center sm:flex-row sm:gap-3 sm:px-6">
+        <span class="inline-flex shrink-0 items-center rounded-full border border-copper/50 bg-copper/15 px-2.5 py-0.5 text-[9px] font-semibold uppercase tracking-[0.16em] text-copper">Prototype demo</span>
+        <p class="text-[10px] leading-snug text-cream/70 sm:text-[11.5px]">
+          <span class="mr-1 text-cream/30">•</span>
+          This is a live interactive concept mockup developed for your business review.
+        </p>
+      </div>
+    </div>
+
+    <header id="site-header" class="header-shell border-b border-ink/10 bg-cream/85 backdrop-blur-md">
+      <div class="mx-auto flex h-[76px] max-w-site items-center gap-4 px-4 sm:px-6 lg:px-8">
+        <a href="#top" class="flex shrink-0 items-center gap-3" aria-label="Top Quality Roofing home">
+          <span class="grid h-10 w-10 place-items-center rounded-sm bg-pine text-cream">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 12 12 4.5 21 12" /><path d="M6 10.5V20h12v-9.5" /><path d="M10 20v-5h4v5" />
+            </svg>
+          </span>
+          <span class="leading-none">
+            <span class="block font-serif text-[19px] font-semibold tracking-[-0.01em] text-pine">Top Quality Roofing</span>
+            <span class="mt-1 block text-[9px] font-semibold uppercase tracking-[0.2em] text-ink/45">LLC · Bartlett, Tennessee</span>
+          </span>
+        </a>
+
+        <nav class="ml-auto hidden items-center gap-7 lg:flex" aria-label="Main navigation">
+          <a href="#services" class="rule-link text-[11px] font-semibold uppercase tracking-[0.14em] text-ink/65 transition hover:text-pine">Services</a>
+          <a href="#estimate" class="rule-link text-[11px] font-semibold uppercase tracking-[0.14em] text-ink/65 transition hover:text-pine">Estimate</a>
+          <a href="#work" class="rule-link text-[11px] font-semibold uppercase tracking-[0.14em] text-ink/65 transition hover:text-pine">Our Work</a>
+          <a href="#reviews" class="rule-link text-[11px] font-semibold uppercase tracking-[0.14em] text-ink/65 transition hover:text-pine">Reviews</a>
+          <a href="#contact" class="rule-link text-[11px] font-semibold uppercase tracking-[0.14em] text-ink/65 transition hover:text-pine">Contact</a>
+        </nav>
+
+        <div class="ml-auto flex items-center gap-2 lg:ml-8">
+          <a href="tel:+19012361364" class="hidden text-right md:block">
+            <span class="block text-[9px] font-semibold uppercase tracking-[0.16em] text-ink/40">Call the shop</span>
+            <span class="block font-serif text-[17px] font-semibold text-pine">(901) 236-1364</span>
+          </a>
+          <a href="#estimate" class="hidden h-11 items-center justify-center rounded-sm bg-copper px-5 text-[11px] font-bold uppercase tracking-[0.12em] text-white transition hover:bg-copperDark sm:inline-flex">
+            Free Estimate
+          </a>
+          <a href="tel:+19012361364" class="hidden h-11 w-11 place-items-center rounded-sm bg-pine text-cream min-[380px]:grid md:hidden" aria-label="Call Top Quality Roofing">
+            <svg viewBox="0 0 24 24" class="h-[18px] w-[18px]" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6.1 6.1l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+          </a>
+          <button id="menu-toggle" type="button" class="grid h-11 w-11 place-items-center rounded-sm border border-ink/15 text-pine lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="hidden border-t border-ink/10 bg-cream lg:hidden">
+        <nav class="mx-auto max-w-site px-4 py-2 sm:px-6" aria-label="Mobile navigation">
+          <a href="#services" data-menu-link class="flex items-center justify-between border-b border-ink/10 py-3.5 font-serif text-[19px] text-pine">Services <span class="text-copper">→</span></a>
+          <a href="#estimate" data-menu-link class="flex items-center justify-between border-b border-ink/10 py-3.5 font-serif text-[19px] text-pine">Estimate <span class="text-copper">→</span></a>
+          <a href="#work" data-menu-link class="flex items-center justify-between border-b border-ink/10 py-3.5 font-serif text-[19px] text-pine">Our Work <span class="text-copper">→</span></a>
+          <a href="#reviews" data-menu-link class="flex items-center justify-between border-b border-ink/10 py-3.5 font-serif text-[19px] text-pine">Reviews <span class="text-copper">→</span></a>
+          <a href="#contact" data-menu-link class="flex items-center justify-between border-b border-ink/10 py-3.5 font-serif text-[19px] text-pine">Contact <span class="text-copper">→</span></a>
+          <div class="grid grid-cols-2 gap-2 py-4">
+            <a href="tel:+19012361364" class="inline-flex h-12 items-center justify-center rounded-sm border border-ink/15 text-[11px] font-bold uppercase tracking-[0.1em] text-pine">Call Now</a>
+            <a href="#estimate" data-menu-link class="inline-flex h-12 items-center justify-center rounded-sm bg-copper text-[11px] font-bold uppercase tracking-[0.1em] text-white">Free Estimate</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="relative isolate overflow-hidden">
+      <img src="assets/photo-1449844908441-8829872d2607.webp" alt="A well-kept home with a newly finished shingle roof" class="absolute inset-0 -z-20 h-full w-full object-cover" fetchpriority="high" />
+      <div class="absolute inset-0 -z-10 bg-gradient-to-r from-cream via-cream/90 to-cream/15"></div>
+      <div class="absolute inset-0 -z-10 bg-gradient-to-t from-cream/95 via-transparent to-cream/25"></div>
+
+      <div class="relative mx-auto grid max-w-site gap-10 px-4 pb-20 pt-14 sm:px-6 sm:pb-24 sm:pt-20 lg:grid-cols-[1.15fr_.85fr] lg:items-center lg:px-8 lg:pb-28 lg:pt-24">
+        <div class="max-w-[640px]">
+          <div class="flex items-center gap-3">
+            <span class="h-px w-10 bg-copper"></span>
+            <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-copper">Family owned since 2013</p>
+          </div>
+
+          <h1 class="mt-6 font-serif text-[clamp(42px,5.6vw,72px)] font-semibold leading-[1.02] tracking-[-0.02em] text-pine">
+            Craftsmanship<br />you can stand on.
+          </h1>
+
+          <p class="mt-6 max-w-[520px] text-[16px] leading-[1.75] text-ink/70 sm:text-[17px]">
+            A family-owned Bartlett roofer since 2013. Roof repairs, replacements, inspections,
+            siding, and the small exterior jobs other crews won't come back for. One owner,
+            one crew, one phone number.
+          </p>
+
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="#contact" class="inline-flex h-[52px] items-center justify-center gap-2 rounded-sm bg-copper px-7 text-[12px] font-bold uppercase tracking-[0.12em] text-white transition hover:bg-copperDark">
+              Request a Free Inspection
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="tel:+19012361364" class="inline-flex h-[52px] items-center justify-center gap-2 rounded-sm border border-pine/25 bg-cream/60 px-7 text-[12px] font-bold uppercase tracking-[0.12em] text-pine transition hover:border-pine/50">
+              Call (901) 236-1364
+            </a>
+          </div>
+
+          <p class="mt-6 text-[11.5px] text-ink/50">Free inspections · Written estimates · 13 years in Bartlett</p>
+        </div>
+
+        <div class="hidden justify-self-end lg:block">
+          <div class="w-[258px] border border-ink/10 bg-cream/92 p-6 shadow-soft backdrop-blur-sm">
+            <p class="text-[9px] font-bold uppercase tracking-[0.2em] text-ink/40">By the numbers</p>
+            <div class="mt-4 space-y-4">
+              <div class="border-b border-ink/10 pb-4">
+                <p class="font-serif text-[38px] font-semibold leading-none text-pine">13<span class="text-[20px] text-copper"> yrs</span></p>
+                <p class="mt-1 text-[11px] text-ink/55">Serving Bartlett families</p>
+              </div>
+              <div class="border-b border-ink/10 pb-4">
+                <p class="font-serif text-[38px] font-semibold leading-none text-pine">A<span class="text-[20px] text-copper">+</span></p>
+                <p class="mt-1 text-[11px] text-ink/55">Better Business Bureau</p>
+              </div>
+              <div>
+                <p class="font-serif text-[38px] font-semibold leading-none text-pine">4.3<span class="text-[18px] text-copper">★</span></p>
+                <p class="mt-1 text-[11px] text-ink/55">Google rating · 57 reviews</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Overlapping promise bar -->
+      <div class="relative mx-auto max-w-site px-4 pb-12 sm:px-6 lg:px-8">
+        <div class="grid gap-px overflow-hidden rounded-sm border border-ink/10 bg-ink/10 shadow-soft sm:grid-cols-3">
+          <div class="flex items-center gap-3 bg-cream px-5 py-4">
+            <span class="font-serif text-[22px] text-copper">01</span>
+            <p class="text-[12px] font-semibold text-pine">We answer the phone</p>
+          </div>
+          <div class="flex items-center gap-3 bg-cream px-5 py-4">
+            <span class="font-serif text-[22px] text-copper">02</span>
+            <p class="text-[12px] font-semibold text-pine">We walk the roof ourselves</p>
+          </div>
+          <div class="flex items-center gap-3 bg-cream px-5 py-4">
+            <span class="font-serif text-[22px] text-copper">03</span>
+            <p class="text-[12px] font-semibold text-pine">We clean up like it's ours</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <section aria-label="Credentials" class="bg-cream pt-20">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-y border-ink/10 py-5">
+          <span class="inline-flex items-center gap-2 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-ink/60">
+            <span class="h-1.5 w-1.5 rounded-full bg-copper"></span> 4.3 rated on Google
+          </span>
+          <span class="inline-flex items-center gap-2 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-ink/60">
+            <span class="h-1.5 w-1.5 rounded-full bg-copper"></span> A+ BBB rating
+          </span>
+          <span class="inline-flex items-center gap-2 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-ink/60">
+            <span class="h-1.5 w-1.5 rounded-full bg-copper"></span> Owens Corning contractor
+          </span>
+          <span class="inline-flex items-center gap-2 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-ink/60">
+            <span class="h-1.5 w-1.5 rounded-full bg-copper"></span> Serving Bartlett since 2013
+          </span>
+        </div>
+        <p class="mt-2 text-center text-[10px] text-ink/35">Concept mockup — details compiled from public listings in November 2026.</p>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="bg-cream py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div class="reveal max-w-xl" data-reveal>
+            <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-copper">What we do</p>
+            <h2 class="mt-3 font-serif text-[clamp(32px,4.2vw,50px)] font-semibold leading-[1.05] tracking-[-0.02em] text-pine">
+              Four things, done<br />the old-fashioned way.
+            </h2>
+          </div>
+          <p class="reveal max-w-sm text-[13.5px] leading-relaxed text-ink/60" data-reveal>
+            Owner Mark Williams has run this company since 2013. The person who quotes your
+            roof is the person who checks it after the crew leaves.
+          </p>
+        </div>
+
+        <div class="reveal mt-10 border-t border-ink/15" data-reveal>
+          <a href="#contact" data-service="Roof Repair" class="group grid gap-3 border-b border-ink/15 py-6 transition hover:bg-sand/60 sm:grid-cols-[64px_1fr_1.2fr_40px] sm:items-center sm:gap-6 sm:px-3">
+            <span class="font-serif text-[24px] text-copper">01</span>
+            <h3 class="font-serif text-[24px] font-semibold text-pine sm:text-[26px]">Roof repair &amp; replacement</h3>
+            <p class="text-[13px] leading-relaxed text-ink/60">Asphalt shingle repair and full replacement — from one missing section to a complete tear-off with new decking.</p>
+            <span class="hidden justify-self-end text-copper transition group-hover:translate-x-1 sm:block">→</span>
+          </a>
+
+          <a href="#contact" data-service="Roof Inspection" class="group grid gap-3 border-b border-ink/15 py-6 transition hover:bg-sand/60 sm:grid-cols-[64px_1fr_1.2fr_40px] sm:items-center sm:gap-6 sm:px-3">
+            <span class="font-serif text-[24px] text-copper">02</span>
+            <h3 class="font-serif text-[24px] font-semibold text-pine sm:text-[26px]">Roof inspections</h3>
+            <p class="text-[13px] leading-relaxed text-ink/60">Honest, photo-documented inspections — for storm damage, a home sale, or a roof you have stopped trusting.</p>
+            <span class="hidden justify-self-end text-copper transition group-hover:translate-x-1 sm:block">→</span>
+          </a>
+
+          <a href="#contact" data-service="Siding &amp; Exterior" class="group grid gap-3 border-b border-ink/15 py-6 transition hover:bg-sand/60 sm:grid-cols-[64px_1fr_1.2fr_40px] sm:items-center sm:gap-6 sm:px-3">
+            <span class="font-serif text-[24px] text-copper">03</span>
+            <h3 class="font-serif text-[24px] font-semibold text-pine sm:text-[26px]">Siding &amp; exterior</h3>
+            <p class="text-[13px] leading-relaxed text-ink/60">Siding installation and repair, fascia, trim, and the exterior details that finish a roofline properly.</p>
+            <span class="hidden justify-self-end text-copper transition group-hover:translate-x-1 sm:block">→</span>
+          </a>
+
+          <a href="#contact" data-service="Doors &amp; Ramps" class="group grid gap-3 border-b border-ink/15 py-6 transition hover:bg-sand/60 sm:grid-cols-[64px_1fr_1.2fr_40px] sm:items-center sm:gap-6 sm:px-3">
+            <span class="font-serif text-[24px] text-copper">04</span>
+            <h3 class="font-serif text-[24px] font-semibold text-pine sm:text-[26px]">Doors, ramps &amp; small projects</h3>
+            <p class="text-[13px] leading-relaxed text-ink/60">Door installation, disability ramp repair, power washing, and the punch list other contractors skip.</p>
+            <span class="hidden justify-self-end text-copper transition group-hover:translate-x-1 sm:block">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESTIMATE -->
+    <section id="estimate" class="bg-pine py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:gap-16">
+          <div class="reveal" data-reveal>
+            <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-copper">Ballpark estimate</p>
+            <h2 class="mt-3 font-serif text-[clamp(32px,4.2vw,48px)] font-semibold leading-[1.06] tracking-[-0.02em] text-cream">
+              A number before<br />anyone knocks.
+            </h2>
+            <p class="mt-4 max-w-md text-[14px] leading-relaxed text-cream/65">
+              Use the slider to get a realistic range for your roof. It won't replace an
+              inspection, but it will tell you whether you're in the right ballpark — and
+              whether that door-knocker is being honest.
+            </p>
+
+            <div class="mt-7 space-y-4 border-t border-cream/15 pt-6">
+              <div class="flex items-center justify-between gap-4">
+                <span class="text-[12px] text-cream/60">Roof size</span>
+                <span id="sqft-readout" class="font-serif text-[20px] text-cream">2,200 sq ft</span>
+              </div>
+              <input id="calc-sqft" type="range" min="800" max="6000" step="50" value="2200" class="copper-range" aria-label="Roof square footage" />
+              <div class="flex justify-between text-[10px] text-cream/40"><span>800</span><span>6,000</span></div>
+
+              <div class="grid gap-4 pt-2 sm:grid-cols-2">
+                <div>
+                  <label for="calc-material" class="mb-1.5 block text-[10px] font-semibold uppercase tracking-[0.14em] text-cream/45">Material</label>
+                  <div class="relative">
+                  <select id="calc-material" class="h-12 w-full appearance-none rounded-sm border border-cream/20 bg-pineDeep/60 px-3 pr-9 text-[13px] font-medium text-cream outline-none focus:border-copper">
+                    <option value="asphalt" data-low="5" data-high="7">Asphalt shingle</option>
+                    <option value="arch" data-low="6.5" data-high="9" selected>Architectural shingle</option>
+                    <option value="metal" data-low="10" data-high="14">Standing seam metal</option>
+                  </select>
+                  <svg viewBox="0 0 24 24" class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-cream/50" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  </div>
+                </div>
+                <div>
+                  <label for="calc-pitch" class="mb-1.5 block text-[10px] font-semibold uppercase tracking-[0.14em] text-cream/45">Pitch</label>
+                  <div class="relative">
+                  <select id="calc-pitch" class="h-12 w-full appearance-none rounded-sm border border-cream/20 bg-pineDeep/60 px-3 pr-9 text-[13px] font-medium text-cream outline-none focus:border-copper">
+                    <option value="1" data-label="Low / flat">Low / flat</option>
+                    <option value="1.15" data-label="Standard" selected>Standard</option>
+                    <option value="1.3" data-label="Steep">Steep</option>
+                  </select>
+                  <svg viewBox="0 0 24 24" class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-cream/50" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal border border-cream/15 bg-cream p-6 shadow-lift sm:p-8" data-reveal>
+            <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-ink/40">Estimated investment</p>
+            <p id="calc-range" class="mt-3 font-serif text-[clamp(34px,4.6vw,52px)] font-semibold leading-none tracking-[-0.02em] text-pine">
+              $16,400 – $22,800
+            </p>
+            <p id="calc-basis" class="mt-3 text-[12.5px] text-ink/55">2,200 sq ft · Architectural shingle · Standard pitch</p>
+
+            <div class="mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-sm border border-ink/10 bg-ink/10">
+              <div class="bg-cream p-3">
+                <p class="text-[9px] font-bold uppercase tracking-[0.14em] text-ink/40">Per sq ft</p>
+                <p id="calc-per-square" class="mt-1 font-serif text-[17px] text-pine">$7.45</p>
+              </div>
+              <div class="bg-cream p-3">
+                <p class="text-[9px] font-bold uppercase tracking-[0.14em] text-ink/40">Monthly*</p>
+                <p id="calc-monthly" class="mt-1 font-serif text-[17px] text-pine">$273/mo</p>
+              </div>
+            </div>
+
+            <a href="#contact" id="calc-lock" class="mt-5 flex h-[52px] w-full items-center justify-center gap-2 rounded-sm bg-copper text-[11.5px] font-bold uppercase tracking-[0.12em] text-white transition hover:bg-copperDark">
+              Lock In This Quote
+            </a>
+            <p class="mt-3 text-[10.5px] leading-relaxed text-ink/45">
+              *Illustrative 60-month, 0% APR example. Final pricing requires an inspection.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK / COMPARE -->
+    <section id="work" class="bg-cream py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-center lg:gap-14">
+          <div class="reveal" data-reveal>
+            <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-copper">Our work</p>
+            <h2 class="mt-3 font-serif text-[clamp(32px,4.2vw,46px)] font-semibold leading-[1.05] tracking-[-0.02em] text-pine">
+              The difference<br />is in the details.
+            </h2>
+            <p class="mt-4 text-[14px] leading-relaxed text-ink/65">
+              A typical Bartlett ranch can carry three layers of shingle, soft spots in the deck,
+              and a ridge vent that was never connected properly. A correct rebuild strips it
+              to the wood, replaces the decking, and installs a full ice-and-water barrier.
+            </p>
+            <div class="mt-6 space-y-3 border-t border-ink/15 pt-5">
+              <div class="flex items-baseline justify-between">
+                <span class="text-[11px] uppercase tracking-[0.12em] text-ink/45">Scope</span>
+                <span class="text-[13px] font-semibold text-pine">Full tear-off &amp; rebuild</span>
+              </div>
+              <div class="flex items-baseline justify-between">
+                <span class="text-[11px] uppercase tracking-[0.12em] text-ink/45">Typical timeline</span>
+                <span class="text-[13px] font-semibold text-pine">2–3 days</span>
+              </div>
+              <div class="flex items-baseline justify-between">
+                <span class="text-[11px] uppercase tracking-[0.12em] text-ink/45">Warranty</span>
+                <span class="text-[13px] font-semibold text-pine">Manufacturer material warranty</span>
+              </div>
+            </div>
+            <p class="mt-4 text-[10.5px] text-ink/40">Drag to compare. Imagery is illustrative for this prototype.</p>
+          </div>
+
+          <div class="reveal" data-reveal>
+            <div class="relative select-none overflow-hidden rounded-sm border border-ink/10 bg-sand shadow-lift">
+              <div class="relative h-[300px] sm:h-[420px] lg:h-[460px]">
+                <img src="assets/photo-1568605114967-8130f3a36994.webp" alt="A home after a full shingle roof replacement" class="absolute inset-0 h-full w-full object-cover" />
+                <div id="compare-clip" class="absolute inset-0" style="clip-path: inset(0 50% 0 0);">
+                  <img src="assets/photo-1568605114967-8130f3a36994.webp" alt="The same home before roof replacement" class="h-full w-full object-cover" style="filter: sepia(.35) saturate(.7) contrast(.92) brightness(.94);" />
+                  <div class="absolute inset-0 bg-[#3a2a17]/15"></div>
+                </div>
+                <span class="pointer-events-none absolute left-3 top-3 rounded-sm bg-pineDeep/85 px-2.5 py-1 text-[9.5px] font-bold uppercase tracking-[0.14em] text-cream backdrop-blur">Before</span>
+                <span class="pointer-events-none absolute right-3 top-3 rounded-sm bg-copper px-2.5 py-1 text-[9.5px] font-bold uppercase tracking-[0.14em] text-white">After</span>
+                <div id="compare-line" class="pointer-events-none absolute inset-y-0 z-20 w-[2px] bg-cream/90" style="left:50%;">
+                  <span class="absolute left-1/2 top-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-cream text-pine shadow-lg">
+                    <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg>
+                  </span>
+                </div>
+                <input id="compare-range" type="range" min="0" max="100" value="50" step="1" class="compare-range" aria-label="Compare before and after" />
+              </div>
+              <div class="flex items-center justify-between gap-3 bg-cream px-4 py-3">
+                <p class="text-[11.5px] font-semibold text-pine">Bartlett, TN · concept comparison</p>
+                <a href="#contact" class="text-[10.5px] font-bold uppercase tracking-[0.1em] text-copper">Start yours →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+        <section id="reviews" class="bg-sand/60 py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div class="reveal max-w-xl" data-reveal>
+            <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-copper">Reputation</p>
+            <h2 class="mt-3 font-serif text-[clamp(32px,4.2vw,46px)] font-semibold leading-[1.05] tracking-[-0.02em] text-pine">
+              Thirteen years of<br />neighbors talking.
+            </h2>
+          </div>
+          <p class="reveal max-w-sm text-[13.5px] leading-relaxed text-ink/60" data-reveal>
+            We would rather show you the record than write quotes for you. Here is where
+            Top Quality Roofing stands on the platforms homeowners actually check.
+          </p>
+        </div>
+
+        <div class="mt-10 grid gap-4 md:grid-cols-3">
+          <article class="reveal flex flex-col border border-ink/10 bg-cream p-6 shadow-soft" data-reveal>
+            <div class="flex items-start justify-between gap-4">
+              <p class="font-serif text-[46px] font-semibold leading-none text-pine">4.3</p>
+              <span class="text-[9px] font-bold uppercase tracking-[0.16em] text-ink/40">Google</span>
+            </div>
+            <div role="img" class="mt-2 flex gap-0.5 text-copper" aria-label="4.3 out of 5 stars">
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg><svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg><svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg><svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+              <span class="opacity-25"><svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg></span>
+            </div>
+            <p class="mt-4 flex-1 text-[13px] leading-relaxed text-ink/65">
+              57 reviews across Google and Birdeye. The rating is the rating — read them
+              yourself before you call.
+            </p>
+            <a href="https://www.google.com/search?q=Top+Quality+Roofing+LLC+Bartlett+TN+reviews" target="_blank" rel="noopener" class="mt-5 inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-[0.1em] text-copper">
+              Read the reviews
+              <svg viewBox="0 0 24 24" class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+
+          <article class="reveal flex flex-col border border-ink/10 bg-cream p-6 shadow-soft" data-reveal>
+            <div class="flex items-start justify-between gap-4">
+              <p class="font-serif text-[46px] font-semibold leading-none text-pine">A+</p>
+              <span class="text-[9px] font-bold uppercase tracking-[0.16em] text-ink/40">BBB</span>
+            </div>
+            <p class="mt-2 text-[9px] font-bold uppercase tracking-[0.14em] text-copper">Better Business Bureau</p>
+            <p class="mt-4 flex-1 text-[13px] leading-relaxed text-ink/65">
+              A+ rating based on complaint history and transparency. Not BBB accredited —
+              but the rating is public and current.
+            </p>
+            <a href="https://www.bbb.org/us/tn/memphis/profile/roof-leak-repair/top-quality-roofing-llc-0543-44079325" target="_blank" rel="noopener" class="mt-5 inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-[0.1em] text-copper">
+              View the profile
+              <svg viewBox="0 0 24 24" class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+
+          <article class="reveal flex flex-col border border-ink/10 bg-cream p-6 shadow-soft" data-reveal>
+            <div class="flex items-start justify-between gap-4">
+              <p class="font-serif text-[26px] font-semibold leading-[0.95] text-pine">Owens<br />Corning</p>
+              <span class="text-[9px] font-bold uppercase tracking-[0.16em] text-ink/40">Systems</span>
+            </div>
+            <p class="mt-2 text-[9px] font-bold uppercase tracking-[0.14em] text-copper">Contractor network</p>
+            <p class="mt-4 flex-1 text-[13px] leading-relaxed text-ink/65">
+              Listed as an Owens Corning roofing contractor — shingle systems installed to
+              manufacturer specification, with the material warranty that follows.
+            </p>
+            <a href="https://www.owenscorning.com/en-us/roofing/contractors" target="_blank" rel="noopener" class="mt-5 inline-flex items-center gap-1.5 text-[10.5px] font-bold uppercase tracking-[0.1em] text-copper">
+              About the network
+              <svg viewBox="0 0 24 24" class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+        </div>
+
+        <p class="mt-5 text-center text-[10px] text-ink/35">
+          Ratings and listings as published in November 2026. Sample quote cards were removed
+          because no verified review text was available for this business.
+        </p>
+      </div>
+    </section>
+
+<!-- CONTACT -->
+    <section id="contact" class="bg-cream py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:gap-16">
+          <div class="reveal" data-reveal>
+            <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-copper">Free inspection</p>
+            <h2 class="mt-3 font-serif text-[clamp(32px,4.2vw,46px)] font-semibold leading-[1.05] tracking-[-0.02em] text-pine">
+              Let's take a look.
+            </h2>
+            <p class="mt-4 max-w-md text-[14px] leading-relaxed text-ink/65">
+              Tell us what's going on and we'll come out, walk the roof, and give you a
+              written answer. No pressure and no deposit to look.
+            </p>
+
+            <div class="mt-8 space-y-5 border-t border-ink/15 pt-6">
+              <div>
+                <p class="text-[9.5px] font-bold uppercase tracking-[0.16em] text-ink/40">Call the shop</p>
+                <a href="tel:+19012361364" class="mt-1 block font-serif text-[26px] font-semibold text-pine transition hover:text-copper">(901) 236-1364</a>
+              </div>
+              <div>
+                <p class="text-[9.5px] font-bold uppercase tracking-[0.16em] text-ink/40">Visit</p>
+                <p class="mt-1 text-[13px] leading-relaxed text-ink/65">3663 Old Brownsville Rd<br />Bartlett, TN 38135</p>
+              </div>
+              <div>
+                <p class="text-[9.5px] font-bold uppercase tracking-[0.16em] text-ink/40">Hours</p>
+                <p class="mt-1 text-[13px] leading-relaxed text-ink/65">Mon–Sat 8–5<br />Sunday closed</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal border border-ink/10 bg-cream p-6 shadow-soft sm:p-8" data-reveal>
+            <form id="lead-form" class="grid gap-4" novalidate>
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label for="lead-name" class="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.14em] text-ink/45">Name <span class="text-copper">*</span></label>
+                  <input id="lead-name" name="name" type="text" autocomplete="name" placeholder="First and last name" class="h-12 w-full rounded-sm border border-ink/15 bg-cream px-3.5 text-[14px] text-ink outline-none transition placeholder:text-ink/30 focus:border-copper" />
+                  <p class="mt-1 hidden text-[11.5px] text-red-700" data-error="name"></p>
+                </div>
+                <div>
+                  <label for="lead-phone" class="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.14em] text-ink/45">Phone <span class="text-copper">*</span></label>
+                  <input id="lead-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Your phone number" class="h-12 w-full rounded-sm border border-ink/15 bg-cream px-3.5 text-[14px] text-ink outline-none transition placeholder:text-ink/30 focus:border-copper" />
+                  <p class="mt-1 hidden text-[11.5px] text-red-700" data-error="phone"></p>
+                </div>
+              </div>
+
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label for="lead-email" class="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.14em] text-ink/45">Email</label>
+                  <input id="lead-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" class="h-12 w-full rounded-sm border border-ink/15 bg-cream px-3.5 text-[14px] text-ink outline-none transition placeholder:text-ink/30 focus:border-copper" />
+                  <p class="mt-1 hidden text-[11.5px] text-red-700" data-error="email"></p>
+                </div>
+                <div>
+                  <label for="lead-service" class="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.14em] text-ink/45">Service <span class="text-copper">*</span></label>
+                  <select id="lead-service" name="service" class="h-12 w-full rounded-sm border border-ink/15 bg-cream px-3 text-[14px] text-ink outline-none focus:border-copper">
+                    <option value="">Select a service</option>
+                    <option>Roof Repair</option>
+                    <option>Roof Replacement</option>
+                    <option>Roof Inspection</option>
+                    <option>Siding &amp; Exterior</option>
+                    <option>Doors &amp; Ramps</option>
+                    <option>Power Washing</option>
+                    <option>Something else</option>
+                  </select>
+                  <p class="mt-1 hidden text-[11.5px] text-red-700" data-error="service"></p>
+                </div>
+              </div>
+
+              <div>
+                <label for="lead-message" class="mb-1.5 block text-[10px] font-bold uppercase tracking-[0.14em] text-ink/45">What's happening?</label>
+                <textarea id="lead-message" name="message" rows="4" placeholder="Leak location, roof age, storm damage, or the estimate you got above." class="min-h-[110px] w-full resize-y rounded-sm border border-ink/15 bg-cream px-3.5 py-3 text-[14px] text-ink outline-none transition placeholder:text-ink/30 focus:border-copper"></textarea>
+              </div>
+
+              <label class="flex cursor-pointer items-start gap-3 text-[11.5px] leading-relaxed text-ink/55">
+                <input id="lead-consent" name="consent" type="checkbox" class="mt-0.5 h-4 w-4 shrink-0 rounded-sm border-ink/30 accent-copper" />
+                <span>It's okay to call or text me about this request.</span>
+              </label>
+              <p class="hidden text-[11.5px] text-red-700" data-error="consent"></p>
+
+              <button type="submit" class="inline-flex h-[52px] items-center justify-center gap-2 rounded-sm bg-copper px-6 text-[11.5px] font-bold uppercase tracking-[0.12em] text-white transition hover:bg-copperDark">
+                Request My Inspection
+              </button>
+              <p class="text-center text-[10px] text-ink/40">Free · No obligation · Written estimate</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-pineDeep pb-10 pt-14 text-cream/60">
+    <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
+        <div>
+          <p class="font-serif text-[26px] font-semibold leading-none text-cream">Top Quality Roofing</p>
+          <p class="mt-1 text-[9px] font-semibold uppercase tracking-[0.22em] text-copper">LLC · Bartlett, Tennessee</p>
+          <p class="mt-5 max-w-xs text-[12.5px] leading-relaxed">
+            Family-owned since 2013. Roofing, repairs, inspections, and exterior work across
+            Bartlett and Greater Memphis — done by the same crew that answers the phone.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-2 text-[9px] font-semibold uppercase tracking-[0.1em]">
+            <span class="border border-cream/15 px-2.5 py-1">A+ BBB</span>
+            <span class="border border-cream/15 px-2.5 py-1">Owens Corning</span>
+            <span class="border border-cream/15 px-2.5 py-1">Since 2013</span>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-[9.5px] font-bold uppercase tracking-[0.2em] text-cream/40">Services</h3>
+          <ul class="mt-4 space-y-2.5 text-[12.5px]">
+            <li><a href="#services" class="transition hover:text-cream">Roof repair</a></li>
+            <li><a href="#services" class="transition hover:text-cream">Roof replacement</a></li>
+            <li><a href="#services" class="transition hover:text-cream">Roof inspections</a></li>
+            <li><a href="#services" class="transition hover:text-cream">Siding &amp; exterior</a></li>
+            <li><a href="#services" class="transition hover:text-cream">Doors, ramps &amp; repairs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-[9.5px] font-bold uppercase tracking-[0.2em] text-cream/40">Service area</h3>
+          <ul class="mt-4 grid grid-cols-2 gap-x-4 gap-y-2.5 text-[12.5px]">
+            <li>Bartlett</li><li>Memphis</li>
+            <li>Cordova</li><li>Germantown</li>
+            <li>Arlington</li><li>Lakeland</li>
+            <li>Millington</li><li>Collierville</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-[9.5px] font-bold uppercase tracking-[0.2em] text-cream/40">Contact</h3>
+          <ul class="mt-4 space-y-3 text-[12.5px]">
+            <li><a href="tel:+19012361364" class="font-serif text-[17px] text-cream transition hover:text-copper">(901) 236-1364</a></li>
+            <li>3663 Old Brownsville Rd<br />Bartlett, TN 38135</li>
+            <li class="text-[11px] opacity-70">topqualityroofingllc.com</li>
+            <li class="text-[11px]">Mon–Sat 8–5 · Sun closed</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-10 border-t border-cream/10 pt-6">
+        <p class="max-w-4xl text-[10px] leading-relaxed text-cream/35">
+          Concept mockup prepared for review — not affiliated with or published by Top Quality
+          Roofing LLC. Business details, ratings, and credentials were compiled from public listings
+          in November 2026; confirm them before launch. Imagery is licensed stock photography and
+          does not depict actual projects. Cost ranges are rough industry estimates, not offers.
+        </p>
+        <div class="mt-4 flex flex-col gap-2 text-[10px] sm:flex-row sm:items-center sm:justify-between">
+          <p>© <span id="year">2026</span> Top Quality Roofing LLC</p>
+          <div class="flex gap-5"><a href="#" class="transition hover:text-cream">Privacy</a><a href="#" class="transition hover:text-cream">Accessibility</a><a href="#top" class="transition hover:text-cream">Back to top</a></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile bar -->
+  <div id="mobile-bar" class="fixed inset-x-0 bottom-0 z-40 border-t border-ink/10 bg-cream/95 p-2.5 backdrop-blur transition duration-300 md:hidden">
+    <div class="grid grid-cols-2 gap-2">
+      <a href="tel:+19012361364" class="inline-flex h-12 items-center justify-center gap-2 rounded-sm border border-pine/20 text-[11px] font-bold uppercase tracking-[0.1em] text-pine">Call</a>
+      <a href="#contact" class="inline-flex h-12 items-center justify-center rounded-sm bg-copper text-[11px] font-bold uppercase tracking-[0.1em] text-white">Free Estimate</a>
+    </div>
+  </div>
+  <div class="h-[76px] md:hidden" aria-hidden="true"></div>
+
+  <!-- Success overlay -->
+  <div id="success-overlay" class="fixed inset-0 z-[100] hidden items-center justify-center bg-pineDeep/70 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="success-title">
+    <div class="overlay-panel relative w-full max-w-md overflow-hidden rounded-sm bg-cream p-7 text-center shadow-2xl">
+      <button id="success-close" type="button" class="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-sm text-ink/40 transition hover:bg-sand hover:text-ink" aria-label="Close">
+        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+
+      <span class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-copper/10 text-copper">
+        <svg viewBox="0 0 24 24" class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="check-path" d="m5 12.5 4.5 4.5L19 7.5"/></svg>
+      </span>
+
+      <h2 id="success-title" class="mt-5 font-serif text-[28px] font-semibold leading-tight text-pine">Demo only: nothing was sent.</h2>
+      <p class="mt-2 text-[14px] leading-relaxed text-ink/65">
+              On the live site, this request would reach Top Quality Roofing right away. To reach them now, call <a href="tel:+19012361364" style="text-decoration:underline">(901) 236-1364</a>.
+            </p>
+
+      <div class="mt-5 bg-sand/70 p-4 text-left">
+        <p class="text-[9.5px] font-bold uppercase tracking-[0.16em] text-ink/40">What happens next</p>
+        <ol class="mt-2.5 space-y-2 text-[12.5px] text-ink/65">
+          <li class="flex gap-2.5"><span class="font-serif font-semibold text-copper">1.</span> A quick call to confirm the address and the problem.</li>
+          <li class="flex gap-2.5"><span class="font-serif font-semibold text-copper">2.</span> A free inspection around your schedule.</li>
+          <li class="flex gap-2.5"><span class="font-serif font-semibold text-copper">3.</span> Photos, findings, and a written scope.</li>
+        </ol>
+      </div>
+
+      <a href="tel:+19012361364" class="mt-5 inline-flex h-11 w-full items-center justify-center rounded-sm bg-copper text-[11.5px] font-bold uppercase tracking-[0.1em] text-white transition hover:bg-copperDark">
+        Need it sooner? Call (901) 236-1364
+      </a>
+    </div>
+  </div>
+
+  <noscript><style>[data-reveal]{opacity:1 !important;transform:none !important;}</style></noscript>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var $ = function (s, r) { return (r || document).querySelector(s); };
+      var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+      var money = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+
+      /* Mobile menu */
+      var menu = $("#mobile-menu");
+      var toggle = $("#menu-toggle");
+      function setMenu(open) {
+        if (!menu) return;
+        menu.classList.toggle("hidden", !open);
+        if (toggle) {
+          toggle.setAttribute("aria-expanded", String(open));
+          toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        }
+      }
+      if (toggle) toggle.addEventListener("click", function () { setMenu(menu.classList.contains("hidden")); });
+      $$("[data-menu-link]").forEach(function (l) { l.addEventListener("click", function () { setMenu(false); }); });
+      window.addEventListener("resize", function () { if (window.innerWidth >= 1024) setMenu(false); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") setMenu(false); });
+
+      /* Header state */
+      var header = $("#site-header");
+      var stuck = false;
+      function onScroll() {
+        var next = window.scrollY > 16;
+        if (next !== stuck) { header.classList.toggle("is-stuck", next); stuck = next; }
+      }
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+
+      /* Calculator */
+      var sqft = $("#calc-sqft");
+      var material = $("#calc-material");
+      var pitch = $("#calc-pitch");
+      var range = $("#calc-range");
+      var basis = $("#calc-basis");
+      var readout = $("#sqft-readout");
+      var perFt = $("#calc-per-square");
+      var monthly = $("#calc-monthly");
+      var lock = $("#calc-lock");
+
+      function round100(v) { return Math.round(v / 100) * 100; }
+
+      function calc() {
+        var ft = Number(sqft.value) || 0;
+        var opt = material.options[material.selectedIndex];
+        var lowRate = parseFloat(opt.getAttribute("data-low")) || 0;
+        var highRate = parseFloat(opt.getAttribute("data-high")) || 0;
+        var mult = parseFloat(pitch.value) || 1;
+        var low = round100(ft * lowRate * mult);
+        var high = round100(ft * highRate * mult);
+
+        readout.textContent = ft.toLocaleString("en-US") + " sq ft";
+        range.textContent = money.format(low) + " – " + money.format(high);
+        basis.textContent = ft.toLocaleString("en-US") + " sq ft · " + opt.textContent.trim() + " · " +
+          pitch.options[pitch.selectedIndex].getAttribute("data-label") + " pitch";
+        perFt.textContent = "$" + (low / ft).toFixed(2);
+        monthly.textContent = money.format(Math.round(low / 60)) + "/mo";
+      }
+      [sqft, material, pitch].forEach(function (el) {
+        el.addEventListener("input", calc);
+        el.addEventListener("change", calc);
+      });
+      calc();
+
+      if (lock) lock.addEventListener("click", function () {
+        var service = $("#lead-service");
+        var message = $("#lead-message");
+        if (service) {
+          Array.prototype.forEach.call(service.options, function (o) {
+            if (o.textContent.trim() === "Roof Replacement") service.value = o.value;
+          });
+        }
+        if (message && !message.value.trim()) {
+          message.value = "Calculator estimate: " + sqft.value + " sq ft, " +
+            material.options[material.selectedIndex].textContent.trim() + ", " +
+            pitch.options[pitch.selectedIndex].getAttribute("data-label") + " pitch.";
+        }
+        setTimeout(function () { var n = $("#lead-name"); if (n) n.focus({ preventScroll: true }); }, 700);
+      });
+
+      /* Compare */
+      var cr = $("#compare-range");
+      var clip = $("#compare-clip");
+      var line = $("#compare-line");
+      function updateCompare() {
+        var p = Number(cr.value);
+        clip.style.clipPath = "inset(0 " + (100 - p) + "% 0 0)";
+        line.style.left = p + "%";
+      }
+      if (cr) { cr.addEventListener("input", updateCompare); updateCompare(); }
+
+      /* Form */
+      var form = $("#lead-form");
+      var overlay = $("#success-overlay");
+      var close = $("#success-close");
+      var lastFocus = null;
+
+      function setError(name, msg) {
+        var field = form.elements[name];
+        var el = document.querySelector('[data-error="' + name + '"]');
+        if (el) { el.textContent = msg || ""; el.classList.toggle("hidden", !msg); }
+        if (field && field.setAttribute) {
+          field.setAttribute("aria-invalid", msg ? "true" : "false");
+          field.classList.toggle("border-red-400", Boolean(msg));
+          field.classList.toggle("border-ink/15", !msg);
+        }
+      }
+      function clearErrors() { ["name", "phone", "email", "service", "consent"].forEach(function (n) { setError(n, ""); }); }
+
+      function openOverlay() {
+        lastFocus = document.activeElement;
+        overlay.classList.remove("hidden");
+        overlay.classList.add("flex", "overlay-open");
+        document.body.classList.add("no-scroll");
+        close.focus();
+      }
+      function closeOverlay() {
+        overlay.classList.add("hidden");
+        overlay.classList.remove("flex", "overlay-open");
+        document.body.classList.remove("no-scroll");
+        if (lastFocus) lastFocus.focus();
+      }
+      if (close) close.addEventListener("click", closeOverlay);
+      overlay.addEventListener("click", function (e) { if (e.target === overlay) closeOverlay(); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !overlay.classList.contains("hidden")) closeOverlay(); });
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        clearErrors();
+        var name = form.elements.name.value.trim();
+        var phone = form.elements.phone.value.trim();
+        var email = form.elements.email.value.trim();
+        var service = form.elements.service.value;
+        var consent = form.elements.consent.checked;
+        var digits = phone.replace(/\D/g, "");
+        var bad = null;
+
+        if (!name) { setError("name", "Please enter your name."); bad = bad || form.elements.name; }
+        if (!phone) { setError("phone", "Please enter a phone number."); bad = bad || form.elements.phone; }
+        else if (digits.length < 10) { setError("phone", "Enter a valid 10-digit number."); bad = bad || form.elements.phone; }
+        if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { setError("email", "Enter a valid email."); bad = bad || form.elements.email; }
+        if (!service) { setError("service", "Choose a service."); bad = bad || form.elements.service; }
+        if (!consent) { setError("consent", "Please check the box."); bad = bad || form.elements.consent; }
+
+        if (bad) { bad.focus(); return; }
+        openOverlay();
+        form.reset();
+        clearErrors();
+      });
+
+      form.addEventListener("input", function (e) { if (e.target.name) setError(e.target.name, ""); });
+      form.addEventListener("change", function (e) { if (e.target.name) setError(e.target.name, ""); });
+
+      $$("[data-service]").forEach(function (link) {
+        link.addEventListener("click", function () {
+          var value = link.getAttribute("data-service");
+          var service = $("#lead-service");
+          if (!service || !value) return;
+          Array.prototype.forEach.call(service.options, function (o) {
+            if (o.textContent.trim() === value) service.value = o.value;
+          });
+          setError("service", "");
+        });
+      });
+
+      /* Mobile bar hides over the form */
+      var bar = $("#mobile-bar");
+      if (bar && form && "IntersectionObserver" in window) {
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            bar.classList.toggle("translate-y-full", en.isIntersecting);
+            bar.classList.toggle("pointer-events-none", en.isIntersecting);
+          });
+        }, { threshold: 0.2 }).observe(form);
+      }
+
+      /* Reveal */
+      var items = $$("[data-reveal]");
+      if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) { en.target.classList.add("is-visible"); io.unobserve(en.target); }
+          });
+        }, { threshold: 0, rootMargin: "0px 0px -40px 0px" });
+        items.forEach(function (el) { io.observe(el); });
+      } else {
+        items.forEach(function (el) { el.classList.add("is-visible"); });
+      }
+
+      var year = $("#year");
+      if (year) year.textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>

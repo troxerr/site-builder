@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#1E293B" />
+  <title>Demo: Summit Roofing Co. | Bartlett, TN Roofing &amp; Storm Restoration</title>
+  <meta
+    name="description"
+    content="Bartlett's trusted roofing contractor. Emergency storm restoration, residential roof replacement, commercial roofing, and leak repair. Licensed, insured, financing available. Free estimates."
+  />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Summit Roofing Co. | Tennessee's Most Trusted Roofers" />
+  <meta property="og:description" content="Storm damage, roof replacement, and leak repair across Bartlett and Greater Memphis. Free inspections and insurance claim help." />
+  <meta property="og:image" content="https://bartlettwebsitedesign.online/demos/summit-roofing/assets/photo-1570129477492-45c003edd2be.webp" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="assets/site.css" />
+
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      background: #F8FAFC;
+      color: #1E293B;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+    ::selection { background: #F97316; color: #fff; }
+
+    section[id] { scroll-margin-top: 132px; }
+
+    .hero-grid {
+      background-image:
+        linear-gradient(rgba(30,41,59,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30,41,59,.045) 1px, transparent 1px);
+      background-size: 56px 56px;
+      -webkit-mask-image: linear-gradient(to bottom, black, transparent 78%);
+      mask-image: linear-gradient(to bottom, black, transparent 78%);
+    }
+
+    .header-shell { transition: box-shadow .35s ease, background-color .35s ease, backdrop-filter .35s ease; }
+    .header-shell.is-stuck {
+      box-shadow: 0 18px 40px -28px rgba(15,23,42,.55);
+      background-color: rgba(255,255,255,.92);
+      backdrop-filter: saturate(180%) blur(14px);
+    }
+    .header-inner { height: 78px; transition: height .32s cubic-bezier(.22,1,.36,1); }
+    .header-shell.is-stuck .header-inner { height: 64px; }
+    .header-logo { transition: transform .32s ease; }
+    .header-shell.is-stuck .header-logo { transform: scale(.94); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1);
+    }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    /* Range slider — calculator */
+    input[type="range"].flame-range {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 999px;
+      background: #E2E8F0;
+      outline: none;
+    }
+    input[type="range"].flame-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 24px;
+      width: 24px;
+      border-radius: 999px;
+      background: #F97316;
+      border: 4px solid #fff;
+      box-shadow: 0 2px 8px rgba(249,115,22,.55);
+      cursor: grab;
+      transition: transform .15s ease;
+    }
+    input[type="range"].flame-range::-webkit-slider-thumb:active { cursor: grabbing; transform: scale(1.08); }
+    input[type="range"].flame-range::-moz-range-thumb {
+      height: 18px;
+      width: 18px;
+      border-radius: 999px;
+      background: #F97316;
+      border: 4px solid #fff;
+      box-shadow: 0 2px 8px rgba(249,115,22,.55);
+      cursor: grab;
+    }
+    input[type="range"].flame-range:focus-visible { box-shadow: 0 0 0 3px rgba(249,115,22,.28); }
+
+    /* Range slider — before/after */
+    input[type="range"].compare-range {
+      -webkit-appearance: none;
+      appearance: none;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      opacity: 0;
+      cursor: ew-resize;
+      z-index: 30;
+      margin: 0;
+    }
+    input[type="range"].compare-range::-webkit-slider-thumb { width: 48px; height: 100%; }
+    input[type="range"].compare-range::-moz-range-thumb { width: 48px; height: 100%; border: 0; }
+
+    .check-path {
+      stroke-dasharray: 48;
+      stroke-dashoffset: 48;
+    }
+    .overlay-open .check-path { animation: drawCheck .5s .22s cubic-bezier(.65,0,.35,1) forwards; }
+    @keyframes drawCheck { to { stroke-dashoffset: 0; } }
+
+    .overlay-panel { animation: panelIn .38s cubic-bezier(.22,1,.36,1) both; }
+    @keyframes panelIn {
+      from { opacity: 0; transform: translateY(18px) scale(.97); }
+      to { opacity: 1; transform: none; }
+    }
+
+    .fade-in { animation: fadeIn .3s ease both; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    .no-scroll { overflow: hidden; }
+
+    .faq-plus { transition: transform .25s ease; }
+    details[open] .faq-plus { transform: rotate(45deg); }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+    }
+  </style>
+</head>
+
+<body class="font-sans bg-paper text-ink antialiased">
+<div class="bwd-demo-bar" role="note" style="position:relative;z-index:9999;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 14px;padding:8px 14px;background:#0b1b3a;color:#cfd9ec;font:500 13px/1.4 system-ui,-apple-system,'Segoe UI',sans-serif;text-align:center"><span><b style="color:#fff;font-weight:600">Sample site</b> designed by <a href="/" style="color:#fff;text-decoration:underline">Bartlett Website Design</a>. Summit Roofing Co. is a fictional roofer.</span><a href="/demos/" style="color:#9cc2ff;font-weight:600;text-decoration:none">&larr; All demos</a></div>
+
+  <!-- ============================================================
+       DEMO NOTICE + STICKY HEADER (single sticky stack)
+  ============================================================= -->
+  <div class="sticky top-0 z-50">
+
+    <!-- Demo banner -->
+    <div class="bg-inkDeep text-white">
+      <div class="mx-auto flex max-w-site flex-col items-center justify-center gap-1 px-4 py-2 text-center sm:flex-row sm:gap-2.5 sm:py-2.5 sm:px-6">
+        <span class="inline-flex shrink-0 items-center rounded-sm border border-flame/50 bg-flame/15 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-flame sm:text-[10px]">Prototype demo</span>
+        <p class="text-[10px] leading-snug tracking-wide text-white/75 sm:text-[11.5px]">
+          <span class="mr-1 text-white/30">•</span>
+          This is a live interactive concept mockup developed for your business review.
+        </p>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header id="site-header" class="header-shell relative border-b border-slate-200/80 bg-white/85 backdrop-blur-md">
+      <div class="mx-auto flex max-w-site items-center gap-3 px-4 sm:px-6 lg:px-8">
+        <div class="header-inner flex w-full items-center gap-3">
+
+          <!-- Logo placeholder -->
+          <a href="#top" class="header-logo flex shrink-0 items-center gap-2.5" aria-label="Summit Roofing Co. home">
+            <span class="grid h-10 w-10 place-items-center rounded-xl bg-ink text-white shadow-[0_8px_18px_-10px_rgba(15,23,42,.9)]">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 12.5 12 5l9 7.5" />
+                <path d="M6 11v8h12v-8" />
+                <path d="M13.5 11 10 15h3l-1.2 4 4.2-5.2h-2.6L14 11Z" fill="#F97316" stroke="none" />
+              </svg>
+            </span>
+            <span class="leading-none">
+              <span class="block text-[17px] font-black tracking-[-0.02em] text-ink">Summit Roofing Co.</span>
+              <span class="mt-1 block text-[9px] font-semibold uppercase tracking-[0.18em] text-slate-500">Bartlett, Tennessee</span>
+            </span>
+          </a>
+
+          <!-- Desktop nav -->
+          <nav class="ml-auto hidden items-center gap-7 lg:flex" aria-label="Main navigation">
+            <a href="#services" class="text-[13px] font-semibold text-slate-600 transition hover:text-ink">Services</a>
+            <a href="#calculator" class="text-[13px] font-semibold text-slate-600 transition hover:text-ink">Instant Estimate</a>
+            <a href="#gallery" class="text-[13px] font-semibold text-slate-600 transition hover:text-ink">Our Work</a>
+            <a href="#reviews" class="text-[13px] font-semibold text-slate-600 transition hover:text-ink">Reviews</a>
+            <a href="#quote" class="text-[13px] font-semibold text-slate-600 transition hover:text-ink">Contact</a>
+          </nav>
+
+          <!-- Actions -->
+          <div class="ml-auto flex items-center gap-2 lg:ml-8">
+            <a href="tel:+19015550142" class="hidden items-center gap-2 rounded-xl px-2 py-2 transition hover:bg-slate-100 md:inline-flex">
+              <span class="grid h-8 w-8 place-items-center rounded-lg bg-orange-50 text-flame">
+                <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6.1 6.1l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+              </span>
+              <span class="leading-tight">
+                <span class="block text-[9px] font-bold uppercase tracking-[0.14em] text-slate-400">Call 24/7</span>
+                <span class="block text-[14px] font-extrabold tracking-tight text-ink">(901) 555-0142</span>
+              </span>
+            </a>
+
+            <a href="#calculator" class="hidden h-11 items-center justify-center gap-2 rounded-xl bg-flame px-5 text-[12.5px] font-bold text-white shadow-flame transition hover:bg-flameDark sm:inline-flex">
+              Get an Instant Quote
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+
+            <a href="tel:+19015550142" class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-ink text-white transition hover:bg-inkDeep md:hidden" aria-label="Call Summit Roofing at (901) 555-0142">
+              <svg viewBox="0 0 24 24" class="h-[18px] w-[18px]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6.1 6.1l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+            </a>
+
+            <button id="menu-toggle" type="button" class="grid h-11 w-11 place-items-center rounded-xl border border-slate-200 bg-white text-ink transition hover:border-slate-300 lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="absolute inset-x-0 top-full z-40 hidden border-t border-slate-200 bg-white shadow-2xl lg:hidden">
+        <nav class="mx-auto max-w-site px-4 py-3 sm:px-6" aria-label="Mobile navigation">
+          <a href="#services" data-menu-link class="flex items-center justify-between border-b border-slate-100 py-3.5 text-[15px] font-semibold text-ink">Services <span class="text-slate-300">→</span></a>
+          <a href="#calculator" data-menu-link class="flex items-center justify-between border-b border-slate-100 py-3.5 text-[15px] font-semibold text-ink">Instant Estimate <span class="text-slate-300">→</span></a>
+          <a href="#gallery" data-menu-link class="flex items-center justify-between border-b border-slate-100 py-3.5 text-[15px] font-semibold text-ink">Our Work <span class="text-slate-300">→</span></a>
+          <a href="#reviews" data-menu-link class="flex items-center justify-between border-b border-slate-100 py-3.5 text-[15px] font-semibold text-ink">Reviews <span class="text-slate-300">→</span></a>
+          <a href="#quote" data-menu-link class="flex items-center justify-between border-b border-slate-100 py-3.5 text-[15px] font-semibold text-ink">Contact <span class="text-slate-300">→</span></a>
+          <div class="mt-4 grid grid-cols-2 gap-2 pb-2">
+            <a href="tel:+19015550142" class="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-slate-200 text-[12px] font-bold text-ink">
+              <svg viewBox="0 0 24 24" class="h-4 w-4 text-flame" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6.1 6.1l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+              Call Now
+            </a>
+            <a href="#calculator" data-menu-link class="inline-flex h-12 items-center justify-center rounded-xl bg-flame text-[12px] font-bold text-white">
+              Free Estimate
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <main id="top">
+
+    <!-- ============================================================
+         HERO
+    ============================================================= -->
+    <section class="relative overflow-hidden bg-white">
+      <div class="pointer-events-none absolute inset-0 hero-grid" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute -right-32 -top-24 h-[420px] w-[420px] rounded-full bg-orange-100/70 blur-[90px]" aria-hidden="true"></div>
+
+      <div class="relative mx-auto grid max-w-site items-center gap-12 px-4 pb-16 pt-12 sm:px-6 sm:pb-20 sm:pt-16 lg:grid-cols-[1.06fr_.94fr] lg:gap-16 lg:px-8 lg:pb-24 lg:pt-20">
+
+        <div class="max-w-[640px]">
+          <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 shadow-sm">
+            <span class="flex -space-x-1" aria-hidden="true">
+              <span class="h-2 w-2 rounded-full bg-flame"></span>
+              <span class="h-2 w-2 rounded-full bg-orange-300"></span>
+              <span class="h-2 w-2 rounded-full bg-slate-300"></span>
+            </span>
+            <span class="text-[11px] font-semibold text-slate-600">Serving Bartlett &amp; the Memphis metro since 2009</span>
+          </div>
+
+          <h1 class="mt-6 text-[clamp(38px,5.4vw,66px)] font-black leading-[0.98] tracking-[-0.035em] text-ink">
+            Protecting Your Home With
+            <span class="whitespace-nowrap bg-[linear-gradient(transparent_62%,rgba(249,115,22,.22)_62%)] px-0.5 text-flame">Tennessee's</span>
+            Most Trusted Roofers.
+          </h1>
+
+          <p class="mt-6 max-w-[540px] text-[16px] leading-relaxed text-slate-600 sm:text-[17.5px]">
+            Same-week roof replacement, 24/7 storm response, and insurance claims handled
+            start to finish. Local crews, written estimates, and a job site we leave cleaner
+            than we found it.
+          </p>
+
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="#quote" class="group inline-flex h-[52px] items-center justify-center gap-2 rounded-xl bg-flame px-7 py-3.5 text-[14px] font-bold text-white shadow-flame transition hover:-translate-y-0.5 hover:bg-flameDark">
+              Get Free Estimate
+              <svg viewBox="0 0 24 24" class="h-4 w-4 transition group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="tel:+19015550142" class="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-200 bg-white px-7 py-3.5 text-[14px] font-bold text-ink transition hover:border-slate-300 hover:bg-slate-50">
+              <span class="relative flex h-2 w-2" aria-hidden="true">
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-60"></span>
+                <span class="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
+              </span>
+              Call Now
+            </a>
+          </div>
+
+          <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-[12.5px] font-semibold text-slate-500">
+            <span class="inline-flex items-center gap-1.5">
+              <svg viewBox="0 0 24 24" class="h-4 w-4 text-flame" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+              Free roof inspection
+            </span>
+            <span class="inline-flex items-center gap-1.5">
+              <svg viewBox="0 0 24 24" class="h-4 w-4 text-flame" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+              No-pressure, written quote
+            </span>
+            <span class="inline-flex items-center gap-1.5">
+              <svg viewBox="0 0 24 24" class="h-4 w-4 text-flame" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+              0% financing available
+            </span>
+          </div>
+        </div>
+
+        <!-- Hero visual -->
+        <div class="relative">
+          <div class="absolute -left-4 top-8 hidden h-24 w-24 rounded-2xl border-4 border-white bg-orange-100/60 lg:block" aria-hidden="true"></div>
+
+          <div class="relative overflow-hidden rounded-[26px] border border-slate-200 bg-slate-100 shadow-lift">
+            <img
+              src="assets/photo-1570129477492-45c003edd2be.webp"
+              alt="A completed residential roof on a Tennessee home"
+              class="h-[320px] w-full object-cover sm:h-[420px] lg:h-[480px]"
+              fetchpriority="high"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-inkDeep/55 via-inkDeep/5 to-transparent"></div>
+
+            <div class="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/95 px-3 py-1.5 shadow-sm backdrop-blur">
+              <span class="h-2 w-2 rounded-full bg-green-500" aria-hidden="true"></span>
+              <span class="text-[11px] font-bold text-ink">Crews available this week</span>
+            </div>
+
+            <div class="absolute inset-x-4 bottom-4 rounded-2xl bg-white/95 p-4 shadow-card backdrop-blur sm:inset-x-5 sm:bottom-5">
+              <div class="flex items-center justify-between gap-3">
+                <div class="flex items-center gap-2.5">
+                  <span class="grid h-9 w-9 place-items-center rounded-xl bg-orange-50 text-flame">
+                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 2-8 12h6l-1 8 8-12h-6l1-8Z"/></svg>
+                  </span>
+                  <div>
+                    <p class="text-[11px] font-bold uppercase tracking-[0.12em] text-flame">Storm damage?</p>
+                    <p class="text-[13px] font-bold text-ink">We tarp &amp; board up 24/7</p>
+                  </div>
+                </div>
+                <a href="tel:+19015550142" class="hidden shrink-0 rounded-lg bg-ink px-3 py-2 text-[11px] font-bold text-white transition hover:bg-inkDeep sm:block">Call now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="absolute -left-5 top-1/2 hidden -translate-y-1/2 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-card lg:block">
+            <p class="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-400">Average response</p>
+            <p class="mt-0.5 text-[22px] font-black leading-none tracking-tight text-ink">45 min<span class="text-[13px] font-bold text-flame">*</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TRUST BAR
+    ============================================================= -->
+    <section aria-label="Trust indicators" class="relative z-10 bg-white pb-4">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 shadow-card lg:grid-cols-4">
+          <div class="flex items-center gap-3 bg-white px-4 py-4 sm:px-5 sm:py-5">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-orange-50 text-flame">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+            </span>
+            <div class="min-w-0">
+              <p class="text-[13px] font-extrabold leading-tight text-ink sm:text-[14px]">5.0 Rated on Google</p>
+              <p class="mt-0.5 text-[11px] text-slate-500">200+ local reviews</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 bg-white px-4 py-4 sm:px-5 sm:py-5">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-orange-50 text-flame">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+            </span>
+            <div class="min-w-0">
+              <p class="text-[13px] font-extrabold leading-tight text-ink sm:text-[14px]">Licensed &amp; Insured</p>
+              <p class="mt-0.5 text-[11px] text-slate-500">TN license #BC-000000</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 bg-white px-4 py-4 sm:px-5 sm:py-5">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-orange-50 text-flame">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19a4.5 4.5 0 0 0 .3-9 6 6 0 0 0-11.6-1.5A4 4 0 0 0 6 16.5"/><path d="m13 12-3 4h3l-1 4 4-5h-3l1-3Z"/></svg>
+            </span>
+            <div class="min-w-0">
+              <p class="text-[13px] font-extrabold leading-tight text-ink sm:text-[14px]">Storm Damage Experts</p>
+              <p class="mt-0.5 text-[11px] text-slate-500">Insurance claims welcome</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 bg-white px-4 py-4 sm:px-5 sm:py-5">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-orange-50 text-flame">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19"/><path d="M6.5 15h3"/></svg>
+            </span>
+            <div class="min-w-0">
+              <p class="text-[13px] font-extrabold leading-tight text-ink sm:text-[14px]">Financing Available</p>
+              <p class="mt-0.5 text-[11px] text-slate-500">0% for 60 months*</p>
+            </div>
+          </div>
+        </div>
+        <p class="mt-3 text-center text-[10.5px] text-slate-400">
+          *Prototype demo. Ratings, license numbers, response times, and financing terms are illustrative placeholders.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICES
+    ============================================================= -->
+    <section id="services" class="relative bg-paper py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          <div class="reveal max-w-2xl" data-reveal>
+            <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-flame">What we do</p>
+            <h2 class="mt-3 text-[clamp(30px,4vw,46px)] font-black leading-[1.03] tracking-[-0.03em] text-ink">
+              Roofing done once,<br class="hidden sm:block" /> done right.
+            </h2>
+          </div>
+          <p class="reveal max-w-sm text-[14px] leading-relaxed text-slate-600" data-reveal>
+            From a missing shingle to a full commercial re-roof, one licensed crew handles
+            the inspection, the paperwork, and the cleanup.
+          </p>
+        </div>
+
+        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <!-- Storm -->
+          <article class="reveal group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-lift" data-reveal>
+            <span class="grid h-12 w-12 place-items-center rounded-xl bg-ink text-white transition group-hover:bg-flame">
+              <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19a4.5 4.5 0 0 0 .3-9 6 6 0 0 0-11.6-1.5A4 4 0 0 0 6 16.5"/><path d="m13 12-3 4h3l-1 4 4-5h-3l1-3Z"/></svg>
+            </span>
+            <h3 class="mt-5 text-[17px] font-extrabold leading-snug tracking-tight text-ink">Emergency Storm Restoration &amp; Tarping</h3>
+            <p class="mt-2.5 text-[13px] leading-relaxed text-slate-600">
+              Active leak or missing shingles? We secure the roof first, document the damage,
+              and meet your adjuster on site.
+            </p>
+            <ul class="mt-4 space-y-1.5 text-[12px] text-slate-600">
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-flame"></span>24/7 emergency tarping</li>
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-flame"></span>Board-up &amp; water mitigation</li>
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-flame"></span>Insurance photo documentation</li>
+            </ul>
+            <a href="#quote" data-service="Storm Damage / Emergency Tarping" class="mt-auto inline-flex items-center gap-1.5 pt-5 text-[12px] font-bold text-flame">
+              Get storm help
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 transition group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+
+          <!-- Residential -->
+          <article class="reveal group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-lift" data-reveal>
+            <span class="grid h-12 w-12 place-items-center rounded-xl bg-ink text-white transition group-hover:bg-flame">
+              <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13v-9.5"/><path d="M9.5 20v-5.5h5V20"/></svg>
+            </span>
+            <h3 class="mt-5 text-[17px] font-extrabold leading-snug tracking-tight text-ink">Residential Roof Replacement</h3>
+            <p class="mt-2.5 text-[13px] leading-relaxed text-slate-600">
+              Asphalt shingle, standing seam metal, and tile systems installed to manufacturer
+              spec with a written workmanship warranty.
+            </p>
+            <ul class="mt-4 space-y-1.5 text-[12px] text-slate-600">
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-flame"></span>Full tear-off &amp; deck repair</li>
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-flame"></span>Architectural &amp; metal systems</li>
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-flame"></span>Ventilation &amp; ice-and-water</li>
+            </ul>
+            <a href="#calculator" class="mt-auto inline-flex items-center gap-1.5 pt-5 text-[12px] font-bold text-flame">
+              Estimate my roof
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 transition group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+
+          <!-- Commercial -->
+          <article class="reveal group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-lift" data-reveal>
+            <span class="grid h-12 w-12 place-items-center rounded-xl bg-ink text-white transition group-hover:bg-flame">
+              <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 9h1.5M9 13h1.5M13.5 9H15M13.5 13H15"/></svg>
+            </span>
+            <h3 class="mt-5 text-[17px] font-extrabold leading-snug tracking-tight text-ink">Commercial Roofing &amp; Coatings</h3>
+            <p class="mt-2.5 text-[13px] leading-relaxed text-slate-600">
+              TPO, EPDM, modified bitumen, and reflective coating systems for offices, retail,
+              and multi-family properties.
+            </p>
+            <ul class="mt-4 space-y-1.5 text-[12px] text-slate-600">
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-flame"></span>TPO &amp; single-ply systems</li>
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-flame"></span>Restorative roof coatings</li>
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-flame"></span>Maintenance programs</li>
+            </ul>
+            <a href="#quote" data-service="Commercial Roofing" class="mt-auto inline-flex items-center gap-1.5 pt-5 text-[12px] font-bold text-flame">
+              Request a site visit
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 transition group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+
+          <!-- Leak -->
+          <article class="reveal group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-lift" data-reveal>
+            <span class="grid h-12 w-12 place-items-center rounded-xl bg-ink text-white transition group-hover:bg-flame">
+              <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s5.5 6.2 5.5 10a5.5 5.5 0 0 1-11 0C6.5 9.2 12 3 12 3Z"/><path d="m10 13.5 1.6 1.6 3-3.2"/></svg>
+            </span>
+            <h3 class="mt-5 text-[17px] font-extrabold leading-snug tracking-tight text-ink">Leak Detection &amp; Repair</h3>
+            <p class="mt-2.5 text-[13px] leading-relaxed text-slate-600">
+              We trace the actual source — not just the stain. Flashing, boots, valleys, and
+              attic moisture inspected before we quote.
+            </p>
+            <ul class="mt-4 space-y-1.5 text-[12px] text-slate-600">
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-flame"></span>Moisture mapping</li>
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-flame"></span>Flashing &amp; boot repair</li>
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-flame"></span>Same-week scheduling</li>
+            </ul>
+            <a href="#quote" data-service="Leak Repair" class="mt-auto inline-flex items-center gap-1.5 pt-5 text-[12px] font-bold text-flame">
+              Book a leak check
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 transition group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CALCULATOR
+    ============================================================= -->
+    <section id="calculator" class="relative overflow-hidden bg-ink py-16 sm:py-20 lg:py-24">
+      <div class="pointer-events-none absolute inset-0 opacity-[0.07]" aria-hidden="true"
+           style="background-image:radial-gradient(rgba(255,255,255,.9) 1px, transparent 1px);background-size:26px 26px;"></div>
+      <div class="pointer-events-none absolute -right-24 top-0 h-80 w-80 rounded-full bg-flame/20 blur-[100px]" aria-hidden="true"></div>
+
+      <div class="relative mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl">
+          <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-flame">Instant estimate</p>
+          <h2 class="mt-3 text-[clamp(30px,4vw,46px)] font-black leading-[1.03] tracking-[-0.03em] text-white">
+            What will a new roof actually cost?
+          </h2>
+          <p class="mt-4 text-[14.5px] leading-relaxed text-slate-300">
+            Move the slider, pick your material, and get a realistic ballpark in seconds.
+            It's not a contract — it's a starting point so you know what to expect before
+            anyone knocks on your door.
+          </p>
+        </div>
+
+        <div class="mt-9 grid gap-5 lg:grid-cols-[1.05fr_.95fr] lg:items-start">
+
+          <!-- Inputs -->
+          <div class="rounded-2xl border border-white/10 bg-white p-5 shadow-lift sm:p-7">
+            <div class="flex items-center justify-between gap-4">
+              <div>
+                <label for="calc-sqft" class="text-[13px] font-extrabold text-ink">Roof size</label>
+                <p class="mt-0.5 text-[11.5px] text-slate-500">Total square footage of the roof surface</p>
+              </div>
+              <div class="flex shrink-0 items-baseline gap-1 whitespace-nowrap rounded-lg border border-slate-200 bg-slate-100 px-2.5 py-1.5 focus-within:border-flame focus-within:ring-2 focus-within:ring-orange-100">
+                <input id="sqft-input" type="number" min="800" max="6000" step="50" value="2200" inputmode="numeric" aria-label="Roof square footage" class="w-[62px] bg-transparent text-right text-[16px] font-extrabold tabular-nums text-ink outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" />
+                <span class="text-[11px] font-semibold text-slate-500">sq ft</span>
+              </div>
+            </div>
+
+            <input
+              id="calc-sqft"
+              type="range"
+              min="800"
+              max="6000"
+              step="50"
+              value="2200"
+              class="flame-range mt-5"
+              aria-describedby="sqft-help"
+            />
+            <div class="mt-2 flex justify-between text-[10.5px] font-medium text-slate-400">
+              <span>800</span>
+              <span id="sqft-help" class="hidden">Use arrow keys for precise adjustments</span>
+              <span>6,000</span>
+            </div>
+
+            <div class="mt-6 grid gap-4 sm:grid-cols-2">
+              <div>
+                <label for="calc-material" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-slate-500">Material</label>
+                <div class="relative">
+                  <select id="calc-material" class="h-12 w-full appearance-none rounded-xl border border-slate-200 bg-white px-3.5 pr-9 text-[13.5px] font-semibold text-ink outline-none transition focus:border-flame focus:ring-2 focus:ring-orange-100">
+                    <option value="asphalt" data-low="5" data-high="7">Asphalt Shingle (3-tab)</option>
+                    <option value="arch" data-low="6.5" data-high="9" selected>Architectural Shingle</option>
+                    <option value="metal" data-low="10" data-high="14">Standing Seam Metal</option>
+                  </select>
+                  <svg viewBox="0 0 24 24" class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                </div>
+              </div>
+
+              <div>
+                <label for="calc-pitch" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-slate-500">Roof pitch</label>
+                <div class="relative">
+                  <select id="calc-pitch" class="h-12 w-full appearance-none rounded-xl border border-slate-200 bg-white px-3.5 pr-9 text-[13.5px] font-semibold text-ink outline-none transition focus:border-flame focus:ring-2 focus:ring-orange-100">
+                    <option value="1" data-label="Low / flat">Low / Flat</option>
+                    <option value="1.15" data-label="Standard" selected>Standard</option>
+                    <option value="1.3" data-label="Steep">Steep</option>
+                  </select>
+                  <svg viewBox="0 0 24 24" class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5 rounded-xl bg-slate-50 p-4">
+              <div class="flex items-center justify-between text-[12px]">
+                <span class="text-slate-500">Roofing squares</span>
+                <span id="calc-squares" class="font-bold tabular-nums text-ink">22.0</span>
+              </div>
+              <div class="mt-2 flex items-center justify-between text-[12px]">
+                <span class="text-slate-500">Pitch adjustment</span>
+                <span id="calc-pitch-label" class="font-bold text-ink">Standard · +15%</span>
+              </div>
+              <div class="mt-2 flex items-center justify-between text-[12px]">
+                <span class="text-slate-500">Typical tear-off included</span>
+                <span class="font-bold text-ink">Yes</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Output -->
+          <div class="rounded-2xl border border-white/10 bg-inkDeep p-6 text-white shadow-lift sm:p-7">
+            <div class="flex items-center justify-between gap-3">
+              <p class="text-[11px] font-bold uppercase tracking-[0.16em] text-flame">Estimated investment range</p>
+              <span class="hidden items-center gap-1.5 rounded-full border border-green-400/30 bg-green-400/10 px-2.5 py-1 text-[10px] font-bold text-green-300 sm:inline-flex">
+                <span class="h-1.5 w-1.5 rounded-full bg-green-400"></span>
+                Live estimate
+              </span>
+            </div>
+
+            <p id="calc-range" class="mt-3 text-[clamp(30px,4.4vw,42px)] font-black leading-none tracking-[-0.03em] text-white tabular-nums">
+              $14,300 – $19,800
+            </p>
+
+            <p id="calc-basis" class="mt-3 text-[12.5px] leading-relaxed text-slate-400">
+              2,200 sq ft · Architectural Shingle · Standard pitch
+            </p>
+
+            <div class="mt-5 grid grid-cols-2 gap-2.5 border-t border-white/10 pt-5">
+              <div class="rounded-lg bg-white/5 px-3 py-2.5">
+                <p class="text-[9.5px] font-bold uppercase tracking-[0.12em] text-slate-400">Per sq ft</p>
+                <p id="calc-per-square" class="mt-1 text-[14px] font-extrabold tabular-nums">$1,430</p>
+              </div>
+              <div class="rounded-lg bg-white/5 px-3 py-2.5">
+                <p class="text-[9.5px] font-bold uppercase tracking-[0.12em] text-slate-400">Financing</p>
+                <p id="calc-monthly" class="mt-1 text-[14px] font-extrabold tabular-nums">$238/mo</p>
+              </div>
+            </div>
+
+            <a href="#quote" id="calc-lock" class="mt-5 flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-flame text-[13px] font-bold text-white shadow-flame transition hover:bg-flameDark">
+              Lock In This Quote
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <p class="mt-3 text-center text-[10.5px] leading-relaxed text-slate-500">
+              Ballpark only. Final pricing follows a free inspection and written scope.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BEFORE / AFTER
+    ============================================================= -->
+    <section id="gallery" class="bg-white py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-14">
+
+          <div class="reveal" data-reveal>
+            <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-flame">Our work</p>
+            <h2 class="mt-3 text-[clamp(30px,4vw,46px)] font-black leading-[1.03] tracking-[-0.03em] text-ink">
+              Same house.<br />Different roof.
+            </h2>
+            <p class="mt-4 text-[14.5px] leading-relaxed text-slate-600">
+              A typical Bartlett tear-off: 22 squares of worn architectural shingle, two
+              soft spots in the decking, and a ridge vent that had been crushed since the
+              previous install. Four days later — new decking, new underlayment, new roof.
+            </p>
+
+            <div class="mt-6 grid grid-cols-2 gap-3">
+              <div class="rounded-xl border border-slate-200 bg-paper p-4">
+                <p class="text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400">Project length</p>
+                <p class="mt-1 text-[20px] font-black tracking-tight text-ink">4 days</p>
+              </div>
+              <div class="rounded-xl border border-slate-200 bg-paper p-4">
+                <p class="text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400">Squares replaced</p>
+                <p class="mt-1 text-[20px] font-black tracking-tight text-ink">22</p>
+              </div>
+              <div class="rounded-xl border border-slate-200 bg-paper p-4">
+                <p class="text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400">Upgrade</p>
+                <p class="mt-1 text-[13px] font-extrabold leading-tight text-ink">Architectural shingle</p>
+              </div>
+              <div class="rounded-xl border border-slate-200 bg-paper p-4">
+                <p class="text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400">Warranty</p>
+                <p class="mt-1 text-[13px] font-extrabold leading-tight text-ink">Lifetime material + 10-yr labor</p>
+              </div>
+            </div>
+
+            <p class="mt-4 text-[11px] text-slate-400">Drag the slider to compare. Imagery is illustrative for this prototype.</p>
+          </div>
+
+          <!-- Comparison slider -->
+          <div class="reveal" data-reveal>
+            <div id="compare" class="relative select-none overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 shadow-lift">
+              <div class="relative h-[300px] sm:h-[420px] lg:h-[470px]">
+                <!-- AFTER (base) -->
+                <img
+                  src="assets/photo-1568605114967-8130f3a36994.webp"
+                  alt="A home after a full roof replacement"
+                  class="absolute inset-0 h-full w-full object-cover"
+                />
+                <!-- BEFORE (clipped) -->
+                <div id="compare-clip" class="absolute inset-0" style="clip-path: inset(0 50% 0 0);">
+                  <img
+                    src="assets/photo-1568605114967-8130f3a36994.webp"
+                    alt="The same home before roof replacement, with weathered shingles"
+                    class="h-full w-full object-cover"
+                    style="filter: sepia(.32) saturate(.72) contrast(.94) brightness(.97);"
+                  />
+                  <div class="absolute inset-0 bg-[#3b2a1a]/10"></div>
+                </div>
+
+                <!-- Labels -->
+                <span class="pointer-events-none absolute left-3 top-3 rounded-full bg-inkDeep/80 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-white backdrop-blur">Before</span>
+                <span class="pointer-events-none absolute right-3 top-3 rounded-full bg-flame px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-white">After</span>
+
+                <!-- Divider + handle -->
+                <div id="compare-line" class="pointer-events-none absolute inset-y-0 z-20 w-[2px] bg-white/90 shadow-[0_0_0_1px_rgba(15,23,42,.15)]" style="left:50%;">
+                  <span class="absolute left-1/2 top-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white text-ink shadow-lg">
+                    <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg>
+                  </span>
+                </div>
+
+                <input
+                  id="compare-range"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="50"
+                  step="1"
+                  class="compare-range"
+                  aria-label="Compare before and after roof replacement"
+                />
+              </div>
+
+              <div class="flex items-center justify-between gap-3 bg-white px-4 py-3">
+                <p class="text-[11.5px] font-bold text-ink">Bartlett, TN · Full tear-off &amp; replacement</p>
+                <a href="#quote" class="hidden items-center gap-1 text-[11.5px] font-bold text-flame sm:inline-flex">
+                  See a similar project
+                  <svg viewBox="0 0 24 24" class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TESTIMONIALS
+    ============================================================= -->
+    <section id="reviews" class="bg-paper py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          <div class="reveal max-w-2xl" data-reveal>
+            <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-flame">Local trust</p>
+            <h2 class="mt-3 text-[clamp(30px,4vw,46px)] font-black leading-[1.03] tracking-[-0.03em] text-ink">
+              Neighbors, not<br class="hidden sm:block" /> salespeople.
+            </h2>
+          </div>
+          <div class="reveal flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-card" data-reveal>
+            <div class="flex items-center gap-0.5 text-flame">
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+            </div>
+            <div class="leading-tight">
+              <p class="text-[13px] font-extrabold text-ink">5.0 on Google</p>
+              <p class="text-[10.5px] text-slate-500">200+ reviews</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-9 grid gap-4 md:grid-cols-3">
+          <figure class="reveal flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-card" data-reveal>
+            <div role="img" class="flex items-center gap-0.5 text-flame" aria-label="5 out of 5 stars">
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+            </div>
+            <blockquote class="mt-4 flex-1 text-[13.5px] leading-relaxed text-slate-600">
+              "They found a leak two other companies missed. Tarped it the same afternoon,
+              then walked me through the insurance photos line by line. Roof was done in
+              two days and the yard was spotless."
+            </blockquote>
+            <figcaption class="mt-5 flex items-center gap-3 border-t border-slate-100 pt-4">
+              <span class="grid h-9 w-9 place-items-center rounded-full bg-ink text-[11px] font-extrabold text-white">DM</span>
+              <div>
+                <p class="text-[12.5px] font-extrabold text-ink">Denise M.</p>
+                <p class="text-[10.5px] text-slate-500">Bartlett, TN</p>
+              </div>
+            </figcaption>
+          </figure>
+
+          <figure class="reveal flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-card" data-reveal>
+            <div role="img" class="flex items-center gap-0.5 text-flame" aria-label="5 out of 5 stars">
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+            </div>
+            <blockquote class="mt-4 flex-1 text-[13.5px] leading-relaxed text-slate-600">
+              "Chris called me back on a Sunday, had a crew out Monday morning, and sent
+              photos of the decking before they covered it. That kind of transparency is
+              rare. Our energy bill even dropped."
+            </blockquote>
+            <figcaption class="mt-5 flex items-center gap-3 border-t border-slate-100 pt-4">
+              <span class="grid h-9 w-9 place-items-center rounded-full bg-ink text-[11px] font-extrabold text-white">JR</span>
+              <div>
+                <p class="text-[12.5px] font-extrabold text-ink">James R.</p>
+                <p class="text-[10.5px] text-slate-500">Cordova, TN</p>
+              </div>
+            </figcaption>
+          </figure>
+
+          <figure class="reveal flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-card" data-reveal>
+            <div role="img" class="flex items-center gap-0.5 text-flame" aria-label="5 out of 5 stars">
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+            </div>
+            <blockquote class="mt-4 flex-1 text-[13.5px] leading-relaxed text-slate-600">
+              "We manage six rental properties and Summit has become the only call we make.
+              Fair pricing, real invoices, and tenants never complain about the mess. They
+              treat the properties like their own."
+            </blockquote>
+            <figcaption class="mt-5 flex items-center gap-3 border-t border-slate-100 pt-4">
+              <span class="grid h-9 w-9 place-items-center rounded-full bg-ink text-[11px] font-extrabold text-white">AL</span>
+              <div>
+                <p class="text-[12.5px] font-extrabold text-ink">Angela L.</p>
+                <p class="text-[10.5px] text-slate-500">Germantown, TN</p>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+
+        <p class="mt-5 text-center text-[10.5px] text-slate-400">Sample reviews shown for this prototype. Replace with verified Google or BBB reviews before launch.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CTA BAND
+    ============================================================= -->
+    <section class="relative overflow-hidden bg-flame">
+      <div class="pointer-events-none absolute inset-0 opacity-20" aria-hidden="true"
+           style="background-image:repeating-linear-gradient(-45deg, rgba(15,23,42,.35) 0 10px, transparent 10px 20px);"></div>
+      <div class="relative mx-auto flex max-w-site flex-col items-start justify-between gap-6 px-4 py-10 sm:px-6 md:flex-row md:items-center lg:px-8">
+        <div>
+          <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-inkDeep/60">Storm hit? Don't wait for the next rain.</p>
+          <h2 class="mt-2 text-[clamp(24px,3.2vw,36px)] font-black leading-[1.05] tracking-[-0.03em] text-white">
+            Free inspection. Honest answer. Same week.
+          </h2>
+        </div>
+        <div class="flex w-full flex-col gap-2.5 sm:w-auto sm:flex-row">
+          <a href="tel:+19015550142" class="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-inkDeep px-6 text-[13px] font-bold text-white transition hover:bg-black">
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6.1 6.1l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+            (901) 555-0142
+          </a>
+          <a href="#quote" class="inline-flex h-12 items-center justify-center gap-2 rounded-xl border-2 border-white/70 bg-white/10 px-6 text-[13px] font-bold text-white transition hover:bg-white hover:text-ink">
+            Request a callback
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         QUOTE FORM
+    ============================================================= -->
+    <section id="quote" class="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24">
+      <div class="pointer-events-none absolute -left-32 bottom-0 h-[380px] w-[380px] rounded-full bg-orange-100/60 blur-[100px]" aria-hidden="true"></div>
+
+      <div class="relative mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
+
+          <!-- Left: reassurance -->
+          <div class="reveal" data-reveal>
+            <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-flame">Get a quote</p>
+            <h2 class="mt-3 text-[clamp(30px,4vw,46px)] font-black leading-[1.03] tracking-[-0.03em] text-ink">
+              Tell us what<br />the roof is doing.
+            </h2>
+            <p class="mt-4 max-w-md text-[14.5px] leading-relaxed text-slate-600">
+              Send the form or call. We'll ask a couple of questions, book a free inspection,
+              and give you a written scope — not a number shouted from the driveway.
+            </p>
+
+            <ul class="mt-7 space-y-4">
+              <li class="flex items-start gap-3">
+                <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-orange-50 text-flame">
+                  <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+                </span>
+                <div>
+                  <p class="text-[13.5px] font-bold text-ink">15-minute callback</p>
+                  <p class="text-[12px] text-slate-500">During business hours, 7am–6pm.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-orange-50 text-flame">
+                  <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+                </span>
+                <div>
+                  <p class="text-[13.5px] font-bold text-ink">Insurance paperwork handled</p>
+                  <p class="text-[12px] text-slate-500">Photos, measurements, and adjuster meetings.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-orange-50 text-flame">
+                  <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+                </span>
+                <div>
+                  <p class="text-[13.5px] font-bold text-ink">No deposit to inspect</p>
+                  <p class="text-[12px] text-slate-500">Work starts only after a signed scope.</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="mt-7 rounded-2xl border border-slate-200 bg-paper p-5">
+              <p class="text-[10.5px] font-bold uppercase tracking-[0.14em] text-slate-400">Prefer to talk?</p>
+              <a href="tel:+19015550142" class="mt-1 block text-[26px] font-black tracking-tight text-ink transition hover:text-flame">(901) 555-0142</a>
+              <p class="mt-1 text-[12px] text-slate-500">24/7 storm line · Bartlett, TN</p>
+              <p class="mt-3 border-t border-slate-200 pt-3 text-[11.5px] leading-relaxed text-slate-500">
+                2840 Bartlett Blvd, Suite 104<br />Bartlett, TN 38134
+              </p>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <div class="reveal rounded-2xl border border-slate-200 bg-white p-5 shadow-lift sm:p-7" data-reveal>
+            <form id="lead-form" class="grid gap-4" novalidate>
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label for="lead-name" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-slate-500">Name <span class="text-flame">*</span></label>
+                  <input id="lead-name" name="name" type="text" autocomplete="name" placeholder="First and last name"
+                    class="h-12 w-full rounded-xl border border-slate-200 bg-white px-3.5 text-[14px] text-ink outline-none transition placeholder:text-slate-400 focus:border-flame focus:ring-2 focus:ring-orange-100" />
+                  <p class="mt-1 hidden text-[11.5px] font-medium text-red-600" data-error="name"></p>
+                </div>
+                <div>
+                  <label for="lead-phone" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-slate-500">Phone <span class="text-flame">*</span></label>
+                  <input id="lead-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(901) 555-0142"
+                    class="h-12 w-full rounded-xl border border-slate-200 bg-white px-3.5 text-[14px] text-ink outline-none transition placeholder:text-slate-400 focus:border-flame focus:ring-2 focus:ring-orange-100" />
+                  <p class="mt-1 hidden text-[11.5px] font-medium text-red-600" data-error="phone"></p>
+                </div>
+              </div>
+
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label for="lead-email" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-slate-500">Email</label>
+                  <input id="lead-email" name="email" type="email" autocomplete="email" placeholder="you@email.com"
+                    class="h-12 w-full rounded-xl border border-slate-200 bg-white px-3.5 text-[14px] text-ink outline-none transition placeholder:text-slate-400 focus:border-flame focus:ring-2 focus:ring-orange-100" />
+                  <p class="mt-1 hidden text-[11.5px] font-medium text-red-600" data-error="email"></p>
+                </div>
+                <div>
+                  <label for="lead-service" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-slate-500">Service needed <span class="text-flame">*</span></label>
+                  <div class="relative">
+                    <select id="lead-service" name="service"
+                      class="h-12 w-full appearance-none rounded-xl border border-slate-200 bg-white px-3.5 pr-9 text-[14px] text-ink outline-none transition focus:border-flame focus:ring-2 focus:ring-orange-100">
+                      <option value="">Select a service</option>
+                      <option>Storm Damage / Emergency Tarping</option>
+                      <option>Roof Replacement</option>
+                      <option>Roof Repair</option>
+                      <option>Leak Repair</option>
+                      <option>Commercial Roofing</option>
+                      <option>Gutters &amp; Fascia</option>
+                      <option>Insurance Claim Help</option>
+                      <option>Something else</option>
+                    </select>
+                    <svg viewBox="0 0 24 24" class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  </div>
+                  <p class="mt-1 hidden text-[11.5px] font-medium text-red-600" data-error="service"></p>
+                </div>
+              </div>
+
+              <div>
+                <label for="lead-message" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-slate-500">Message</label>
+                <textarea id="lead-message" name="message" rows="4" placeholder="Tell us what's happening — leak location, age of the roof, storm damage, or the estimate you got from the calculator."
+                  class="min-h-[110px] w-full resize-y rounded-xl border border-slate-200 bg-white px-3.5 py-3 text-[14px] text-ink outline-none transition placeholder:text-slate-400 focus:border-flame focus:ring-2 focus:ring-orange-100"></textarea>
+              </div>
+
+              <label class="flex cursor-pointer items-start gap-3 text-[11.5px] leading-relaxed text-slate-500">
+                <input id="lead-consent" name="consent" type="checkbox" class="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 accent-flame" />
+                <span>It's okay to call or text me about this request. No marketing lists, ever.</span>
+              </label>
+              <p class="hidden text-[11.5px] font-medium text-red-600" data-error="consent"></p>
+
+              <button type="submit" class="inline-flex h-[52px] items-center justify-center gap-2 rounded-xl bg-flame px-6 py-3.5 text-[13.5px] font-bold text-white shadow-flame transition hover:-translate-y-0.5 hover:bg-flameDark">
+                Send My Request
+                <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+
+              <p class="text-center text-[10.5px] text-slate-400">No spam · No obligation · Free written estimate</p>
+            </form>
+
+            <div class="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 border-t border-slate-100 pt-4 text-[11px] font-semibold text-slate-500">
+              <span class="inline-flex items-center gap-1.5">
+                <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 text-flame" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+                Licensed &amp; insured
+              </span>
+              <span class="inline-flex items-center gap-1.5">
+                <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 text-flame" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+                15-minute callback
+              </span>
+              <span class="inline-flex items-center gap-1.5">
+                <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 text-flame" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+                5.0 on Google
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================= -->
+  <footer class="bg-inkDeep pb-10 pt-14 text-slate-400">
+    <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+
+        <div>
+          <a href="#top" class="flex items-center gap-2.5" aria-label="Summit Roofing Co. home">
+            <span class="grid h-10 w-10 place-items-center rounded-xl bg-flame text-white">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12.5 12 5l9 7.5"/><path d="M6 11v8h12v-8"/></svg>
+            </span>
+            <span class="leading-none">
+              <span class="block text-[17px] font-black tracking-[-0.02em] text-white">Summit Roofing Co.</span>
+              <span class="mt-1 block text-[9px] font-semibold uppercase tracking-[0.18em] text-slate-500">Bartlett, Tennessee</span>
+            </span>
+          </a>
+          <p class="mt-5 max-w-xs text-[12.5px] leading-relaxed">
+            Residential and commercial roofing across Bartlett and Greater Memphis. Storm
+            restoration, replacement, and repairs — licensed, insured, and locally owned.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-2">
+            <span class="rounded-md border border-white/10 px-2.5 py-1 text-[9.5px] font-bold uppercase tracking-[0.1em]">Licensed</span>
+            <span class="rounded-md border border-white/10 px-2.5 py-1 text-[9.5px] font-bold uppercase tracking-[0.1em]">Insured</span>
+            <span class="rounded-md border border-white/10 px-2.5 py-1 text-[9.5px] font-bold uppercase tracking-[0.1em]">Bonded</span>
+            <span class="rounded-md border border-flame/40 bg-flame/10 px-2.5 py-1 text-[9.5px] font-bold uppercase tracking-[0.1em] text-flame">5.0 Google</span>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500">Services</h3>
+          <ul class="mt-4 space-y-2.5 text-[12.5px]">
+            <li><a href="#services" class="transition hover:text-white">Storm restoration</a></li>
+            <li><a href="#services" class="transition hover:text-white">Roof replacement</a></li>
+            <li><a href="#services" class="transition hover:text-white">Metal &amp; tile roofing</a></li>
+            <li><a href="#services" class="transition hover:text-white">Commercial systems</a></li>
+            <li><a href="#services" class="transition hover:text-white">Leak detection</a></li>
+            <li><a href="#services" class="transition hover:text-white">Gutters &amp; fascia</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500">Service area</h3>
+          <ul class="mt-4 grid grid-cols-2 gap-x-4 gap-y-2.5 text-[12.5px]">
+            <li>Bartlett</li>
+            <li>Memphis</li>
+            <li>Germantown</li>
+            <li>Cordova</li>
+            <li>Collierville</li>
+            <li>Arlington</li>
+            <li>Lakeland</li>
+            <li>Millington</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500">Contact</h3>
+          <ul class="mt-4 space-y-3 text-[12.5px]">
+            <li>
+              <a href="tel:+19015550142" class="text-[15px] font-extrabold text-white transition hover:text-flame">(901) 555-0142</a>
+              <span class="block text-[10.5px] text-slate-500">24/7 storm line</span>
+            </li>
+            <li>2840 Bartlett Blvd, Ste 104<br />Bartlett, TN 38134</li>
+            <li class="text-slate-500">[EMAIL_ADDRESS]</li>
+            <li class="text-[11px] leading-relaxed text-slate-500">Mon–Fri 7–6 · Sat 8–2<br />Sunday by appointment</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-10 border-t border-white/10 pt-6">
+        <p class="max-w-4xl text-[10px] leading-relaxed text-slate-500">
+          Prototype demonstration only. "Summit Roofing Co." is a fictional brand created for this
+          concept; the phone number, address, license number, review count, and financing terms are
+          placeholders. Imagery is licensed stock photography and does not depict actual projects.
+          Cost ranges shown by the calculator are rough industry estimates, not offers.
+        </p>
+        <div class="mt-4 flex flex-col gap-2 text-[10.5px] text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+          <p>© <span id="year">2026</span> Summit Roofing Co. All rights reserved. <span class="text-slate-600">[CLIENT NAME]</span></p>
+          <div class="flex flex-wrap gap-x-5 gap-y-1">
+            <a href="#" class="transition hover:text-white">Privacy Policy</a>
+            <a href="#" class="transition hover:text-white">Accessibility</a>
+            <a href="#top" class="transition hover:text-white">Back to top</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile sticky action bar -->
+  <div id="mobile-bar" class="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 p-2.5 backdrop-blur transition duration-300 md:hidden">
+    <div class="grid grid-cols-2 gap-2">
+      <a href="tel:+19015550142" class="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-slate-200 text-[12.5px] font-bold text-ink">
+        <svg viewBox="0 0 24 24" class="h-4 w-4 text-flame" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6.1 6.1l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+        Call Now
+      </a>
+      <a href="#quote" class="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-flame text-[12.5px] font-bold text-white shadow-flame">
+        Free Estimate
+        <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="h-[76px] md:hidden" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       SUCCESS OVERLAY
+  ============================================================= -->
+  <div id="success-overlay" class="fixed inset-0 z-[100] hidden items-center justify-center bg-inkDeep/60 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="success-title">
+    <div class="overlay-panel relative w-full max-w-md overflow-hidden rounded-2xl bg-white p-7 text-center shadow-2xl">
+      <button id="success-close" type="button" class="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full text-slate-400 transition hover:bg-slate-100 hover:text-ink" aria-label="Close">
+        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+
+      <span class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-green-50 text-green-600">
+        <svg viewBox="0 0 24 24" class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path class="check-path" d="m5 12.5 4.5 4.5L19 7.5"/>
+        </svg>
+      </span>
+
+      <h2 id="success-title" class="mt-5 text-[24px] font-black leading-tight tracking-[-0.02em] text-ink">Demo only: nothing was sent.</h2>
+      <p class="mt-2 text-[14px] leading-relaxed text-slate-600">
+              This is a sample site for a fictional roofer, so the form doesn't send anywhere.
+            </p>
+
+      <div class="mt-5 rounded-xl bg-paper p-4 text-left">
+        <p class="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-400">What happens next</p>
+        <ol class="mt-2.5 space-y-2 text-[12.5px] text-slate-600">
+          <li class="flex gap-2.5"><span class="font-bold text-flame">1.</span> A quick call to confirm the address and the problem.</li>
+          <li class="flex gap-2.5"><span class="font-bold text-flame">2.</span> A free inspection booked around your schedule.</li>
+          <li class="flex gap-2.5"><span class="font-bold text-flame">3.</span> Photos, findings, and a written scope.</li>
+        </ol>
+      </div>
+
+      <a href="tel:+19015550142" class="mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-flame text-[12.5px] font-bold text-white transition hover:bg-flameDark">
+        Need it sooner? Call (901) 555-0142
+      </a>
+    </div>
+  </div>
+
+  <noscript>
+    <style>[data-reveal]{opacity:1 !important;transform:none !important;}</style>
+  </noscript>
+
+  <script>
+    (function () {
+      "use strict";
+
+      /* ----------------------------------------------------------
+         0. Helpers
+      ---------------------------------------------------------- */
+      var $ = function (sel, root) { return (root || document).querySelector(sel); };
+      var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
+      var money = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+
+      /* ----------------------------------------------------------
+         1. Mobile menu
+      ---------------------------------------------------------- */
+      var menu = $("#mobile-menu");
+      var menuToggle = $("#menu-toggle");
+
+      function setMenu(open) {
+        if (!menu) return;
+        menu.classList.toggle("hidden", !open);
+        if (menuToggle) {
+          menuToggle.setAttribute("aria-expanded", String(open));
+          menuToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        }
+      }
+
+      if (menuToggle) {
+        menuToggle.addEventListener("click", function () {
+          setMenu(menu.classList.contains("hidden"));
+        });
+      }
+      $$("[data-menu-link]").forEach(function (link) {
+        link.addEventListener("click", function () { setMenu(false); });
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") setMenu(false);
+      });
+      window.addEventListener("resize", function () {
+        if (window.innerWidth >= 1024) setMenu(false);
+      });
+
+      /* ----------------------------------------------------------
+         2. Sticky header scroll state
+      ---------------------------------------------------------- */
+      var header = $("#site-header");
+      var lastState = false;
+      function updateHeader() {
+        var stuck = window.scrollY > 16;
+        if (stuck !== lastState) {
+          header.classList.toggle("is-stuck", stuck);
+          lastState = stuck;
+        }
+      }
+      window.addEventListener("scroll", updateHeader, { passive: true });
+      updateHeader();
+
+      /* ----------------------------------------------------------
+         3. Roof replacement calculator
+      ---------------------------------------------------------- */
+      var sqftEl = $("#calc-sqft");
+      var sqftInput = $("#sqft-input");
+      var materialEl = $("#calc-material");
+      var pitchEl = $("#calc-pitch");
+      var rangeEl = $("#calc-range");
+      var basisEl = $("#calc-basis");
+      var squaresEl = $("#calc-squares");
+      var pitchLabelEl = $("#calc-pitch-label");
+      var perSquareEl = $("#calc-per-square");
+      var monthlyEl = $("#calc-monthly");
+      var lockBtn = $("#calc-lock");
+
+      function roundTo100(v) { return Math.round(v / 100) * 100; }
+
+      function paintTrack() {
+        if (!sqftEl) return;
+        var min = Number(sqftEl.min) || 800;
+        var max = Number(sqftEl.max) || 6000;
+        var val = Number(sqftEl.value) || min;
+        var pct = ((val - min) / (max - min)) * 100;
+        sqftEl.style.background =
+          "linear-gradient(to right, #F97316 0%, #F97316 " + pct + "%, #E2E8F0 " + pct + "%, #E2E8F0 100%)";
+      }
+
+      function calc() {
+        if (!sqftEl || !materialEl || !pitchEl) return;
+
+        var sqft = Number(sqftEl.value) || 0;
+        var opt = materialEl.options[materialEl.selectedIndex];
+        var lowRate = parseFloat(opt.getAttribute("data-low")) || 0;
+        var highRate = parseFloat(opt.getAttribute("data-high")) || 0;
+        var mult = parseFloat(pitchEl.value) || 1;
+
+        var low = roundTo100(sqft * lowRate * mult);
+        var high = roundTo100(sqft * highRate * mult);
+
+        if (sqftInput && document.activeElement !== sqftInput) sqftInput.value = String(sqft);
+        if (rangeEl) rangeEl.textContent = money.format(low) + " – " + money.format(high);
+        if (basisEl) {
+          basisEl.textContent = sqft.toLocaleString("en-US") + " sq ft · " +
+            opt.textContent.trim() + " · " + pitchEl.options[pitchEl.selectedIndex].getAttribute("data-label") + " pitch";
+        }
+        if (squaresEl) squaresEl.textContent = (sqft / 100).toFixed(1);
+        if (pitchLabelEl) {
+          pitchLabelEl.textContent = pitchEl.options[pitchEl.selectedIndex].getAttribute("data-label") +
+            " · +" + Math.round((mult - 1) * 100) + "%";
+        }
+        if (perSquareEl) perSquareEl.textContent = "$" + (low / sqft).toFixed(2);
+        if (monthlyEl) monthlyEl.textContent = money.format(Math.round(low / 60)) + "/mo";
+
+        paintTrack();
+      }
+
+      [sqftEl, materialEl, pitchEl].forEach(function (el) {
+        if (!el) return;
+        el.addEventListener("input", calc);
+        el.addEventListener("change", calc);
+      });
+
+      if (sqftInput && sqftEl) {
+        sqftInput.addEventListener("input", function () {
+          var v = Number(sqftInput.value);
+          if (!isFinite(v)) return;
+          var clamped = Math.min(6000, Math.max(800, v));
+          sqftEl.value = String(clamped);
+          calc();
+        });
+        sqftInput.addEventListener("blur", function () {
+          var v = Number(sqftInput.value);
+          var clamped = !isFinite(v) || v <= 0 ? Number(sqftEl.value) : Math.min(6000, Math.max(800, v));
+          sqftInput.value = String(clamped);
+          sqftEl.value = String(clamped);
+          calc();
+        });
+      }
+
+      calc();
+
+      /* Calculator CTA: carry the selection into the lead form */
+      if (lockBtn) {
+        lockBtn.addEventListener("click", function () {
+          var service = $("#lead-service");
+          var message = $("#lead-message");
+          if (service) {
+            service.value = "Roof Replacement";
+          }
+          if (message && !message.value.trim()) {
+            message.value = "Calculator estimate: " + sqftEl.value + " sq ft, " +
+              materialEl.options[materialEl.selectedIndex].textContent.trim() + ", " +
+              pitchEl.options[pitchEl.selectedIndex].getAttribute("data-label") + " pitch.";
+          }
+          window.setTimeout(function () {
+            var name = $("#lead-name");
+            if (name) name.focus({ preventScroll: true });
+          }, 700);
+        });
+      }
+
+      /* ----------------------------------------------------------
+         4. Before / after comparison
+      ---------------------------------------------------------- */
+      var compareRange = $("#compare-range");
+      var compareClip = $("#compare-clip");
+      var compareLine = $("#compare-line");
+
+      function updateCompare() {
+        if (!compareRange) return;
+        var p = Number(compareRange.value);
+        if (compareClip) compareClip.style.clipPath = "inset(0 " + (100 - p) + "% 0 0)";
+        if (compareLine) compareLine.style.left = p + "%";
+      }
+      if (compareRange) {
+        compareRange.addEventListener("input", updateCompare);
+        updateCompare();
+      }
+
+      /* ----------------------------------------------------------
+         5. Lead form + success overlay
+      ---------------------------------------------------------- */
+      var form = $("#lead-form");
+      var overlay = $("#success-overlay");
+      var overlayClose = $("#success-close");
+      var lastFocused = null;
+
+      function setError(name, message) {
+        if (!form) return;
+        var field = form.elements[name];
+        var error = document.querySelector('[data-error="' + name + '"]');
+        if (error) {
+          error.textContent = message || "";
+          error.classList.toggle("hidden", !message);
+        }
+        if (field && field.setAttribute) {
+          field.setAttribute("aria-invalid", message ? "true" : "false");
+          field.classList.toggle("border-red-400", Boolean(message));
+          field.classList.toggle("border-slate-200", !message);
+        }
+      }
+
+      function clearErrors() {
+        ["name", "phone", "email", "service", "consent"].forEach(function (n) { setError(n, ""); });
+      }
+
+      function openOverlay() {
+        if (!overlay) return;
+        lastFocused = document.activeElement;
+        overlay.classList.remove("hidden");
+        overlay.classList.add("flex", "overlay-open", "fade-in");
+        document.body.classList.add("no-scroll");
+        if (overlayClose) overlayClose.focus();
+      }
+
+      function closeOverlay() {
+        if (!overlay) return;
+        overlay.classList.add("hidden");
+        overlay.classList.remove("flex", "overlay-open", "fade-in");
+        document.body.classList.remove("no-scroll");
+        if (lastFocused && lastFocused.focus) lastFocused.focus();
+      }
+
+      if (overlayClose) overlayClose.addEventListener("click", closeOverlay);
+      if (overlay) {
+        overlay.addEventListener("click", function (e) {
+          if (e.target === overlay) closeOverlay();
+        });
+      }
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && overlay && !overlay.classList.contains("hidden")) closeOverlay();
+      });
+
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          clearErrors();
+
+          var name = form.elements.name.value.trim();
+          var phone = form.elements.phone.value.trim();
+          var email = form.elements.email.value.trim();
+          var service = form.elements.service.value;
+          var consent = form.elements.consent.checked;
+          var digits = phone.replace(/\D/g, "");
+          var firstInvalid = null;
+
+          if (!name) {
+            setError("name", "Please enter your name.");
+            firstInvalid = firstInvalid || form.elements.name;
+          }
+          if (!phone) {
+            setError("phone", "Please enter a phone number.");
+            firstInvalid = firstInvalid || form.elements.phone;
+          } else if (digits.length < 10) {
+            setError("phone", "Enter a valid 10-digit phone number.");
+            firstInvalid = firstInvalid || form.elements.phone;
+          }
+          if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+            setError("email", "Enter a valid email address.");
+            firstInvalid = firstInvalid || form.elements.email;
+          }
+          if (!service) {
+            setError("service", "Choose a service.");
+            firstInvalid = firstInvalid || form.elements.service;
+          }
+          if (!consent) {
+            setError("consent", "Please check the box so we can contact you.");
+            firstInvalid = firstInvalid || form.elements.consent;
+          }
+
+          if (firstInvalid) {
+            firstInvalid.focus();
+            return;
+          }
+
+          openOverlay();
+          form.reset();
+          clearErrors();
+        });
+
+        form.addEventListener("input", function (e) {
+          if (e.target && e.target.name) setError(e.target.name, "");
+        });
+        form.addEventListener("change", function (e) {
+          if (e.target && e.target.name) setError(e.target.name, "");
+        });
+      }
+
+      /* Service presets from cards */
+      $$("[data-service]").forEach(function (link) {
+        link.addEventListener("click", function () {
+          var service = $("#lead-service");
+          var value = link.getAttribute("data-service");
+          if (!service || !value) return;
+
+          var match = null;
+          Array.prototype.forEach.call(service.options, function (opt) {
+            if (opt.textContent.trim() === value) match = opt.value;
+          });
+          if (match !== null) service.value = match;
+          setError("service", "");
+        });
+      });
+
+      /* ----------------------------------------------------------
+         6. Mobile bar hides while the form is on screen
+      ---------------------------------------------------------- */
+      var mobileBar = $("#mobile-bar");
+      var leadFormEl = $("#lead-form");
+      if (mobileBar && leadFormEl && "IntersectionObserver" in window) {
+        var barObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            mobileBar.classList.toggle("pointer-events-none", entry.isIntersecting);
+            mobileBar.classList.toggle("translate-y-full", entry.isIntersecting);
+          });
+        }, { threshold: 0.2 });
+        barObserver.observe(leadFormEl);
+      }
+
+      /* ----------------------------------------------------------
+         7. Reveal on scroll
+      ---------------------------------------------------------- */
+      var revealItems = $$("[data-reveal]");
+      if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0, rootMargin: "0px 0px -40px 0px" });
+        revealItems.forEach(function (el) { observer.observe(el); });
+      } else {
+        revealItems.forEach(function (el) { el.classList.add("is-visible"); });
+      }
+
+      /* ----------------------------------------------------------
+         7. Year
+      ---------------------------------------------------------- */
+      var year = $("#year");
+      if (year) year.textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>

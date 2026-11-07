@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#0E0E0E" />
+  <title>Demo: Elite Roofing Solutions | Memphis Roofing, Repair &amp; Storm Claims</title>
+  <meta name="description" content="Elite Roofing Solutions is a family-owned Memphis roofer since 2011. Owens Corning Platinum Preferred contractor. Roof replacement, repair, inspections, commercial and multi-family roofing, and storm insurance claims. Call (901) 435-6250." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Elite Roofing Solutions | Architectural Roofing, Memphis" />
+  <meta property="og:description" content="Family-owned Memphis roofing since 2011. Owens Corning Platinum Preferred, A+ BBB, 250+ five-star reviews." />
+  <meta property="og:image" content="https://bartlettwebsitedesign.online/demos/elite-roofing-solutions/assets/photo-1568605114967-8130f3a36994.webp" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      background: #F7F5F0;
+      color: #0E0E0E;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+    ::selection { background: #A9844B; color: #fff; }
+    section[id] { scroll-margin-top: 128px; }
+
+    .header-shell { transition: background-color .35s ease, box-shadow .35s ease; }
+    .header-shell.is-stuck {
+      background-color: rgba(247,245,240,.97);
+      box-shadow: 0 1px 0 rgba(14,14,14,.12), 0 18px 40px -36px rgba(14,14,14,.6);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1);
+    }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    input[type="range"].brass-range {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 2px;
+      background: #D9D3C7;
+      outline: none;
+    }
+    input[type="range"].brass-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 20px;
+      width: 20px;
+      border-radius: 0;
+      background: #0E0E0E;
+      border: 3px solid #F7F5F0;
+      box-shadow: 0 0 0 1px #0E0E0E;
+      cursor: grab;
+    }
+    input[type="range"].brass-range::-moz-range-thumb {
+      height: 14px;
+      width: 14px;
+      border-radius: 0;
+      background: #0E0E0E;
+      border: 3px solid #F7F5F0;
+      cursor: grab;
+    }
+
+    input[type="range"].compare-range {
+      -webkit-appearance: none;
+      appearance: none;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      opacity: 0;
+      cursor: ew-resize;
+      z-index: 30;
+      margin: 0;
+    }
+    input[type="range"].compare-range::-webkit-slider-thumb { width: 52px; height: 100%; }
+    input[type="range"].compare-range::-moz-range-thumb { width: 52px; height: 100%; border: 0; }
+
+    .check-path { stroke-dasharray: 48; stroke-dashoffset: 48; }
+    .overlay-open .check-path { animation: drawCheck .5s .22s cubic-bezier(.65,0,.35,1) forwards; }
+    @keyframes drawCheck { to { stroke-dashoffset: 0; } }
+
+    .overlay-panel { animation: panelIn .4s cubic-bezier(.22,1,.36,1) both; }
+    @keyframes panelIn { from { opacity: 0; transform: translateY(18px) scale(.98); } to { opacity: 1; transform: none; } }
+    .no-scroll { overflow: hidden; }
+
+    .quote-track {
+      display: flex;
+      transition: transform .55s cubic-bezier(.22,1,.36,1);
+      will-change: transform;
+    }
+    .quote-slide { min-width: 100%; }
+
+    .rule-link { position: relative; }
+    .rule-link::after {
+      content: "";
+      position: absolute; left: 0; bottom: -3px;
+      width: 100%; height: 1px; background: currentColor;
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .35s ease;
+    }
+    .rule-link:hover::after { transform: scaleX(1); }
+
+    .lift-img { transition: transform 1.1s cubic-bezier(.22,1,.36,1); }
+    .group:hover .lift-img { transform: scale(1.04); }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .quote-track { transition: none; }
+      *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+    }
+  </style>
+</head>
+
+<body class="font-sans bg-ivory text-onyx">
+<div class="bwd-demo-bar" role="note" style="position:relative;z-index:9999;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 14px;padding:8px 14px;background:#0b1b3a;color:#cfd9ec;font:500 13px/1.4 system-ui,-apple-system,'Segoe UI',sans-serif;text-align:center"><span><b style="color:#fff;font-weight:600">Demo site</b> built by <a href="/" style="color:#fff;text-decoration:underline">Bartlett Website Design</a>. Not the business's official website. Some details are placeholders until confirmed with the owner.</span><a href="/demos/" style="color:#9cc2ff;font-weight:600;text-decoration:none">&larr; All demos</a></div>
+
+  <!-- BANNER + HEADER -->
+  <div class="sticky top-0 z-50">
+    <div class="bg-onyx text-ivory">
+      <div class="mx-auto flex max-w-site flex-col items-center justify-center gap-1 px-4 py-2 text-center sm:flex-row sm:gap-3 sm:px-6">
+        <span class="shrink-0 border border-brass/60 px-2 py-0.5 text-[8.5px] font-medium uppercase tracking-[0.22em] text-brass">Prototype demo</span>
+        <p class="text-[10px] leading-snug text-ivory/65 sm:text-[11px]">
+          <span class="mr-1 text-ivory/25">•</span>
+          This is a live interactive concept mockup developed for your business review.
+        </p>
+      </div>
+    </div>
+
+    <header id="site-header" class="header-shell border-b border-onyx/10 bg-ivory/90 backdrop-blur-md">
+      <div class="mx-auto flex h-[80px] max-w-site items-center gap-4 px-4 sm:px-6 lg:px-8">
+
+        <!-- Desktop: split nav around centered wordmark -->
+        <nav class="hidden flex-1 items-center gap-8 lg:flex" aria-label="Primary">
+          <a href="#services" class="rule-link text-[10.5px] font-medium uppercase tracking-[0.18em] text-fog transition hover:text-onyx">Services</a>
+          <a href="#estimate" class="rule-link text-[10.5px] font-medium uppercase tracking-[0.18em] text-fog transition hover:text-onyx">Estimate</a>
+          <a href="#work" class="rule-link text-[10.5px] font-medium uppercase tracking-[0.18em] text-fog transition hover:text-onyx">Work</a>
+        </nav>
+
+        <a href="#top" class="mx-auto flex shrink-0 flex-col items-center lg:mx-0" aria-label="Elite Roofing Solutions home">
+          <span class="font-serif text-[22px] font-medium leading-none tracking-[0.14em] text-onyx">ELITE</span>
+          <span class="mt-1 text-[7.5px] font-medium uppercase tracking-[0.32em] text-brass">Roofing Solutions</span>
+        </a>
+
+        <nav class="hidden flex-1 items-center justify-end gap-8 lg:flex" aria-label="Secondary">
+          <a href="#reviews" class="rule-link text-[10.5px] font-medium uppercase tracking-[0.18em] text-fog transition hover:text-onyx">Reviews</a>
+          <a href="#contact" class="rule-link text-[10.5px] font-medium uppercase tracking-[0.18em] text-fog transition hover:text-onyx">Contact</a>
+          <a href="tel:+19014356250" class="text-[11.5px] font-medium tracking-[0.04em] text-onyx transition hover:text-brass">(901) 435-6250</a>
+        </nav>
+
+        <div class="ml-auto flex items-center gap-2 lg:hidden">
+          <a href="tel:+19014356250" class="grid h-10 w-10 place-items-center border border-onyx/15 text-onyx" aria-label="Call Elite Roofing Solutions">
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6.1 6.1l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+          </a>
+          <button id="menu-toggle" type="button" class="grid h-10 w-10 place-items-center border border-onyx/15 text-onyx" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg viewBox="0 0 24 24" class="h-[18px] w-[18px]" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="hidden border-t border-onyx/10 bg-ivory lg:hidden">
+        <nav class="mx-auto max-w-site px-5 py-2" aria-label="Mobile navigation">
+          <a href="#services" data-menu-link class="flex items-baseline justify-between border-b border-onyx/10 py-4 font-serif text-[22px] text-onyx">Services <span class="text-[9px] uppercase tracking-[0.2em] text-fog">01</span></a>
+          <a href="#estimate" data-menu-link class="flex items-baseline justify-between border-b border-onyx/10 py-4 font-serif text-[22px] text-onyx">Estimate <span class="text-[9px] uppercase tracking-[0.2em] text-fog">02</span></a>
+          <a href="#work" data-menu-link class="flex items-baseline justify-between border-b border-onyx/10 py-4 font-serif text-[22px] text-onyx">Work <span class="text-[9px] uppercase tracking-[0.2em] text-fog">03</span></a>
+          <a href="#reviews" data-menu-link class="flex items-baseline justify-between border-b border-onyx/10 py-4 font-serif text-[22px] text-onyx">Reviews <span class="text-[9px] uppercase tracking-[0.2em] text-fog">04</span></a>
+          <a href="#contact" data-menu-link class="flex items-baseline justify-between border-b border-onyx/10 py-4 font-serif text-[22px] text-onyx">Contact <span class="text-[9px] uppercase tracking-[0.2em] text-fog">05</span></a>
+          <div class="grid grid-cols-2 gap-2 py-4">
+            <a href="tel:+19014356250" class="inline-flex h-12 items-center justify-center border border-onyx/20 text-[10px] font-medium uppercase tracking-[0.16em] text-onyx">Call</a>
+            <a href="#contact" data-menu-link class="inline-flex h-12 items-center justify-center bg-onyx text-[10px] font-medium uppercase tracking-[0.16em] text-ivory">Consultation</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="relative border-b border-onyx/10">
+      <div class="mx-auto max-w-site px-4 pb-16 pt-12 sm:px-6 sm:pb-20 sm:pt-16 lg:px-8 lg:pb-24 lg:pt-20">
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-10">
+
+          <div class="lg:col-span-7 lg:pt-6">
+            <div class="flex items-center gap-4">
+              <span class="h-px w-12 bg-brass"></span>
+              <p class="text-[9.5px] font-medium uppercase tracking-[0.3em] text-fog">Memphis · Since 2011</p>
+            </div>
+
+            <h1 class="mt-7 font-serif text-[clamp(40px,5.4vw,74px)] font-normal leading-[1.02] tracking-[-0.02em] text-onyx">
+              A roof is<br />
+              <span class="italic text-brass">architecture.</span><br />
+              We treat it that way.
+            </h1>
+
+            <p class="mt-7 max-w-[520px] text-[15px] font-light leading-[1.8] text-fog">
+              Family-owned Memphis roofing since 2011. Owens Corning Platinum Preferred
+              installation, honest inspections, and 250+ five-star reviews across the
+              Mid-South — with the details that separate a roof from a covering.
+            </p>
+
+            <div class="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-7">
+              <a href="#contact" class="inline-flex h-12 items-center justify-center gap-3 bg-onyx px-8 text-[10px] font-medium uppercase tracking-[0.2em] text-ivory transition hover:bg-brass">
+                Request a Consultation
+                <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <a href="#work" class="rule-link text-[10px] font-medium uppercase tracking-[0.2em] text-onyx">View the work</a>
+            </div>
+
+            <div class="mt-12 flex flex-wrap gap-x-10 gap-y-4 border-t border-onyx/10 pt-6">
+              <div>
+                <p class="font-serif text-[24px] leading-none text-onyx">15<span class="text-brass">+</span></p>
+                <p class="mt-1.5 text-[8.5px] font-medium uppercase tracking-[0.18em] text-fog">Years</p>
+              </div>
+              <div>
+                <p class="font-serif text-[24px] leading-none text-onyx">250<span class="text-brass">+</span></p>
+                <p class="mt-1.5 text-[8.5px] font-medium uppercase tracking-[0.18em] text-fog">5-star reviews</p>
+              </div>
+              <div>
+                <p class="font-serif text-[24px] leading-none text-onyx">4.9</p>
+                <p class="mt-1.5 text-[8.5px] font-medium uppercase tracking-[0.18em] text-fog">Google rating</p>
+              </div>
+              <div>
+                <p class="font-serif text-[24px] leading-none text-onyx">25<span class="text-brass"> yr</span></p>
+                <p class="mt-1.5 text-[8.5px] font-medium uppercase tracking-[0.18em] text-fog">Labor warranty</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5">
+            <figure class="relative">
+              <div class="absolute -left-3 -top-3 hidden h-full w-full border border-brass/40 lg:block" aria-hidden="true"></div>
+              <div class="relative overflow-hidden bg-stone">
+                <img src="assets/photo-1568605114967-8130f3a36994.webp" alt="An architecturally detailed home with a new roof" class="h-[340px] w-full object-cover sm:h-[460px] lg:h-[560px]" fetchpriority="high" />
+              </div>
+              <figcaption class="mt-3 flex items-baseline justify-between gap-4 border-b border-onyx/10 pb-2">
+                <span class="text-[8.5px] font-medium uppercase tracking-[0.2em] text-fog">Representative residence · Mid-South</span>
+                <span class="text-[8.5px] font-medium uppercase tracking-[0.2em] text-brass">Concept imagery</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CREDENTIALS -->
+    <section aria-label="Credentials" class="border-b border-onyx/10 bg-ivory">
+      <div class="mx-auto grid max-w-site grid-cols-2 gap-px bg-onyx/10 sm:grid-cols-4">
+        <div class="bg-ivory px-5 py-5 sm:px-6">
+          <p class="text-[9px] font-medium uppercase tracking-[0.18em] text-fog">Accreditation</p>
+          <p class="mt-1.5 text-[12.5px] text-onyx">Owens Corning Platinum Preferred</p>
+        </div>
+        <div class="bg-ivory px-5 py-5 sm:px-6">
+          <p class="text-[9px] font-medium uppercase tracking-[0.18em] text-fog">Licensed</p>
+          <p class="mt-1.5 text-[12.5px] text-onyx">TN #71100 · MS #R17937</p>
+        </div>
+        <div class="bg-ivory px-5 py-5 sm:px-6">
+          <p class="text-[9px] font-medium uppercase tracking-[0.18em] text-fog">Reputation</p>
+          <p class="mt-1.5 text-[12.5px] text-onyx">250+ five-star reviews</p>
+        </div>
+        <div class="bg-ivory px-5 py-5 sm:px-6">
+          <p class="text-[9px] font-medium uppercase tracking-[0.18em] text-fog">Warranty</p>
+          <p class="mt-1.5 text-[12.5px] text-onyx">Up to 25-year labor</p>
+        </div>
+      </div>
+      <p class="mx-auto max-w-site px-5 py-2 text-center text-[9px] tracking-[0.04em] text-fog/60 sm:px-6">Concept mockup — details compiled from public listings; verify before launch.</p>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-6 lg:grid-cols-12 lg:items-end">
+          <div class="reveal lg:col-span-7" data-reveal>
+            <p class="text-[9.5px] font-medium uppercase tracking-[0.3em] text-brass">Capabilities</p>
+            <h2 class="mt-4 font-serif text-[clamp(30px,4vw,46px)] font-normal leading-[1.08] tracking-[-0.02em] text-onyx">
+              Considered work,<br />in four disciplines.
+            </h2>
+          </div>
+          <p class="reveal text-[13px] font-light leading-[1.8] text-fog lg:col-span-4 lg:col-start-9" data-reveal>
+            Family-owned and locally operated, with a team that has been together for years.
+            The same people answer the phone, inspect the roof, and walk it with you at the end.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-x-14 gap-y-0 border-t border-onyx/10 md:grid-cols-2">
+          <article class="reveal group border-b border-onyx/10 py-7" data-reveal>
+            <div class="flex items-baseline gap-5">
+              <span class="text-[9px] font-medium uppercase tracking-[0.2em] text-brass">01</span>
+              <h3 class="flex-1 font-serif text-[26px] leading-tight text-onyx transition group-hover:text-brass">Roof replacement</h3>
+              <a href="#contact" data-service="Roof Replacement" class="text-onyx/40 transition group-hover:translate-x-1 group-hover:text-onyx" aria-label="Ask about roof replacement">→</a>
+            </div>
+            <p class="mt-3 pl-9 text-[13px] font-light leading-[1.75] text-fog">
+              Full tear-off, decking repair, ice-and-water barrier, and an Owens Corning system
+              installed to Platinum Preferred standards — backed by manufacturer warranties.
+            </p>
+          </article>
+
+          <article class="reveal group border-b border-onyx/10 py-7" data-reveal>
+            <div class="flex items-baseline gap-5">
+              <span class="text-[9px] font-medium uppercase tracking-[0.2em] text-brass">02</span>
+              <h3 class="flex-1 font-serif text-[26px] leading-tight text-onyx transition group-hover:text-brass">Roof repair</h3>
+              <a href="#contact" data-service="Roof Repair" class="text-onyx/40 transition group-hover:translate-x-1 group-hover:text-onyx" aria-label="Ask about roof repair">→</a>
+            </div>
+            <p class="mt-3 pl-9 text-[13px] font-light leading-[1.75] text-fog">
+              Leaks, missing shingles, flashing, and storm damage — repaired to match the
+              existing roof, with an honest recommendation on repair versus replacement.
+            </p>
+          </article>
+
+          <article class="reveal group border-b border-onyx/10 py-7" data-reveal>
+            <div class="flex items-baseline gap-5">
+              <span class="text-[9px] font-medium uppercase tracking-[0.2em] text-brass">03</span>
+              <h3 class="flex-1 font-serif text-[26px] leading-tight text-onyx transition group-hover:text-brass">Roof inspections</h3>
+              <a href="#contact" data-service="Roof Inspection" class="text-onyx/40 transition group-hover:translate-x-1 group-hover:text-onyx" aria-label="Ask about roof inspections">→</a>
+            </div>
+            <p class="mt-3 pl-9 text-[13px] font-light leading-[1.75] text-fog">
+              Free, no-pressure inspections with photo documentation — for storm claims,
+              a home purchase, or simply knowing what you are sitting under.
+            </p>
+          </article>
+
+          <article class="reveal group border-b border-onyx/10 py-7" data-reveal>
+            <div class="flex items-baseline gap-5">
+              <span class="text-[9px] font-medium uppercase tracking-[0.2em] text-brass">04</span>
+              <h3 class="flex-1 font-serif text-[26px] leading-tight text-onyx transition group-hover:text-brass">Commercial &amp; multi-family</h3>
+              <a href="#contact" data-service="Commercial Roofing" class="text-onyx/40 transition group-hover:translate-x-1 group-hover:text-onyx" aria-label="Ask about commercial roofing">→</a>
+            </div>
+            <p class="mt-3 pl-9 text-[13px] font-light leading-[1.75] text-fog">
+              TPO, modified bitumen, and low-slope systems for offices, retail, and
+              multi-family properties — scheduled around your tenants, not the other way around.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESTIMATE -->
+    <section id="estimate" class="border-y border-onyx/10 bg-[#F2EFE7] py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+
+          <div class="reveal lg:col-span-6" data-reveal>
+            <p class="text-[9.5px] font-medium uppercase tracking-[0.3em] text-brass">Estimate</p>
+            <h2 class="mt-4 font-serif text-[clamp(30px,4vw,44px)] font-normal leading-[1.1] tracking-[-0.02em] text-onyx">
+              An honest range,<br />before we visit.
+            </h2>
+            <p class="mt-5 max-w-md text-[13.5px] font-light leading-[1.8] text-fog">
+              A roof is priced by size, material, access, and the condition of the deck.
+              Start here, then we'll confirm it on site.
+            </p>
+
+            <div class="mt-9">
+              <div class="flex items-baseline justify-between border-b border-onyx/20 pb-3">
+                <label for="calc-sqft" class="text-[9px] font-medium uppercase tracking-[0.2em] text-fog">Roof area</label>
+                <span class="font-serif text-[18px] text-onyx"><span id="sqft-readout">2,200</span> sq ft</span>
+              </div>
+              <input id="calc-sqft" type="range" min="800" max="6000" step="50" value="2200" class="brass-range mt-5" aria-label="Roof square footage" />
+              <div class="mt-2 flex justify-between text-[9px] uppercase tracking-[0.14em] text-fog/60"><span>800</span><span>6,000</span></div>
+
+              <div class="mt-8 grid gap-6 sm:grid-cols-2">
+                <div>
+                  <label for="calc-material" class="block text-[9px] font-medium uppercase tracking-[0.2em] text-fog">Material</label>
+                  <div class="relative">
+                  <select id="calc-material" class="mt-2 h-11 w-full appearance-none border-0 border-b border-onyx/20 bg-transparent px-0 pr-7 text-[14px] text-onyx outline-none focus:border-brass">
+                    <option value="asphalt" data-low="5" data-high="7">Asphalt shingle</option>
+                    <option value="arch" data-low="6.5" data-high="9" selected>Architectural shingle</option>
+                    <option value="metal" data-low="10" data-high="14">Standing seam metal</option>
+                  </select>
+                  <svg viewBox="0 0 24 24" class="pointer-events-none absolute right-1 top-1/2 mt-1 h-3.5 w-3.5 -translate-y-1/2 text-onyx/40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  </div>
+                </div>
+                <div>
+                  <label for="calc-pitch" class="block text-[9px] font-medium uppercase tracking-[0.2em] text-fog">Pitch</label>
+                  <div class="relative">
+                  <select id="calc-pitch" class="mt-2 h-11 w-full appearance-none border-0 border-b border-onyx/20 bg-transparent px-0 pr-7 text-[14px] text-onyx outline-none focus:border-brass">
+                    <option value="1" data-label="Low / flat">Low / flat</option>
+                    <option value="1.15" data-label="Standard" selected>Standard</option>
+                    <option value="1.3" data-label="Steep">Steep</option>
+                  </select>
+                  <svg viewBox="0 0 24 24" class="pointer-events-none absolute right-1 top-1/2 mt-1 h-3.5 w-3.5 -translate-y-1/2 text-onyx/40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal lg:col-span-6" data-reveal>
+            <div class="border border-onyx/15 bg-ivory p-7 sm:p-9">
+              <p class="text-[9px] font-medium uppercase tracking-[0.22em] text-fog">Estimated investment</p>
+              <p id="calc-range" class="mt-3 font-serif text-[clamp(30px,4vw,44px)] font-normal leading-none tracking-[-0.02em] text-onyx">
+                $16,400 – $22,800
+              </p>
+              <p id="calc-basis" class="mt-3 text-[11.5px] font-light text-fog">2,200 sq ft · Architectural shingle · Standard pitch</p>
+
+              <div class="mt-7 grid grid-cols-2 border-t border-onyx/10 pt-5">
+                <div>
+                  <p class="text-[8.5px] font-medium uppercase tracking-[0.18em] text-fog">Per sq ft</p>
+                  <p id="calc-per-square" class="mt-1 font-serif text-[20px] text-onyx">$7.45</p>
+                </div>
+                <div class="border-l border-onyx/10 pl-5">
+                  <p class="text-[8.5px] font-medium uppercase tracking-[0.18em] text-fog">Monthly</p>
+                  <p id="calc-monthly" class="mt-1 font-serif text-[20px] text-onyx">$273/mo</p>
+                </div>
+              </div>
+
+              <a href="#contact" id="calc-lock" class="mt-7 flex h-12 w-full items-center justify-center gap-2 bg-onyx text-[9.5px] font-medium uppercase tracking-[0.22em] text-ivory transition hover:bg-brass">
+                Request This Estimate
+              </a>
+              <p class="mt-3 text-center text-[9px] leading-relaxed text-fog/70">
+                Ballpark only · Final scope after an on-site assessment
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work" class="py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-5 border-b border-onyx/10 pb-6 md:flex-row md:items-end md:justify-between">
+          <div class="reveal" data-reveal>
+            <p class="text-[9.5px] font-medium uppercase tracking-[0.3em] text-brass">Selected work</p>
+            <h2 class="mt-4 font-serif text-[clamp(30px,4vw,44px)] font-normal leading-[1.08] tracking-[-0.02em] text-onyx">
+              Memphis, before &amp; after.
+            </h2>
+          </div>
+          <p class="reveal text-[11px] uppercase tracking-[0.16em] text-fog" data-reveal>Drag to compare</p>
+        </div>
+
+        <div class="reveal mt-8" data-reveal>
+          <div class="relative select-none overflow-hidden bg-stone">
+            <div class="relative h-[320px] sm:h-[460px] lg:h-[540px]">
+              <img src="assets/photo-1583608205776-bfd35f0d9f83.webp" alt="A home after a full metal roof restoration" class="absolute inset-0 h-full w-full object-cover" />
+              <div id="compare-clip" class="absolute inset-0" style="clip-path: inset(0 50% 0 0);">
+                <img src="assets/photo-1583608205776-bfd35f0d9f83.webp" alt="The same home before roof restoration" class="h-full w-full object-cover" style="filter: sepia(.4) saturate(.55) contrast(.9) brightness(.88);" />
+                <div class="absolute inset-0 bg-[#2a2118]/20"></div>
+              </div>
+
+              <span class="pointer-events-none absolute left-4 top-4 bg-ivory/95 px-3 py-1.5 text-[8.5px] font-medium uppercase tracking-[0.2em] text-onyx">Before</span>
+              <span class="pointer-events-none absolute right-4 top-4 bg-onyx/90 px-3 py-1.5 text-[8.5px] font-medium uppercase tracking-[0.2em] text-ivory">After</span>
+
+              <div id="compare-line" class="pointer-events-none absolute inset-y-0 z-20 w-px bg-ivory" style="left:50%;">
+                <span class="absolute left-1/2 top-1/2 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-onyx/10 bg-ivory text-onyx shadow-lg">
+                  <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg>
+                </span>
+              </div>
+
+              <input id="compare-range" type="range" min="0" max="100" value="50" step="1" class="compare-range" aria-label="Compare before and after" />
+            </div>
+          </div>
+
+          <div class="mt-4 grid gap-4 border-b border-onyx/10 pb-4 text-[11px] text-fog sm:grid-cols-4">
+            <p><span class="text-onyx">Scope</span> · Full tear-off &amp; replacement</p>
+            <p><span class="text-onyx">System</span> · Owens Corning architectural</p>
+            <p><span class="text-onyx">Warranty</span> · Up to 25-year labor</p>
+            <p><span class="text-onyx">Detail</span> · Flashing &amp; ventilation</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS / CAROUSEL -->
+    <section id="reviews" class="border-y border-onyx/10 bg-onyx py-16 text-ivory sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-10 lg:grid-cols-12 lg:gap-14">
+          <div class="reveal min-w-0 lg:col-span-4" data-reveal>
+            <p class="text-[9.5px] font-medium uppercase tracking-[0.3em] text-brass">Clients</p>
+            <h2 class="mt-4 font-serif text-[clamp(30px,4vw,42px)] font-normal leading-[1.1] tracking-[-0.02em]">
+              In their<br />own words.
+            </h2>
+            <div class="mt-7 flex items-center gap-3">
+              <span class="font-serif text-[36px] leading-none text-brass">4.9</span>
+              <div class="text-[9px] uppercase leading-relaxed tracking-[0.16em] text-ivory/50">
+                Google rating<br />250+ five-star reviews
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal min-w-0 lg:col-span-8" data-reveal>
+            <div class="overflow-hidden">
+              <div id="quote-track" class="quote-track">
+                <figure class="quote-slide pr-1">
+                  <blockquote class="font-serif text-[clamp(21px,2.6vw,32px)] font-normal leading-[1.45] text-ivory/90">
+                    "They were extremely helpful throughout the process and very patient with
+                    my questions. They pushed the insurer and delivered top-notch quality."
+                  </blockquote>
+                  <figcaption class="mt-7 flex items-center gap-4 border-t border-ivory/15 pt-5">
+                    <span class="grid h-10 w-10 place-items-center rounded-full border border-brass/40 font-serif text-[13px] text-brass">SH</span>
+                    <div>
+                      <p class="text-[12.5px] text-ivory">Steve H.</p>
+                      <p class="text-[9px] uppercase tracking-[0.18em] text-ivory/40">Memphis · Insurance claim</p>
+                    </div>
+                  </figcaption>
+                </figure>
+
+                <figure class="quote-slide pr-1">
+                  <blockquote class="font-serif text-[clamp(21px,2.6vw,32px)] font-normal leading-[1.45] text-ivory/90">
+                    "Far exceeded expectations. On time, efficient, and extremely thorough.
+                    Couldn't be more pleased."
+                  </blockquote>
+                  <figcaption class="mt-7 flex items-center gap-4 border-t border-ivory/15 pt-5">
+                    <span class="grid h-10 w-10 place-items-center rounded-full border border-brass/40 font-serif text-[13px] text-brass">MM</span>
+                    <div>
+                      <p class="text-[12.5px] text-ivory">Malachi M.</p>
+                      <p class="text-[9px] uppercase tracking-[0.18em] text-ivory/40">Memphis · Roof replacement</p>
+                    </div>
+                  </figcaption>
+                </figure>
+
+                <figure class="quote-slide pr-1">
+                  <blockquote class="font-serif text-[clamp(21px,2.6vw,32px)] font-normal leading-[1.45] text-ivory/90">
+                    "Highly recommend! Transparent, fast, and left everything spotless."
+                  </blockquote>
+                  <figcaption class="mt-7 flex items-center gap-4 border-t border-ivory/15 pt-5">
+                    <span class="grid h-10 w-10 place-items-center rounded-full border border-brass/40 font-serif text-[13px] text-brass">KM</span>
+                    <div>
+                      <p class="text-[12.5px] text-ivory">Krista M.</p>
+                      <p class="text-[9px] uppercase tracking-[0.18em] text-ivory/40">Memphis · Roof repair</p>
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <div class="mt-7 flex items-center gap-6">
+              <div role="img" class="flex gap-2" id="quote-dots" aria-label="Choose review"></div>
+              <div class="ml-auto flex gap-2">
+                <button type="button" id="quote-prev" class="grid h-10 w-10 place-items-center border border-ivory/20 text-ivory/70 transition hover:border-brass hover:text-brass" aria-label="Previous review">
+                  <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+                </button>
+                <button type="button" id="quote-next" class="grid h-10 w-10 place-items-center border border-ivory/20 text-ivory/70 transition hover:border-brass hover:text-brass" aria-label="Next review">
+                  <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="mt-8 text-[9px] uppercase tracking-[0.16em] text-ivory/25">Reviews published by Elite Roofing Solutions on ersmidsouth.com. Verify attribution before launch.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+
+          <div class="reveal lg:col-span-7" data-reveal>
+            <p class="text-[9.5px] font-medium uppercase tracking-[0.3em] text-brass">Consultation</p>
+            <h2 class="mt-4 font-serif text-[clamp(30px,4vw,46px)] font-normal leading-[1.08] tracking-[-0.02em] text-onyx">
+              Let's talk about<br />your roof.
+            </h2>
+            <p class="mt-4 max-w-md text-[13.5px] font-light leading-[1.8] text-fog">
+              Tell us a little about the house and what you're considering. We'll schedule
+              a consultation, walk the roof, and follow up with a written scope.
+            </p>
+
+            <form id="lead-form" class="mt-9 grid gap-6" novalidate>
+              <div class="grid gap-6 sm:grid-cols-2">
+                <div>
+                  <label for="lead-name" class="block text-[9px] font-medium uppercase tracking-[0.2em] text-fog">Name <span class="text-brass">*</span></label>
+                  <input id="lead-name" name="name" type="text" autocomplete="name" placeholder="First and last" class="mt-2 h-11 w-full border-0 border-b border-onyx/20 bg-transparent px-0 text-[14px] text-onyx outline-none transition placeholder:text-onyx/25 focus:border-brass" />
+                  <p class="mt-1 hidden text-[11px] text-red-700" data-error="name"></p>
+                </div>
+                <div>
+                  <label for="lead-phone" class="block text-[9px] font-medium uppercase tracking-[0.2em] text-fog">Phone <span class="text-brass">*</span></label>
+                  <input id="lead-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Your phone number" class="mt-2 h-11 w-full border-0 border-b border-onyx/20 bg-transparent px-0 text-[14px] text-onyx outline-none transition placeholder:text-onyx/25 focus:border-brass" />
+                  <p class="mt-1 hidden text-[11px] text-red-700" data-error="phone"></p>
+                </div>
+              </div>
+
+              <div class="grid gap-6 sm:grid-cols-2">
+                <div>
+                  <label for="lead-email" class="block text-[9px] font-medium uppercase tracking-[0.2em] text-fog">Email</label>
+                  <input id="lead-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" class="mt-2 h-11 w-full border-0 border-b border-onyx/20 bg-transparent px-0 text-[14px] text-onyx outline-none transition placeholder:text-onyx/25 focus:border-brass" />
+                  <p class="mt-1 hidden text-[11px] text-red-700" data-error="email"></p>
+                </div>
+                <div>
+                  <label for="lead-service" class="block text-[9px] font-medium uppercase tracking-[0.2em] text-fog">Project <span class="text-brass">*</span></label>
+                  <select id="lead-service" name="service" class="mt-2 h-11 w-full appearance-none border-0 border-b border-onyx/20 bg-transparent px-0 text-[14px] text-onyx outline-none focus:border-brass">
+                    <option value="">Select</option>
+                    <option>Roof Replacement</option>
+                    <option>Metal / Slate Roofing</option>
+                    <option>Roof Repair</option>
+                    <option>Gutters &amp; Fascia</option>
+                    <option>Storm Damage / Emergency Tarping</option>
+                    <option>Consultation / Design</option>
+                  </select>
+                  <p class="mt-1 hidden text-[11px] text-red-700" data-error="service"></p>
+                </div>
+              </div>
+
+              <div>
+                <label for="lead-message" class="block text-[9px] font-medium uppercase tracking-[0.2em] text-fog">Tell us about the house</label>
+                <textarea id="lead-message" name="message" rows="3" placeholder="Age of the roof, material you're considering, or the issue you're seeing…" class="mt-2 min-h-[92px] w-full resize-y border-0 border-b border-onyx/20 bg-transparent px-0 py-2 text-[14px] text-onyx outline-none transition placeholder:text-onyx/25 focus:border-brass"></textarea>
+              </div>
+
+              <label class="flex cursor-pointer items-start gap-3 text-[11px] font-light leading-relaxed text-fog">
+                <input id="lead-consent" name="consent" type="checkbox" class="mt-0.5 h-4 w-4 shrink-0 rounded-none border-onyx/30 accent-brass" />
+                <span>It's okay to call or text me about this consultation.</span>
+              </label>
+              <p class="hidden text-[11px] text-red-700" data-error="consent"></p>
+
+              <button type="submit" class="inline-flex h-12 items-center justify-center gap-3 bg-onyx px-8 text-[9.5px] font-medium uppercase tracking-[0.22em] text-ivory transition hover:bg-brass">
+                Send Request
+                <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+            </form>
+          </div>
+
+          <aside class="reveal lg:col-span-5" data-reveal>
+            <div class="border border-onyx/15 p-7">
+              <p class="text-[9px] font-medium uppercase tracking-[0.22em] text-fog">Studio</p>
+              <p class="mt-3 font-serif text-[24px] leading-tight text-onyx">8360 Memphis Arlington Rd<br />Memphis, TN 38133</p>
+
+              <div class="mt-6 border-t border-onyx/10 pt-5">
+                <p class="text-[9px] font-medium uppercase tracking-[0.22em] text-fog">Telephone</p>
+                <a href="tel:+19014356250" class="mt-2 block font-serif text-[26px] text-onyx transition hover:text-brass">(901) 435-6250</a>
+              </div>
+
+              <div class="mt-6 border-t border-onyx/10 pt-5">
+                <p class="text-[9px] font-medium uppercase tracking-[0.22em] text-fog">Hours</p>
+                <dl class="mt-2 space-y-1.5 text-[12px] text-fog">
+                  <div class="flex justify-between"><dt>Consultations</dt><dd class="text-onyx">By appointment</dd></div>
+                  <div class="flex justify-between"><dt>Estimates</dt><dd class="text-onyx">Free</dd></div>
+                  <div class="flex justify-between"><dt>Storm claims</dt><dd class="text-onyx">Call the office</dd></div>
+                </dl>
+              </div>
+
+              <div class="mt-6 border-t border-onyx/10 pt-5">
+                <p class="text-[9px] font-medium uppercase tracking-[0.22em] text-fog">Serving</p>
+                <p class="mt-2 text-[12px] leading-relaxed text-fog">Memphis · Bartlett · Germantown · Collierville · Cordova · Arlington · Lakeland · Eads · Piperton · Rossville · North Mississippi</p>
+              </div>
+
+              <p class="mt-6 text-[11px] font-light leading-relaxed text-fog/70">
+                Family-owned and operated in Memphis since 2011. Owens Corning Platinum
+                Preferred Contractor · BBB A+ accredited.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-onyx pb-10 pt-16 text-ivory/50">
+    <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
+        <div>
+          <p class="font-serif text-[30px] tracking-[0.14em] text-ivory">ELITE</p>
+          <p class="mt-1 text-[8px] font-medium uppercase tracking-[0.34em] text-brass">Roofing Solutions · Memphis · Since 2011</p>
+          <p class="mt-6 max-w-xs text-[12px] font-light leading-[1.9]">
+            Family-owned Memphis roofing since 2011. Owens Corning Platinum Preferred,
+            A+ BBB accredited, and 250+ five-star reviews across the Mid-South.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-[9px] font-medium uppercase tracking-[0.22em] text-ivory/35">Services</h3>
+          <ul class="mt-4 space-y-2.5 text-[12px]">
+            <li><a href="#services" class="transition hover:text-ivory">Roof replacement</a></li>
+            <li><a href="#services" class="transition hover:text-ivory">Slate &amp; metal</a></li>
+            <li><a href="#services" class="transition hover:text-ivory">Repairs &amp; restoration</a></li>
+            <li><a href="#services" class="transition hover:text-ivory">Gutters &amp; copper</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-[9px] font-medium uppercase tracking-[0.22em] text-ivory/35">Areas</h3>
+          <ul class="mt-4 grid grid-cols-2 gap-x-4 gap-y-2.5 text-[12px]">
+            <li>Memphis</li><li>Germantown</li>
+            <li>Collierville</li><li>Bartlett</li>
+            <li>Cordova</li><li>Lakeland</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-[9px] font-medium uppercase tracking-[0.22em] text-ivory/35">Contact</h3>
+          <ul class="mt-4 space-y-3 text-[12px]">
+            <li><a href="tel:+19014356250" class="font-serif text-[18px] text-ivory transition hover:text-brass">(901) 435-6250</a></li>
+            <li>8360 Memphis Arlington Rd<br />Memphis, TN 38133</li>
+            <li><a href="mailto:info@ersmidsouth.com" class="transition hover:text-ivory">info@ersmidsouth.com</a></li>
+            <li class="text-[10px] leading-relaxed text-ivory/35">TN GC #71100<br />MS Residential #R17937</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 border-t border-ivory/10 pt-6">
+        <p class="max-w-4xl text-[9.5px] font-light leading-relaxed text-ivory/30">
+          Concept mockup prepared for review — not affiliated with or published by Elite Roofing
+          Solutions. Business details and credentials were compiled from public listings and the
+          company's website in November 2026; confirm them before launch. Imagery is licensed stock
+          photography and does not depict actual projects. Estimates are rough industry ranges, not offers.
+        </p>
+        <div class="mt-4 flex flex-col gap-2 text-[9px] uppercase tracking-[0.14em] text-ivory/25 sm:flex-row sm:items-center sm:justify-between">
+          <p>© <span id="year">2026</span> Elite Roofing Solutions, LLC</p>
+          <div class="flex gap-6"><a href="#" class="transition hover:text-ivory">Privacy</a><a href="#" class="transition hover:text-ivory">Accessibility</a><a href="#top" class="transition hover:text-ivory">Top</a></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile bar -->
+  <div id="mobile-bar" class="fixed inset-x-0 bottom-0 z-40 border-t border-onyx/15 bg-ivory/95 p-2.5 backdrop-blur transition duration-300 md:hidden">
+    <div class="grid grid-cols-2 gap-2">
+      <a href="tel:+19014356250" class="inline-flex h-12 items-center justify-center border border-onyx/20 text-[9.5px] font-medium uppercase tracking-[0.18em] text-onyx">Call</a>
+      <a href="#contact" class="inline-flex h-12 items-center justify-center bg-onyx text-[9.5px] font-medium uppercase tracking-[0.18em] text-ivory">Consultation</a>
+    </div>
+  </div>
+  <div class="h-[76px] md:hidden" aria-hidden="true"></div>
+
+  <!-- Success overlay -->
+  <div id="success-overlay" class="fixed inset-0 z-[100] hidden items-center justify-center bg-onyx/70 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="success-title">
+    <div class="overlay-panel relative w-full max-w-md bg-ivory p-8 text-center shadow-2xl">
+      <button id="success-close" type="button" class="absolute right-4 top-4 grid h-8 w-8 place-items-center text-onyx/40 transition hover:text-onyx" aria-label="Close">
+        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+
+      <span class="mx-auto grid h-14 w-14 place-items-center rounded-full border border-brass/40 text-brass">
+        <svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="check-path" d="m5 12.5 4.5 4.5L19 7.5"/></svg>
+      </span>
+
+      <h2 id="success-title" class="mt-5 font-serif text-[30px] font-normal leading-tight text-onyx">Demo only: nothing was sent.</h2>
+      <p class="mt-2 text-[13.5px] font-light leading-relaxed text-fog">
+              On the live site, this request would reach Elite Roofing Solutions right away. To reach them now, call <a href="tel:+19014356250" style="text-decoration:underline">(901) 435-6250</a>.
+            </p>
+
+      <div class="mt-6 border-t border-onyx/10 pt-5 text-left">
+        <p class="text-[8.5px] font-medium uppercase tracking-[0.22em] text-fog">What happens next</p>
+        <ol class="mt-3 space-y-2.5 text-[12px] font-light text-fog">
+          <li class="flex gap-3"><span class="font-serif text-brass">1.</span> A call to understand the house and the scope.</li>
+          <li class="flex gap-3"><span class="font-serif text-brass">2.</span> An on-site consultation, scheduled around you.</li>
+          <li class="flex gap-3"><span class="font-serif text-brass">3.</span> Material samples and a written proposal.</li>
+        </ol>
+      </div>
+
+      <a href="tel:+19014356250" class="mt-6 inline-flex h-11 w-full items-center justify-center bg-onyx text-[9.5px] font-medium uppercase tracking-[0.22em] text-ivory transition hover:bg-brass">
+        Call (901) 435-6250
+      </a>
+    </div>
+  </div>
+
+  <noscript><style>[data-reveal]{opacity:1 !important;transform:none !important;}</style></noscript>
+
+  <script>
+    (function () {
+      "use strict";
+      var $ = function (s, r) { return (r || document).querySelector(s); };
+      var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+      var money = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+
+      /* Menu */
+      var menu = $("#mobile-menu"), toggle = $("#menu-toggle");
+      function setMenu(open) {
+        if (!menu) return;
+        menu.classList.toggle("hidden", !open);
+        if (toggle) toggle.setAttribute("aria-expanded", String(open));
+      }
+      if (toggle) toggle.addEventListener("click", function () { setMenu(menu.classList.contains("hidden")); });
+      $$("[data-menu-link]").forEach(function (l) { l.addEventListener("click", function () { setMenu(false); }); });
+      window.addEventListener("resize", function () { if (window.innerWidth >= 1024) setMenu(false); });
+
+      /* Header */
+      var header = $("#site-header"), stuck = false;
+      window.addEventListener("scroll", function () {
+        var next = window.scrollY > 16;
+        if (next !== stuck) { header.classList.toggle("is-stuck", next); stuck = next; }
+      }, { passive: true });
+
+      /* Calculator */
+      var sqft = $("#calc-sqft"), material = $("#calc-material"), pitch = $("#calc-pitch");
+      var range = $("#calc-range"), basis = $("#calc-basis"), readout = $("#sqft-readout");
+      var perFt = $("#calc-per-square"), monthly = $("#calc-monthly"), lock = $("#calc-lock");
+
+      function r100(v) { return Math.round(v / 100) * 100; }
+      function calc() {
+        var ft = Number(sqft.value) || 0;
+        var opt = material.options[material.selectedIndex];
+        var lo = parseFloat(opt.getAttribute("data-low")) || 0;
+        var hi = parseFloat(opt.getAttribute("data-high")) || 0;
+        var mult = parseFloat(pitch.value) || 1;
+        var low = r100(ft * lo * mult), high = r100(ft * hi * mult);
+
+        readout.textContent = ft.toLocaleString("en-US");
+        range.textContent = money.format(low) + " – " + money.format(high);
+        basis.textContent = ft.toLocaleString("en-US") + " sq ft · " + opt.textContent.trim() + " · " +
+          pitch.options[pitch.selectedIndex].getAttribute("data-label") + " pitch";
+        perFt.textContent = "$" + (low / ft).toFixed(2);
+        monthly.textContent = money.format(Math.round(low / 60)) + "/mo";
+      }
+      [sqft, material, pitch].forEach(function (el) {
+        el.addEventListener("input", calc);
+        el.addEventListener("change", calc);
+      });
+      calc();
+
+      if (lock) lock.addEventListener("click", function () {
+        var service = $("#lead-service"), message = $("#lead-message");
+        if (service) {
+          Array.prototype.forEach.call(service.options, function (o) {
+            if (o.textContent.trim() === "Roof Replacement") service.value = o.value;
+          });
+        }
+        if (message && !message.value.trim()) {
+          message.value = "Estimator: " + sqft.value + " sq ft, " +
+            material.options[material.selectedIndex].textContent.trim() + ", " +
+            pitch.options[pitch.selectedIndex].getAttribute("data-label") + " pitch.";
+        }
+        setTimeout(function () { var n = $("#lead-name"); if (n) n.focus({ preventScroll: true }); }, 700);
+      });
+
+      /* Compare */
+      var cr = $("#compare-range"), clip = $("#compare-clip"), line = $("#compare-line");
+      function compare() {
+        var p = Number(cr.value);
+        clip.style.clipPath = "inset(0 " + (100 - p) + "% 0 0)";
+        line.style.left = p + "%";
+      }
+      if (cr) { cr.addEventListener("input", compare); compare(); }
+
+      /* Reviews carousel */
+      var track = $("#quote-track");
+      var slides = $$(".quote-slide");
+      var prev = $("#quote-prev"), next = $("#quote-next"), dots = $("#quote-dots");
+      var index = 0;
+
+      function buildDots() {
+        slides.forEach(function (_, i) {
+          var b = document.createElement("button");
+          b.type = "button";
+          b.setAttribute("aria-label", "Review " + (i + 1));
+          b.className = "h-1.5 w-6 transition-colors " + (i === 0 ? "bg-brass" : "bg-ivory/25");
+          b.addEventListener("click", function () { go(i); });
+          dots.appendChild(b);
+        });
+      }
+      function go(i) {
+        index = (i + slides.length) % slides.length;
+        track.style.transform = "translateX(-" + index * 100 + "%)";
+        Array.prototype.forEach.call(dots.children, function (d, di) {
+          d.className = "h-1.5 w-6 transition-colors " + (di === index ? "bg-brass" : "bg-ivory/25");
+        });
+      }
+      if (track && slides.length && dots) {
+        buildDots();
+        prev.addEventListener("click", function () { go(index - 1); });
+        next.addEventListener("click", function () { go(index + 1); });
+        var autoplay = setInterval(function () { go(index + 1); }, 7000);
+        track.addEventListener("mouseenter", function () { clearInterval(autoplay); });
+      }
+
+      /* Form */
+      var form = $("#lead-form"), overlay = $("#success-overlay"), close = $("#success-close"), lastFocus = null;
+      function setError(name, msg) {
+        var field = form.elements[name];
+        var el = document.querySelector('[data-error="' + name + '"]');
+        if (el) { el.textContent = msg || ""; el.classList.toggle("hidden", !msg); }
+        if (field && field.setAttribute) {
+          field.setAttribute("aria-invalid", msg ? "true" : "false");
+          field.classList.toggle("border-red-500", Boolean(msg));
+          field.classList.toggle("border-onyx/20", !msg);
+        }
+      }
+      function clearErrors() { ["name", "phone", "email", "service", "consent"].forEach(function (n) { setError(n, ""); }); }
+
+      function openOverlay() {
+        lastFocus = document.activeElement;
+        overlay.classList.remove("hidden");
+        overlay.classList.add("flex", "overlay-open");
+        document.body.classList.add("no-scroll");
+        close.focus();
+      }
+      function closeOverlay() {
+        overlay.classList.add("hidden");
+        overlay.classList.remove("flex", "overlay-open");
+        document.body.classList.remove("no-scroll");
+        if (lastFocus) lastFocus.focus();
+      }
+      close.addEventListener("click", closeOverlay);
+      overlay.addEventListener("click", function (e) { if (e.target === overlay) closeOverlay(); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !overlay.classList.contains("hidden")) closeOverlay(); });
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        clearErrors();
+        var name = form.elements.name.value.trim();
+        var phone = form.elements.phone.value.trim();
+        var email = form.elements.email.value.trim();
+        var service = form.elements.service.value;
+        var consent = form.elements.consent.checked;
+        var digits = phone.replace(/\D/g, "");
+        var bad = null;
+
+        if (!name) { setError("name", "Please enter your name."); bad = bad || form.elements.name; }
+        if (!phone) { setError("phone", "Please enter a phone number."); bad = bad || form.elements.phone; }
+        else if (digits.length < 10) { setError("phone", "Enter a valid 10-digit number."); bad = bad || form.elements.phone; }
+        if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { setError("email", "Enter a valid email."); bad = bad || form.elements.email; }
+        if (!service) { setError("service", "Choose a project type."); bad = bad || form.elements.service; }
+        if (!consent) { setError("consent", "Please check the box."); bad = bad || form.elements.consent; }
+
+        if (bad) { bad.focus(); return; }
+        openOverlay();
+        form.reset();
+        clearErrors();
+      });
+
+      form.addEventListener("input", function (e) { if (e.target.name) setError(e.target.name, ""); });
+      form.addEventListener("change", function (e) { if (e.target.name) setError(e.target.name, ""); });
+
+      $$("[data-service]").forEach(function (link) {
+        link.addEventListener("click", function () {
+          var value = link.getAttribute("data-service");
+          var service = $("#lead-service");
+          if (!service || !value) return;
+          Array.prototype.forEach.call(service.options, function (o) {
+            if (o.textContent.trim() === value) service.value = o.value;
+          });
+          setError("service", "");
+        });
+      });
+
+      /* Bar hides over form */
+      var bar = $("#mobile-bar");
+      if (bar && form && "IntersectionObserver" in window) {
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            bar.classList.toggle("translate-y-full", en.isIntersecting);
+            bar.classList.toggle("pointer-events-none", en.isIntersecting);
+          });
+        }, { threshold: 0.2 }).observe(form);
+      }
+
+      /* Reveal */
+      var items = $$("[data-reveal]");
+      if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) { en.target.classList.add("is-visible"); io.unobserve(en.target); }
+          });
+        }, { threshold: 0, rootMargin: "0px 0px -40px 0px" });
+        items.forEach(function (el) { io.observe(el); });
+      } else {
+        items.forEach(function (el) { el.classList.add("is-visible"); });
+      }
+
+      var year = $("#year");
+      if (year) year.textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>

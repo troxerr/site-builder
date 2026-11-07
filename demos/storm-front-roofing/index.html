@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#08111F" />
+  <title>Demo: Storm Front Roofing &amp; Restoration | Roofing &amp; Storm Damage | Bartlett, TN</title>
+  <meta name="description" content="Storm Front Roofing &amp; Restoration is a family-owned Bartlett roofer serving Greater Memphis since 2021. Storm damage, 24/7 emergency tarping, roof replacement, repairs, and drone inspections. Free estimates." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Storm Front Roofing | 24/7 Storm Response" />
+  <meta property="og:description" content="Tarping in hours, not days. Emergency roofing and storm restoration across Bartlett and Memphis." />
+  <meta property="og:image" content="https://bartlettwebsitedesign.online/demos/storm-front-roofing/assets/photo-1600585154340-be6161a56a0c.webp" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      background: #08111F;
+      color: #E2E8F0;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+    ::selection { background: #22D3EE; color: #08111F; }
+    section[id] { scroll-margin-top: 156px; }
+
+    .radar {
+      background-image:
+        repeating-radial-gradient(circle at 78% 40%, rgba(34,211,238,.10) 0 1px, transparent 1px 92px),
+        linear-gradient(rgba(34,211,238,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34,211,238,.05) 1px, transparent 1px);
+      background-size: auto, 64px 64px, 64px 64px;
+    }
+
+    .header-shell { transition: box-shadow .3s ease, background-color .3s ease; }
+    .header-shell.is-stuck { box-shadow: 0 20px 50px -30px rgba(0,0,0,.9); }
+    .header-main { height: 76px; transition: height .3s ease; }
+    .header-shell.is-stuck .header-main { height: 64px; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1);
+    }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    input[type="range"].cyber-range {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      background: #1E3A5F;
+      outline: none;
+    }
+    input[type="range"].cyber-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 22px;
+      width: 10px;
+      border-radius: 2px;
+      background: #22D3EE;
+      box-shadow: 0 0 14px rgba(34,211,238,.85);
+      cursor: ew-resize;
+    }
+    input[type="range"].cyber-range::-moz-range-thumb {
+      height: 22px;
+      width: 10px;
+      border-radius: 2px;
+      background: #22D3EE;
+      border: 0;
+      cursor: ew-resize;
+    }
+
+    input[type="range"].compare-range {
+      -webkit-appearance: none;
+      appearance: none;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      opacity: 0;
+      cursor: ew-resize;
+      z-index: 30;
+      margin: 0;
+    }
+    input[type="range"].compare-range::-webkit-slider-thumb { width: 52px; height: 100%; }
+    input[type="range"].compare-range::-moz-range-thumb { width: 52px; height: 100%; border: 0; }
+
+    .marquee { animation: marquee 32s linear infinite; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    .check-path { stroke-dasharray: 48; stroke-dashoffset: 48; }
+    .overlay-open .check-path { animation: drawCheck .5s .22s cubic-bezier(.65,0,.35,1) forwards; }
+    @keyframes drawCheck { to { stroke-dashoffset: 0; } }
+
+    .overlay-panel { animation: panelIn .34s cubic-bezier(.22,1,.36,1) both; }
+    @keyframes panelIn { from { opacity: 0; transform: translateY(16px) scale(.97); } to { opacity: 1; transform: none; } }
+    .no-scroll { overflow: hidden; }
+
+    .pulse-ring { animation: pulseRing 2.4s ease-out infinite; }
+    @keyframes pulseRing {
+      0% { box-shadow: 0 0 0 0 rgba(34,211,238,.5); }
+      70% { box-shadow: 0 0 0 10px rgba(34,211,238,0); }
+      100% { box-shadow: 0 0 0 0 rgba(34,211,238,0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .marquee, .pulse-ring { animation: none !important; }
+      *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+    }
+  </style>
+</head>
+
+<body class="font-sans bg-night text-ice">
+<div class="bwd-demo-bar" role="note" style="position:relative;z-index:9999;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 14px;padding:8px 14px;background:#0b1b3a;color:#cfd9ec;font:500 13px/1.4 system-ui,-apple-system,'Segoe UI',sans-serif;text-align:center"><span><b style="color:#fff;font-weight:600">Demo site</b> built by <a href="/" style="color:#fff;text-decoration:underline">Bartlett Website Design</a>. Not the business's official website. Some details are placeholders until confirmed with the owner.</span><a href="/demos/" style="color:#9cc2ff;font-weight:600;text-decoration:none">&larr; All demos</a></div>
+
+  <!-- BANNER + TWO-TIER HEADER -->
+  <div class="sticky top-0 z-50">
+    <div class="bg-night border-b border-white/5">
+      <div class="mx-auto flex max-w-site flex-col items-center justify-center gap-1 px-4 py-2 text-center sm:flex-row sm:gap-2.5 sm:px-6">
+        <span class="inline-flex shrink-0 items-center gap-1.5 rounded-sm border border-cyan/40 bg-cyan/10 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.18em] text-cyan">
+          <span class="h-1 w-1 rounded-full bg-cyan"></span> Prototype demo
+        </span>
+        <p class="text-[10px] leading-snug text-steel sm:text-[11px]">
+          <span class="mr-1 text-white/25">•</span>
+          This is a live interactive concept mockup developed for your business review.
+        </p>
+      </div>
+    </div>
+
+    <header id="site-header" class="header-shell bg-night/92 backdrop-blur-xl">
+      <div class="header-main mx-auto flex max-w-site items-center gap-3 px-4 sm:px-6 lg:px-8">
+        <a href="#top" class="flex shrink-0 items-center gap-2.5" aria-label="Storm Front Roofing home">
+          <span class="grid h-10 w-10 place-items-center rounded-sm bg-cyan text-night">
+            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 2-8 12h6l-1 8 8-12h-6l1-8Z"/></svg>
+          </span>
+          <span class="leading-none">
+            <span class="block font-display text-[26px] font-bold uppercase leading-[0.85] tracking-[0.01em] text-white">Storm Front</span>
+            <span class="mt-1 block font-mono text-[8px] uppercase tracking-[0.22em] text-cyan">Roofing · Bartlett TN</span>
+          </span>
+        </a>
+
+        <div class="ml-auto hidden items-center gap-3 md:flex">
+          <span class="hidden items-center gap-2 rounded-sm border border-amber/30 bg-amber/10 px-2.5 py-1.5 lg:inline-flex">
+            <span class="h-1.5 w-1.5 rounded-full bg-amber pulse-ring"></span>
+            <span class="font-mono text-[9px] uppercase tracking-[0.12em] text-amber">Storm line open</span>
+          </span>
+          <a href="tel:+19013039251" class="text-right leading-tight">
+            <span class="block font-mono text-[8px] uppercase tracking-[0.16em] text-steel">Bartlett office</span>
+            <span class="block font-display text-[22px] font-bold text-white">(901) 303-9251</span>
+          </a>
+        </div>
+
+        <a href="#estimate" class="ml-2 hidden h-11 items-center justify-center rounded-sm bg-cyan px-5 text-[11px] font-bold uppercase tracking-[0.12em] text-night transition hover:bg-cyan/90 sm:inline-flex">
+          Get Emergency Help
+        </a>
+
+        <a href="tel:+19013039251" class="ml-auto grid h-11 w-11 place-items-center rounded-sm bg-cyan text-night md:hidden" aria-label="Call Storm Front Roofing">
+          <svg viewBox="0 0 24 24" class="h-[18px] w-[18px]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6.1 6.1l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+        </a>
+        <button id="menu-toggle" type="button" class="grid h-11 w-11 place-items-center rounded-sm border border-white/15 text-white lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+
+      <div class="hidden border-t border-white/10 bg-storm/60 lg:block">
+        <div class="mx-auto flex max-w-site items-center gap-8 px-4 sm:px-6 lg:px-8">
+          <nav class="flex items-center gap-7" aria-label="Main navigation">
+            <a href="#services" class="border-b-2 border-transparent py-3 text-[10.5px] font-bold uppercase tracking-[0.16em] text-steel transition hover:border-cyan hover:text-white">Response</a>
+            <a href="#estimate" class="border-b-2 border-transparent py-3 text-[10.5px] font-bold uppercase tracking-[0.16em] text-steel transition hover:border-cyan hover:text-white">Estimate</a>
+            <a href="#work" class="border-b-2 border-transparent py-3 text-[10.5px] font-bold uppercase tracking-[0.16em] text-steel transition hover:border-cyan hover:text-white">Before / After</a>
+            <a href="#reviews" class="border-b-2 border-transparent py-3 text-[10.5px] font-bold uppercase tracking-[0.16em] text-steel transition hover:border-cyan hover:text-white">Reviews</a>
+            <a href="#contact" class="border-b-2 border-transparent py-3 text-[10.5px] font-bold uppercase tracking-[0.16em] text-steel transition hover:border-cyan hover:text-white">Contact</a>
+          </nav>
+          <p class="ml-auto font-mono text-[9px] uppercase tracking-[0.14em] text-steel/70">Serving Bartlett since <span class="text-cyan">2021</span> · Free estimates</p>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="absolute inset-x-0 top-full z-40 hidden border-t border-white/10 bg-night shadow-2xl lg:hidden">
+        <nav class="mx-auto max-w-site px-4 py-3 sm:px-6" aria-label="Mobile navigation">
+          <a href="#services" data-menu-link class="flex items-center justify-between border-b border-white/10 py-3.5 font-display text-[22px] font-semibold uppercase text-white">Response <span class="font-mono text-[10px] text-cyan">01</span></a>
+          <a href="#estimate" data-menu-link class="flex items-center justify-between border-b border-white/10 py-3.5 font-display text-[22px] font-semibold uppercase text-white">Estimate <span class="font-mono text-[10px] text-cyan">02</span></a>
+          <a href="#work" data-menu-link class="flex items-center justify-between border-b border-white/10 py-3.5 font-display text-[22px] font-semibold uppercase text-white">Before / After <span class="font-mono text-[10px] text-cyan">03</span></a>
+          <a href="#reviews" data-menu-link class="flex items-center justify-between border-b border-white/10 py-3.5 font-display text-[22px] font-semibold uppercase text-white">Reviews <span class="font-mono text-[10px] text-cyan">04</span></a>
+          <a href="#contact" data-menu-link class="flex items-center justify-between border-b border-white/10 py-3.5 font-display text-[22px] font-semibold uppercase text-white">Contact <span class="font-mono text-[10px] text-cyan">05</span></a>
+          <div class="mt-4 grid grid-cols-2 gap-2 pb-2">
+            <a href="tel:+19013039251" class="inline-flex h-12 items-center justify-center rounded-sm border border-white/15 text-[11px] font-bold uppercase tracking-[0.1em] text-white">Call Now</a>
+            <a href="#contact" data-menu-link class="inline-flex h-12 items-center justify-center rounded-sm bg-cyan text-[11px] font-bold uppercase tracking-[0.1em] text-night">Get Help</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="relative isolate overflow-hidden border-b border-white/5">
+      <div class="absolute inset-0 -z-20 radar opacity-70"></div>
+      <div class="absolute inset-0 -z-20 bg-[radial-gradient(ellipse_at_75%_35%,rgba(34,211,238,.12),transparent_55%)]"></div>
+
+      <div class="absolute inset-y-0 right-0 -z-10 hidden w-[48%] lg:block" style="clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%);">
+        <img src="assets/photo-1600585154340-be6161a56a0c.webp" alt="A home secured after storm damage" class="h-full w-full object-cover" fetchpriority="high" />
+        <div class="absolute inset-0 bg-gradient-to-r from-night via-night/55 to-night/10"></div>
+      </div>
+
+      <div class="relative mx-auto max-w-site px-4 pb-14 pt-12 sm:px-6 sm:pb-16 sm:pt-16 lg:px-8 lg:pb-20 lg:pt-20">
+        <div class="max-w-[680px]">
+          <div class="inline-flex items-center gap-2.5 border border-amber/30 bg-amber/[0.07] px-3 py-1.5">
+            <span class="relative flex h-2 w-2">
+              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber opacity-60"></span>
+              <span class="relative inline-flex h-2 w-2 rounded-full bg-amber"></span>
+            </span>
+            <span class="font-mono text-[9.5px] font-medium uppercase tracking-[0.16em] text-amber">24/7 emergency tarping · Bartlett, TN</span>
+          </div>
+
+          <h1 class="mt-6 font-display text-[clamp(46px,7vw,96px)] font-bold uppercase leading-[0.86] tracking-[-0.01em] text-white">
+            The storm hits.<br />
+            <span class="text-cyan">We're already</span> moving.
+          </h1>
+
+          <p class="mt-6 max-w-[520px] text-[15px] leading-[1.7] text-steel sm:text-[16.5px]">
+            Emergency tarping, storm restoration, and full roof replacement across Bartlett
+            and Greater Memphis. A local, family-owned crew since 2021 — with insurance
+            documentation handled and a written scope before the first shingle moves.
+          </p>
+
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="#contact" class="inline-flex h-12 items-center justify-center gap-2 rounded-sm bg-amber px-7 text-[11.5px] font-bold uppercase tracking-[0.12em] text-night transition hover:bg-amber/90">
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 2-8 12h6l-1 8 8-12h-6l1-8Z"/></svg>
+              Get Emergency Help
+            </a>
+            <a href="tel:+19013039251" class="inline-flex h-12 items-center justify-center gap-2 rounded-sm border border-white/20 px-7 text-[11.5px] font-bold uppercase tracking-[0.12em] text-white transition hover:border-cyan hover:text-cyan">
+              Call (901) 303-9251
+            </a>
+          </div>
+
+          <div class="mt-7 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[9px] uppercase tracking-[0.12em] text-steel">
+            <span class="text-cyan">/</span> 24/7 emergency tarping
+            <span class="text-cyan">/</span> Insurance claim reports
+            <span class="text-cyan">/</span> Free roof estimates
+          </div>
+        </div>
+
+        <!-- Mobile image -->
+        <div class="mt-10 overflow-hidden rounded-sm border border-white/10 lg:hidden">
+          <img src="assets/photo-1600585154340-be6161a56a0c.webp" alt="A home with storm damage protection" class="h-[220px] w-full object-cover" />
+        </div>
+      </div>
+
+      <!-- Storm ticker -->
+      <div class="relative border-y border-cyan/20 bg-cyan/[0.06] py-2.5">
+        <div class="marquee flex w-max items-center gap-8 whitespace-nowrap font-mono text-[9px] uppercase tracking-[0.18em] text-cyan/80">
+          <span>Storm line open</span><span class="text-cyan/30">◆</span><span>Emergency tarping</span><span class="text-cyan/30">◆</span><span>Board-up</span><span class="text-cyan/30">◆</span><span>Water mitigation</span><span class="text-cyan/30">◆</span><span>Insurance documentation</span><span class="text-cyan/30">◆</span><span>Hail restoration</span><span class="text-cyan/30">◆</span>
+          <span>Storm line open</span><span class="text-cyan/30">◆</span><span>Emergency tarping</span><span class="text-cyan/30">◆</span><span>Board-up</span><span class="text-cyan/30">◆</span><span>Water mitigation</span><span class="text-cyan/30">◆</span><span>Insurance documentation</span><span class="text-cyan/30">◆</span><span>Hail restoration</span><span class="text-cyan/30">◆</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST METRICS -->
+    <section aria-label="Response metrics" class="border-b border-white/5 bg-storm/30">
+      <div class="mx-auto grid max-w-site grid-cols-2 gap-px bg-white/5 sm:grid-cols-4">
+        <div class="bg-night px-5 py-6 sm:px-6">
+          <p class="font-display text-[34px] font-bold leading-none text-cyan">24/7</p>
+          <p class="mt-1.5 font-mono text-[8.5px] uppercase tracking-[0.14em] text-steel">Emergency tarping</p>
+        </div>
+        <div class="bg-night px-5 py-6 sm:px-6">
+          <p class="font-display text-[34px] font-bold leading-none text-white">2021</p>
+          <p class="mt-1.5 font-mono text-[8.5px] uppercase tracking-[0.14em] text-steel">Family-owned since</p>
+        </div>
+        <div class="bg-night px-5 py-6 sm:px-6">
+          <p class="font-display text-[34px] font-bold leading-none text-white">4.5<span class="text-[18px] text-amber">★</span></p>
+          <p class="mt-1.5 font-mono text-[8.5px] uppercase tracking-[0.14em] text-steel">25 Google reviews</p>
+        </div>
+        <div class="bg-night px-5 py-6 sm:px-6">
+          <p class="font-display text-[34px] font-bold leading-none text-cyan">Free</p>
+          <p class="mt-1.5 font-mono text-[8.5px] uppercase tracking-[0.14em] text-steel">Roof estimates</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="relative py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          <div class="reveal max-w-2xl" data-reveal>
+            <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan">Response capabilities</p>
+            <h2 class="mt-3 font-display text-[clamp(36px,5vw,58px)] font-bold uppercase leading-[0.9] text-white">
+              Four crews.<br /><span class="text-cyan">One phone number.</span>
+            </h2>
+          </div>
+          <p class="reveal max-w-sm text-[13px] leading-relaxed text-steel" data-reveal>
+            Storm work is not remodeling work. Our crews handle tarps, water, and insurance
+            documentation — and we will tell you honestly when a repair is the right call.
+          </p>
+        </div>
+
+        <div class="mt-10 grid gap-4 md:grid-cols-2">
+          <article class="reveal group relative overflow-hidden border border-white/10 bg-storm/40 p-6 transition hover:border-cyan/50 hover:bg-storm/60" data-reveal>
+            <div class="absolute right-0 top-0 h-16 w-16 bg-gradient-to-bl from-cyan/15 to-transparent"></div>
+            <div class="flex items-start justify-between gap-4">
+              <span class="font-mono text-[10px] uppercase tracking-[0.16em] text-cyan">01 / Emergency</span>
+              <span class="grid h-9 w-9 place-items-center rounded-sm border border-cyan/30 bg-cyan/10 text-cyan">
+                <svg viewBox="0 0 24 24" class="h-[18px] w-[18px]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 2-8 12h6l-1 8 8-12h-6l1-8Z"/></svg>
+              </span>
+            </div>
+            <h3 class="mt-5 font-display text-[28px] font-semibold uppercase leading-none text-white">Emergency response &amp; tarping</h3>
+            <p class="mt-3 text-[13px] leading-relaxed text-steel">
+              Roof open to the sky at 2 a.m.? We tarp, board up, and stop the water before
+              the ceiling comes down. Photos taken before anything is touched.
+            </p>
+            <ul class="mt-4 grid gap-1.5 text-[12px] text-steel sm:grid-cols-2">
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 rounded-full bg-cyan"></span>24/7 tarping</li>
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 rounded-full bg-cyan"></span>Board-up</li>
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 rounded-full bg-cyan"></span>Water extraction</li>
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 rounded-full bg-cyan"></span>Debris removal</li>
+            </ul>
+            <a href="#contact" data-service="Storm Damage / Emergency Tarping" class="mt-5 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-cyan">Dispatch a crew →</a>
+          </article>
+
+          <article class="reveal group relative overflow-hidden border border-white/10 bg-storm/40 p-6 transition hover:border-cyan/50 hover:bg-storm/60" data-reveal>
+            <div class="absolute right-0 top-0 h-16 w-16 bg-gradient-to-bl from-amber/15 to-transparent"></div>
+            <div class="flex items-start justify-between gap-4">
+              <span class="font-mono text-[10px] uppercase tracking-[0.16em] text-amber">02 / Claims</span>
+              <span class="grid h-9 w-9 place-items-center rounded-sm border border-amber/30 bg-amber/10 text-amber">
+                <svg viewBox="0 0 24 24" class="h-[18px] w-[18px]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+              </span>
+            </div>
+            <h3 class="mt-5 font-display text-[28px] font-semibold uppercase leading-none text-white">Hail &amp; wind restoration</h3>
+            <p class="mt-3 text-[13px] leading-relaxed text-steel">
+              Test squares, drone photos, and a line-item scope in the format your adjuster
+              expects. We meet them on the roof so nothing gets missed.
+            </p>
+            <ul class="mt-4 grid gap-1.5 text-[12px] text-steel sm:grid-cols-2">
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 rounded-full bg-amber"></span>Hail documentation</li>
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 rounded-full bg-amber"></span>Adjuster meetings</li>
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 rounded-full bg-amber"></span>Drone imaging</li>
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 rounded-full bg-amber"></span>Code upgrades</li>
+            </ul>
+            <a href="#contact" data-service="Insurance Claim Help" class="mt-5 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-amber">Start a claim →</a>
+          </article>
+
+          <article class="reveal group relative overflow-hidden border border-white/10 bg-storm/40 p-6 transition hover:border-cyan/50 hover:bg-storm/60" data-reveal>
+            <div class="absolute right-0 top-0 h-16 w-16 bg-gradient-to-bl from-cyan/15 to-transparent"></div>
+            <div class="flex items-start justify-between gap-4">
+              <span class="font-mono text-[10px] uppercase tracking-[0.16em] text-cyan">03 / Rebuild</span>
+              <span class="grid h-9 w-9 place-items-center rounded-sm border border-cyan/30 bg-cyan/10 text-cyan">
+                <svg viewBox="0 0 24 24" class="h-[18px] w-[18px]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13v-9.5"/></svg>
+              </span>
+            </div>
+            <h3 class="mt-5 font-display text-[28px] font-semibold uppercase leading-none text-white">Full roof replacement</h3>
+            <p class="mt-3 text-[13px] leading-relaxed text-steel">
+              Once the claim is settled, we tear off and rebuild to manufacturer spec —
+              decking, underlayment, ventilation, and a written workmanship warranty.
+            </p>
+            <ul class="mt-4 grid gap-1.5 text-[12px] text-steel sm:grid-cols-2">
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 rounded-full bg-cyan"></span>Tear-off &amp; decking</li>
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 rounded-full bg-cyan"></span>Architectural shingle</li>
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 rounded-full bg-cyan"></span>Standing seam metal</li>
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 rounded-full bg-cyan"></span>Ventilation</li>
+            </ul>
+            <a href="#estimate" class="mt-5 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-cyan">Price a replacement →</a>
+          </article>
+
+          <article class="reveal group relative overflow-hidden border border-white/10 bg-storm/40 p-6 transition hover:border-cyan/50 hover:bg-storm/60" data-reveal>
+            <div class="absolute right-0 top-0 h-16 w-16 bg-gradient-to-bl from-cyan/15 to-transparent"></div>
+            <div class="flex items-start justify-between gap-4">
+              <span class="font-mono text-[10px] uppercase tracking-[0.16em] text-cyan">04 / Water</span>
+              <span class="grid h-9 w-9 place-items-center rounded-sm border border-cyan/30 bg-cyan/10 text-cyan">
+                <svg viewBox="0 0 24 24" class="h-[18px] w-[18px]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s5.5 6.2 5.5 10a5.5 5.5 0 0 1-11 0C6.5 9.2 12 3 12 3Z"/><path d="M9.5 14.5c.8 1 1.6 1.4 2.5 1.4s1.7-.4 2.5-1.4"/></svg>
+              </span>
+            </div>
+            <h3 class="mt-5 font-display text-[28px] font-semibold uppercase leading-none text-white">Leak &amp; water intrusion</h3>
+            <p class="mt-3 text-[13px] leading-relaxed text-steel">
+              We find the actual entry point — flashing, boots, valleys, or a failed seal —
+              and dry the assembly before mold becomes the second bill.
+            </p>
+            <ul class="mt-4 grid gap-1.5 text-[12px] text-steel sm:grid-cols-2">
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 rounded-full bg-cyan"></span>Moisture mapping</li>
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 rounded-full bg-cyan"></span>Flashing repair</li>
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 rounded-full bg-cyan"></span>Attic drying</li>
+              <li class="flex gap-2"><span class="mt-1.5 h-1 w-1 rounded-full bg-cyan"></span>Mold prevention</li>
+            </ul>
+            <a href="#contact" data-service="Leak Repair" class="mt-5 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-cyan">Book a leak check →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESTIMATE -->
+    <section id="estimate" class="relative overflow-hidden border-y border-white/5 bg-storm/30 py-16 sm:py-20 lg:py-24">
+      <div class="absolute inset-0 radar opacity-40" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-10 lg:grid-cols-[1.05fr_.95fr] lg:items-start lg:gap-14">
+          <div class="reveal" data-reveal>
+            <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan">Cost estimator</p>
+            <h2 class="mt-3 font-display text-[clamp(36px,5vw,56px)] font-bold uppercase leading-[0.9] text-white">
+              Size the job<br /><span class="text-cyan">before we roll.</span>
+            </h2>
+            <p class="mt-4 max-w-lg text-[14px] leading-relaxed text-steel">
+              A real range based on roof size, material, and pitch. Move the slider and the
+              number updates instantly — no form gate, no call required.
+            </p>
+
+            <div class="mt-8 border border-white/10 bg-night/70 p-5 sm:p-6">
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <label for="calc-sqft" class="font-mono text-[9px] uppercase tracking-[0.16em] text-cyan">Roof surface area</label>
+                  <p class="mt-1 text-[11.5px] text-steel">Total square footage</p>
+                </div>
+                <p class="font-display text-[26px] font-bold text-white"><span id="sqft-readout">2,200</span> <span class="font-mono text-[9px] text-steel">SQ FT</span></p>
+              </div>
+
+              <input id="calc-sqft" type="range" min="800" max="6000" step="50" value="2200" class="cyber-range mt-5" aria-label="Roof square footage" />
+              <div class="mt-2 flex justify-between font-mono text-[9px] text-steel/60"><span>800</span><span>6,000</span></div>
+
+              <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label for="calc-material" class="mb-1.5 block font-mono text-[9px] uppercase tracking-[0.16em] text-steel">Material</label>
+                  <div class="relative">
+                  <select id="calc-material" class="h-11 w-full appearance-none border border-white/15 bg-storm px-3 pr-8 text-[12.5px] text-white outline-none focus:border-cyan">
+                    <option value="asphalt" data-low="5" data-high="7">Asphalt shingle</option>
+                    <option value="arch" data-low="6.5" data-high="9" selected>Architectural shingle</option>
+                    <option value="metal" data-low="10" data-high="14">Standing seam metal</option>
+                  </select>
+                  <svg viewBox="0 0 24 24" class="pointer-events-none absolute right-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-cyan" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  </div>
+                </div>
+                <div>
+                  <label for="calc-pitch" class="mb-1.5 block font-mono text-[9px] uppercase tracking-[0.16em] text-steel">Pitch</label>
+                  <div class="relative">
+                  <select id="calc-pitch" class="h-11 w-full appearance-none border border-white/15 bg-storm px-3 pr-8 text-[12.5px] text-white outline-none focus:border-cyan">
+                    <option value="1" data-label="Low / flat">Low / flat</option>
+                    <option value="1.15" data-label="Standard" selected>Standard</option>
+                    <option value="1.3" data-label="Steep">Steep</option>
+                  </select>
+                  <svg viewBox="0 0 24 24" class="pointer-events-none absolute right-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-cyan" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal border border-cyan/25 bg-night p-6 shadow-[0_40px_80px_-40px_rgba(0,0,0,.9)] sm:p-7" data-reveal>
+            <div class="flex items-center justify-between gap-3 border-b border-white/10 pb-4">
+              <span class="font-mono text-[9px] uppercase tracking-[0.16em] text-cyan">Estimate generated</span>
+              <span class="inline-flex items-center gap-1.5 font-mono text-[8.5px] uppercase tracking-[0.12em] text-cyan/80">
+                <span class="h-1.5 w-1.5 rounded-full bg-cyan pulse-ring"></span> Live
+              </span>
+            </div>
+
+            <p class="mt-5 font-mono text-[9px] uppercase tracking-[0.14em] text-steel">Estimated investment range</p>
+            <p id="calc-range" class="mt-2 font-display text-[clamp(40px,5.4vw,60px)] font-bold leading-none text-white">
+              $16,400 – $22,800
+            </p>
+            <p id="calc-basis" class="mt-3 text-[12px] text-steel">2,200 sq ft · Architectural shingle · Standard pitch</p>
+
+            <div class="mt-6 grid grid-cols-2 gap-px bg-white/10">
+              <div class="bg-storm/60 p-3">
+                <p class="font-mono text-[8px] uppercase tracking-[0.12em] text-steel">Per sq ft</p>
+                <p id="calc-per-square" class="mt-1 font-display text-[20px] font-semibold text-cyan">$7.45</p>
+              </div>
+              <div class="bg-storm/60 p-3">
+                <p class="font-mono text-[8px] uppercase tracking-[0.12em] text-steel">Financing</p>
+                <p id="calc-monthly" class="mt-1 font-display text-[20px] font-semibold text-cyan">$273/mo</p>
+              </div>
+            </div>
+
+            <a href="#contact" id="calc-lock" class="mt-5 flex h-12 w-full items-center justify-center gap-2 bg-amber text-[11px] font-bold uppercase tracking-[0.12em] text-night transition hover:bg-amber/90">
+              Lock In This Quote
+            </a>
+            <p class="mt-3 text-center font-mono text-[9px] uppercase tracking-[0.1em] text-steel/60">
+              Ballpark only · Final price after inspection
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BEFORE / AFTER -->
+    <section id="work" class="py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          <div class="reveal max-w-xl" data-reveal>
+            <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan">After action</p>
+            <h2 class="mt-3 font-display text-[clamp(36px,5vw,56px)] font-bold uppercase leading-[0.9] text-white">
+              From tarp<br /><span class="text-cyan">to finished roof.</span>
+            </h2>
+          </div>
+          <p class="reveal max-w-sm text-[13px] leading-relaxed text-steel" data-reveal>
+            A Bartlett hail claim: bruised shingles, two soft spots, and a ridge vent packed
+            with debris. Nine days from first call to final inspection.
+          </p>
+        </div>
+
+        <div class="reveal mt-9 overflow-hidden border border-white/10 bg-storm/40" data-reveal>
+          <div class="relative h-[320px] select-none sm:h-[440px] lg:h-[500px]">
+            <img src="assets/photo-1570129477492-45c003edd2be.webp" alt="A home after a full roof replacement" class="absolute inset-0 h-full w-full object-cover" />
+            <div id="compare-clip" class="absolute inset-0" style="clip-path: inset(0 50% 0 0);">
+              <img src="assets/photo-1570129477492-45c003edd2be.webp" alt="The same home before roof replacement" class="h-full w-full object-cover" style="filter: grayscale(.5) brightness(.62) contrast(.95) sepia(.12);" />
+              <div class="absolute inset-0 bg-night/25"></div>
+            </div>
+
+            <span class="pointer-events-none absolute left-4 top-4 flex items-center gap-2 border border-white/20 bg-night/70 px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.14em] text-white backdrop-blur">
+              <span class="h-1.5 w-1.5 rounded-full bg-steel"></span> Before
+            </span>
+            <span class="pointer-events-none absolute right-4 top-4 flex items-center gap-2 border border-cyan/40 bg-cyan/15 px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.14em] text-cyan backdrop-blur">
+              <span class="h-1.5 w-1.5 rounded-full bg-cyan"></span> After
+            </span>
+
+            <div id="compare-line" class="pointer-events-none absolute inset-y-0 z-20 w-[2px] bg-cyan shadow-[0_0_20px_rgba(34,211,238,.8)]" style="left:50%;">
+              <span class="absolute left-1/2 top-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-sm bg-cyan text-night shadow-xl">
+                <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg>
+              </span>
+            </div>
+
+            <input id="compare-range" type="range" min="0" max="100" value="50" step="1" class="compare-range" aria-label="Compare before and after" />
+          </div>
+
+          <div class="grid gap-px border-t border-white/10 bg-white/5 sm:grid-cols-4">
+            <div class="bg-night px-4 py-3">
+              <p class="font-mono text-[8px] uppercase tracking-[0.14em] text-steel">Claim</p>
+              <p class="mt-1 text-[12px] font-semibold text-white">Approved · $21,400</p>
+            </div>
+            <div class="bg-night px-4 py-3">
+              <p class="font-mono text-[8px] uppercase tracking-[0.14em] text-steel">Scope</p>
+              <p class="mt-1 text-[12px] font-semibold text-white">24 squares</p>
+            </div>
+            <div class="bg-night px-4 py-3">
+              <p class="font-mono text-[8px] uppercase tracking-[0.14em] text-steel">Timeline</p>
+              <p class="mt-1 text-[12px] font-semibold text-white">9 days total</p>
+            </div>
+            <div class="bg-night px-4 py-3">
+              <p class="font-mono text-[8px] uppercase tracking-[0.14em] text-steel">Warranty</p>
+              <p class="mt-1 text-[12px] font-semibold text-white">Lifetime material</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" class="border-y border-white/5 bg-storm/25 py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          <div class="reveal max-w-xl" data-reveal>
+            <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan">Field reports</p>
+            <h2 class="mt-3 font-display text-[clamp(36px,5vw,56px)] font-bold uppercase leading-[0.9] text-white">
+              What the<br /><span class="text-cyan">neighbors say.</span>
+            </h2>
+          </div>
+          <div class="reveal inline-flex items-center gap-3 border border-white/10 bg-night px-4 py-2.5" data-reveal>
+            <span class="font-display text-[30px] font-bold leading-none text-amber">4.5</span>
+            <div>
+              <div role="img" class="flex gap-0.5 text-amber" aria-label="4.5 out of 5 stars">
+                <svg viewBox="0 0 24 24" class="h-3 w-3" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+                <svg viewBox="0 0 24 24" class="h-3 w-3" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+                <svg viewBox="0 0 24 24" class="h-3 w-3" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+                <svg viewBox="0 0 24 24" class="h-3 w-3" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+                <svg viewBox="0 0 24 24" class="h-3 w-3 fill-current opacity-30" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+              </div>
+              <p class="mt-0.5 font-mono text-[8.5px] uppercase tracking-[0.12em] text-steel">25 Google reviews</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-9 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-3 md:overflow-visible">
+          <figure class="reveal flex min-w-[85%] snap-start flex-col border border-white/10 bg-night p-6 sm:min-w-[420px] md:min-w-0" data-reveal>
+            <div class="flex items-center justify-between">
+              <div role="img" class="flex gap-0.5 text-amber" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg><svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg><svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg><svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg><svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+              </div>
+              
+            </div>
+            <blockquote class="mt-4 flex-1 text-[13.5px] leading-relaxed text-ice/80">
+              "Service was performed as scheduled. Roof was installed quickly and efficiently.
+              Problem areas were repaired with quality materials utilizing proper
+              construction methods."
+            </blockquote>
+            <figcaption class="mt-5 border-t border-white/10 pt-4 font-mono text-[9px] uppercase tracking-[0.12em] text-steel">
+              Chris S. · Google review
+            </figcaption>
+          </figure>
+
+          <figure class="reveal flex min-w-[85%] snap-start flex-col border border-white/10 bg-night p-6 sm:min-w-[420px] md:min-w-0" data-reveal>
+            <div class="flex items-center justify-between">
+              <div role="img" class="flex gap-0.5 text-amber" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg><svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg><svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg><svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg><svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+              </div>
+              
+            </div>
+            <blockquote class="mt-4 flex-1 text-[13.5px] leading-relaxed text-ice/80">
+              "Professional work and follow up."
+            </blockquote>
+            <figcaption class="mt-5 border-t border-white/10 pt-4 font-mono text-[9px] uppercase tracking-[0.12em] text-steel">
+              Chas T. · Google review
+            </figcaption>
+          </figure>
+
+          <figure class="reveal flex min-w-[85%] snap-start flex-col border border-white/10 bg-night p-6 sm:min-w-[420px] md:min-w-0" data-reveal>
+            <div class="flex items-center justify-between">
+              <div role="img" class="flex gap-0.5 text-amber" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg><svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg><svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg><svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg><svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+              </div>
+              
+            </div>
+            <blockquote class="mt-4 flex-1 text-[13.5px] leading-relaxed text-ice/80">
+              "Best in town!"
+            </blockquote>
+            <figcaption class="mt-5 border-t border-white/10 pt-4 font-mono text-[9px] uppercase tracking-[0.12em] text-steel">
+              Paul P. · Google review
+            </figcaption>
+          </figure>
+        </div>
+        <p class="mt-4 font-mono text-[8.5px] uppercase tracking-[0.12em] text-steel/50">Reviews published by Storm Front Roofing on stormfrontroofingtn.com. Verify attribution before launch.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="relative py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-8 lg:grid-cols-[.85fr_1.15fr] lg:gap-14">
+          <div class="reveal" data-reveal>
+            <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan">Dispatch</p>
+            <h2 class="mt-3 font-display text-[clamp(36px,5vw,56px)] font-bold uppercase leading-[0.9] text-white">
+              Get a crew<br /><span class="text-cyan">on the roof.</span>
+            </h2>
+            <p class="mt-4 max-w-md text-[14px] leading-relaxed text-steel">
+              Active leak or storm damage? Call the dispatch line. For everything else,
+              send the form and we'll call back within 15 minutes during business hours.
+            </p>
+
+            <a href="tel:+19013039251" class="mt-7 block border border-amber/30 bg-amber/[0.07] p-5 transition hover:bg-amber/10">
+              <span class="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.16em] text-amber">
+                <span class="h-1.5 w-1.5 rounded-full bg-amber pulse-ring"></span> 24/7 storm line
+              </span>
+              <span class="mt-2 block font-display text-[34px] font-bold leading-none text-white">(901) 303-9251</span>
+            </a>
+
+            <div class="mt-6 space-y-4 border-t border-white/10 pt-5 text-[12.5px] text-steel">
+              <div>
+                <p class="font-mono text-[8.5px] uppercase tracking-[0.14em] text-steel/60">Base</p>
+                <p class="mt-1 text-ice/80">7731 US-70, Suite 107 · Bartlett, TN 38133</p>
+              </div>
+              <div>
+                <p class="font-mono text-[8.5px] uppercase tracking-[0.14em] text-steel/60">Hours</p>
+                <p class="mt-1 text-ice/80">Office Mon–Fri 8–5 · 24/7 emergency tarping</p>
+              </div>
+              <div>
+                <p class="font-mono text-[8.5px] uppercase tracking-[0.14em] text-steel/60">Coverage</p>
+                <p class="mt-1 text-ice/80">Bartlett · Memphis · Cordova · Germantown · Arlington · Lakeland · Millington</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal border border-white/10 bg-storm/40 p-5 sm:p-7" data-reveal>
+            <form id="lead-form" class="grid gap-4" novalidate>
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label for="lead-name" class="mb-1.5 block font-mono text-[9px] uppercase tracking-[0.14em] text-steel">Name <span class="text-amber">*</span></label>
+                  <input id="lead-name" name="name" type="text" autocomplete="name" placeholder="First and last name" class="h-12 w-full border border-white/15 bg-night px-3.5 text-[14px] text-white outline-none transition placeholder:text-steel/40 focus:border-cyan" />
+                  <p class="mt-1 hidden text-[11px] text-red-400" data-error="name"></p>
+                </div>
+                <div>
+                  <label for="lead-phone" class="mb-1.5 block font-mono text-[9px] uppercase tracking-[0.14em] text-steel">Phone <span class="text-amber">*</span></label>
+                  <input id="lead-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Your phone number" class="h-12 w-full border border-white/15 bg-night px-3.5 text-[14px] text-white outline-none transition placeholder:text-steel/40 focus:border-cyan" />
+                  <p class="mt-1 hidden text-[11px] text-red-400" data-error="phone"></p>
+                </div>
+              </div>
+
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label for="lead-email" class="mb-1.5 block font-mono text-[9px] uppercase tracking-[0.14em] text-steel">Email</label>
+                  <input id="lead-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" class="h-12 w-full border border-white/15 bg-night px-3.5 text-[14px] text-white outline-none transition placeholder:text-steel/40 focus:border-cyan" />
+                  <p class="mt-1 hidden text-[11px] text-red-400" data-error="email"></p>
+                </div>
+                <div>
+                  <label for="lead-service" class="mb-1.5 block font-mono text-[9px] uppercase tracking-[0.14em] text-steel">Situation <span class="text-amber">*</span></label>
+                  <select id="lead-service" name="service" class="h-12 w-full border border-white/15 bg-night px-3 text-[13.5px] text-white outline-none focus:border-cyan">
+                    <option value="">Select an option</option>
+                    <option>Storm Damage / Emergency Tarping</option>
+                    <option>Insurance Claim Help</option>
+                    <option>Roof Replacement</option>
+                    <option>Roof Repair</option>
+                    <option>Leak Repair</option>
+                    <option>Commercial Roofing</option>
+                    <option>Something else</option>
+                  </select>
+                  <p class="mt-1 hidden text-[11px] text-red-400" data-error="service"></p>
+                </div>
+              </div>
+
+              <div>
+                <label for="lead-message" class="mb-1.5 block font-mono text-[9px] uppercase tracking-[0.14em] text-steel">Damage report</label>
+                <textarea id="lead-message" name="message" rows="4" placeholder="When the storm hit, what you're seeing, whether water is actively coming in…" class="min-h-[112px] w-full resize-y border border-white/15 bg-night px-3.5 py-3 text-[14px] text-white outline-none transition placeholder:text-steel/40 focus:border-cyan"></textarea>
+              </div>
+
+              <label class="flex cursor-pointer items-start gap-3 text-[11.5px] leading-relaxed text-steel">
+                <input id="lead-consent" name="consent" type="checkbox" class="mt-0.5 h-4 w-4 shrink-0 accent-cyan" />
+                <span>It's okay to call or text me about this request.</span>
+              </label>
+              <p class="hidden text-[11px] text-red-400" data-error="consent"></p>
+
+              <button type="submit" class="inline-flex h-12 items-center justify-center gap-2 bg-amber text-[11px] font-bold uppercase tracking-[0.12em] text-night transition hover:bg-amber/90">
+                Dispatch My Request
+              </button>
+              <p class="text-center font-mono text-[8.5px] uppercase tracking-[0.12em] text-steel/50">No spam · No obligation · Written scope</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 bg-night pb-10 pt-14">
+    <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+        <div>
+          <div class="flex items-center gap-2.5">
+            <span class="grid h-9 w-9 place-items-center rounded-sm bg-cyan text-night">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 2-8 12h6l-1 8 8-12h-6l1-8Z"/></svg>
+            </span>
+            <span class="font-display text-[26px] font-bold uppercase leading-none text-white">Storm Front</span>
+          </div>
+          <p class="mt-4 max-w-xs text-[12.5px] leading-relaxed text-steel">
+            Family-owned roofing and storm restoration across Bartlett and Greater Memphis
+            since 2021. Tarping first, paperwork second, rebuild third.
+          </p>
+          <p class="mt-5 font-mono text-[9px] uppercase tracking-[0.14em] text-steel/60">Family-owned · Free estimates · 24/7 tarping</p>
+        </div>
+
+        <div>
+          <h3 class="font-mono text-[9px] uppercase tracking-[0.18em] text-steel/50">Response</h3>
+          <ul class="mt-4 space-y-2.5 text-[12.5px] text-steel">
+            <li><a href="#services" class="transition hover:text-white">Emergency tarping</a></li>
+            <li><a href="#services" class="transition hover:text-white">Hail &amp; wind claims</a></li>
+            <li><a href="#services" class="transition hover:text-white">Roof replacement</a></li>
+            <li><a href="#services" class="transition hover:text-white">Leak repair</a></li>
+            <li><a href="#services" class="transition hover:text-white">Commercial roofing</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-mono text-[9px] uppercase tracking-[0.18em] text-steel/50">Coverage</h3>
+          <ul class="mt-4 grid grid-cols-2 gap-x-4 gap-y-2.5 text-[12.5px] text-steel">
+            <li>Bartlett</li><li>Memphis</li>
+            <li>Cordova</li><li>Germantown</li>
+            <li>Arlington</li><li>Lakeland</li>
+            <li>Millington</li><li>Collierville</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-mono text-[9px] uppercase tracking-[0.18em] text-steel/50">Dispatch</h3>
+          <ul class="mt-4 space-y-3 text-[12.5px] text-steel">
+            <li><a href="tel:+19013039251" class="font-display text-[22px] font-bold text-white transition hover:text-cyan">(901) 303-9251</a></li>
+            <li>7731 US-70, Suite 107<br />Bartlett, TN 38133</li>
+            <li class="text-[11px] opacity-70">stormfrontroofingtn.com</li>
+            <li class="text-[11px]">Office Mon–Fri 8–5<br />24/7 emergency tarping</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-10 border-t border-white/10 pt-6">
+        <p class="max-w-4xl text-[10px] leading-relaxed text-steel/45">
+          Concept mockup prepared for review — not affiliated with or published by Storm Front
+          Roofing & Restoration. Business details were compiled from public listings and the
+          company's website in November 2026; confirm them before launch. Imagery is licensed
+          stock photography and does not depict actual projects. Cost ranges are rough estimates.
+        </p>
+        <div class="mt-4 flex flex-col gap-2 font-mono text-[9px] uppercase tracking-[0.08em] text-steel/40 sm:flex-row sm:items-center sm:justify-between">
+          <p>© <span id="year">2026</span> Storm Front Roofing &amp; Restoration</p>
+          <div class="flex gap-5"><a href="#" class="transition hover:text-white">Privacy</a><a href="#" class="transition hover:text-white">Accessibility</a><a href="#top" class="transition hover:text-white">Back to top</a></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile bar -->
+  <div id="mobile-bar" class="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-night/95 p-2.5 backdrop-blur transition duration-300 md:hidden">
+    <div class="grid grid-cols-2 gap-2">
+      <a href="tel:+19013039251" class="inline-flex h-12 items-center justify-center gap-2 border border-amber/40 bg-amber/10 text-[11px] font-bold uppercase tracking-[0.1em] text-amber">
+        <span class="h-1.5 w-1.5 rounded-full bg-amber pulse-ring"></span> Storm Line
+      </a>
+      <a href="#contact" class="inline-flex h-12 items-center justify-center bg-cyan text-[11px] font-bold uppercase tracking-[0.1em] text-night">Get Help</a>
+    </div>
+  </div>
+  <div class="h-[76px] md:hidden" aria-hidden="true"></div>
+
+  <!-- Success overlay -->
+  <div id="success-overlay" class="fixed inset-0 z-[100] hidden items-center justify-center bg-night/80 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="success-title">
+    <div class="overlay-panel relative w-full max-w-md overflow-hidden border border-cyan/30 bg-storm p-7 text-center shadow-[0_50px_100px_-40px_rgba(0,0,0,1)]">
+      <button id="success-close" type="button" class="absolute right-3 top-3 grid h-9 w-9 place-items-center text-steel transition hover:text-white" aria-label="Close">
+        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+
+      <span class="mx-auto grid h-16 w-16 place-items-center rounded-sm border border-cyan/40 bg-cyan/10 text-cyan">
+        <svg viewBox="0 0 24 24" class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="check-path" d="m5 12.5 4.5 4.5L19 7.5"/></svg>
+      </span>
+
+      <h2 id="success-title" class="mt-5 font-display text-[32px] font-bold uppercase leading-none text-white">Demo only: nothing was sent.</h2>
+      <p class="mt-2 text-[13.5px] leading-relaxed text-steel">
+              On the live site, this request would reach Storm Front Roofing right away. To reach them now, call <a href="tel:+19013039251" style="text-decoration:underline">(901) 303-9251</a>.
+            </p>
+
+      <div class="mt-5 border border-white/10 bg-night p-4 text-left">
+        <p class="font-mono text-[8.5px] uppercase tracking-[0.16em] text-cyan">Next steps</p>
+        <ol class="mt-2.5 space-y-2 text-[12px] text-steel">
+          <li class="flex gap-2.5"><span class="font-mono text-cyan">01</span> A dispatcher confirms the address and damage.</li>
+          <li class="flex gap-2.5"><span class="font-mono text-cyan">02</span> A crew is scheduled — same day for active leaks.</li>
+          <li class="flex gap-2.5"><span class="font-mono text-cyan">03</span> Photos, scope, and insurance packet.</li>
+        </ol>
+      </div>
+
+      <a href="tel:+19013039251" class="mt-5 inline-flex h-11 w-full items-center justify-center bg-amber text-[11px] font-bold uppercase tracking-[0.1em] text-night">
+        Emergency? Call (901) 303-9251
+      </a>
+    </div>
+  </div>
+
+  <noscript><style>[data-reveal]{opacity:1 !important;transform:none !important;}</style></noscript>
+
+  <script>
+    (function () {
+      "use strict";
+      var $ = function (s, r) { return (r || document).querySelector(s); };
+      var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+      var money = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+
+      /* Menu */
+      var menu = $("#mobile-menu");
+      var toggle = $("#menu-toggle");
+      function setMenu(open) {
+        if (!menu) return;
+        menu.classList.toggle("hidden", !open);
+        if (toggle) {
+          toggle.setAttribute("aria-expanded", String(open));
+          toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        }
+      }
+      if (toggle) toggle.addEventListener("click", function () { setMenu(menu.classList.contains("hidden")); });
+      $$("[data-menu-link]").forEach(function (l) { l.addEventListener("click", function () { setMenu(false); }); });
+      window.addEventListener("resize", function () { if (window.innerWidth >= 1024) setMenu(false); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") setMenu(false); });
+
+      /* Header */
+      var header = $("#site-header"), stuck = false;
+      window.addEventListener("scroll", function () {
+        var next = window.scrollY > 16;
+        if (next !== stuck) { header.classList.toggle("is-stuck", next); stuck = next; }
+      }, { passive: true });
+
+      /* Calculator */
+      var sqft = $("#calc-sqft"), material = $("#calc-material"), pitch = $("#calc-pitch");
+      var range = $("#calc-range"), basis = $("#calc-basis"), readout = $("#sqft-readout");
+      var perFt = $("#calc-per-square"), monthly = $("#calc-monthly"), lock = $("#calc-lock");
+
+      function r100(v) { return Math.round(v / 100) * 100; }
+      function calc() {
+        var ft = Number(sqft.value) || 0;
+        var opt = material.options[material.selectedIndex];
+        var lo = parseFloat(opt.getAttribute("data-low")) || 0;
+        var hi = parseFloat(opt.getAttribute("data-high")) || 0;
+        var mult = parseFloat(pitch.value) || 1;
+        var low = r100(ft * lo * mult), high = r100(ft * hi * mult);
+
+        readout.textContent = ft.toLocaleString("en-US");
+        range.textContent = money.format(low) + " – " + money.format(high);
+        basis.textContent = ft.toLocaleString("en-US") + " sq ft · " + opt.textContent.trim() + " · " +
+          pitch.options[pitch.selectedIndex].getAttribute("data-label") + " pitch";
+        perFt.textContent = "$" + (low / ft).toFixed(2);
+        monthly.textContent = money.format(Math.round(low / 60)) + "/mo";
+      }
+      [sqft, material, pitch].forEach(function (el) {
+        el.addEventListener("input", calc);
+        el.addEventListener("change", calc);
+      });
+      calc();
+
+      if (lock) lock.addEventListener("click", function () {
+        var service = $("#lead-service"), message = $("#lead-message");
+        if (service) {
+          Array.prototype.forEach.call(service.options, function (o) {
+            if (o.textContent.trim() === "Roof Replacement") service.value = o.value;
+          });
+        }
+        if (message && !message.value.trim()) {
+          message.value = "Estimator: " + sqft.value + " sq ft, " +
+            material.options[material.selectedIndex].textContent.trim() + ", " +
+            pitch.options[pitch.selectedIndex].getAttribute("data-label") + " pitch.";
+        }
+        setTimeout(function () { var n = $("#lead-name"); if (n) n.focus({ preventScroll: true }); }, 700);
+      });
+
+      /* Compare */
+      var cr = $("#compare-range"), clip = $("#compare-clip"), line = $("#compare-line");
+      function compare() {
+        var p = Number(cr.value);
+        clip.style.clipPath = "inset(0 " + (100 - p) + "% 0 0)";
+        line.style.left = p + "%";
+      }
+      if (cr) { cr.addEventListener("input", compare); compare(); }
+
+      /* Form */
+      var form = $("#lead-form"), overlay = $("#success-overlay"), close = $("#success-close"), lastFocus = null;
+      function setError(name, msg) {
+        var field = form.elements[name];
+        var el = document.querySelector('[data-error="' + name + '"]');
+        if (el) { el.textContent = msg || ""; el.classList.toggle("hidden", !msg); }
+        if (field && field.setAttribute) {
+          field.setAttribute("aria-invalid", msg ? "true" : "false");
+          field.classList.toggle("border-red-400", Boolean(msg));
+          field.classList.toggle("border-white/15", !msg);
+        }
+      }
+      function clearErrors() { ["name", "phone", "email", "service", "consent"].forEach(function (n) { setError(n, ""); }); }
+
+      function openOverlay() {
+        lastFocus = document.activeElement;
+        overlay.classList.remove("hidden");
+        overlay.classList.add("flex", "overlay-open");
+        document.body.classList.add("no-scroll");
+        close.focus();
+      }
+      function closeOverlay() {
+        overlay.classList.add("hidden");
+        overlay.classList.remove("flex", "overlay-open");
+        document.body.classList.remove("no-scroll");
+        if (lastFocus) lastFocus.focus();
+      }
+      close.addEventListener("click", closeOverlay);
+      overlay.addEventListener("click", function (e) { if (e.target === overlay) closeOverlay(); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !overlay.classList.contains("hidden")) closeOverlay(); });
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        clearErrors();
+        var name = form.elements.name.value.trim();
+        var phone = form.elements.phone.value.trim();
+        var email = form.elements.email.value.trim();
+        var service = form.elements.service.value;
+        var consent = form.elements.consent.checked;
+        var digits = phone.replace(/\D/g, "");
+        var bad = null;
+
+        if (!name) { setError("name", "Please enter your name."); bad = bad || form.elements.name; }
+        if (!phone) { setError("phone", "Please enter a phone number."); bad = bad || form.elements.phone; }
+        else if (digits.length < 10) { setError("phone", "Enter a valid 10-digit number."); bad = bad || form.elements.phone; }
+        if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { setError("email", "Enter a valid email."); bad = bad || form.elements.email; }
+        if (!service) { setError("service", "Choose a situation."); bad = bad || form.elements.service; }
+        if (!consent) { setError("consent", "Please check the box."); bad = bad || form.elements.consent; }
+
+        if (bad) { bad.focus(); return; }
+        openOverlay();
+        form.reset();
+        clearErrors();
+      });
+
+      form.addEventListener("input", function (e) { if (e.target.name) setError(e.target.name, ""); });
+      form.addEventListener("change", function (e) { if (e.target.name) setError(e.target.name, ""); });
+
+      $$("[data-service]").forEach(function (link) {
+        link.addEventListener("click", function () {
+          var value = link.getAttribute("data-service");
+          var service = $("#lead-service");
+          if (!service || !value) return;
+          Array.prototype.forEach.call(service.options, function (o) {
+            if (o.textContent.trim() === value) service.value = o.value;
+          });
+          setError("service", "");
+        });
+      });
+
+      /* Bar hides over form */
+      var bar = $("#mobile-bar");
+      if (bar && form && "IntersectionObserver" in window) {
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            bar.classList.toggle("translate-y-full", en.isIntersecting);
+            bar.classList.toggle("pointer-events-none", en.isIntersecting);
+          });
+        }, { threshold: 0.2 }).observe(form);
+      }
+
+      /* Reveal */
+      var items = $$("[data-reveal]");
+      if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) { en.target.classList.add("is-visible"); io.unobserve(en.target); }
+          });
+        }, { threshold: 0, rootMargin: "0px 0px -40px 0px" });
+        items.forEach(function (el) { io.observe(el); });
+      } else {
+        items.forEach(function (el) { el.classList.add("is-visible"); });
+      }
+
+      var year = $("#year");
+      if (year) year.textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
