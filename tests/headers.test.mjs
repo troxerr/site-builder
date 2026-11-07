@@ -14,8 +14,34 @@ for (const path of ["/", "/dental/", "/demos/", "/bartlett/", "/demos/jim-fields
     assert.equal(h["x-content-type-options"], "nosniff");
     assert.equal(h["referrer-policy"], "strict-origin-when-cross-origin");
     assert.match(h["permissions-policy"], /camera=\(\)/);
+    assert.match(h["strict-transport-security"], /max-age=31536000/);
+    assert.equal(h["cross-origin-opener-policy"], "same-origin");
   });
 }
+
+test("first-party pages get the strict CSP; demos (self-contained sites) do not", () => {
+  for (const path of ["/", "/dental/", "/demos/", "/bartlett/", "/thanks/", "/thanks/booking-agent/", "/404.html"]) {
+    const csp = at(path)["content-security-policy-report-only"] ?? at(path)["content-security-policy"];
+    assert.ok(csp, `${path} has a CSP`);
+    for (const d of ["default-src 'self'", "object-src 'none'", "base-uri 'self'", "frame-ancestors 'self'"]) assert.ok(csp.includes(d), `${path}: ${d}`);
+    assert.ok(!/unsafe-inline|unsafe-eval/.test(csp), "no unsafe-inline/eval");
+  }
+  assert.equal(at("/demos/jim-fields-plumbing/")["content-security-policy-report-only"], undefined);
+});
+
+test("no header is accidentally doubled by overlapping rules", () => {
+  for (const path of ["/assets/css/site.0123456789.css", "/assets/js/home.0123456789.js", "/assets/work/x.webp", "/assets/og-image.png", "/assets/logo-mark.svg", "/assets/fonts/inter-latin.woff2", "/demos/big-m-roofing/assets/a.png", "/"]) {
+    const h = at(path);
+    assert.ok((h["cache-control"] ?? "").split("max-age").length <= 2, `${path} cache-control doubled: ${h["cache-control"]}`);
+    assert.ok(!/nosniff.*nosniff|same-origin.*same-origin|max-age=31536000.*max-age=31536000/.test(`${h["x-content-type-options"]} ${h["cross-origin-opener-policy"]} ${h["strict-transport-security"]}`), `${path} security header doubled`);
+  }
+});
+
+test("hashed CSS and JS are immutable for a year; other assets for a week", () => {
+  assert.match(at("/assets/css/site.0123456789.css")["cache-control"], /^public, max-age=31536000, immutable$/);
+  assert.match(at("/assets/js/home.0123456789.js")["cache-control"], /^public, max-age=31536000, immutable$/);
+  assert.match(at("/assets/work/x.webp")["cache-control"], /^public, max-age=604800$/);
+});
 
 test("static assets are cached", () => {
   assert.match(at("/assets/work/demo-big-m-roofing.webp")["cache-control"], /max-age=\d{6,}/);

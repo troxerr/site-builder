@@ -1,0 +1,12 @@
+{
+  "name": "Bartlett Website Design",
+  "short_name": "Bartlett Web",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#020617",
+  "theme_color": "#143fc5",
+  "icons": [
+    { "src": "/assets/logo-mark.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/assets/logo-mark-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
