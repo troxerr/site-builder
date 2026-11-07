@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#07080B" />
+  <title>Demo: A &amp; A Bail Bonds | Memphis 24/7 Bail Bonds</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bartlettwebsitedesign.online/demos/aa-bail-bonds/">
+<meta property="og:title" content="Website demo for A &amp; A Bail Bonds · Bartlett Website Design">
+<meta property="og:description" content="A 24/7 bail bond site for downtown Memphis: one big call button, the process in three steps and a callback form.">
+<meta property="og:image" content="https://bartlettwebsitedesign.online/assets/og/demo-aa-bail-bonds.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Website demo for A &amp; A Bail Bonds · Bartlett Website Design">
+<meta name="twitter:description" content="A 24/7 bail bond site for downtown Memphis: one big call button, the process in three steps and a callback form.">
+<meta name="twitter:image" content="https://bartlettwebsitedesign.online/assets/og/demo-aa-bail-bonds.jpg">
+  <meta name="description" content="A & A Bail Bonds in downtown Memphis. 24/7 bail bonds, fast release assistance, confidential service. Call (901) 579-2262. 211 N Lauderdale St, Memphis, TN 38105." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      background: #07080B;
+      color: #F5F6F8;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+      padding-bottom: calc(84px + env(safe-area-inset-bottom));
+    }
+    @media (min-width: 768px) { body { padding-bottom: 0; } }
+    ::selection { background: #E01B2E; color: #fff; }
+
+    section[id] { scroll-margin-top: 76px; }
+
+    .hazard {
+      background-image: repeating-linear-gradient(-45deg, rgba(224,27,46,.16) 0 2px, transparent 2px 14px);
+    }
+    .hero-glow {
+      background:
+        radial-gradient(circle at 18% 0%, rgba(224,27,46,.22), transparent 45%),
+        radial-gradient(circle at 100% 90%, rgba(255,176,32,.08), transparent 40%);
+    }
+    .grid-lines {
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 56px 56px;
+      -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 10%, transparent 75%);
+      mask-image: radial-gradient(ellipse at 50% 0%, #000 10%, transparent 75%);
+    }
+
+    .call-pulse { animation: callPulse 2.4s cubic-bezier(.4,0,.6,1) infinite; }
+    @keyframes callPulse {
+      0% { box-shadow: 0 0 0 0 rgba(224,27,46,.55), 0 18px 40px -18px rgba(224,27,46,.8); }
+      70% { box-shadow: 0 0 0 16px rgba(224,27,46,0), 0 18px 40px -18px rgba(224,27,46,.8); }
+      100% { box-shadow: 0 0 0 0 rgba(224,27,46,0), 0 18px 40px -18px rgba(224,27,46,.8); }
+    }
+
+    .header-shell { transition: box-shadow .25s ease, background-color .25s ease; }
+    .header-shell.is-stuck {
+      background: rgba(7,8,11,.97);
+      box-shadow: 0 14px 34px -24px rgba(0,0,0,.9);
+    }
+
+    .field-input {
+      width: 100%;
+      min-height: 54px;
+      padding: 13px 15px;
+      border: 1px solid #D5D9E0;
+      border-radius: 6px;
+      background: #fff;
+      color: #0D1117;
+      font-size: 16px;
+      transition: border-color .15s ease, box-shadow .15s ease;
+    }
+    .field-input::placeholder { color: #98A0AC; }
+    .field-input:focus {
+      outline: none;
+      border-color: #E01B2E;
+      box-shadow: 0 0 0 3px rgba(224,27,46,.16);
+    }
+    .field-input[aria-invalid="true"] { border-color: #B00020; background: #FFF9F9; }
+    .field-error { display: none; margin-top: 6px; font-size: 13px; font-weight: 600; color: #B00020; }
+    .field-error.is-visible { display: block; }
+
+    .tap { min-height: 52px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .call-pulse { animation: none; }
+      *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+    }
+  </style>
+</head>
+
+<body class="font-sans">
+<div class="bwd-demo-bar" role="note" style="position:relative;z-index:9999;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 14px;padding:8px 14px;background:#0b1b3a;color:#cfd9ec;font:500 13px/1.4 system-ui,-apple-system,'Segoe UI',sans-serif;text-align:center"><span><b style="color:#fff;font-weight:600">Demo site</b> built by <a href="/" style="color:#fff;text-decoration:underline">Bartlett Website Design</a>. Not the business's official website. Some details are placeholders until confirmed with the owner.</span><a href="/demos/" style="color:#9cc2ff;font-weight:600;text-decoration:none">&larr; All demos</a></div>
+
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-white focus:px-4 focus:py-3 focus:text-sm focus:font-bold focus:text-midnight">Skip to content</a>
+
+  <!-- ================= HEADER ================= -->
+  <header id="site-header" class="header-shell sticky top-0 z-50 border-b border-white/10 bg-midnight/95 backdrop-blur-md">
+    <div class="mx-auto flex h-16 max-w-site items-center gap-3 px-4 sm:h-[72px] sm:px-6 lg:px-8">
+      <a href="#top" class="flex min-w-0 items-center gap-2.5">
+        <span class="grid h-10 w-10 shrink-0 place-items-center rounded bg-signal font-display text-[17px] font-bold text-white">A&amp;A</span>
+        <span class="min-w-0 leading-none">
+          <span class="block truncate font-display text-[19px] font-bold uppercase tracking-[0.04em] text-white sm:text-[21px]">A &amp; A Bail Bonds</span>
+          <span class="mt-1 block text-[8.5px] font-semibold uppercase tracking-[0.22em] text-white/45">Memphis · Open 24 hours</span>
+        </span>
+      </a>
+
+      <nav class="ml-auto hidden items-center gap-7 lg:flex" aria-label="Primary">
+        <a href="#features" class="text-[13px] font-semibold text-white/65 transition hover:text-white">Why A&amp;A</a>
+        <a href="#process" class="text-[13px] font-semibold text-white/65 transition hover:text-white">Process</a>
+        <a href="#location" class="text-[13px] font-semibold text-white/65 transition hover:text-white">Location</a>
+        <a href="#callback" class="text-[13px] font-semibold text-white/65 transition hover:text-white">Callback</a>
+      </nav>
+
+      <a href="tel:+19015792262" class="ml-auto hidden h-11 items-center gap-2 rounded bg-signal px-4 text-[12px] font-bold text-white transition hover:bg-signalDark sm:inline-flex lg:ml-8">
+        <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6.1 6.1l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+        (901) 579-2262
+      </a>
+
+      <a href="tel:+19015792262" class="ml-auto grid h-12 w-12 place-items-center rounded bg-signal text-white sm:hidden" aria-label="Call A and A Bail Bonds at (901) 579-2262">
+        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6.1 6.1l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <span id="top"></span>
+
+    <!-- ================= HERO ================= -->
+    <section class="relative isolate overflow-hidden bg-midnight">
+      <div class="absolute inset-0 -z-10 hero-glow" aria-hidden="true"></div>
+      <div class="absolute inset-0 -z-10 grid-lines" aria-hidden="true"></div>
+      <div class="absolute inset-x-0 top-0 h-1 bg-signal" aria-hidden="true"></div>
+
+      <div class="mx-auto max-w-site px-4 pb-12 pt-8 sm:px-6 sm:pb-16 sm:pt-12 lg:grid lg:grid-cols-[1.18fr_.82fr] lg:items-center lg:gap-14 lg:px-8 lg:pb-20 lg:pt-16">
+        <div>
+          <div class="inline-flex items-center gap-2 rounded-full border border-signal/40 bg-signal/10 px-3 py-1.5">
+            <span class="relative flex h-2 w-2">
+              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-signal opacity-70"></span>
+              <span class="relative inline-flex h-2 w-2 rounded-full bg-signal"></span>
+            </span>
+            <span class="text-[10px] font-bold uppercase tracking-[0.16em] text-white">Live dispatch · Open 24/7</span>
+          </div>
+
+          <h1 class="mt-5 font-display uppercase leading-[0.94] tracking-[0.005em] text-white">
+            <span class="block text-[clamp(25px,6.8vw,38px)] font-semibold text-white/90">Memphis 24/7 Bail Bonds</span>
+            <span class="sr-only">– </span>
+            <span class="mt-2 block text-[clamp(34px,8vw,54px)] font-bold">
+              Fast release<br />
+              when you <span class="text-ember">need it most.</span>
+            </span>
+          </h1>
+
+          <p class="mt-4 max-w-[540px] text-[15.5px] leading-[1.65] text-white/70 sm:text-[17px]">
+            One call starts the process. We explain the bond, the paperwork, and what the
+            jail needs — day or night, privately, without judgment.
+          </p>
+
+          <!-- Massive call button -->
+          <a href="tel:+19015792262"
+             class="call-pulse mt-6 flex w-full items-center justify-center gap-3 rounded-md bg-signal px-5 text-center text-white transition hover:bg-signalDark active:scale-[.995]"
+             style="min-height:78px">
+            <svg viewBox="0 0 24 24" class="h-6 w-6 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6.1 6.1l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+            <span class="leading-tight">
+              <span class="block text-[11px] font-bold uppercase tracking-[0.18em] text-white/80">Tap to call — 24/7</span>
+              <span class="block font-display text-[26px] font-bold tracking-[0.02em] sm:text-[30px]">(901) 579-2262</span>
+            </span>
+          </a>
+
+          <p class="mt-3 text-center text-[12px] text-white/45">A person answers, not a machine.</p>
+
+          <div class="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-white/50 lg:justify-start">
+            <span class="inline-flex items-center gap-1.5"><span class="h-1 w-1 rounded-full bg-ember"></span> 24/7 availability</span>
+            <span class="inline-flex items-center gap-1.5"><span class="h-1 w-1 rounded-full bg-ember"></span> Confidential</span>
+            <span class="inline-flex items-center gap-1.5"><span class="h-1 w-1 rounded-full bg-ember"></span> Downtown Memphis</span>
+          </div>
+        </div>
+
+        <!-- Before you call -->
+        <div class="mt-8 lg:mt-0">
+          <div class="rounded-lg border border-white/12 bg-white/[0.045] p-5 backdrop-blur-sm sm:p-6">
+            <div class="flex items-center justify-between gap-3 border-b border-white/10 pb-3">
+              <p class="text-[10px] font-bold uppercase tracking-[0.16em] text-ember">Have this ready</p>
+              <span class="text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-300">Speeds things up</span>
+            </div>
+            <ul class="mt-4 space-y-3">
+              <li class="flex gap-3">
+                <span class="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full border border-ember/40 text-[9px] font-bold text-ember">1</span>
+                <p class="text-[13.5px] leading-snug text-white/75"><strong class="text-white">Full name and date of birth</strong> of the person in custody.</p>
+              </li>
+              <li class="flex gap-3">
+                <span class="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full border border-ember/40 text-[9px] font-bold text-ember">2</span>
+                <p class="text-[13.5px] leading-snug text-white/75"><strong class="text-white">The jail or facility</strong> holding them, if you know it.</p>
+              </li>
+              <li class="flex gap-3">
+                <span class="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full border border-ember/40 text-[9px] font-bold text-ember">3</span>
+                <p class="text-[13.5px] leading-snug text-white/75"><strong class="text-white">The charge or bond amount</strong> — we can confirm it with the jail.</p>
+              </li>
+              <li class="flex gap-3">
+                <span class="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full border border-ember/40 text-[9px] font-bold text-ember">4</span>
+                <p class="text-[13.5px] leading-snug text-white/75"><strong class="text-white">A phone number</strong> where we can reach you right now.</p>
+              </li>
+            </ul>
+            <p class="mt-4 border-t border-white/10 pt-3 text-[11.5px] leading-relaxed text-white/45">
+              Don't have all of it? Call anyway. We'll help you find the rest.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= RAPID FEATURES ================= -->
+    <section id="features" class="bg-paper py-12 text-midnight sm:py-16 lg:py-20">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-signal">Why call A&amp;A</p>
+            <h2 class="mt-2 font-display text-[clamp(28px,5.2vw,42px)] font-bold uppercase leading-[0.98] text-midnight">
+              Answers now.<br />Not tomorrow.
+            </h2>
+          </div>
+          <span class="hidden h-12 w-px bg-line sm:block" aria-hidden="true"></span>
+        </div>
+
+        <div class="mt-7 grid grid-cols-1 gap-3 sm:mt-9 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="rounded-lg border border-line bg-white p-5">
+            <span class="grid h-11 w-11 place-items-center rounded bg-signal/10 text-signal">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </span>
+            <h3 class="mt-4 font-display text-[19px] font-bold uppercase leading-tight text-midnight">24/7 availability</h3>
+            <p class="mt-1.5 text-[13.5px] leading-relaxed text-body">Nights, weekends, holidays. We answer when the jail doesn't sleep.</p>
+          </div>
+
+          <div class="rounded-lg border border-line bg-white p-5">
+            <span class="grid h-11 w-11 place-items-center rounded bg-signal/10 text-signal">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19"/></svg>
+            </span>
+            <h3 class="mt-4 font-display text-[19px] font-bold uppercase leading-tight text-midnight">Payment options</h3>
+            <p class="mt-1.5 text-[13.5px] leading-relaxed text-body">The premium, collateral, and co-signer terms are explained before you sign.</p>
+          </div>
+
+          <div class="rounded-lg border border-line bg-white p-5">
+            <span class="grid h-11 w-11 place-items-center rounded bg-signal/10 text-signal">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3Z"/><path d="M9.5 12h5"/></svg>
+            </span>
+            <h3 class="mt-4 font-display text-[19px] font-bold uppercase leading-tight text-midnight">Confidential</h3>
+            <p class="mt-1.5 text-[13.5px] leading-relaxed text-body">Your situation stays private. We speak only with people you authorize.</p>
+          </div>
+
+          <div class="rounded-lg border border-line bg-white p-5">
+            <span class="grid h-11 w-11 place-items-center rounded bg-signal/10 text-signal">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            </span>
+            <h3 class="mt-4 font-display text-[19px] font-bold uppercase leading-tight text-midnight">Downtown proximity</h3>
+            <p class="mt-1.5 text-[13.5px] leading-relaxed text-body">Minutes from the downtown courts and detention facilities.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROCESS ================= -->
+    <section id="process" class="relative overflow-hidden bg-midnight py-12 sm:py-16 lg:py-20">
+      <div class="absolute inset-0 hazard opacity-30" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl">
+          <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-ember">Three steps</p>
+          <h2 class="mt-2 font-display text-[clamp(28px,5.4vw,44px)] font-bold uppercase leading-[0.98] text-white">
+            How the bail process works.
+          </h2>
+          <p class="mt-3 text-[14.5px] leading-relaxed text-white/60">
+            No confusing paperwork at midnight. We walk through it with you, one step at a time.
+          </p>
+        </div>
+
+        <ol class="mt-8 grid gap-3 sm:mt-10 lg:grid-cols-3 lg:gap-4">
+          <li class="relative rounded-lg border border-white/10 bg-white/[0.045] p-5 sm:p-6">
+            <div class="flex items-baseline justify-between">
+              <span class="font-display text-[44px] font-bold leading-none text-ember">01</span>
+              <span class="rounded-full border border-white/15 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.12em] text-white/50">You</span>
+            </div>
+            <h3 class="mt-4 font-display text-[23px] font-bold uppercase leading-none text-white">Call our office</h3>
+            <p class="mt-2.5 text-[13.5px] leading-relaxed text-white/65">
+              Tell us who is being held, where, and what you know about the bond. We confirm
+              the amount with the facility.
+            </p>
+          </li>
+
+          <li class="relative rounded-lg border border-white/10 bg-white/[0.045] p-5 sm:p-6">
+            <div class="flex items-baseline justify-between">
+              <span class="font-display text-[44px] font-bold leading-none text-ember">02</span>
+              <span class="rounded-full border border-white/15 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.12em] text-white/50">Together</span>
+            </div>
+            <h3 class="mt-4 font-display text-[23px] font-bold uppercase leading-none text-white">Paperwork &amp; terms</h3>
+            <p class="mt-2.5 text-[13.5px] leading-relaxed text-white/65">
+              We explain the premium, collateral, and co-signer requirements. You review
+              everything before signing.
+            </p>
+          </li>
+
+          <li class="relative rounded-lg border border-signal/35 bg-signal/[0.08] p-5 sm:p-6">
+            <div class="flex items-baseline justify-between">
+              <span class="font-display text-[44px] font-bold leading-none text-ember">03</span>
+              <span class="rounded-full border border-ember/35 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.12em] text-ember">Jail</span>
+            </div>
+            <h3 class="mt-4 font-display text-[23px] font-bold uppercase leading-none text-white">Defendant release</h3>
+            <p class="mt-2.5 text-[13.5px] leading-relaxed text-white/65">
+              Once the bond is posted, the facility processes the release. Timing is set by
+              the jail — we stay on it and keep you updated.
+            </p>
+          </li>
+        </ol>
+
+        <div class="mt-7 flex flex-col gap-2.5 sm:flex-row">
+          <a href="tel:+19015792262" class="tap inline-flex items-center justify-center gap-2 rounded-md bg-signal px-6 text-[13px] font-bold uppercase tracking-[0.08em] text-white transition hover:bg-signalDark">
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6.1 6.1l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+            Start step one — call now
+          </a>
+          <a href="sms:+19015792262" class="tap inline-flex items-center justify-center rounded-md border border-white/25 px-6 text-[13px] font-bold uppercase tracking-[0.08em] text-white transition hover:border-white/60">
+            Text instead
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LOCATION ================= -->
+    <section id="location" class="bg-paper py-12 text-midnight sm:py-16 lg:py-20">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-6 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:gap-12">
+          <div>
+            <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-signal">Find us</p>
+            <h2 class="mt-2 font-display text-[clamp(28px,5.2vw,42px)] font-bold uppercase leading-[0.98] text-midnight">
+              Downtown.<br />Close to the courts.
+            </h2>
+            <p class="mt-3 max-w-md text-[14.5px] leading-relaxed text-body">
+              Our office is on North Lauderdale, minutes from the downtown courts and
+              detention facilities. Walk in, park on site, or call before you arrive —
+              we'll be ready.
+            </p>
+
+            <div class="mt-6 rounded-lg border border-line bg-white p-5">
+              <p class="text-[10px] font-bold uppercase tracking-[0.16em] text-body/50">Office address</p>
+              <p class="mt-2 font-display text-[24px] font-bold uppercase leading-tight text-midnight">
+                211 N Lauderdale St<br />Memphis, TN 38105
+              </p>
+
+              <dl class="mt-4 grid grid-cols-2 gap-3 border-t border-line pt-4 text-[12.5px]">
+                <div>
+                  <dt class="text-body/50">Hours</dt>
+                  <dd class="mt-0.5 font-bold text-midnight">Open 24 hours</dd>
+                </div>
+                <div>
+                  <dt class="text-body/50">Phone</dt>
+                  <dd class="mt-0.5"><a href="tel:+19015792262" class="font-bold text-midnight hover:text-signal">(901) 579-2262</a></dd>
+                </div>
+                <div>
+                  <dt class="text-body/50">Parking</dt>
+                  <dd class="mt-0.5 font-semibold text-midnight">Accessible on-site</dd>
+                </div>
+                <div>
+                  <dt class="text-body/50">Distance</dt>
+                  <dd class="mt-0.5 font-semibold text-midnight">Near downtown courts</dd>
+                </div>
+              </dl>
+
+              <a href="https://www.google.com/maps/search/?api=1&query=211+N+Lauderdale+St+Memphis+TN+38105" target="_blank" rel="noopener" class="tap mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md bg-midnight px-5 text-[12px] font-bold uppercase tracking-[0.08em] text-white transition hover:bg-signal">
+                <svg viewBox="0 0 24 24" class="h-4 w-4 text-ember" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                Open in Maps
+              </a>
+            </div>
+          </div>
+
+          <!-- Stylized map -->
+          <div class="overflow-hidden rounded-lg border border-line bg-navy shadow-[0_30px_60px_-40px_rgba(7,8,11,.8)]">
+            <div class="relative h-[260px] sm:h-[320px]" aria-hidden="true">
+              <svg viewBox="0 0 620 320" class="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice">
+                <rect width="620" height="320" fill="#0C1A2B"/>
+                <g stroke="#ffffff" stroke-opacity=".06" stroke-width="1">
+                  <path d="M0 60h620M0 120h620M0 180h620M0 240h620M0 300h620"/>
+                  <path d="M70 0v320M170 0v320M270 0v320M370 0v320M470 0v320M570 0v320"/>
+                </g>
+                <path d="M-20 210 L640 150" stroke="#FFB020" stroke-opacity=".28" stroke-width="10"/>
+                <path d="M250 -20 L300 340" stroke="#E01B2E" stroke-opacity=".35" stroke-width="8"/>
+                <path d="M-20 95 L640 70" stroke="#ffffff" stroke-opacity=".10" stroke-width="4"/>
+                <text x="330" y="196" fill="#FFB020" fill-opacity=".6" font-family="Inter, sans-serif" font-size="10" letter-spacing="2">LAUDERDALE ST</text>
+                <text x="360" y="136" fill="#ffffff" fill-opacity=".35" font-family="Inter, sans-serif" font-size="9" letter-spacing="2">DOWNTOWN</text>
+                <circle cx="300" cy="160" r="34" fill="#E01B2E" fill-opacity=".14"/>
+                <circle cx="300" cy="160" r="18" fill="#E01B2E" fill-opacity=".22"/>
+                <circle cx="300" cy="160" r="7" fill="#E01B2E"/>
+              </svg>
+              <div class="absolute left-4 top-4 rounded bg-midnight/85 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.16em] text-ember backdrop-blur">
+                A &amp; A Bail Bonds
+              </div>
+              <div class="absolute bottom-4 left-4 right-4 rounded bg-midnight/85 px-3 py-2 text-[11px] text-white/75 backdrop-blur">
+                211 N Lauderdale St · Memphis, TN 38105
+              </div>
+            </div>
+            <div class="flex items-center justify-between gap-4 border-t border-white/10 px-5 py-3">
+              <p class="text-[11px] font-semibold uppercase tracking-[0.1em] text-white/45">Approx. 0.5 mi from the downtown courts</p>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=211+N+Lauderdale+St+Memphis+TN+38105" target="_blank" rel="noopener" class="text-[11px] font-bold uppercase tracking-[0.1em] text-ember hover:text-white">Directions →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CALLBACK ================= -->
+    <section id="callback" class="bg-white py-12 text-midnight sm:py-16 lg:py-20">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-7 lg:grid-cols-[.85fr_1.15fr] lg:items-start lg:gap-12">
+          <div>
+            <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-signal">Non-urgent questions</p>
+            <h2 class="mt-2 font-display text-[clamp(28px,5.2vw,42px)] font-bold uppercase leading-[0.98] text-midnight">
+              Request immediate callback.
+            </h2>
+            <p class="mt-3 max-w-md text-[14.5px] leading-relaxed text-body">
+              If someone is already in custody, call — it is the fastest way. For questions
+              about the process, payment, or a future court date, leave your details and we'll
+              call back.
+            </p>
+
+            <a href="tel:+19015792262" class="mt-6 flex items-center gap-3 rounded-lg border border-line bg-paper p-4 transition hover:border-signal/40">
+              <span class="grid h-11 w-11 shrink-0 place-items-center rounded bg-signal text-white">
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6.1 6.1l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+              </span>
+              <span>
+                <span class="block text-[10px] font-bold uppercase tracking-[0.14em] text-body/50">Call 24/7</span>
+                <span class="block font-display text-[22px] font-bold leading-tight text-midnight">(901) 579-2262</span>
+              </span>
+            </a>
+
+            <ul class="mt-5 space-y-2 text-[12.5px] text-body/70">
+              <li class="flex gap-2"><span class="text-signal">·</span> Confidential. No judgment.</li>
+              <li class="flex gap-2"><span class="text-signal">·</span> Downtown office, accessible parking.</li>
+            </ul>
+          </div>
+
+          <div class="rounded-lg border border-line bg-paper p-5 sm:p-7">
+            <div id="form-wrap">
+              <div class="flex items-start justify-between gap-4 border-b border-line pb-4">
+                <div>
+                  <p class="text-[10px] font-bold uppercase tracking-[0.16em] text-signal">Callback request</p>
+                  <h3 class="mt-1 font-display text-[23px] font-bold uppercase leading-tight text-midnight">Tell us what you know.</h3>
+                </div>
+                <span class="grid h-9 w-9 shrink-0 place-items-center rounded bg-signal/10 text-signal" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.4 9 9 0 0 1-3.9-.9L3 21l2-5.1a8.3 8.3 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3 8.4 8.4 0 0 1 21 11.5Z"/></svg>
+                </span>
+              </div>
+
+              <form id="callback-form" class="mt-5 grid gap-4" novalidate>
+                <div>
+                  <label for="name" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.1em] text-body">Name</label>
+                  <input id="name" name="name" type="text" autocomplete="name" class="field-input" placeholder="First and last" aria-describedby="name-error" />
+                  <p class="field-error" id="name-error" data-error-for="name"></p>
+                </div>
+
+                <div>
+                  <label for="phone" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.1em] text-body">Phone</label>
+                  <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" class="field-input" placeholder="(901) 000-0000" aria-describedby="phone-error" />
+                  <p class="field-error" id="phone-error" data-error-for="phone"></p>
+                </div>
+
+                <div>
+                  <label for="details" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.1em] text-body">Charge / jail location</label>
+                  <textarea id="details" name="details" rows="3" class="field-input" style="min-height:104px;resize:vertical" placeholder="Where they are being held, the charge if you know it, or your question." aria-describedby="details-error"></textarea>
+                  <p class="field-error" id="details-error" data-error-for="details"></p>
+                </div>
+
+                <div id="form-alert" class="hidden rounded border border-red-200 border-l-4 border-l-red-600 bg-red-50 px-3.5 py-3 text-[13px] text-red-800" role="alert" aria-live="assertive">
+                  <strong>Please check the highlighted fields.</strong> Your entries are still here.
+                </div>
+
+                <button type="submit" class="tap inline-flex items-center justify-center gap-2 rounded-md bg-signal px-5 text-[12px] font-bold uppercase tracking-[0.1em] text-white transition hover:bg-signalDark">
+                  Request Immediate Callback
+                  <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </button>
+                <p class="text-center text-[10.5px] leading-relaxed text-body/55">
+                  This form prepares a text message to our 24/7 line. Nothing is sent until you press send.
+                </p>
+              </form>
+            </div>
+
+            <div id="form-success" class="hidden" tabindex="-1" role="status" aria-live="polite">
+              <div class="flex items-start gap-3 border-b border-line pb-4">
+                <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-emerald-50 text-emerald-700">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+                </span>
+                <div>
+                  <h3 class="font-display text-[23px] font-bold uppercase leading-tight text-midnight">Demo only: nothing was sent.</h3>
+                  <p class="mt-1 text-[13px] leading-relaxed text-body">This is a demo site. The buttons below reach A & A Bail Bonds directly at (901) 579-2262.</p>
+                </div>
+              </div>
+
+              <div class="mt-5 grid gap-2.5">
+                <a id="sms-link" href="sms:+19015792262" class="tap inline-flex items-center justify-center gap-2 rounded-md bg-signal px-5 text-[12px] font-bold uppercase tracking-[0.1em] text-white transition hover:bg-signalDark">
+                  Send by text
+                </a>
+                <a href="tel:+19015792262" class="tap inline-flex items-center justify-center gap-2 rounded-md border border-line bg-white px-5 text-[12px] font-bold uppercase tracking-[0.1em] text-midnight transition hover:border-midnight">
+                  Call (901) 579-2262
+                </a>
+                <button type="button" id="copy-request" class="min-h-12 rounded-md text-[11px] font-bold uppercase tracking-[0.1em] text-body/60 transition hover:text-midnight">
+                  Copy details instead
+                </button>
+              </div>
+
+              <p id="copy-status" class="mt-2 text-center text-[11px] text-emerald-700" role="status" aria-live="polite"></p>
+              <button type="button" id="form-reset" class="mt-3 w-full text-[11px] font-semibold text-body/50 underline underline-offset-2 hover:text-midnight">
+                Start over
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-midnight pb-12 pt-12 text-white/55">
+    <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr]">
+        <div>
+          <div class="flex items-center gap-3">
+            <span class="grid h-10 w-10 place-items-center rounded bg-signal font-display text-[16px] font-bold text-white">A&amp;A</span>
+            <div>
+              <p class="font-display text-[20px] font-bold uppercase tracking-[0.04em] text-white">A &amp; A Bail Bonds</p>
+              <p class="text-[8.5px] font-semibold uppercase tracking-[0.22em] text-ember">Memphis · 24 hours</p>
+            </div>
+          </div>
+          <p class="mt-4 max-w-xs text-[12.5px] leading-relaxed">
+            Bail bonds and release assistance in downtown Memphis. Answered day or night,
+            with discretion and a clear explanation of every step.
+          </p>
+          <a href="tel:+19015792262" class="tap mt-5 inline-flex items-center gap-2 rounded bg-signal px-5 text-[12px] font-bold uppercase tracking-[0.08em] text-white transition hover:bg-signalDark">
+            Call 24/7: (901) 579-2262
+          </a>
+        </div>
+
+        <div>
+          <h3 class="text-[10px] font-bold uppercase tracking-[0.18em] text-white/35">Contact</h3>
+          <ul class="mt-4 space-y-2.5 text-[12.5px]">
+            <li><a href="tel:+19015792262" class="text-[16px] font-bold text-white transition hover:text-ember">(901) 579-2262</a></li>
+            <li>211 N Lauderdale St<br />Memphis, TN 38105</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&query=211+N+Lauderdale+St+Memphis+TN+38105" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-white">Get directions</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-[10px] font-bold uppercase tracking-[0.18em] text-white/35">Hours</h3>
+          <p class="mt-4 flex items-center gap-2 text-[13px] text-white">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+            Open 24 hours, 7 days a week
+          </p>
+          <p class="mt-2 text-[12px] leading-relaxed">
+            Nights, weekends, and holidays included. Call or text — a person responds.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-9 border-t border-white/10 pt-5">
+        <p class="max-w-4xl text-[10px] leading-relaxed text-white/35">
+          A &amp; A Bail Bonds is a bail bonding agency, not a law firm. We do not provide legal
+          advice or represent anyone in court. Bond amounts, eligibility, and release times are
+          determined by the court and the detention facility. A bail bond is a contract — read it
+          before signing. A co-signer may be required. Terms are subject to applicable Tennessee law.
+        </p>
+        <div class="mt-3 flex flex-col gap-2 text-[10px] text-white/30 sm:flex-row sm:items-center sm:justify-between">
+          <p>© <span id="year">2026</span> A &amp; A Bail Bonds. All rights reserved.</p>
+          <p>211 N Lauderdale St, Memphis, TN 38105 · (901) 579-2262</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky mobile call bar -->
+  <div id="mobile-bar" class="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-midnight/97 px-3 pt-2.5 backdrop-blur-md transition-transform duration-200 md:hidden" style="padding-bottom:calc(10px + env(safe-area-inset-bottom))">
+    <a href="tel:+19015792262" class="flex w-full items-center justify-center gap-3 rounded-md bg-signal text-white transition active:scale-[.99]" style="min-height:60px" aria-label="Call A and A Bail Bonds now at (901) 579-2262">
+      <span class="relative flex h-2.5 w-2.5">
+        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-70"></span>
+        <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-white"></span>
+      </span>
+      <span class="text-[11px] font-bold uppercase tracking-[0.14em]">Call now</span>
+      <span class="font-display text-[20px] font-bold tracking-[0.02em]">(901) 579-2262</span>
+    </a>
+  </div>
+
+  <noscript><style>#mobile-bar{display:flex}</style></noscript>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var $ = function (s, r) { return (r || document).querySelector(s); };
+
+      /* Header shadow */
+      var header = $("#site-header");
+      var stuck = false;
+      function onScroll() {
+        var next = window.scrollY > 6;
+        if (next !== stuck) { header.classList.toggle("is-stuck", next); stuck = next; }
+      }
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+
+      /* Form */
+      var form = $("#callback-form");
+      var wrap = $("#form-wrap");
+      var success = $("#form-success");
+      var alertBox = $("#form-alert");
+      var smsLink = $("#sms-link");
+      var copyBtn = $("#copy-request");
+      var copyStatus = $("#copy-status");
+      var resetBtn = $("#form-reset");
+      var mobileBar = $("#mobile-bar");
+      var prepared = "";
+
+      var rules = {
+        name: function (v) { return v.trim().length >= 2 ? "" : "Please enter your name."; },
+        phone: function (v) {
+          var digits = v.replace(/\D/g, "");
+          if (!digits) return "Please enter a phone number.";
+          if (digits.length < 10) return "Enter a 10-digit phone number.";
+          return "";
+        },
+        details: function (v) { return v.trim().length >= 5 ? "" : "Tell us the jail, the charge, or your question."; }
+      };
+
+      function setError(name, message) {
+        var field = form.elements[name];
+        var el = document.querySelector('[data-error-for="' + name + '"]');
+        if (el) {
+          el.textContent = message || "";
+          el.classList.toggle("is-visible", Boolean(message));
+        }
+        if (field) field.setAttribute("aria-invalid", message ? "true" : "false");
+      }
+
+      function clearErrors() {
+        Object.keys(rules).forEach(function (name) { setError(name, ""); });
+        alertBox.classList.add("hidden");
+      }
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        clearErrors();
+
+        var errors = {};
+        Object.keys(rules).forEach(function (name) {
+          var message = rules[name](form.elements[name].value || "");
+          if (message) { errors[name] = message; setError(name, message); }
+        });
+
+        var keys = Object.keys(errors);
+        if (keys.length) {
+          form.elements[keys[0]].focus();
+          alertBox.classList.remove("hidden");
+          return;
+        }
+
+        var name = form.elements.name.value.trim();
+        var phone = form.elements.phone.value.trim();
+        var details = form.elements.details.value.trim();
+
+        prepared =
+          "Callback request — A & A Bail Bonds\n" +
+          "Name: " + name + "\n" +
+          "Phone: " + phone + "\n" +
+          "Charge / jail: " + details;
+
+        smsLink.href = "sms:+19015792262?&body=" + encodeURIComponent(prepared);
+
+        wrap.classList.add("hidden");
+        success.classList.remove("hidden");
+        success.focus({ preventScroll: true });
+        success.scrollIntoView({ behavior: "smooth", block: "center" });
+        if (mobileBar) mobileBar.classList.add("hidden");
+      });
+
+      form.addEventListener("input", function (event) {
+        if (event.target.name && rules[event.target.name]) setError(event.target.name, "");
+      });
+
+      /* Hide the sticky bar while typing so it never covers the keyboard area */
+      form.addEventListener("focusin", function () {
+        if (mobileBar && window.innerWidth < 768) mobileBar.classList.add("translate-y-full");
+      });
+      form.addEventListener("focusout", function () {
+        window.setTimeout(function () {
+          if (mobileBar && !form.contains(document.activeElement) && !success.classList.contains("hidden")) return;
+          if (mobileBar && !form.contains(document.activeElement)) mobileBar.classList.remove("translate-y-full");
+        }, 120);
+      });
+
+      copyBtn.addEventListener("click", function () {
+        if (!prepared) return;
+        var done = function () {
+          copyStatus.textContent = "Details copied. Paste them into a text or email.";
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(prepared).then(done, done);
+        } else {
+          var area = document.createElement("textarea");
+          area.value = prepared;
+          document.body.appendChild(area);
+          area.select();
+          try { document.execCommand("copy"); } catch (e) {}
+          document.body.removeChild(area);
+          done();
+        }
+      });
+
+      resetBtn.addEventListener("click", function () {
+        success.classList.add("hidden");
+        wrap.classList.remove("hidden");
+        form.reset();
+        clearErrors();
+        copyStatus.textContent = "";
+        if (mobileBar) mobileBar.classList.remove("hidden", "translate-y-full");
+        form.elements.name.focus();
+      });
+
+      /* Year */
+      var year = $("#year");
+      if (year) year.textContent = String(new Date().getFullYear());
+    })();
+  </script>
+</body>
+</html>

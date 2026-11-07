@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#0B1522" />
+  <title>Demo: Ace Bonding Company | 24/7 Bail Bonds in Downtown Memphis</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bartlettwebsitedesign.online/demos/ace-bonding/">
+<meta property="og:title" content="Website demo for Ace Bonding Company · Bartlett Website Design">
+<meta property="og:description" content="A 24/7 bail bond site for downtown Memphis: call or text dispatch, a clear bond process and directions to the office.">
+<meta property="og:image" content="https://bartlettwebsitedesign.online/assets/og/demo-ace-bonding.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Website demo for Ace Bonding Company · Bartlett Website Design">
+<meta name="twitter:description" content="A 24/7 bail bond site for downtown Memphis: call or text dispatch, a clear bond process and directions to the office.">
+<meta name="twitter:image" content="https://bartlettwebsitedesign.online/assets/og/demo-ace-bonding.jpg">
+  <meta name="description" content="Ace Bonding Company of Memphis provides 24/7 bail bonds, fast release assistance, warrant check guidance, and confidential consultations in downtown Memphis. Call (901) 576-2233." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      background: #F7F5F0;
+      color: #222;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+    ::selection { background: #C9A24B; color: #0B1522; }
+
+    section[id] { scroll-margin-top: 92px; }
+
+    .hero-grid {
+      background-image:
+        linear-gradient(rgba(201,162,75,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,162,75,.07) 1px, transparent 1px);
+      background-size: 72px 72px;
+      -webkit-mask-image: radial-gradient(ellipse at 75% 45%, #000 10%, transparent 72%);
+      mask-image: radial-gradient(ellipse at 75% 45%, #000 10%, transparent 72%);
+    }
+    .hero-glow {
+      background: radial-gradient(circle at 78% 38%, rgba(201,162,75,.22), transparent 46%);
+    }
+    .big-247 {
+      font-family: "Archivo", sans-serif;
+      font-weight: 800;
+      letter-spacing: -.06em;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(201,162,75,.16);
+      line-height: .8;
+      user-select: none;
+    }
+    .gold-rule {
+      height: 1px;
+      background: linear-gradient(90deg, #C9A24B, rgba(201,162,75,0));
+    }
+
+    .header-shell { transition: box-shadow .3s ease, background-color .3s ease; }
+    .header-shell.is-stuck {
+      background: rgba(255,255,255,.97);
+      box-shadow: 0 14px 34px -26px rgba(11,21,34,.65);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1);
+    }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    .pulse-dot { position: relative; }
+    .pulse-dot::after {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: 999px;
+      border: 1px solid rgba(201,162,75,.7);
+      animation: pulse 2.2s ease-out infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(.7); opacity: .8; }
+      80%, 100% { transform: scale(1.6); opacity: 0; }
+    }
+
+    .service-card { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+    .service-card:hover { transform: translateY(-4px); border-color: rgba(201,162,75,.7); box-shadow: 0 24px 48px -30px rgba(11,21,34,.5); }
+    .service-card:hover .service-icon { background: #C9A24B; color: #0B1522; border-color: #C9A24B; }
+
+    input, textarea, select { font: inherit; }
+    .field-input {
+      width: 100%;
+      min-height: 50px;
+      padding: 12px 14px;
+      border: 1px solid #D6CFC1;
+      border-radius: 4px;
+      background: #fff;
+      color: #0B1522;
+      font-size: 16px;
+      transition: border-color .15s ease, box-shadow .15s ease;
+    }
+    .field-input::placeholder { color: #9A958B; }
+    .field-input:focus {
+      outline: none;
+      border-color: #C9A24B;
+      box-shadow: 0 0 0 3px rgba(201,162,75,.18);
+    }
+    .field-input[aria-invalid="true"] {
+      border-color: #B00020;
+      background: #FFF9F9;
+    }
+    .field-error { display: none; margin-top: 5px; font-size: 12.5px; font-weight: 600; color: #B00020; }
+    .field-error.is-visible { display: block; }
+
+    .btn-primary {
+      background: #C9A24B;
+      color: #0B1522;
+      box-shadow: 0 14px 30px -16px rgba(201,162,75,.8);
+      transition: background-color .18s ease, transform .18s ease;
+    }
+    .btn-primary:hover { background: #DCB762; }
+    .btn-primary:active { transform: translateY(1px); }
+    .btn-outline-light {
+      border: 1px solid rgba(255,255,255,.28);
+      color: #fff;
+      transition: border-color .18s ease, background-color .18s ease;
+    }
+    .btn-outline-light:hover { border-color: rgba(255,255,255,.7); background: rgba(255,255,255,.06); }
+
+    .link-arrow svg { transition: transform .2s ease; }
+    .link-arrow:hover svg { transform: translateX(3px); }
+
+    .no-scroll { overflow: hidden; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .pulse-dot::after { animation: none; }
+      *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+    }
+  </style>
+</head>
+
+<body class="font-sans">
+<div class="bwd-demo-bar" role="note" style="position:relative;z-index:9999;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 14px;padding:8px 14px;background:#0b1b3a;color:#cfd9ec;font:500 13px/1.4 system-ui,-apple-system,'Segoe UI',sans-serif;text-align:center"><span><b style="color:#fff;font-weight:600">Demo site</b> built by <a href="/" style="color:#fff;text-decoration:underline">Bartlett Website Design</a>. Not the business's official website. Some details are placeholders until confirmed with the owner.</span><a href="/demos/" style="color:#9cc2ff;font-weight:600;text-decoration:none">&larr; All demos</a></div>
+
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white">Skip to content</a>
+
+  <!-- ================= HEADER ================= -->
+  <header id="site-header" class="header-shell sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur-md">
+    <div class="mx-auto flex h-[76px] max-w-site items-center gap-4 px-4 sm:px-6 lg:px-8">
+      <a href="#top" class="flex shrink-0 items-center gap-3">
+        <span class="grid h-10 w-10 place-items-center rounded-sm bg-ink text-gold ring-1 ring-gold/40">
+          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3 4.5 6v6.2c0 4.2 3 7.2 7.5 8.8 4.5-1.6 7.5-4.6 7.5-8.8V6L12 3Z"/>
+            <path d="m8.6 11.8 2.2 2.2 4.6-4.6"/>
+          </svg>
+        </span>
+        <span class="leading-none">
+          <span class="block font-display text-[18px] font-extrabold uppercase tracking-[0.06em] text-ink">Ace Bonding</span>
+          <span class="mt-1 block text-[8.5px] font-semibold uppercase tracking-[0.22em] text-body/55">Company of Memphis</span>
+        </span>
+      </a>
+
+      <nav class="ml-auto hidden items-center gap-7 lg:flex" aria-label="Primary">
+        <a href="#services" class="text-[13px] font-semibold text-body transition hover:text-ink">Services</a>
+        <a href="#why" class="text-[13px] font-semibold text-body transition hover:text-ink">Why Ace</a>
+        <a href="#location" class="text-[13px] font-semibold text-body transition hover:text-ink">Location</a>
+        <a href="#contact" class="text-[13px] font-semibold text-body transition hover:text-ink">Contact</a>
+      </nav>
+
+      <div class="ml-auto flex items-center gap-2.5 lg:ml-8">
+        <a href="tel:+19015762233" class="hidden h-11 items-center gap-2 rounded-sm bg-ink px-4 text-[12px] font-bold text-white transition hover:bg-navy sm:inline-flex">
+          <svg viewBox="0 0 24 24" class="h-4 w-4 text-gold" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6.1 6.1l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+          Call Now: (901) 576-2233
+        </a>
+
+        <a href="tel:+19015762233" class="grid h-11 w-11 place-items-center rounded-sm bg-ink text-gold sm:hidden" aria-label="Call Ace Bonding at (901) 576-2233">
+          <svg viewBox="0 0 24 24" class="h-[18px] w-[18px]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6.1 6.1l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+        </a>
+
+        <button id="menu-toggle" type="button" class="grid h-11 w-11 place-items-center rounded-sm border border-line text-ink lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden border-t border-line bg-white lg:hidden">
+      <nav class="mx-auto max-w-site px-4 py-2 sm:px-6" aria-label="Mobile navigation">
+        <a href="#services" data-menu-link class="flex items-center justify-between border-b border-line py-3.5 font-display text-[16px] font-semibold text-ink">Services <span class="text-gold">→</span></a>
+        <a href="#why" data-menu-link class="flex items-center justify-between border-b border-line py-3.5 font-display text-[16px] font-semibold text-ink">Why Ace <span class="text-gold">→</span></a>
+        <a href="#location" data-menu-link class="flex items-center justify-between border-b border-line py-3.5 font-display text-[16px] font-semibold text-ink">Location <span class="text-gold">→</span></a>
+        <a href="#contact" data-menu-link class="flex items-center justify-between border-b border-line py-3.5 font-display text-[16px] font-semibold text-ink">Request a Callback <span class="text-gold">→</span></a>
+        <div class="mt-4 grid gap-2 pb-2">
+          <a href="tel:+19015762233" class="inline-flex h-12 items-center justify-center gap-2 rounded-sm bg-ink text-[12px] font-bold text-white">
+            Call 24/7: (901) 576-2233
+          </a>
+          <a href="sms:+19015762233" class="inline-flex h-12 items-center justify-center rounded-sm border border-line text-[12px] font-bold text-ink">
+            Text Dispatch
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <span id="top"></span>
+
+    <!-- ================= HERO ================= -->
+    <section class="relative isolate overflow-hidden bg-ink text-white">
+      <div class="absolute inset-0 -z-10 hero-grid" aria-hidden="true"></div>
+      <div class="absolute inset-0 -z-10 hero-glow" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute -right-24 top-1/2 -z-10 hidden -translate-y-1/2 select-none lg:block" aria-hidden="true">
+        <span class="big-247 text-[290px]">24/7</span>
+      </div>
+
+      <div class="mx-auto grid max-w-site gap-12 px-4 pb-16 pt-14 sm:px-6 sm:pb-20 sm:pt-16 lg:grid-cols-[1.12fr_.88fr] lg:items-center lg:gap-16 lg:px-8 lg:pb-24 lg:pt-20">
+        <div class="max-w-[640px]">
+          <div class="inline-flex items-center gap-2.5 rounded-full border border-gold/30 bg-gold/[0.07] px-3.5 py-1.5">
+            <span class="relative flex h-2 w-2">
+              <span class="pulse-dot absolute inline-flex h-2 w-2 rounded-full bg-gold"></span>
+              <span class="relative inline-flex h-2 w-2 rounded-full bg-gold"></span>
+            </span>
+            <span class="text-[10px] font-bold uppercase tracking-[0.18em] text-gold">Open now · 24 hours a day</span>
+          </div>
+
+          <h1 class="mt-6 font-display text-[clamp(44px,6vw,76px)] font-extrabold leading-[0.95] tracking-[-0.03em] text-white">
+            Bail bonds, answered<br class="hidden sm:block" />
+            <span class="text-gold">around the clock.</span>
+          </h1>
+
+          <p class="mt-6 max-w-[560px] text-[16px] leading-[1.7] text-white/72 sm:text-[17px]">
+            Ace Bonding Company helps families in downtown Memphis move through the bond
+            process — day or night, with discretion and a clear explanation of every step.
+          </p>
+
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="tel:+19015762233" class="inline-flex h-[54px] items-center justify-center gap-2.5 rounded-sm btn-primary px-7 text-[13px] font-extrabold uppercase tracking-[0.1em]">
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6.1 6.1l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+              Call 24/7 Dispatch
+            </a>
+            <a href="sms:+19015762233" class="inline-flex h-[54px] items-center justify-center gap-2.5 rounded-sm btn-outline-light px-7 text-[13px] font-extrabold uppercase tracking-[0.1em]">
+              <svg viewBox="0 0 24 24" class="h-4 w-4 text-gold" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.4 9 9 0 0 1-3.9-.9L3 21l2-5.1a8.3 8.3 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3 8.4 8.4 0 0 1 21 11.5Z"/></svg>
+              Get Immediate Help
+            </a>
+          </div>
+
+          <div class="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11.5px] text-white/50">
+            <span class="inline-flex items-center gap-1.5"><span class="h-1 w-1 rounded-full bg-gold"></span> 45 N 3rd St, Downtown Memphis</span>
+            <span class="inline-flex items-center gap-1.5"><span class="h-1 w-1 rounded-full bg-gold"></span> Minutes from the courts</span>
+            <span class="inline-flex items-center gap-1.5"><span class="h-1 w-1 rounded-full bg-gold"></span> Confidential</span>
+          </div>
+        </div>
+
+        <!-- Dispatch card -->
+        <div class="relative">
+          <div class="absolute -inset-3 rounded-md border border-gold/15" aria-hidden="true"></div>
+          <div class="relative rounded-md border border-white/12 bg-white/[0.04] p-6 backdrop-blur-sm sm:p-7">
+            <div class="flex items-center justify-between gap-3 border-b border-white/10 pb-4">
+              <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-gold">24/7 dispatch</p>
+              <span class="inline-flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-300">
+                <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span> Answering now
+              </span>
+            </div>
+
+            <a href="tel:+19015762233" class="mt-5 block font-display text-[34px] font-extrabold leading-none tracking-[-0.02em] text-white transition hover:text-gold sm:text-[38px]">
+              (901) 576-2233
+            </a>
+            <p class="mt-2 text-[12px] text-white/55">Call or text. A person answers, day or night.</p>
+
+            <ol class="mt-6 space-y-3.5 border-t border-white/10 pt-5">
+              <li class="flex gap-3">
+                <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full border border-gold/40 text-[10px] font-bold text-gold">1</span>
+                <p class="text-[13px] leading-snug text-white/75"><strong class="text-white">Tell us what happened.</strong> We explain the bond amount and what the jail requires.</p>
+              </li>
+              <li class="flex gap-3">
+                <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full border border-gold/40 text-[10px] font-bold text-gold">2</span>
+                <p class="text-[13px] leading-snug text-white/75"><strong class="text-white">We start the paperwork.</strong> You review the terms before anything is signed.</p>
+              </li>
+              <li class="flex gap-3">
+                <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full border border-gold/40 text-[10px] font-bold text-gold">3</span>
+                <p class="text-[13px] leading-snug text-white/75"><strong class="text-white">The jail sets release timing.</strong> We stay on it and keep you updated.</p>
+              </li>
+            </ol>
+
+            <div class="mt-6 grid grid-cols-2 gap-2 border-t border-white/10 pt-4 text-[10px] uppercase tracking-[0.12em] text-white/45">
+              <span>Open 24 hours</span>
+              <span class="text-right">Downtown Memphis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TRUST BAR ================= -->
+    <section aria-label="Credentials" class="relative z-10 border-b border-line bg-white">
+      <div class="mx-auto grid max-w-site grid-cols-2 gap-px bg-line lg:grid-cols-4">
+        <div class="flex items-center gap-3 bg-white px-4 py-4 sm:px-6 sm:py-5">
+          <span class="text-gold" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5l1.1-6.5L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+          </span>
+          <div>
+            <p class="text-[13px] font-bold text-ink">5.0-star rated</p>
+            <p class="text-[11px] text-body/60">Client feedback</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 bg-white px-4 py-4 sm:px-6 sm:py-5">
+          <span class="text-gold" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+          </span>
+          <div>
+            <p class="text-[13px] font-bold text-ink">Licensed professionals</p>
+            <p class="text-[11px] text-body/60">Regulated bonding</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 bg-white px-4 py-4 sm:px-6 sm:py-5">
+          <span class="text-gold" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M9 21v-5H7l1.5-5.5A2 2 0 0 1 10.4 9h3.2a2 2 0 0 1 1.9 1.5L17 16h-2v5"/><path d="M6 21h12"/></svg>
+          </span>
+          <div>
+            <p class="text-[13px] font-bold text-ink">Wheelchair accessible</p>
+            <p class="text-[11px] text-body/60">Ground-floor office</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 bg-white px-4 py-4 sm:px-6 sm:py-5">
+          <span class="text-gold" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 17V7h4.5a3 3 0 0 1 0 6H9"/></svg>
+          </span>
+          <div>
+            <p class="text-[13px] font-bold text-ink">On-site parking</p>
+            <p class="text-[11px] text-body/60">Easy downtown access</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SERVICES ================= -->
+    <section id="services" class="bg-paper py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          <div class="reveal max-w-2xl" data-reveal>
+            <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-gold">What we handle</p>
+            <h2 class="mt-3 font-display text-[clamp(32px,4.2vw,48px)] font-extrabold leading-[1.02] tracking-[-0.025em] text-ink">
+              Clear help, without the runaround.
+            </h2>
+          </div>
+          <p class="reveal max-w-sm text-[14px] leading-relaxed text-body/70" data-reveal>
+            Every case starts with a phone call and a straight explanation of the bond,
+            the paperwork, and what happens next.
+          </p>
+        </div>
+
+        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="service-card reveal flex flex-col rounded-md border border-line bg-white p-6" data-reveal>
+            <span class="service-icon grid h-11 w-11 place-items-center rounded-sm border border-line bg-paper text-ink transition">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg>
+            </span>
+            <h3 class="mt-5 min-h-[48px] font-display text-[20px] font-bold leading-tight text-ink">Fast Release Assistance</h3>
+            <p class="mt-2.5 flex-1 text-[13.5px] leading-relaxed text-body/70">
+              We start the bond paperwork as soon as you call and coordinate with the jail.
+              Release timing is set by the facility, not by us.
+            </p>
+            <a href="tel:+19015762233" class="link-arrow mt-5 inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.1em] text-gold">
+              Start the process
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+
+          <article class="service-card reveal flex flex-col rounded-md border border-line bg-white p-6" data-reveal>
+            <span class="service-icon grid h-11 w-11 place-items-center rounded-sm border border-line bg-paper text-ink transition">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </span>
+            <h3 class="mt-5 min-h-[48px] font-display text-[20px] font-bold leading-tight text-ink">24/7 Jail Bonds</h3>
+            <p class="mt-2.5 flex-1 text-[13.5px] leading-relaxed text-body/70">
+              Bonds written at any hour for eligible detainees. We'll tell you the amount
+              the court has set and what the jail requires to process it.
+            </p>
+            <a href="tel:+19015762233" class="link-arrow mt-5 inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.1em] text-gold">
+              Call dispatch
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+
+          <article class="service-card reveal flex flex-col rounded-md border border-line bg-white p-6" data-reveal>
+            <span class="service-icon grid h-11 w-11 place-items-center rounded-sm border border-line bg-paper text-ink transition">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6l1 3h3v15H5V6h3l1-3Z"/><path d="M9 12h6M9 16h4"/></svg>
+            </span>
+            <h3 class="mt-5 min-h-[48px] font-display text-[20px] font-bold leading-tight text-ink">Warrant Check Guidance</h3>
+            <p class="mt-2.5 flex-1 text-[13.5px] leading-relaxed text-body/70">
+              Not sure whether there is a warrant? We explain how to check with the court
+              and what to do next. We do not give legal advice.
+            </p>
+            <a href="#contact" class="link-arrow mt-5 inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.1em] text-gold">
+              Ask a question
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+
+          <article class="service-card reveal flex flex-col rounded-md border border-line bg-white p-6" data-reveal>
+            <span class="service-icon grid h-11 w-11 place-items-center rounded-sm border border-line bg-paper text-ink transition">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3Z"/><path d="M9.5 12h5"/></svg>
+            </span>
+            <h3 class="mt-5 min-h-[48px] font-display text-[20px] font-bold leading-tight text-ink">Confidential Consultations</h3>
+            <p class="mt-2.5 flex-1 text-[13.5px] leading-relaxed text-body/70">
+              Private conversations about your situation, the bond, and the process —
+              in the office or by phone. No judgment, no pressure.
+            </p>
+            <a href="#contact" class="link-arrow mt-5 inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.1em] text-gold">
+              Request a callback
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+        </div>
+
+        <p class="mt-6 text-center text-[11px] text-body/50">
+          Ace Bonding Company is a bail bonding agency, not a law firm. We do not provide legal advice.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= WHY / LOCATION ================= -->
+    <section id="why" class="border-y border-line bg-white py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-12 lg:grid-cols-[1.05fr_.95fr] lg:gap-16">
+          <div class="reveal" data-reveal>
+            <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-gold">Why Ace</p>
+            <h2 class="mt-3 font-display text-[clamp(32px,4.2vw,46px)] font-extrabold leading-[1.03] tracking-[-0.025em] text-ink">
+              Local knowledge.<br />A steady hand.
+            </h2>
+            <p class="mt-5 max-w-[540px] text-[15px] leading-[1.75] text-body/75">
+              A bond is stressful enough without being treated like a case number. We are
+              based in downtown Memphis, minutes from the courts, and we answer the phone
+              at 3 a.m. the same way we do at 3 p.m. — calmly, privately, and with a clear
+              explanation of what happens next.
+            </p>
+
+            <ul class="mt-7 grid gap-4">
+              <li class="flex items-start gap-3">
+                <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-gold/10 text-gold">
+                  <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+                </span>
+                <div>
+                  <p class="text-[14px] font-bold text-ink">Downtown, near the courts</p>
+                  <p class="text-[13px] leading-relaxed text-body/65">45 N 3rd St, Suite 107 — a short walk from the Shelby County courts and jail complex.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-gold/10 text-gold">
+                  <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+                </span>
+                <div>
+                  <p class="text-[14px] font-bold text-ink">Answered 24 hours a day</p>
+                  <p class="text-[13px] leading-relaxed text-body/65">Nights, weekends, and holidays. Call or text and a person responds.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-gold/10 text-gold">
+                  <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+                </span>
+                <div>
+                  <p class="text-[14px] font-bold text-ink">Discreet by default</p>
+                  <p class="text-[13px] leading-relaxed text-body/65">Your business stays private. We discuss details only with the people you authorize.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-gold/10 text-gold">
+                  <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+                </span>
+                <div>
+                  <p class="text-[14px] font-bold text-ink">Accessible and easy to reach</p>
+                  <p class="text-[13px] leading-relaxed text-body/65">Ground-floor, wheelchair-accessible office with on-site parking.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Location card -->
+          <div id="location" class="reveal scroll-mt-28" data-reveal>
+            <div class="overflow-hidden rounded-md border border-line bg-ink text-white shadow-[0_30px_60px_-40px_rgba(11,21,34,.7)]">
+              <!-- Stylized downtown map -->
+              <div class="relative h-[220px] overflow-hidden bg-navy2" aria-hidden="true">
+                <svg viewBox="0 0 520 220" class="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice">
+                  <defs>
+                    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+                      <path d="M44 0H0V44" fill="none" stroke="#C9A24B" stroke-opacity=".12" stroke-width="1"/>
+                    </pattern>
+                  </defs>
+                  <rect width="520" height="220" fill="url(#grid)"/>
+                  <path d="M-20 150 L540 96" stroke="#C9A24B" stroke-opacity=".28" stroke-width="8"/>
+                  <path d="M80 -20 L130 240" stroke="#C9A24B" stroke-opacity=".22" stroke-width="6"/>
+                  <path d="M340 -20 L300 240" stroke="#C9A24B" stroke-opacity=".16" stroke-width="4"/>
+                  <path d="M-20 60 L540 40" stroke="#ffffff" stroke-opacity=".08" stroke-width="3"/>
+                  <text x="118" y="138" fill="#C9A24B" fill-opacity=".55" font-family="Inter, sans-serif" font-size="9" letter-spacing="2">MADISON AVE</text>
+                  <text x="352" y="206" fill="#ffffff" fill-opacity=".35" font-family="Inter, sans-serif" font-size="9" letter-spacing="2">3RD ST</text>
+                  <circle cx="300" cy="104" r="26" fill="#C9A24B" fill-opacity=".12"/>
+                  <circle cx="300" cy="104" r="14" fill="#C9A24B" fill-opacity=".2"/>
+                  <circle cx="300" cy="104" r="6" fill="#C9A24B"/>
+                </svg>
+                <div class="absolute left-4 top-4 rounded-sm border border-white/15 bg-ink/80 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.16em] text-gold backdrop-blur">
+                  Downtown Memphis
+                </div>
+              </div>
+
+              <div class="p-6 sm:p-7">
+                <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-gold">Office</p>
+                <p class="mt-2 font-display text-[24px] font-bold leading-tight text-white">
+                  45 N 3rd St, Suite 107<br />Memphis, TN 38103
+                </p>
+
+                <dl class="mt-5 space-y-3 border-t border-white/10 pt-5 text-[12.5px]">
+                  <div class="flex items-center justify-between gap-4">
+                    <dt class="text-white/50">Hours</dt>
+                    <dd class="font-semibold text-white">Open 24 hours</dd>
+                  </div>
+                  <div class="flex items-center justify-between gap-4">
+                    <dt class="text-white/50">Phone</dt>
+                    <dd><a href="tel:+19015762233" class="font-semibold text-white hover:text-gold">(901) 576-2233</a></dd>
+                  </div>
+                  <div class="flex items-center justify-between gap-4">
+                    <dt class="text-white/50">Parking</dt>
+                    <dd class="text-white/80">On-site</dd>
+                  </div>
+                  <div class="flex items-center justify-between gap-4">
+                    <dt class="text-white/50">Access</dt>
+                    <dd class="text-white/80">Wheelchair accessible</dd>
+                  </div>
+                </dl>
+
+                <a href="https://www.google.com/maps/search/?api=1&query=45+N+3rd+St+%23107+Memphis+TN+38103" target="_blank" rel="noopener" class="mt-6 inline-flex h-11 w-full items-center justify-center gap-2 rounded-sm border border-gold/50 text-[11px] font-bold uppercase tracking-[0.12em] text-gold transition hover:bg-gold hover:text-ink">
+                  <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                  Get directions
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="bg-paper py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-10 lg:grid-cols-[.85fr_1.15fr] lg:gap-16">
+          <div class="reveal" data-reveal>
+            <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-gold">Non-urgent inquiries</p>
+            <h2 class="mt-3 font-display text-[clamp(30px,4vw,44px)] font-extrabold leading-[1.03] tracking-[-0.025em] text-ink">
+              Request a callback.
+            </h2>
+            <p class="mt-4 max-w-md text-[14.5px] leading-[1.75] text-body/75">
+              Tell us how to reach you and a little about the situation. We'll call back
+              with the bond information and the next step. For an active arrest, call
+              dispatch directly — it is faster.
+            </p>
+
+            <div class="mt-7 rounded-md border border-gold/30 bg-white p-5">
+              <p class="text-[10px] font-bold uppercase tracking-[0.16em] text-gold">Need help right now?</p>
+              <a href="tel:+19015762233" class="mt-1.5 block font-display text-[30px] font-extrabold leading-none text-ink transition hover:text-gold">(901) 576-2233</a>
+              <p class="mt-1 text-[12px] text-body/60">Open 24 hours · Call or text</p>
+              <a href="sms:+19015762233" class="mt-3 inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.1em] text-gold">
+                Text dispatch instead →
+              </a>
+            </div>
+
+            <ul class="mt-7 space-y-2.5 text-[12.5px] text-body/65">
+              <li class="flex gap-2"><span class="text-gold">·</span> 45 N 3rd St, Suite 107, Memphis, TN 38103</li>
+              <li class="flex gap-2"><span class="text-gold">·</span> On-site parking · Wheelchair accessible</li>
+              <li class="flex gap-2"><span class="text-gold">·</span> Conversations are confidential</li>
+            </ul>
+          </div>
+
+          <div class="reveal rounded-md border border-line bg-white p-6 shadow-[0_24px_60px_-45px_rgba(11,21,34,.6)] sm:p-8" data-reveal>
+            <div id="form-wrap">
+              <div class="flex items-start justify-between gap-4 border-b border-line pb-4">
+                <div>
+                  <p class="text-[10px] font-bold uppercase tracking-[0.16em] text-gold">Callback request</p>
+                  <h3 class="mt-1 font-display text-[24px] font-bold leading-tight text-ink">Tell us what's happening.</h3>
+                </div>
+                <span class="grid h-9 w-9 shrink-0 place-items-center rounded-sm border border-gold/40 bg-gold/10 text-gold" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+                </span>
+              </div>
+
+              <form id="callback-form" class="mt-5 grid gap-4" novalidate>
+                <div class="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label for="name" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.1em] text-body">Name</label>
+                    <input id="name" name="name" type="text" autocomplete="name" class="field-input" placeholder="First and last" aria-describedby="name-error" />
+                    <p class="field-error" id="name-error" data-error-for="name"></p>
+                  </div>
+                  <div>
+                    <label for="phone" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.1em] text-body">Phone</label>
+                    <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" class="field-input" placeholder="(901) 000-0000" aria-describedby="phone-error" />
+                    <p class="field-error" id="phone-error" data-error-for="phone"></p>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="details" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.1em] text-body">Details</label>
+                  <textarea id="details" name="details" rows="4" class="field-input" style="min-height:120px;resize:vertical" placeholder="Who is being held, where, and what you already know about the bond." aria-describedby="details-error"></textarea>
+                  <p class="field-error" id="details-error" data-error-for="details"></p>
+                </div>
+
+                <div class="alert hidden rounded-sm border border-red-200 border-l-4 border-l-red-600 bg-red-50 px-4 py-3 text-[13px] text-red-800" id="form-alert" role="alert" aria-live="assertive">
+                  <strong>Please check the highlighted fields.</strong>
+                  <span id="form-alert-detail">Your entries are still here.</span>
+                </div>
+
+                <button type="submit" class="inline-flex h-[52px] items-center justify-center gap-2 rounded-sm btn-primary px-6 text-[12px] font-extrabold uppercase tracking-[0.12em]">
+                  Request a Callback
+                  <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </button>
+                <p class="text-center text-[10.5px] leading-relaxed text-body/50">
+                  This form prepares a text message to our 24/7 line. Nothing is sent until you press send in your messaging app.
+                </p>
+              </form>
+            </div>
+
+            <div id="form-success" class="hidden" tabindex="-1" role="status" aria-live="polite">
+              <div class="flex items-start gap-3 border-b border-line pb-4">
+                <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-emerald-50 text-emerald-700">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+                </span>
+                <div>
+                  <h3 class="font-display text-[24px] font-bold leading-tight text-ink">Demo only: nothing was sent.</h3>
+                  <p class="mt-1 text-[13px] leading-relaxed text-body/70">This is a demo site. The buttons below reach Ace Bonding Company directly at (901) 576-2233.</p>
+                </div>
+              </div>
+
+              <div class="mt-5 grid gap-2.5">
+                <a id="sms-link" href="sms:+19015762233" class="inline-flex h-[50px] items-center justify-center gap-2 rounded-sm btn-primary px-5 text-[12px] font-extrabold uppercase tracking-[0.1em]">
+                  <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.4 9 9 0 0 1-3.9-.9L3 21l2-5.1a8.3 8.3 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3 8.4 8.4 0 0 1 21 11.5Z"/></svg>
+                  Send by text
+                </a>
+                <a href="tel:+19015762233" class="inline-flex h-[50px] items-center justify-center gap-2 rounded-sm border border-line bg-white px-5 text-[12px] font-extrabold uppercase tracking-[0.1em] text-ink transition hover:border-ink">
+                  Call (901) 576-2233
+                </a>
+                <button type="button" id="copy-request" class="inline-flex h-[44px] items-center justify-center rounded-sm text-[11px] font-bold uppercase tracking-[0.12em] text-body/60 transition hover:text-ink">
+                  Copy details instead
+                </button>
+              </div>
+
+              <p id="copy-status" class="mt-2 text-center text-[11px] text-emerald-700" role="status" aria-live="polite"></p>
+              <button type="button" id="form-reset" class="mt-3 w-full text-center text-[11px] font-semibold text-body/50 underline underline-offset-2 hover:text-ink">
+                Start over
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-ink pb-10 pt-14 text-white/60">
+    <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr]">
+        <div>
+          <div class="flex items-center gap-3">
+            <span class="grid h-10 w-10 place-items-center rounded-sm bg-gold text-ink">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4.5 6v6.2c0 4.2 3 7.2 7.5 8.8 4.5-1.6 7.5-4.6 7.5-8.8V6L12 3Z"/><path d="m8.6 11.8 2.2 2.2 4.6-4.6"/></svg>
+            </span>
+            <div>
+              <p class="font-display text-[18px] font-extrabold uppercase tracking-[0.06em] text-white">Ace Bonding</p>
+              <p class="text-[8.5px] font-semibold uppercase tracking-[0.22em] text-gold">Company of Memphis</p>
+            </div>
+          </div>
+          <p class="mt-5 max-w-xs text-[12.5px] leading-relaxed">
+            Bail bonds and release assistance in downtown Memphis. Answered 24 hours a day,
+            with discretion and a clear explanation of every step.
+          </p>
+          <a href="tel:+19015762233" class="mt-5 inline-flex h-11 items-center gap-2 rounded-sm bg-gold px-5 text-[11px] font-extrabold uppercase tracking-[0.1em] text-ink transition hover:bg-gold2">
+            Call Now: (901) 576-2233
+          </a>
+        </div>
+
+        <div>
+          <h3 class="text-[10px] font-bold uppercase tracking-[0.18em] text-white/35">Services</h3>
+          <ul class="mt-4 space-y-2.5 text-[12.5px]">
+            <li><a href="#services" class="transition hover:text-white">Fast release assistance</a></li>
+            <li><a href="#services" class="transition hover:text-white">24/7 jail bonds</a></li>
+            <li><a href="#services" class="transition hover:text-white">Warrant check guidance</a></li>
+            <li><a href="#services" class="transition hover:text-white">Confidential consultations</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-[10px] font-bold uppercase tracking-[0.18em] text-white/35">Contact</h3>
+          <ul class="mt-4 space-y-3 text-[12.5px]">
+            <li><a href="tel:+19015762233" class="text-[15px] font-bold text-white transition hover:text-gold">(901) 576-2233</a></li>
+            <li>45 N 3rd St, Suite 107<br />Memphis, TN 38103</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&query=45+N+3rd+St+%23107+Memphis+TN+38103" target="_blank" rel="noopener" class="underline underline-offset-2 transition hover:text-white">Get directions</a></li>
+            <li class="text-emerald-300/80">Open 24 hours · 7 days</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-[10px] font-bold uppercase tracking-[0.18em] text-white/35">Before you call</h3>
+          <p class="mt-4 text-[12px] leading-relaxed">
+            Have the person's full name, date of birth, and the jail or facility if you know it.
+            A co-signer may be required. Bring a government-issued ID.
+          </p>
+          <p class="mt-3 text-[11.5px] text-gold/80">Se habla español? Call and ask.</p>
+        </div>
+      </div>
+
+      <div class="mt-10 border-t border-white/10 pt-6">
+        <p class="max-w-4xl text-[10px] leading-relaxed text-white/35">
+          Ace Bonding Company of Memphis is a bail bonding agency, not a law firm. We do not
+          provide legal advice or represent anyone in court. Bond amounts, eligibility, and
+          release times are determined by the court and the detention facility. A bail bond is
+          a contract — read it before signing. Terms are subject to applicable Tennessee law.
+          This site is for general information and does not create an attorney-client relationship.
+        </p>
+        <div class="mt-4 flex flex-col gap-2 text-[10px] text-white/35 sm:flex-row sm:items-center sm:justify-between">
+          <p>© <span id="year">2026</span> Ace Bonding Company of Memphis. All rights reserved.</p>
+          <p>45 N 3rd St #107, Memphis, TN 38103 · (901) 576-2233</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile action bar -->
+  <div id="mobile-bar" class="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-2 border-t border-line bg-white/97 p-2.5 backdrop-blur transition duration-300 md:hidden">
+    <a href="tel:+19015762233" class="inline-flex h-12 items-center justify-center gap-2 rounded-sm bg-ink text-[11px] font-bold uppercase tracking-[0.08em] text-white">
+      <svg viewBox="0 0 24 24" class="h-4 w-4 text-gold" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6.1 6.1l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+      Call 24/7
+    </a>
+    <a href="sms:+19015762233" class="inline-flex h-12 items-center justify-center gap-2 rounded-sm border border-line bg-paper text-[11px] font-bold uppercase tracking-[0.08em] text-ink">
+      <svg viewBox="0 0 24 24" class="h-4 w-4 text-gold" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.4 9 9 0 0 1-3.9-.9L3 21l2-5.1a8.3 8.3 0 0 1-.9-3.8A8.4 8.4 0 0 1 12.5 3 8.4 8.4 0 0 1 21 11.5Z"/></svg>
+      Text Us
+    </a>
+  </div>
+  <div class="h-[72px] md:hidden" aria-hidden="true"></div>
+
+  <noscript><style>[data-reveal]{opacity:1 !important;transform:none !important;}</style></noscript>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var $ = function (s, r) { return (r || document).querySelector(s); };
+      var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+      /* Header shadow */
+      var header = $("#site-header");
+      var stuck = false;
+      function onScroll() {
+        var next = window.scrollY > 6;
+        if (next !== stuck) { header.classList.toggle("is-stuck", next); stuck = next; }
+      }
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+
+      /* Mobile menu */
+      var menu = $("#mobile-menu");
+      var toggle = $("#menu-toggle");
+      function setMenu(open) {
+        menu.classList.toggle("hidden", !open);
+        toggle.setAttribute("aria-expanded", String(open));
+        toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      }
+      toggle.addEventListener("click", function () { setMenu(menu.classList.contains("hidden")); });
+      $$("[data-menu-link]").forEach(function (link) {
+        link.addEventListener("click", function () { setMenu(false); });
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") setMenu(false);
+      });
+      window.addEventListener("resize", function () {
+        if (window.innerWidth >= 1024) setMenu(false);
+      });
+
+      /* Reveal */
+      var items = $$("[data-reveal]");
+      if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0, rootMargin: "0px 0px -40px 0px" });
+        items.forEach(function (el) { io.observe(el); });
+      } else {
+        items.forEach(function (el) { el.classList.add("is-visible"); });
+      }
+
+      /* Form */
+      var form = $("#callback-form");
+      var wrap = $("#form-wrap");
+      var success = $("#form-success");
+      var alertBox = $("#form-alert");
+      var alertDetail = $("#form-alert-detail");
+      var smsLink = $("#sms-link");
+      var copyBtn = $("#copy-request");
+      var copyStatus = $("#copy-status");
+      var resetBtn = $("#form-reset");
+      var prepared = "";
+
+      var rules = {
+        name: function (v) {
+          return v.trim().length >= 2 ? "" : "Please enter your name.";
+        },
+        phone: function (v) {
+          var digits = v.replace(/\D/g, "");
+          if (!digits) return "Please enter a phone number.";
+          if (digits.length < 10) return "Enter a 10-digit phone number.";
+          return "";
+        },
+        details: function (v) {
+          return v.trim().length >= 10 ? "" : "Give us a sentence or two about the situation.";
+        }
+      };
+
+      function setError(name, message) {
+        var field = form.elements[name];
+        var el = document.querySelector('[data-error-for="' + name + '"]');
+        if (el) {
+          el.textContent = message || "";
+          el.classList.toggle("is-visible", Boolean(message));
+        }
+        if (field) field.setAttribute("aria-invalid", message ? "true" : "false");
+      }
+
+      function clearErrors() {
+        Object.keys(rules).forEach(function (name) { setError(name, ""); });
+        alertBox.classList.add("hidden");
+      }
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        clearErrors();
+
+        var errors = {};
+        Object.keys(rules).forEach(function (name) {
+          var message = rules[name](form.elements[name].value || "");
+          if (message) { errors[name] = message; setError(name, message); }
+        });
+
+        var keys = Object.keys(errors);
+        if (keys.length) {
+          form.elements[keys[0]].focus();
+          alertDetail.textContent = "Your entries are still here. Fix the field above and try again.";
+          alertBox.classList.remove("hidden");
+          return;
+        }
+
+        var name = form.elements.name.value.trim();
+        var phone = form.elements.phone.value.trim();
+        var details = form.elements.details.value.trim();
+
+        prepared =
+          "Callback request — Ace Bonding\n" +
+          "Name: " + name + "\n" +
+          "Phone: " + phone + "\n" +
+          "Details: " + details;
+
+        smsLink.href = "sms:+19015762233?&body=" + encodeURIComponent(prepared);
+
+        wrap.classList.add("hidden");
+        success.classList.remove("hidden");
+        success.focus({ preventScroll: true });
+        success.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+
+      form.addEventListener("input", function (event) {
+        if (event.target.name && rules[event.target.name]) {
+          setError(event.target.name, "");
+        }
+      });
+
+      copyBtn.addEventListener("click", function () {
+        if (!prepared) return;
+        var done = function () {
+          copyStatus.textContent = "Details copied. Paste them into a text or email.";
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(prepared).then(done, done);
+        } else {
+          var area = document.createElement("textarea");
+          area.value = prepared;
+          document.body.appendChild(area);
+          area.select();
+          try { document.execCommand("copy"); } catch (e) {}
+          document.body.removeChild(area);
+          done();
+        }
+      });
+
+      resetBtn.addEventListener("click", function () {
+        success.classList.add("hidden");
+        wrap.classList.remove("hidden");
+        form.reset();
+        clearErrors();
+        copyStatus.textContent = "";
+        form.elements.name.focus();
+      });
+
+      /* Keep the mobile bar away from focused form fields */
+      var mobileBar = $("#mobile-bar");
+      form.addEventListener("focusin", function () {
+        if (mobileBar) { mobileBar.classList.add("translate-y-full", "pointer-events-none"); }
+      });
+      form.addEventListener("focusout", function () {
+        window.setTimeout(function () {
+          if (mobileBar && !form.contains(document.activeElement)) {
+            mobileBar.classList.remove("translate-y-full", "pointer-events-none");
+          }
+        }, 120);
+      });
+
+      /* Year */
+      var year = $("#year");
+      if (year) year.textContent = String(new Date().getFullYear());
+    })();
+  </script>
+</body>
+</html>
