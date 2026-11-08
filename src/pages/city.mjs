@@ -14,7 +14,7 @@ export default (c, slug, city) => {
   const areaLinks = areas.map(([s, n]) => `<li><a class="inline-block rounded-full border px-4 py-2 text-sm font-semibold transition ${s === slug ? "border-blue-500 bg-blue-600 text-white" : "border-slate-700 text-slate-200 hover:border-blue-500 hover:text-white"}" href="/${s}/"${s === slug ? ' aria-current="page"' : ""}>${n}</a></li>`).join("");
   return c.shell(`
 <main id="main">
-  <section class="relative overflow-hidden bg-gradient-to-b from-[#143fc5]/25 via-slate-950 to-slate-950 px-4 pb-14 pt-10 sm:px-6 sm:pt-14 lg:px-8 lg:pb-20" aria-labelledby="hero-title">
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand/25 via-slate-950 to-slate-950 px-4 pb-14 pt-10 sm:px-6 sm:pt-14 lg:px-8 lg:pb-20" aria-labelledby="hero-title">
     <div class="mx-auto max-w-6xl">
       <p class="text-sm text-slate-400"><a class="link" href="/">Home</a> &rsaquo; Website design in ${city.name}</p>
       <p class="mt-6 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-300">${ic("pin", "w-3.5 h-3.5")}${city.name}, TN</p>

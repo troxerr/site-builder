@@ -7,7 +7,7 @@ function simple(c, { pill = "", h1, lede, steps = [], buttons, after = "" }) {
   const items = steps.map(([t, d], i) => `<li class="flex gap-3"><span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-blue-600 font-display text-xs font-extrabold">${i + 1}</span><span><b class="block text-white">${t}</b>${d}</span></li>`).join("");
   return c.shell(`
 <main id="main">
-  <section class="relative overflow-hidden bg-gradient-to-b from-[#143fc5]/25 via-slate-950 to-slate-950 px-4 py-20 sm:px-6 sm:py-28 lg:px-8" aria-labelledby="pg-title">
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand/25 via-slate-950 to-slate-950 px-4 py-20 sm:px-6 sm:py-28 lg:px-8" aria-labelledby="pg-title">
     <div class="mx-auto max-w-2xl text-center">
       ${pill ? `<p class="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-300">${pill}</p>` : ""}
       <h1 id="pg-title" class="font-display text-4xl font-extrabold tracking-tight sm:text-6xl">${h1}</h1>

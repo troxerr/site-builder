@@ -5,7 +5,7 @@ const TEL = `tel:${site.phone.tel}`, PHONE = site.phone.display;
 
 export default (c) => c.shell(`
 <main id="main">
-  <section class="relative overflow-hidden bg-gradient-to-b from-[#143fc5]/25 via-slate-950 to-slate-950 px-4 pb-10 pt-12 sm:px-6 sm:pt-16 lg:px-8" aria-labelledby="pg-title">
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand/25 via-slate-950 to-slate-950 px-4 pb-10 pt-12 sm:px-6 sm:pt-16 lg:px-8" aria-labelledby="pg-title">
     <div class="mx-auto max-w-6xl">
       <p class="text-sm text-slate-400"><a class="link" href="/">Home</a> &rsaquo; Website demos</p>
       <p class="kicker mt-6">Website demos</p>

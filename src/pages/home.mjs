@@ -7,7 +7,7 @@ ${c.top}
   <span id="top"></span>
 
   <!-- HERO -->
-  <section class="relative overflow-hidden bg-gradient-to-b from-[#143fc5]/25 via-slate-950 to-slate-950 px-4 pb-16 pt-8 sm:px-6 sm:pt-20 lg:px-8 lg:pb-24 lg:pt-24" aria-labelledby="hero-title">
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand/25 via-slate-950 to-slate-950 px-4 pb-16 pt-8 sm:px-6 sm:pt-20 lg:px-8 lg:pb-24 lg:pt-24" aria-labelledby="hero-title">
     <div class="pointer-events-none absolute left-1/2 top-1/3 h-[350px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/10 blur-[150px]" aria-hidden="true"></div>
     <div class="relative z-10 mx-auto max-w-5xl text-center">
       <p class="mb-4 hidden items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-3.5 py-1.5 sm:mb-6 sm:inline-flex text-xs font-semibold uppercase tracking-wider text-blue-300"><span class="h-2 w-2 rounded-full bg-blue-400 motion-safe:animate-pulse" aria-hidden="true"></span>Free draft before you pay &bull; No long-term contracts</p>

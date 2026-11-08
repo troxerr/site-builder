@@ -1,7 +1,7 @@
 // The dental-office landing page (missed-call booking agent).
 export default (c) => c.shell(`
 <main id="main">
-  <section class="relative overflow-hidden bg-gradient-to-b from-[#143fc5]/25 via-slate-950 to-slate-950 px-4 pb-16 pt-12 sm:px-6 sm:pt-16 lg:px-8 lg:pb-24" aria-labelledby="hero-title">
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand/25 via-slate-950 to-slate-950 px-4 pb-16 pt-12 sm:px-6 sm:pt-16 lg:px-8 lg:pb-24" aria-labelledby="hero-title">
     <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-[1.15fr_1fr]">
       <div>
         <p class="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-300"><svg class="icon w-3.5 h-3.5" aria-hidden="true"><use href="#i-tooth"/></svg>Dental offices &middot; Bartlett, Memphis &amp; the Mid-South</p>

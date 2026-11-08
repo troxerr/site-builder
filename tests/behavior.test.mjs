@@ -195,3 +195,17 @@ test("demos page: industry chips filter the list, and without JavaScript every d
   assert.equal(await noJs.locator("#demo-filter").isVisible(), false, "chips stay hidden without JS");
   await noJs.context().close();
 });
+
+test("scroll reveal: below-the-fold sections fade in for normal motion, and show immediately with reduced motion", async () => {
+  for (const [reducedMotion, expectReveal] of [["no-preference", true], ["reduce", false]]) {
+    const ctx = await env.browser.newContext({ viewport: { width: 1280, height: 800 }, reducedMotion });
+    const page = await ctx.newPage();
+    await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
+    assert.equal((await page.locator("main > section > .reveal").count()) > 0, expectReveal, `reducedMotion=${reducedMotion}`);
+    if (expectReveal) {
+      await page.locator("#faq").scrollIntoViewIfNeeded();
+      await page.waitForFunction(() => document.querySelector("#faq .reveal.is-in, #faq.reveal.is-in, #faq > .is-in"), null, { timeout: 3000 });
+    }
+    await ctx.close();
+  }
+});
