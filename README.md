@@ -44,7 +44,11 @@ The first 3 website clients get $100 off (Starter $250, Business $850). In retur
 
 ## Adding a demo
 
-1. Put the site in `demos/<slug>/` with the dark "Demo site" bar right after `<body>` (copy it from any demo), `<meta name="robots" content="noindex, follow">`, and no canonical, `og:url` or structured data that claims to be the business.
-2. Screenshot its first screen at 1120×700 and save `assets/work/demo-<slug>.webp`, plus a 560×350 copy as `assets/work/demo-<slug>-sm.webp`. Cards load the small one through `srcset`.
-3. Screenshot it at 1200×630 and save `assets/og/demo-<slug>.jpg`, then add the link-preview tags after its `<title>` (copy the block from any demo). The `og:title` says it's a demo, and `og:url` is its bartlettwebsitedesign.online address. This is the card people see when you text the link.
-4. Add a record to `src/data/demos.json` (the optional `city` and `home` objects put it on a city page or in the homepage's random pool) and run `npm run build`. The demos page shuffles itself.
+Run one command with the finished site in a folder:
+
+```
+node tools/new-demo.mjs <slug> <folder> --name "Business Name" --type "Roofing · Bartlett" \
+  --what "What the demo shows." --category building --chip "Live demo" --chip "5 pages"
+```
+
+It copies the site to `demos/<slug>/`, adds the "Demo site" bar and `noindex` to every page, removes any canonical, adds link-preview tags, makes the card thumbnails (`assets/work/`) and the 1200×630 preview (`assets/og/`), adds the record to `src/data/demos.json` and rebuilds. Then add `/demos/<slug>/` to `tests/url-contract.json`, run `npm test` and commit. A demo must not claim to be the business: no canonical, `og:url` pointing off-site, or structured data with the business's URL. The optional `city` and `home` objects in the record put the demo on a city page or in the homepage's random pool.
