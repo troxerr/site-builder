@@ -27,7 +27,7 @@ Needs Node 22 (`.nvmrc`). Setup once: `npm ci`, then `npx playwright install chr
 | `npm run serve` | Serves the site locally at http://127.0.0.1:8080 with the same headers and 404 page as the host |
 | `npm run lint` | Validates the HTML |
 | `npm test` | Links, SEO tags, accessibility, forms, headers, deploy contents and the URL contract |
-| `npm run test:live` | Checks the deployed site (all contract URLs, headers, console errors). GitHub runs it weekly too (`.github/workflows/live-check.yml`), with `node tools/csp-check.mjs` |
+| `npm run test:live` | Checks the deployed site (all contract URLs, headers, console errors) (run it, and `node tools/csp-check.mjs`, after a deploy; GitHub's runners get blocked by Cloudflare, so it isn't scheduled there) |
 | `npm run snapshot -- before` / `after`, then `npm run snapshot:compare` | Pixel-compares every main page at three widths before and after a refactor |
 | `node tools/demo-contrast.mjs`, `node tools/demo-labels.mjs` | Fix demo contrast and label-name failures axe finds (the demo test requires zero at 375 and 1280 px) |
 
