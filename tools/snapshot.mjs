@@ -22,7 +22,7 @@ async function take(name) {
   const site = await createSite();
   const browser = await launch();
   for (const width of WIDTHS) {
-    const ctx = await browser.newContext({ viewport: { width, height: 900 }, reducedMotion: "reduce", deviceScaleFactor: 1 });
+    const ctx = await browser.newContext({ viewport: { width, height: 900 }, reducedMotion: "reduce", deviceScaleFactor: 1, bypassCSP: true });
     await stubExternal(ctx, site.url);
     await ctx.addInitScript(seedRandom());
     for (const path of FIRST_PARTY) {

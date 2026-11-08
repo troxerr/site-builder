@@ -164,3 +164,15 @@ test("demos page lists every demo and shuffles", async () => {
   assert.ok(orders.size > 1);
   await page.context().close();
 });
+
+test("phone first screen (375×667): headline and both buttons sit above the sticky call bar", async () => {
+  const page = await env.newPage({ width: 375, height: 667 });
+  await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
+  const barTop = await page.locator(".mobile-bar").evaluate((el) => el.getBoundingClientRect().top);
+  assert.ok(await page.locator("h1").evaluate((el) => el.getBoundingClientRect().top) < 300, "headline near the top");
+  for (const label of ["Get my free draft", "Drag the before & after"]) {
+    const bottom = await page.locator("main a.btn", { hasText: label }).first().evaluate((el) => el.getBoundingClientRect().bottom);
+    assert.ok(bottom <= barTop, `"${label}" ends at ${Math.round(bottom)}px, but the call bar starts at ${Math.round(barTop)}px`);
+  }
+  await page.context().close();
+});

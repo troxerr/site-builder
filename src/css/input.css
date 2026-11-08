@@ -8,6 +8,8 @@
   b,strong{font-weight:600}
   .icon{display:inline-block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
   :focus-visible{outline:3px solid #7dd3fc;outline-offset:2px}
+  h1,h2,h3{text-wrap:balance}
+  p,li{text-wrap:pretty}
 }
 @layer components{
   .skip{@apply sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:font-semibold focus:text-slate-950}
@@ -33,5 +35,11 @@
 @media (max-width:1023px){
   .nav-panel.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#143fc5;border-bottom:1px solid #1e40af;padding:8px 16px 16px}
   .nav-panel.open a{padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.12)}
+}
+@media (prefers-reduced-motion:no-preference){
+  /* FAQ answers slide open (progressive: browsers without ::details-content just snap, as before) */
+  details{interpolate-size:allow-keywords}
+  details::details-content{block-size:0;overflow:clip;transition:block-size .25s ease,content-visibility .25s allow-discrete}
+  details[open]::details-content{block-size:auto}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.slide-anim,.mobile-bar{transition:none}}

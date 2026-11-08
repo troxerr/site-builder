@@ -7,22 +7,22 @@ ${c.top}
   <span id="top"></span>
 
   <!-- HERO -->
-  <section class="relative overflow-hidden bg-gradient-to-b from-[#143fc5]/25 via-slate-950 to-slate-950 px-4 pb-16 pt-14 sm:px-6 sm:pt-20 lg:px-8 lg:pb-24 lg:pt-24" aria-labelledby="hero-title">
+  <section class="relative overflow-hidden bg-gradient-to-b from-[#143fc5]/25 via-slate-950 to-slate-950 px-4 pb-16 pt-8 sm:px-6 sm:pt-20 lg:px-8 lg:pb-24 lg:pt-24" aria-labelledby="hero-title">
     <div class="pointer-events-none absolute left-1/2 top-1/3 h-[350px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/10 blur-[150px]" aria-hidden="true"></div>
     <div class="relative z-10 mx-auto max-w-5xl text-center">
-      <p class="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-300"><span class="h-2 w-2 rounded-full bg-blue-400 motion-safe:animate-pulse" aria-hidden="true"></span>Free draft before you pay &bull; No long-term contracts</p>
-      <h1 id="hero-title" class="font-display text-[2.4rem] font-extrabold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">Websites &amp; instant text-back that turn missed calls into <span class="bg-gradient-to-r from-blue-400 via-sky-300 to-white bg-clip-text text-transparent">booked jobs.</span></h1>
-      <p class="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-300 sm:text-xl">You don't need an award-winning design. You need a fast site that works on a phone, and a text-back that answers when you're on a roof, under a hood or with a customer. I'm Austin, and I build both here in Bartlett.</p>
-      <div class="mx-auto mt-8 flex max-w-2xl items-start gap-4 rounded-2xl border border-blue-500/30 bg-blue-500/10 p-5 text-left">
-        <span class="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-blue-600 font-display text-lg font-extrabold" aria-hidden="true">$0</span>
-        <div><p class="font-display font-extrabold text-white">See a free working draft of your site before you pay.</p><p class="mt-1 text-sm text-slate-300">Send me a few details and I'll build a real, clickable draft with your name, services and hours in 2&ndash;3 days. Love it, then we talk price. Don't, and you owe nothing. No deposit, no card.</p></div>
-      </div>
-${c.founding.hero}
-      <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <p class="mb-4 hidden items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-3.5 py-1.5 sm:mb-6 sm:inline-flex text-xs font-semibold uppercase tracking-wider text-blue-300"><span class="h-2 w-2 rounded-full bg-blue-400 motion-safe:animate-pulse" aria-hidden="true"></span>Free draft before you pay &bull; No long-term contracts</p>
+      <h1 id="hero-title" class="font-display text-[2.1rem] font-extrabold leading-[1.08] sm:text-[2.4rem] tracking-tight sm:text-6xl lg:text-7xl">Websites &amp; instant <span class="whitespace-nowrap">text-back</span> that turn missed calls into <span class="bg-gradient-to-r from-blue-400 via-sky-300 to-white bg-clip-text text-transparent">booked jobs.</span></h1>
+      <p class="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-slate-300 sm:mt-6 sm:text-xl">You don't need an award-winning design. You need a fast site that works on a phone, and a text-back that answers when you're on a roof, under a hood or with a customer.<span class="hidden sm:inline"> I'm Austin, and I build both here in Bartlett.</span></p>
+      <div class="mt-6 flex flex-col items-center justify-center gap-3 sm:mt-8 sm:flex-row">
         <a class="btn btn-primary btn-lg w-full sm:w-auto" href="#contact">Get my free draft<svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <a class="btn btn-dark btn-lg w-full sm:w-auto" href="#showcase">Drag the before &amp; after &darr;</a>
       </div>
       <p class="mt-4 text-sm text-slate-400">Or call or text <a class="link font-semibold text-white" href="tel:+19013210023">(901) 321-0023</a>. It reaches me directly, and I reply within one business day.</p>
+      <div class="mx-auto mt-10 flex max-w-2xl items-start gap-4 rounded-2xl border border-blue-500/30 bg-blue-500/10 p-5 text-left">
+        <span class="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-blue-600 font-display text-lg font-extrabold" aria-hidden="true">$0</span>
+        <div><p class="font-display font-extrabold text-white">See a free working draft of your site before you pay.</p><p class="mt-1 text-sm text-slate-300">Send me a few details and I'll build a real, clickable draft with your name, services and hours in 2&ndash;3 days. Love it, then we talk price. Don't, and you owe nothing. No deposit, no card.</p></div>
+      </div>
+${c.founding.hero}
       <ul class="mt-12 grid grid-cols-2 gap-4 border-t border-slate-800 pt-8 text-sm font-semibold text-slate-300 md:grid-cols-4">
         <li class="flex items-center justify-center gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg>Built in Bartlett</li>
         <li class="flex items-center justify-center gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg>Missed-call text-back</li>
