@@ -19,6 +19,7 @@ const ui = await import(pathToFileURL(src("lib/ui.mjs")));
 const { head, structuredData, SITE_URL } = await import(pathToFileURL(src("lib/head.mjs")));
 const { default: home } = await import(pathToFileURL(src("pages/home.mjs")));
 const { default: dental } = await import(pathToFileURL(src("pages/dental.mjs")));
+const { default: bailBonds, intakeFaqs, homeCard: intakeCard } = await import(pathToFileURL(src("pages/bail-bonds.mjs")));
 const { default: city, cityFaqs } = await import(pathToFileURL(src("pages/city.mjs")));
 const { default: demosPage } = await import(pathToFileURL(src("pages/demos.mjs")));
 const { notFound, thanks, thanksAgent } = await import(pathToFileURL(src("pages/simple.mjs")));
@@ -37,7 +38,7 @@ const money = ui.money;
 function context(p) {
   const scripts = [`<script defer src="{{JS:site}}"></script>`, p.js && `<script defer src="{{JS:${p.js}}}"></script>`, BEACON].filter(Boolean).join("\n");
   const top = `${spriteFor(p)}\n<a class="skip" href="#main">Skip to content</a>\n${partial(p.sprite === "dental" ? "dental-header.html" : "header.html")}`;
-  const bar = p.bar === false ? "" : partial(p.sprite === "dental" ? "dental-mobile-bar.html" : "mobile-bar.html");
+  const bar = p.bar === false ? "" : partial(p.barFile ?? (p.sprite === "dental" ? "dental-mobile-bar.html" : "mobile-bar.html"));
   const bottom = `${partial("footer.html")}\n\n${bar}`;
   const c = {
     head: head(p), top, bottom, scripts,
@@ -46,6 +47,7 @@ function context(p) {
     card: { starter: founding.card("starter"), business: founding.card("business") },
     attr: { starter: FOUNDING_ATTR("starter"), business: FOUNDING_ATTR("business") },
     planOptions: planOptions(), faqItems: faqDetails(faqEntries(), { indent: "        " }),
+    intakeCard: intakeCard(),
     demoPool: demos.filter((d) => d.home).sort((a, b) => a.home.order - b.home.order).map(demoHomeCard).join("\n"), demoCount: demos.length,
   };
   c.shell = (body) => `${c.head}\n<body class="bg-slate-950 font-sans text-white antialiased selection:bg-blue-600 selection:text-white">\n${c.top}\n${body}\n${c.bottom}\n\n${c.scripts}\n</body>\n</html>\n`;
@@ -67,6 +69,12 @@ const defs = [
     ogTitle: "Missed calls, booked · for dental offices",
     ogDescription: "Missed calls get a text back within a minute and are booked into your schedule. Anything urgent goes straight to your team.",
     ogImage: "/assets/og-dental.png", ld: structuredData.dental() },
+  { path: "/bail-bonds/", out: "bail-bonds/index.html", js: "bail-bonds", barFile: "bail-bonds-mobile-bar.html", indexable: true, render: bailBonds,
+    title: "After-Hours Call Intake for Bail Bonds | Bartlett Website Design",
+    description: "An AI intake assistant for Memphis-area bail bond offices: answers after-hours calls, collects the details and texts you the lead. 14-day free trial.",
+    ogTitle: "Every after-hours call, answered in seconds · for bail bond offices",
+    ogDescription: "An AI intake assistant that answers when you can't, collects the details and sends the lead to you. Try it free for 14 days.",
+    ld: structuredData.intake(intakeFaqs()) },
   { path: "/demos/", out: "demos/index.html", js: "demos", indexable: true, render: demosPage,
     title: "Website Demos for Memphis Businesses | Bartlett Website Design",
     description: "Click through live website demos for Memphis-area vets, contractors, salons, auto shops, roofers, groomers, property managers and dental offices." },
@@ -102,7 +110,7 @@ function buildCss(pages) {
 async function buildJs() {
   const contact = { phone: site.phone.display, tel: site.phone.tel, email: site.email };
   const res = await esbuild.build({
-    entryPoints: Object.fromEntries(["site", "home", "dental", "demos"].map((n) => [n, src("js", `${n}.js`)])),
+    entryPoints: Object.fromEntries(["site", "home", "dental", "demos", "bail-bonds"].map((n) => [n, src("js", `${n}.js`)])),
     bundle: true, minify: true, format: "iife", target: "es2019", write: false, outdir: "out", legalComments: "none",
     define: { __CONTACT__: JSON.stringify(contact) },
   });
@@ -147,7 +155,7 @@ export async function build() {
   for (const [n, buf] of Object.entries(js)) write(jsPaths[n].slice(1), buf);
   const sitemapXml = sitemap(pages);
   for (const p of pages) {
-    write(p.out, p.html.replace("{{CSS}}", cssPath).replace(/\{\{JS:(\w+)\}\}/g, (_, n) => jsPaths[n]));
+    write(p.out, p.html.replace("{{CSS}}", cssPath).replace(/\{\{JS:([\w-]+)\}\}/g, (_, n) => jsPaths[n]));
   }
   write("sitemap.xml", sitemapXml);
   sweep("assets/css", /^site\..*\.css$/);

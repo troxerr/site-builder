@@ -11,7 +11,7 @@
     "build": "node tools/build.mjs",
     "build:check": "npm run build && git diff --exit-code && test -z \"$(git ls-files --others --exclude-standard)\"",
     "serve": "node tools/serve.mjs",
-    "lint": "html-validate index.html dental/ demos/index.html bartlett/ memphis/ germantown/ cordova/ arlington/ lakeland/ thanks/ 404.html",
+    "lint": "html-validate index.html dental/ bail-bonds/ demos/index.html bartlett/ memphis/ germantown/ cordova/ arlington/ lakeland/ thanks/ 404.html",
     "test": "node --test --test-concurrency=2 \"tests/**/*.test.mjs\"",
     "test:live": "node tools/live-check.mjs",
     "snapshot": "node tools/snapshot.mjs",

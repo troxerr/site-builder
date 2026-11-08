@@ -273,6 +273,7 @@ ${c.founding.banner}
         <div class="max-w-2xl"><p class="text-xs font-semibold uppercase tracking-wider text-blue-400">For appointment-based offices</p><p class="mt-1 font-display text-xl font-extrabold">Missed-call booking agent</p><p class="mt-2 text-sm text-slate-400">Text-back plus real booking: it offers open times and books into your calendar, with a front-desk summary for every booking and urgent requests handed to a person.</p></div>
         <div class="shrink-0 lg:text-right"><p class="font-display text-3xl font-extrabold">$1,500 <span class="font-sans text-base font-normal text-slate-400">setup</span></p><p class="font-display text-xl font-extrabold text-slate-200">+ $1,000 <span class="font-sans text-base font-normal text-slate-400">/ month</span></p><a class="btn btn-dark mt-4" href="#contact" data-plan="Missed-call booking agent ($1,500 setup + $1,000/mo)">Ask about the agent</a></div>
       </div>
+      ${c.intakeCard}
       <p class="mx-auto mt-8 max-w-4xl rounded-2xl border border-slate-800 bg-slate-900/50 p-5 text-sm leading-relaxed text-slate-300">For a one-time website, you pay <strong class="text-white">after</strong> you approve your draft, and your only running cost is the domain, <strong class="text-white">about $10 to $12 a year</strong>. Monthly plans are month to month, and I confirm the price in writing before anything starts. On Website + text-back, the $497 setup is due only once you approve your draft.</p>
     </div>
   </section>

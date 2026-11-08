@@ -63,7 +63,7 @@ test("every first-party page shares one stylesheet and loads only hashed scripts
   }
   assert.equal(sheets.size, 1, `pages link different stylesheets: ${[...sheets]}`);
   assert.match([...sheets][0], /^\/assets\/css\/site\.[0-9a-f]{10}\.css$/);
-  assert.ok(scripts.every((s) => /^\/assets\/js\/[a-z]+\.[0-9a-f]{10}\.js$/.test(s)), "scripts are content-hashed");
+  assert.ok(scripts.every((s) => /^\/assets\/js\/[a-z-]+\.[0-9a-f]{10}\.js$/.test(s)), "scripts are content-hashed");
   const css = shipped.find((f) => f.rel === [...sheets][0].slice(1));
   assert.ok(css && css.size <= 45 * 1024, "stylesheet over 45 KB");
   for (const f of shipped.filter((f) => f.rel.startsWith("assets/js/"))) assert.ok(f.size <= 8 * 1024, `${f.rel} over 8 KB`);

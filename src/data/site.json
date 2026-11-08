@@ -14,7 +14,11 @@
   "founding": {
     "spotsLeft": 3,
     "of": 3,
-    "discount": 100
+    "discount": 100,
+    "intake": {
+      "spotsLeft": 3,
+      "of": 3
+    }
   },
   "pricing": {
     "starter": 350,
@@ -28,6 +32,19 @@
     "agent": {
       "setup": 1500,
       "monthly": 1000
+    },
+    "intake": {
+      "monthly": 197,
+      "founding": 147,
+      "lockMonths": 12,
+      "trialDays": 14
     }
+  },
+  "intakeDemo": {
+    "phone": {
+      "display": "(901) 426-1079",
+      "tel": "+19014261079"
+    },
+    "video": "https://youtu.be/NGK7OTP_72E"
   }
 }

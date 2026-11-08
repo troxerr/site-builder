@@ -209,3 +209,14 @@ test("scroll reveal: below-the-fold sections fade in for normal motion, and show
     await ctx.close();
   }
 });
+
+test("bail-bonds form sends the lead and lands on the booking-agent thanks page", async () => {
+  const { page, sent } = await pageWithForm();
+  await page.goto(env.site.url + "/bail-bonds/", { waitUntil: "networkidle" });
+  await fillAndSend(page, { business: "Test Bonding Co" });
+  await page.waitForURL("**/thanks/booking-agent/");
+  assert.equal(sent.length, 1);
+  assert.equal(sent[0].subject, "Bail bond assistant inquiry: Test Bonding Co");
+  assert.match(sent[0].plan, /Bail bond intake assistant/);
+  await page.context().close();
+});

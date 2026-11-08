@@ -1,5 +1,5 @@
 // <head> and structured data (JSON-LD). Everything here is derived from src/data so it can't drift from the page text.
-import { site, areas, faqEntries, faqJsonLd, money } from "./ui.mjs";
+import { site, areas, faqEntries, faqJsonLd, money, intake } from "./ui.mjs";
 
 export const SITE_URL = site.url;
 const P = site.pricing;
@@ -36,6 +36,12 @@ export const structuredData = {
     areaServed: areas.map(([, n]) => `${n}, TN`), audience: { "@type": "BusinessAudience", name: "Dental offices" },
     offers: offer("Missed-call booking agent", P.agent.setup, `One-time setup, then ${money(P.agent.monthly)} per month. No long-term contract.`),
   }],
+  intake: (faqs) => [{
+    "@context": "https://schema.org", "@type": "Service", name: "After-hours call intake assistant for bail bond offices",
+    serviceType: "AI call answering and lead intake", url: `${SITE_URL}/bail-bonds/`, provider,
+    areaServed: areas.map(([, n]) => `${n}, TN`), audience: { "@type": "BusinessAudience", name: "Bail bond offices" },
+    offers: { "@type": "Offer", price: String(intake.price()), priceCurrency: "USD", description: `Per month after a ${intake.trialDays}-day free trial. No contract.` },
+  }, faqJsonLd(faqs)],
   city: (slug, city, faqs) => [
     { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },

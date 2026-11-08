@@ -9,7 +9,7 @@ export const CITIES = ["bartlett", "memphis", "germantown", "cordova", "arlingto
 
 /** Pages built and maintained as part of the main site (not the demos). */
 export const FIRST_PARTY = [
-  "/", "/dental/", "/demos/",
+  "/", "/dental/", "/bail-bonds/", "/demos/",
   ...CITIES.map((c) => `/${c}/`),
   "/thanks/", "/thanks/booking-agent/", "/404.html",
 ];

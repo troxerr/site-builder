@@ -47,6 +47,16 @@ export const founding = {
   cityPrice: (key) => foundingActive() ? `<s class="mr-2 text-xl font-bold text-slate-500">${money(P[key])}</s>${money(fPrice(P[key]))}` : money(P[key]),
   cityNote: (cls = "") => foundingActive() ? `<p class="${cls} rounded-xl border border-amber-400/40 bg-amber-400/10 px-4 py-3 text-sm text-amber-100"><b class="text-white">Founding-client deal:</b> ${money(F.discount)} off any website for my first ${F.of} clients &middot; <b class="text-white">${spotsText()}</b> &middot; <a class="link font-semibold" href="/#founding">See the terms</a></p>` : "",
 };
+// ---------- the founding offer for the bail-bond intake assistant (its own counter, separate from the website deal) ----------
+const PI = site.pricing.intake;
+const FI = { ...F.intake, ...(process.env.FOUNDING_INTAKE_SPOTS ? { spotsLeft: Number(process.env.FOUNDING_INTAKE_SPOTS) } : {}) };
+export const intakeActive = () => FI.spotsLeft > 0;
+export const intake = {
+  regular: money(PI.monthly), founding: money(PI.founding), trialDays: PI.trialDays, lockMonths: PI.lockMonths, of: FI.of,
+  spots: () => `${FI.spotsLeft} of ${FI.of} spots left`,
+  /** The monthly price that applies today. */
+  price: () => (intakeActive() ? PI.founding : PI.monthly),
+};
 export const planOptions = () => [
   "Not sure yet", founding.plan("starter"), founding.plan("business"),
   `Care plan (${money(P.care)}/mo)`, `Missed-call text-back (${money(P.textback)}/mo)`,
