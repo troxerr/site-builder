@@ -176,3 +176,22 @@ test("phone first screen (375×667): headline and both buttons sit above the sti
   }
   await page.context().close();
 });
+
+test("demos page: industry chips filter the list, and without JavaScript every demo shows", async () => {
+  const page = await env.newPage({ width: 1280 });
+  await page.goto(env.site.url + "/demos/", { waitUntil: "networkidle" });
+  const visible = () => page.locator(".demo-list > li:visible").count();
+  assert.equal(await visible(), 23);
+  await page.click('[data-filter="pets"]');
+  assert.equal(await visible(), 5);
+  assert.equal(await page.getAttribute('[data-filter="pets"]', "aria-pressed"), "true");
+  assert.match(await page.textContent("#demo-count"), /Showing 5 demos/);
+  await page.click('[data-filter="all"]');
+  assert.equal(await visible(), 23);
+  await page.context().close();
+  const noJs = await (await env.browser.newContext({ javaScriptEnabled: false })).newPage();
+  await noJs.goto(env.site.url + "/demos/");
+  assert.equal(await noJs.locator(".demo-list > li:visible").count(), 23);
+  assert.equal(await noJs.locator("#demo-filter").isVisible(), false, "chips stay hidden without JS");
+  await noJs.context().close();
+});

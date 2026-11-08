@@ -1,1 +1,0 @@
-(()=>{function n(o){for(let r=o.length-1;r>0;r--){let l=Math.floor(Math.random()*(r+1));[o[r],o[l]]=[o[l],o[r]]}return o}var f=document.querySelector(".demo-list");f&&n([...f.children]).forEach(o=>f.appendChild(o));})();

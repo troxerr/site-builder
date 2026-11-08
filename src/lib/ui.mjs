@@ -60,6 +60,8 @@ export const faqDetails = (entries, { indent = "        " } = {}) => entries.map
   `${indent}<details class="group rounded-2xl border border-slate-800 bg-slate-900/80 open:border-blue-900/70"${i === 0 ? " open" : ""}><summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-display text-[17px] font-extrabold text-white">${f.q}<span class="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-slate-700 text-blue-400 transition group-open:rotate-45">${ic("plus", "w-4 h-4")}</span></summary><p class="px-5 pb-5 text-[15px] leading-relaxed text-slate-400">${f.a}</p></details>`).join("\n");
 export const faqJsonLd = (entries) => ({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: entries.map((f) => ({ "@type": "Question", name: plain(f.q), acceptedAnswer: { "@type": "Answer", text: plain(f.a) } })) });
 
+export const DEMO_CATEGORIES = [["building", "Roofing &amp; building"], ["services", "Local services"], ["pets", "Pets"], ["health", "Health"], ["property", "Property"], ["food", "Food &amp; beauty"], ["showcase", "Showcase"]];
+
 // ---------- demo cards ----------
 const DOTS = '<span class="mr-2 inline-flex gap-1 align-middle"><i class="h-2 w-2 rounded-full bg-slate-700"></i><i class="h-2 w-2 rounded-full bg-slate-700"></i><i class="h-2 w-2 rounded-full bg-slate-700"></i></span>';
 const browserBar = (url, dots = false) => `<div class="truncate border-b border-slate-800 bg-slate-950 px-3 py-2 font-mono text-[11px] text-slate-400" aria-hidden="true">${dots ? DOTS : ""}${url}</div>`;
@@ -74,7 +76,7 @@ export function demoPageCard(d) {
   const target = ext ? ' target="_blank" rel="noopener"' : "";
   const label = ext ? `Open site${ic("out", "w-4 h-4")}<span class="sr-only"> (opens in a new tab)</span>` : `Open demo${ic("arrow", "w-4 h-4")}`;
   const chips = d.chips.map((c, i) => `<span class="rounded-full border px-2.5 py-0.5 text-[11px] font-semibold ${i === 0 ? "border-blue-500/50 bg-blue-500/10 text-blue-200" : "border-slate-700 text-slate-300"}">${c}</span>`).join("");
-  return `      <li><a class="${CARD}" href="${link}"${target}>
+  return `      <li data-category="${d.category}"><a class="${CARD}" href="${link}"${target}>
         ${browserBar(url)}
         ${img(d.thumb, d.alt, "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 50vw, 380px")}
         <div class="flex flex-1 flex-col p-5">

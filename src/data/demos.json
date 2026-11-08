@@ -26,7 +26,8 @@
       "built": "Shows open or closed automatically, so staff stop answering &ldquo;are you open?&rdquo; calls",
       "chip": "Live demo",
       "order": 1
-    }
+    },
+    "category": "pets"
   },
   {
     "id": "jim-fields-plumbing",
@@ -55,7 +56,8 @@
       "built": "Five pages: services, about, contact and a service request form",
       "chip": "Live demo",
       "order": 2
-    }
+    },
+    "category": "services"
   },
   {
     "id": "linen-and-lark-salon",
@@ -84,7 +86,8 @@
       "built": "Live open or closed status and &ldquo;book with this stylist&rdquo; buttons",
       "chip": "Sample",
       "order": 3
-    }
+    },
+    "category": "food"
   },
   {
     "id": "reedy-company",
@@ -113,7 +116,8 @@
       "built": "Separate owner and tenant paths, pricing and FAQs",
       "chip": "Live demo",
       "order": 5
-    }
+    },
+    "category": "property"
   },
   {
     "id": "cedar-and-hickory-bbq",
@@ -133,7 +137,8 @@
       "type": "Restaurant · Sample business",
       "what": "Answers &ldquo;what&rsquo;s on the menu?&rdquo; before anyone calls, and brings in catering leads.",
       "chip": "Sample"
-    }
+    },
+    "category": "food"
   },
   {
     "id": "lynns-dog-house",
@@ -162,7 +167,8 @@
       "built": "Simple appointment request for people who'd rather not call",
       "chip": "Live demo",
       "order": 4
-    }
+    },
+    "category": "pets"
   },
   {
     "id": "the-groom-den",
@@ -182,7 +188,8 @@
       "type": "Mobile grooming · Bartlett, Lakeland &amp; Arlington",
       "what": "Explains driveway grooming and shows the service area, so the calls that come in are already a fit.",
       "chip": "Live demo"
-    }
+    },
+    "category": "pets"
   },
   {
     "id": "paws-n-motion",
@@ -202,7 +209,8 @@
       "type": "Mobile dog grooming · Bartlett &amp; Cordova",
       "what": "A ZIP code checker shows the travel fee up front, so nobody has to call to ask.",
       "chip": "Live demo"
-    }
+    },
+    "category": "pets"
   },
   {
     "id": "missed-call-booking-agent",
@@ -215,7 +223,8 @@
     "chips": [
       "Live demo",
       "Text-back booking"
-    ]
+    ],
+    "category": "health"
   },
   {
     "id": "waggles-stay-n-play",
@@ -228,7 +237,8 @@
     "chips": [
       "Live demo",
       "Own domain"
-    ]
+    ],
+    "category": "pets"
   },
   {
     "id": "broadmoor-property-management",
@@ -241,7 +251,8 @@
     "chips": [
       "Live demo",
       "4 pages"
-    ]
+    ],
+    "category": "property"
   },
   {
     "id": "castle-above-clouds",
@@ -254,7 +265,8 @@
     "chips": [
       "Showcase",
       "3D + animation"
-    ]
+    ],
+    "category": "showcase"
   },
   {
     "id": "effective-automotive",
@@ -283,7 +295,8 @@
       "built": "Symptom finder, price ranges and a digital inspection preview",
       "chip": "Live demo",
       "order": 6
-    }
+    },
+    "category": "services"
   },
   {
     "id": "prestige-baths",
@@ -312,7 +325,8 @@
       "built": "Free-estimate form and tap-to-text right up top",
       "chip": "Live demo",
       "order": 7
-    }
+    },
+    "category": "building"
   },
   {
     "id": "big-m-roofing",
@@ -341,7 +355,8 @@
       "built": "Phone number and inspection form on the first screen",
       "chip": "Live demo",
       "order": 8
-    }
+    },
+    "category": "building"
   },
   {
     "id": "summit-roofing",
@@ -363,7 +378,8 @@
       "built": "Live price slider and before-and-after photo comparison",
       "chip": "Sample",
       "order": 9
-    }
+    },
+    "category": "building"
   },
   {
     "id": "elite-roofing-solutions",
@@ -385,7 +401,8 @@
       "built": "Instant roof price check and an inspection form",
       "chip": "Live demo",
       "order": 10
-    }
+    },
+    "category": "building"
   },
   {
     "id": "aa-bail-bonds",
@@ -398,7 +415,8 @@
     "chips": [
       "Live demo",
       "24/7 call line"
-    ]
+    ],
+    "category": "services"
   },
   {
     "id": "ace-bonding",
@@ -411,7 +429,8 @@
     "chips": [
       "Live demo",
       "Call or text"
-    ]
+    ],
+    "category": "services"
   },
   {
     "id": "top-quality-roofing",
@@ -424,7 +443,8 @@
     "chips": [
       "Live demo",
       "Inspection form"
-    ]
+    ],
+    "category": "building"
   },
   {
     "id": "storm-front-roofing",
@@ -437,7 +457,8 @@
     "chips": [
       "Live demo",
       "24/7 storm line"
-    ]
+    ],
+    "category": "building"
   },
   {
     "id": "morris-general-construction",
@@ -457,7 +478,8 @@
       "type": "General contractor · Memphis",
       "what": "Spells out the process and itemized quotes, so homeowners request an estimate with confidence.",
       "chip": "Live demo"
-    }
+    },
+    "category": "building"
   },
   {
     "id": "dorsey-contracting",
@@ -477,6 +499,7 @@
       "type": "Remodeling · Germantown",
       "what": "Answers &ldquo;what will it cost and how long?&rdquo; up front, then takes estimate requests with photos.",
       "chip": "Live demo"
-    }
+    },
+    "category": "building"
   }
 ]

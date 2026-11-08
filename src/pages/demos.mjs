@@ -1,5 +1,5 @@
 // The demos page. Data: src/data/demos.json. The order is shuffled on every visit by src/js/demos.js.
-import { ic, HL, demos, demoPageCard, site } from "../lib/ui.mjs";
+import { ic, HL, demos, demoPageCard, site, DEMO_CATEGORIES } from "../lib/ui.mjs";
 
 const TEL = `tel:${site.phone.tel}`, PHONE = site.phone.display;
 
@@ -17,6 +17,11 @@ export default (c) => c.shell(`
 
   <section class="px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8" aria-label="All demos">
     <div class="mx-auto max-w-6xl">
+      <div id="demo-filter" hidden><div class="mb-8 flex flex-wrap gap-2" role="group" aria-label="Filter demos by industry">
+        <button type="button" class="chip is-active" data-filter="all" aria-pressed="true">All ${demos.length}</button>
+${DEMO_CATEGORIES.map(([k, n]) => `        <button type="button" class="chip" data-filter="${k}" aria-pressed="false">${n} ${demos.filter((d) => d.category === k).length}</button>`).join("\n")}
+      </div></div>
+      <p id="demo-count" class="sr-only" role="status" aria-live="polite"></p>
       <ul class="demo-list grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 ${demos.map(demoPageCard).join("")}      </ul>
       <div class="mt-14 flex flex-col gap-6 rounded-3xl border border-blue-900/50 bg-gradient-to-r from-blue-950/50 via-slate-900 to-slate-900 p-7 sm:p-10 lg:flex-row lg:items-center lg:justify-between">
