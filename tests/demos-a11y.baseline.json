@@ -1,8 +1,6 @@
 {
   "/demos/aa-bail-bonds/": {},
-  "/demos/ace-bonding/": {
-    "color-contrast (serious)": 14
-  },
+  "/demos/ace-bonding/": {},
   "/demos/big-m-roofing/": {},
   "/demos/broadmoor-property-management/": {},
   "/demos/broadmoor-property-management/about.html": {},
@@ -31,15 +29,9 @@
   "/demos/paws-n-motion/": {},
   "/demos/prestige-baths/": {},
   "/demos/reedy-company/": {},
-  "/demos/storm-front-roofing/": {
-    "color-contrast (serious)": 5
-  },
+  "/demos/storm-front-roofing/": {},
   "/demos/summer-avenue-animal-hospital/": {},
-  "/demos/summit-roofing/": {
-    "color-contrast (serious)": 12
-  },
+  "/demos/summit-roofing/": {},
   "/demos/the-groom-den/": {},
-  "/demos/top-quality-roofing/": {
-    "color-contrast (serious)": 35
-  }
+  "/demos/top-quality-roofing/": {}
 }

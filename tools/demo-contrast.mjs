@@ -36,7 +36,7 @@ for (const slug of slugs) {
   for (const path of pagesOf(slug)) {
     const rules = new Map(); // "selector|property" -> colour
     for (const width of [375, 1280]) {
-      const ctx = await browser.newContext({ viewport: { width, height: 900 }, bypassCSP: true }), page = await ctx.newPage();
+      const ctx = await browser.newContext({ viewport: { width, height: 900 }, bypassCSP: true, reducedMotion: "reduce" }), page = await ctx.newPage();
       await page.goto(site.url + path, { waitUntil: "networkidle" });
       // reveal-on-scroll sections only count once they have been scrolled into view
       await page.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 400) { scrollTo(0, y); await new Promise((r) => setTimeout(r, 60)); } scrollTo(0, 0); await new Promise((r) => setTimeout(r, 700)); });
