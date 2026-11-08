@@ -12,8 +12,7 @@ import { ROOT } from "./helpers.mjs";
 const LONG_TITLE = new Set([]);
 const LONG_DESCRIPTION = new Set([]);
 
-// The Broadmoor "homes" page loads the Leaflet map library from unpkg.com. It gets bundled into the demo in the demo cleanup.
-const KNOWN_CDN = new Set(["/demos/broadmoor-property-management/homes.html"]);
+const KNOWN_CDN = new Set([]);
 
 const MAX_TITLE = 65, MAX_DESCRIPTION = 160;
 

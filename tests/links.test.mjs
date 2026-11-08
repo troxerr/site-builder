@@ -9,9 +9,7 @@ import { read, internalRefs, resolveFile, idsIn } from "./helpers.mjs";
 // Known gaps, to be cleared in the demo cleanup: these demos reference job and owner photos that were never supplied.
 // Each <img> hides itself on error (onerror="this.remove()"), but the browser still makes a 404 request.
 // The test fails if anything NEW breaks, and also if an entry here is fixed but not removed.
-const PHOTOS = ["work-1", "work-2", "work-3", "owner"].map((n) => `assets/${n}.jpg`);
-const KNOWN_BROKEN = Object.fromEntries(["big-m-roofing", "dorsey-contracting", "morris-general-construction", "prestige-baths"]
-  .map((d) => [`/demos/${d}/`, PHOTOS.map((p) => `/demos/${d}/${p} (no such file)`)]));
+const KNOWN_BROKEN = {}; // none: a page may not reference a file that isn't there
 
 for (const page of allHtmlPaths()) {
   test(`links on ${page}`, () => {
