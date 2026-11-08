@@ -28,6 +28,8 @@
   Cache-Control: public, max-age=604800
 /assets/og/*
   Cache-Control: public, max-age=604800
+/assets/stock/*
+  Cache-Control: public, max-age=604800
 /assets/fonts/*
   Cache-Control: public, max-age=604800
 /assets/*.png
