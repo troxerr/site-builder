@@ -26,7 +26,7 @@ export const structuredData = {
         offer("Website + text-back", P.suite.monthly, `Per month, plus ${money(P.suite.setup)} one-time setup. No long-term contract.`),
         offer("Missed-call booking agent", P.agent.setup, `One-time setup, then ${money(P.agent.monthly)} per month. No long-term contract.`),
       ],
-      sameAs: [site.facebook],
+      sameAs: [site.facebook, site.googleReview],
     },
     faqJsonLd(faqEntries()),
   ],
