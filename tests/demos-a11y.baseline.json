@@ -1,89 +1,45 @@
 {
-  "/demos/aa-bail-bonds/": {
-    "region (moderate)": 2
-  },
+  "/demos/aa-bail-bonds/": {},
   "/demos/ace-bonding/": {
-    "color-contrast (serious)": 14,
-    "region (moderate)": 2
+    "color-contrast (serious)": 14
   },
-  "/demos/big-m-roofing/": {
-    "region (moderate)": 3
-  },
+  "/demos/big-m-roofing/": {},
   "/demos/broadmoor-property-management/": {},
   "/demos/broadmoor-property-management/about.html": {},
   "/demos/broadmoor-property-management/homes.html": {},
   "/demos/broadmoor-property-management/owners.html": {},
-  "/demos/castle-above-clouds/": {
-    "region (moderate)": 1
-  },
+  "/demos/castle-above-clouds/": {},
   "/demos/cedar-and-hickory-bbq/": {},
-  "/demos/dorsey-contracting/": {
-    "region (moderate)": 3
-  },
+  "/demos/dorsey-contracting/": {},
   "/demos/effective-automotive/": {
     "region (moderate)": 1
   },
-  "/demos/elite-roofing-solutions/": {
-    "region (moderate)": 1
-  },
-  "/demos/elite-roofing-solutions/get-an-estimate/": {
-    "region (moderate)": 2
-  },
-  "/demos/elite-roofing-solutions/instant-roof-quote/": {
-    "region (moderate)": 2
-  },
-  "/demos/elite-roofing-solutions/roof-repair/": {
-    "region (moderate)": 2
-  },
-  "/demos/elite-roofing-solutions/storm-damage/": {
-    "region (moderate)": 2
-  },
-  "/demos/jim-fields-plumbing/": {
-    "region (moderate)": 1
-  },
-  "/demos/jim-fields-plumbing/about.html": {
-    "region (moderate)": 1
-  },
-  "/demos/jim-fields-plumbing/contact.html": {
-    "region (moderate)": 1
-  },
-  "/demos/jim-fields-plumbing/services.html": {
-    "region (moderate)": 1
-  },
-  "/demos/jim-fields-plumbing/thank-you.html": {
-    "region (moderate)": 1
-  },
+  "/demos/elite-roofing-solutions/": {},
+  "/demos/elite-roofing-solutions/get-an-estimate/": {},
+  "/demos/elite-roofing-solutions/instant-roof-quote/": {},
+  "/demos/elite-roofing-solutions/roof-repair/": {},
+  "/demos/elite-roofing-solutions/storm-damage/": {},
+  "/demos/jim-fields-plumbing/": {},
+  "/demos/jim-fields-plumbing/about.html": {},
+  "/demos/jim-fields-plumbing/contact.html": {},
+  "/demos/jim-fields-plumbing/services.html": {},
+  "/demos/jim-fields-plumbing/thank-you.html": {},
   "/demos/linen-and-lark-salon/": {},
-  "/demos/lynns-dog-house/": {
-    "region (moderate)": 2
-  },
+  "/demos/lynns-dog-house/": {},
   "/demos/missed-call-booking-agent/": {},
-  "/demos/morris-general-construction/": {
-    "region (moderate)": 3
-  },
-  "/demos/paws-n-motion/": {
-    "region (moderate)": 2
-  },
-  "/demos/prestige-baths/": {
-    "region (moderate)": 3
-  },
+  "/demos/morris-general-construction/": {},
+  "/demos/paws-n-motion/": {},
+  "/demos/prestige-baths/": {},
   "/demos/reedy-company/": {},
   "/demos/storm-front-roofing/": {
-    "color-contrast (serious)": 5,
-    "region (moderate)": 1
+    "color-contrast (serious)": 5
   },
-  "/demos/summer-avenue-animal-hospital/": {
-    "region (moderate)": 1
-  },
+  "/demos/summer-avenue-animal-hospital/": {},
   "/demos/summit-roofing/": {
-    "color-contrast (serious)": 12,
-    "region (moderate)": 1
+    "color-contrast (serious)": 12
   },
-  "/demos/the-groom-den/": {
-    "region (moderate)": 1
-  },
+  "/demos/the-groom-den/": {},
   "/demos/top-quality-roofing/": {
-    "color-contrast (serious)": 35,
-    "region (moderate)": 1
+    "color-contrast (serious)": 35
   }
 }

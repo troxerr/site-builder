@@ -98,10 +98,10 @@
 <body>
 <aside class="bwd-demo-bar" aria-label="About this demo" style="position:relative;z-index:9999;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 14px;padding:8px 14px;background:#0b1b3a;color:#cfd9ec;font:500 13px/1.4 system-ui,-apple-system,'Segoe UI',sans-serif;text-align:center"><span><b style="color:#fff;font-weight:600">Interactive 3D showcase</b> built by <a href="/" style="color:#fff;text-decoration:underline">Bartlett Website Design</a>. Drag to look around.</span><a href="/demos/" style="color:#9cc2ff;font-weight:600;text-decoration:none">&larr; All demos</a></aside>
 <script>(function(){var b=document.querySelector('.bwd-demo-bar');function s(){document.documentElement.style.setProperty('--bar-h',b.offsetHeight+'px')}s();addEventListener('resize',s)})();</script>
-<canvas id="scene" aria-label="A stone castle on a floating island above a sea of clouds"></canvas>
+<div role="region" aria-label="3D scene"><canvas id="scene" aria-label="A stone castle on a floating island above a sea of clouds"></canvas>
 <div class="fallback" id="fallback" hidden>This scene needs WebGL. Try a recent version of Chrome, Safari, Firefox or Edge.</div>
 
-<main class="overlay">
+</div><main class="overlay">
   <header class="lockup">
     <h1>Castle Above Clouds</h1>
     <p>A Dream in the Sky <span>·</span> Rebuilt</p>

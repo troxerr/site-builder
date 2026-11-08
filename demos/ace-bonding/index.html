@@ -173,9 +173,8 @@ html>body:nth-child(2)>main:nth-child(4)>section:nth-child(4)>div:nth-child(1)>d
 </head>
 
 <body class="font-sans">
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white">Skip to content</a>
 <aside class="bwd-demo-bar" aria-label="About this demo" style="position:relative;z-index:9999;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 14px;padding:8px 14px;background:#0b1b3a;color:#cfd9ec;font:500 13px/1.4 system-ui,-apple-system,'Segoe UI',sans-serif;text-align:center"><span><b style="color:#fff;font-weight:600">Demo site</b> built by <a href="/" style="color:#fff;text-decoration:underline">Bartlett Website Design</a>. Not the business's official website. Some details are placeholders until confirmed with the owner.</span><a href="/demos/" style="color:#9cc2ff;font-weight:600;text-decoration:none">&larr; All demos</a></aside>
-
-  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white">Skip to content</a>
 
   <!-- ================= HEADER ================= -->
   <header id="site-header" class="header-shell sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur-md">
@@ -751,7 +750,7 @@ html>body:nth-child(2)>main:nth-child(4)>section:nth-child(4)>div:nth-child(1)>d
   </footer>
 
   <!-- Mobile action bar -->
-  <div id="mobile-bar" class="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-2 border-t border-line bg-white/97 p-2.5 backdrop-blur transition duration-300 md:hidden">
+  <div id="mobile-bar" role="navigation" aria-label="Quick actions" class="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-2 border-t border-line bg-white/97 p-2.5 backdrop-blur transition duration-300 md:hidden">
     <a href="tel:+19015762233" class="inline-flex h-12 items-center justify-center gap-2 rounded-sm bg-ink text-[11px] font-bold uppercase tracking-[0.08em] text-white">
       <svg viewBox="0 0 24 24" class="h-4 w-4 text-gold" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6.1 6.1l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
       Call 24/7
