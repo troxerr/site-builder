@@ -11,12 +11,8 @@
   },
   "/demos/broadmoor-property-management/": {},
   "/demos/broadmoor-property-management/about.html": {},
-  "/demos/broadmoor-property-management/homes.html": {
-    "heading-order (moderate)": 1
-  },
-  "/demos/broadmoor-property-management/owners.html": {
-    "aria-prohibited-attr (serious)": 3
-  },
+  "/demos/broadmoor-property-management/homes.html": {},
+  "/demos/broadmoor-property-management/owners.html": {},
   "/demos/castle-above-clouds/": {
     "region (moderate)": 1
   },
@@ -31,19 +27,15 @@
     "region (moderate)": 1
   },
   "/demos/elite-roofing-solutions/get-an-estimate/": {
-    "link-in-text-block (serious)": 2,
     "region (moderate)": 2
   },
   "/demos/elite-roofing-solutions/instant-roof-quote/": {
-    "link-in-text-block (serious)": 1,
     "region (moderate)": 2
   },
   "/demos/elite-roofing-solutions/roof-repair/": {
-    "link-in-text-block (serious)": 1,
     "region (moderate)": 2
   },
   "/demos/elite-roofing-solutions/storm-damage/": {
-    "link-in-text-block (serious)": 1,
     "region (moderate)": 2
   },
   "/demos/jim-fields-plumbing/": {
@@ -65,32 +57,22 @@
   "/demos/lynns-dog-house/": {
     "region (moderate)": 2
   },
-  "/demos/missed-call-booking-agent/": {
-    "aria-prohibited-attr (serious)": 2,
-    "heading-order (moderate)": 1
-  },
+  "/demos/missed-call-booking-agent/": {},
   "/demos/morris-general-construction/": {
     "region (moderate)": 3
   },
   "/demos/paws-n-motion/": {
-    "empty-table-header (minor)": 1,
-    "heading-order (moderate)": 2,
     "region (moderate)": 2
   },
   "/demos/prestige-baths/": {
     "region (moderate)": 3
   },
-  "/demos/reedy-company/": {
-    "aria-input-field-name (serious)": 1
-  },
+  "/demos/reedy-company/": {},
   "/demos/storm-front-roofing/": {
     "color-contrast (serious)": 5,
-    "region (moderate)": 1,
-    "scrollable-region-focusable (serious)": 1
+    "region (moderate)": 1
   },
   "/demos/summer-avenue-animal-hospital/": {
-    "aria-prohibited-attr (serious)": 1,
-    "heading-order (moderate)": 1,
     "region (moderate)": 1
   },
   "/demos/summit-roofing/": {

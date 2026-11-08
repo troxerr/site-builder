@@ -318,7 +318,7 @@ div[aria-label="Friday"] > .busy.ev:nth-child(2) > .x{color:#5b6577!important;op
 
         <section class="card" aria-labelledby="cal-title">
           <p class="panel-label"><span class="dot"></span>The practice calendar</p>
-          <div class="cal-head"><h3 id="cal-title">Next week · mornings</h3><small id="cal-range"></small></div>
+          <div class="cal-head"><h3 id="cal-title" aria-level="2">Next week · mornings</h3><small id="cal-range"></small></div>
           <div class="cal" id="cal"></div>
           <div class="legend" aria-hidden="true"><span><i style="background:#e7ebf2"></i>Already booked</span><span><i style="border:1.5px dashed #b6c2d6"></i>Open, 60 min</span><span><i style="background:var(--green-50);border:1.5px solid var(--green)"></i>Booked by the agent</span></div>
         </section>
@@ -391,7 +391,7 @@ div[aria-label="Friday"] > .busy.ev:nth-child(2) > .x{color:#5b6577!important;op
   html += t + '</div>';
   var pos = function(a,b){ return 'top:'+(a/60*HR+1)+'px;height:'+((b-a)/60*HR-2)+'px'; };
   DAYS.forEach(function(_, i){
-    html += '<div class="col" aria-label="'+dates[i].toLocaleDateString("en-US",{weekday:"long"})+'">';
+    html += '<div class="col" role="group" aria-label="'+dates[i].toLocaleDateString("en-US",{weekday:"long"})+'">';
     busy[i].forEach(function(e){ html += '<div class="ev busy" style="'+pos(e[0],e[1])+'"><span class="x">'+e[2]+'</span></div>'; });
     if (open[i]) html += '<div class="ev open" data-day="'+i+'" style="'+pos(open[i][0],open[i][1])+'"><b>'+open[i][2]+'</b><span class="x">Open</span></div>';
     html += '</div>';
