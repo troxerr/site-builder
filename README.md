@@ -29,7 +29,7 @@ Needs Node 22 (`.nvmrc`). Setup once: `npm ci`, then `npx playwright install chr
 | `npm test` | Links, SEO tags, accessibility, forms, headers, deploy contents and the URL contract |
 | `npm run test:live` | Checks the deployed site (all contract URLs, headers, console errors) |
 | `npm run snapshot -- before` / `after`, then `npm run snapshot:compare` | Pixel-compares every main page at three widths before and after a refactor |
-| `npm run baseline` | Records the demos' current accessibility violations; the test then only lets them go down |
+| `node tools/demo-contrast.mjs`, `node tools/demo-labels.mjs` | Fix demo contrast and label-name failures axe finds (the demo test requires zero at 375 and 1280 px) |
 
 Sandbox note: in a sandbox that needs a proxy, set `CHROMIUM_PATH` to a Chromium binary, and `NODE_USE_ENV_PROXY=1` for `npm run test:live`.
 

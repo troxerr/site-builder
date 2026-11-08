@@ -14,7 +14,6 @@
     "lint": "html-validate index.html dental/ demos/index.html bartlett/ memphis/ germantown/ cordova/ arlington/ lakeland/ thanks/ 404.html",
     "test": "node --test --test-concurrency=2 \"tests/**/*.test.mjs\"",
     "test:live": "node tools/live-check.mjs",
-    "baseline": "UPDATE_BASELINE=1 node --test \"tests/demos-a11y.test.mjs\"",
     "snapshot": "node tools/snapshot.mjs",
     "snapshot:compare": "node tools/snapshot.mjs --compare"
   },

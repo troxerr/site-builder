@@ -10,6 +10,7 @@ import { createSite, ROOT } from "./serve.mjs";
 import { launch } from "./lib/browser.mjs";
 
 const axeSrc = readFileSync(join(ROOT, "node_modules/axe-core/axe.min.js"), "utf8");
+const WIDTHS = [375, 1280];
 const slugs = process.argv.slice(2).length ? process.argv.slice(2) : readdirSync(join(ROOT, "demos")).filter((f) => statSync(join(ROOT, "demos", f)).isDirectory());
 const pagesOf = (slug, sub = "") => readdirSync(join(ROOT, "demos", slug, sub)).flatMap((f) => {
   const rel = sub ? `${sub}/${f}` : f, abs = join(ROOT, "demos", slug, rel);
@@ -22,17 +23,20 @@ const esc = (s) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
 const site = await createSite(), browser = await launch();
 let changed = 0, failed = 0;
 for (const slug of slugs) for (const path of pagesOf(slug)) {
-  const ctx = await browser.newContext({ viewport: { width: 375, height: 900 }, bypassCSP: true }), page = await ctx.newPage();
+  const hits = [];
+  for (const width of WIDTHS) {
+  const ctx = await browser.newContext({ viewport: { width, height: 900 }, bypassCSP: true, reducedMotion: "reduce" }), page = await ctx.newPage();
   await page.goto(site.url + path, { waitUntil: "networkidle" });
   await page.evaluate(axeSrc);
-  const hits = await page.evaluate(async () => {
+  hits.push(...await page.evaluate(async () => {
     const res = await axe.run({ runOnly: ["label-content-name-mismatch"], elementRef: true });
     return res.violations.flatMap((v) => v.nodes.map((n) => ({
       tag: n.element.cloneNode(false).outerHTML.replace(/<\/[a-z]+>$/, ""),
       label: n.element.getAttribute("aria-label"), text: (n.element.innerText || "").replace(/\s+/g, " ").trim(),
     })));
-  });
+  }));
   await ctx.close();
+  }
   if (!hits.length) continue;
   const file = fileOf(path); let html = readFileSync(file, "utf8");
   for (const { tag, label, text } of hits) {
