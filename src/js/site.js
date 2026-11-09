@@ -1,7 +1,6 @@
 // Runs on every first-party page: footer year, mobile menu, and the mobile call bar.
 import { initMenu } from "./menu.js";
 
-if (/[?&]preview\b/.test(location.search)) document.documentElement.classList.add("preview");
 const year = document.getElementById("year");
 if (year) year.textContent = new Date().getFullYear();
 initMenu();

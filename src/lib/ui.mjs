@@ -5,8 +5,11 @@ import { fileURLToPath } from "node:url";
 const dataFile = (name) => JSON.parse(readFileSync(fileURLToPath(new URL(`../data/${name}.json`, import.meta.url)), "utf8"));
 export const site = dataFile("site");
 export const demos = dataFile("demos");
+/** Demos shown on public pages: invented businesses only. The rest stay reachable by link (noindex) but are never linked from our pages. */
+export const publicDemos = demos.filter((d) => d.public);
 export const faq = dataFile("faq");
 export const { areas, cities } = dataFile("cities");
+export const testimonialData = dataFile("testimonials");
 
 // ---------- text helpers ----------
 const ENTITIES = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ", rsquo: "’", lsquo: "‘", ldquo: "“", rdquo: "”", ndash: "–", mdash: "—", middot: "·", hellip: "…", rarr: "→", larr: "←", times: "×", check: "✓" };
@@ -129,3 +132,10 @@ export const promise = () => `<div class="mt-8 flex max-w-2xl items-start gap-4 
         <span class="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-blue-600 font-display text-lg font-extrabold" aria-hidden="true">$0</span>
         <div><p class="font-display font-extrabold text-white">See a free working draft of your site before you pay.</p><p class="mt-1 text-sm text-slate-300">Send me a few details and I'll build a real, clickable draft with your name, services and hours in 2&ndash;3 days. Love it, then we talk price. Don't, and you owe nothing.</p></div>
       </div>`;
+
+// ---------- real client quotes (src/data/testimonials.json: [{ quote, name, business, town }]). Renders nothing until there is one. ----------
+export const testimonials = () => testimonialData.length === 0 ? "" : `    <div class="mx-auto mt-10 max-w-6xl">
+      <p class="kicker">What clients say</p>
+      <ul class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">${testimonialData.map((t) => `<li><figure class="h-full rounded-2xl border border-slate-800 bg-slate-900 p-5"><blockquote class="text-slate-200">&ldquo;${t.quote}&rdquo;</blockquote><figcaption class="mt-3 text-sm text-slate-400">${t.name} &middot; ${t.business}, ${t.town}</figcaption></figure></li>`).join("")}</ul>
+    </div>
+`;

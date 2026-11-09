@@ -27,7 +27,8 @@
       "chip": "Live demo",
       "order": 1
     },
-    "category": "pets"
+    "category": "pets",
+    "public": false
   },
   {
     "id": "jim-fields-plumbing",
@@ -57,7 +58,8 @@
       "chip": "Live demo",
       "order": 2
     },
-    "category": "services"
+    "category": "services",
+    "public": false
   },
   {
     "id": "linen-and-lark-salon",
@@ -87,7 +89,8 @@
       "chip": "Sample",
       "order": 3
     },
-    "category": "food"
+    "category": "food",
+    "public": true
   },
   {
     "id": "reedy-company",
@@ -117,7 +120,8 @@
       "chip": "Live demo",
       "order": 5
     },
-    "category": "property"
+    "category": "property",
+    "public": false
   },
   {
     "id": "cedar-and-hickory-bbq",
@@ -138,7 +142,17 @@
       "what": "Answers &ldquo;what&rsquo;s on the menu?&rdquo; before anyone calls, and brings in catering leads.",
       "chip": "Sample"
     },
-    "category": "food"
+    "category": "food",
+    "public": true,
+    "home": {
+      "name": "Cedar &amp; Hickory BBQ",
+      "type": "Restaurant &middot; Sample business",
+      "alt": "Cedar &amp; Hickory BBQ sample restaurant homepage",
+      "outcome": "Answers &ldquo;what's on the menu?&rdquo; before anyone calls, and brings in catering leads.",
+      "built": "Menu, catering quote form and one-tap directions",
+      "chip": "Sample",
+      "order": 11
+    }
   },
   {
     "id": "lynns-dog-house",
@@ -168,7 +182,8 @@
       "chip": "Live demo",
       "order": 4
     },
-    "category": "pets"
+    "category": "pets",
+    "public": false
   },
   {
     "id": "the-groom-den",
@@ -189,7 +204,8 @@
       "what": "Explains driveway grooming and shows the service area, so the calls that come in are already a fit.",
       "chip": "Live demo"
     },
-    "category": "pets"
+    "category": "pets",
+    "public": false
   },
   {
     "id": "paws-n-motion",
@@ -210,7 +226,8 @@
       "what": "A ZIP code checker shows the travel fee up front, so nobody has to call to ask.",
       "chip": "Live demo"
     },
-    "category": "pets"
+    "category": "pets",
+    "public": false
   },
   {
     "id": "missed-call-booking-agent",
@@ -224,7 +241,24 @@
       "Live demo",
       "Text-back booking"
     ],
-    "category": "health"
+    "category": "health",
+    "public": true,
+    "city": {
+      "key": "bright",
+      "name": "Bright Smile Dental (sample)",
+      "type": "Dental office &middot; Sample practice",
+      "what": "Texts back a missed call, offers real open times and books the patient in under a minute.",
+      "chip": "Sample"
+    },
+    "home": {
+      "name": "Bright Smile Dental (sample)",
+      "type": "Dental office &middot; Sample practice",
+      "alt": "Missed-call booking agent demo: a text conversation on a phone, a seven-step behind-the-scenes checklist and a calendar with Thursday 8 AM booked",
+      "outcome": "Texts back a missed call and books the patient in under a minute.",
+      "built": "Text-back booking with a calendar and an urgent hand-off",
+      "chip": "Sample",
+      "order": 12
+    }
   },
   {
     "id": "waggles-stay-n-play",
@@ -238,7 +272,8 @@
       "Live demo",
       "Own domain"
     ],
-    "category": "pets"
+    "category": "pets",
+    "public": false
   },
   {
     "id": "broadmoor-property-management",
@@ -252,7 +287,8 @@
       "Live demo",
       "4 pages"
     ],
-    "category": "property"
+    "category": "property",
+    "public": false
   },
   {
     "id": "castle-above-clouds",
@@ -266,7 +302,8 @@
       "Showcase",
       "3D + animation"
     ],
-    "category": "showcase"
+    "category": "showcase",
+    "public": true
   },
   {
     "id": "effective-automotive",
@@ -296,7 +333,8 @@
       "chip": "Live demo",
       "order": 6
     },
-    "category": "services"
+    "category": "services",
+    "public": false
   },
   {
     "id": "prestige-baths",
@@ -326,7 +364,8 @@
       "chip": "Live demo",
       "order": 7
     },
-    "category": "building"
+    "category": "building",
+    "public": false
   },
   {
     "id": "big-m-roofing",
@@ -356,7 +395,8 @@
       "chip": "Live demo",
       "order": 8
     },
-    "category": "building"
+    "category": "building",
+    "public": false
   },
   {
     "id": "summit-roofing",
@@ -379,7 +419,15 @@
       "chip": "Sample",
       "order": 9
     },
-    "category": "building"
+    "category": "building",
+    "public": true,
+    "city": {
+      "key": "summit",
+      "name": "Summit Roofing Co.",
+      "type": "Roofing &middot; Bartlett (sample business)",
+      "what": "Shows a ballpark roof price with a live slider, then books a free inspection.",
+      "chip": "Sample"
+    }
   },
   {
     "id": "elite-roofing-solutions",
@@ -402,7 +450,8 @@
       "chip": "Live demo",
       "order": 10
     },
-    "category": "building"
+    "category": "building",
+    "public": false
   },
   {
     "id": "aa-bail-bonds",
@@ -416,7 +465,8 @@
       "Live demo",
       "24/7 call line"
     ],
-    "category": "services"
+    "category": "services",
+    "public": false
   },
   {
     "id": "ace-bonding",
@@ -430,7 +480,8 @@
       "Live demo",
       "Call or text"
     ],
-    "category": "services"
+    "category": "services",
+    "public": false
   },
   {
     "id": "top-quality-roofing",
@@ -444,7 +495,8 @@
       "Live demo",
       "Inspection form"
     ],
-    "category": "building"
+    "category": "building",
+    "public": false
   },
   {
     "id": "storm-front-roofing",
@@ -458,7 +510,8 @@
       "Live demo",
       "24/7 storm line"
     ],
-    "category": "building"
+    "category": "building",
+    "public": false
   },
   {
     "id": "morris-general-construction",
@@ -479,7 +532,8 @@
       "what": "Spells out the process and itemized quotes, so homeowners request an estimate with confidence.",
       "chip": "Live demo"
     },
-    "category": "building"
+    "category": "building",
+    "public": false
   },
   {
     "id": "dorsey-contracting",
@@ -500,6 +554,7 @@
       "what": "Answers &ldquo;what will it cost and how long?&rdquo; up front, then takes estimate requests with photos.",
       "chip": "Live demo"
     },
-    "category": "building"
+    "category": "building",
+    "public": false
   }
 ]

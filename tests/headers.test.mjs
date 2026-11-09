@@ -53,3 +53,8 @@ test("header file parser follows the host's rules (joining, splats, removal)", (
   assert.deepEqual(headersFor(r, "/a/x"), { "x-one": "1", "x-two": "a" });
   assert.deepEqual(headersFor(r, "/a/b"), { "x-two": "a, b" });
 });
+
+test("demos are noindex by header as well as by meta tag; the demos index is not", () => {
+  assert.match(at("/demos/jim-fields-plumbing/")["x-robots-tag"], /noindex/);
+  assert.equal(at("/demos/")["x-robots-tag"], undefined);
+});

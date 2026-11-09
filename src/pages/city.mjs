@@ -1,5 +1,5 @@
 // A city landing page ("Website design in Bartlett"). Data: src/data/cities.json
-import { ic, HL, CHECK, plain, founding, foundingActive, demos, demoCityCard, faqDetails, promise, areas, money, site } from "../lib/ui.mjs";
+import { ic, HL, CHECK, plain, founding, foundingActive, publicDemos as demos, demoCityCard, faqDetails, promise, areas, money, site } from "../lib/ui.mjs";
 
 const P = site.pricing, TEL = `tel:${site.phone.tel}`, PHONE = site.phone.display;
 const price = (name, amt, unit, what) => `<li class="rounded-2xl border border-slate-800 bg-slate-900/90 p-6"><p class="text-xs font-semibold uppercase tracking-wider text-blue-400">${name}</p><p class="mt-1 font-display text-3xl font-extrabold">${amt}<span class="ml-1 font-sans text-sm font-normal text-slate-400">${unit}</span></p><p class="mt-2 text-sm text-slate-400">${what}</p></li>`;
@@ -33,7 +33,7 @@ export default (c, slug, city) => {
     <div class="mx-auto max-w-6xl">
       <p class="kicker">Live demos</p>
       <h2 id="demos-title" class="h2">${city.demos_title}</h2>
-      <p class="mt-4 max-w-3xl text-lg text-slate-400">Working examples, built the same way I'll build yours. Demos of real businesses aren't their official websites.</p>
+      <p class="mt-4 max-w-3xl text-lg text-slate-400">Working examples, built the same way I'll build yours. These are sample businesses I made up to show what's possible.</p>
       <ul class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 ${cards}      </ul>
       <p class="mt-10 text-center"><a class="btn btn-primary" href="/demos/">See all live demos${ic("arrow")}</a></p>

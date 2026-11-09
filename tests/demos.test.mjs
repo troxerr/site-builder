@@ -25,3 +25,21 @@ for (const d of local) {
     assert.match(html, /<meta name="robots" content="noindex/, "noindex");
   });
 }
+
+// Demos of real businesses are unlisted: their URLs keep working (links already sent to owners), but we never link to them.
+const PUBLIC = ["castle-above-clouds", "cedar-and-hickory-bbq", "linen-and-lark-salon", "missed-call-booking-agent", "summit-roofing"];
+
+test("only invented businesses (and the castle showcase) are public", () => {
+  assert.deepEqual(demos.filter((d) => d.public).map((d) => d.id).sort(), PUBLIC);
+  assert.ok(demos.every((d) => typeof d.public === "boolean"), "every demo has a public flag");
+});
+
+test("no first-party page links to an unlisted demo", async () => {
+  const { FIRST_PARTY, fileFor } = await import("../tools/lib/pages.mjs");
+  const unlisted = demos.filter((d) => !d.public).map((d) => d.id);
+  for (const page of FIRST_PARTY) {
+    const html = readFileSync(fileFor(page), "utf8");
+    for (const id of unlisted) assert.ok(!html.includes(`/demos/${id}`), `${page} links to unlisted demo ${id}`);
+    assert.ok(!html.includes("waggles-stay-n-play.com"), `${page} links to a real business's own site`);
+  }
+});

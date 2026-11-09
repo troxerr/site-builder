@@ -23,7 +23,7 @@ const { default: bailBonds, intakeFaqs, homeCard: intakeCard } = await import(pa
 const { default: city, cityFaqs } = await import(pathToFileURL(src("pages/city.mjs")));
 const { default: demosPage } = await import(pathToFileURL(src("pages/demos.mjs")));
 const { notFound, thanks, thanksAgent } = await import(pathToFileURL(src("pages/simple.mjs")));
-const { site, cities, areas, demos, faqEntries, faqDetails, founding, planOptions, attr, demoHomeCard } = ui;
+const { site, cities, areas, demos, publicDemos, testimonials, faqEntries, faqDetails, founding, planOptions, attr, demoHomeCard } = ui;
 
 const partial = (name) => readFileSync(src("partials", name), "utf8").trimEnd();
 const sprite = partial("sprite.svg").replace("</svg>", `  ${partial("dental-sprite-extras.svg")}\n</svg>`);
@@ -47,8 +47,8 @@ function context(p) {
     card: { starter: founding.card("starter"), business: founding.card("business") },
     attr: { starter: FOUNDING_ATTR("starter"), business: FOUNDING_ATTR("business") },
     planOptions: planOptions(), faqItems: faqDetails(faqEntries(), { indent: "        " }),
-    intakeCard: intakeCard(),
-    demoPool: demos.filter((d) => d.home).sort((a, b) => a.home.order - b.home.order).map(demoHomeCard).join("\n"), demoCount: demos.length,
+    intakeCard: intakeCard(), testimonials: testimonials(),
+    demoPool: publicDemos.filter((d) => d.home).sort((a, b) => a.home.order - b.home.order).map(demoHomeCard).join("\n"), demoCount: publicDemos.length,
   };
   c.shell = (body) => `${c.head}\n<body class="bg-slate-950 font-sans text-white antialiased selection:bg-blue-600 selection:text-white">\n${c.top}\n${body}\n${c.bottom}\n\n${c.scripts}\n</body>\n</html>\n`;
   return c;

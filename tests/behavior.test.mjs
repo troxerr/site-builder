@@ -137,28 +137,28 @@ test("before/after slider: keyboard, buttons, drag and trade tabs", async () => 
   await page.context().close();
 });
 
-test("homepage shows five random demos from the pool", async () => {
+test("homepage shows the public demos in a random order", async () => {
   const { page } = await pageWithForm();
   const orders = new Set();
   for (let i = 0; i < 6; i++) {
     await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
     const shown = await page.$$eval(".work > .work-item:not([hidden]):not(.wide) h3", (hs) => hs.map((h) => h.textContent));
-    assert.equal(shown.length, 5);
-    assert.equal(new Set(shown).size, 5, "no repeats");
+    assert.equal(shown.length, 4, "the four invented businesses with a homepage card");
+    assert.equal(new Set(shown).size, 4, "no repeats");
     orders.add(shown.join("|"));
   }
   assert.ok(orders.size > 1, "order changes between visits");
   await page.context().close();
 });
 
-test("demos page lists every demo and shuffles", async () => {
+test("demos page lists the public demos and shuffles", async () => {
   const { page } = await pageWithForm();
   const orders = new Set();
   for (let i = 0; i < 5; i++) {
     await page.goto(env.site.url + "/demos/", { waitUntil: "networkidle" });
     const names = await page.$$eval(".demo-list > li h2", (hs) => hs.map((h) => h.textContent));
-    assert.equal(names.length, 23);
-    assert.equal(new Set(names).size, 23);
+    assert.equal(names.length, 5, "only the five public demos");
+    assert.equal(new Set(names).size, 5);
     orders.add(names.join("|"));
   }
   assert.ok(orders.size > 1);
@@ -181,17 +181,18 @@ test("demos page: industry chips filter the list, and without JavaScript every d
   const page = await env.newPage({ width: 1280 });
   await page.goto(env.site.url + "/demos/", { waitUntil: "networkidle" });
   const visible = () => page.locator(".demo-list > li:visible").count();
-  assert.equal(await visible(), 23);
-  await page.click('[data-filter="pets"]');
   assert.equal(await visible(), 5);
-  assert.equal(await page.getAttribute('[data-filter="pets"]', "aria-pressed"), "true");
-  assert.match(await page.textContent("#demo-count"), /Showing 5 demos/);
+  assert.equal(await page.locator('[data-filter="pets"]').count(), 0, "no chip for a category without a public demo");
+  await page.click('[data-filter="food"]');
+  assert.equal(await visible(), 2);
+  assert.equal(await page.getAttribute('[data-filter="food"]', "aria-pressed"), "true");
+  assert.match(await page.textContent("#demo-count"), /Showing 2 demos/);
   await page.click('[data-filter="all"]');
-  assert.equal(await visible(), 23);
+  assert.equal(await visible(), 5);
   await page.context().close();
   const noJs = await (await env.browser.newContext({ javaScriptEnabled: false })).newPage();
   await noJs.goto(env.site.url + "/demos/");
-  assert.equal(await noJs.locator(".demo-list > li:visible").count(), 23);
+  assert.equal(await noJs.locator(".demo-list > li:visible").count(), 5);
   assert.equal(await noJs.locator("#demo-filter").isVisible(), false, "chips stay hidden without JS");
   await noJs.context().close();
 });

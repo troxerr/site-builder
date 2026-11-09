@@ -1,7 +1,7 @@
 // Before/after slider: drag, tap, arrow keys, or the quick buttons; plus the roofing/auto trade tabs.
 const TRADES = {
-  roofing: { title: "Generic Mid-South Roofing Co.", copy: "We pride ourselves on quality roofs. If you have hail damage or a roof leak, please fill out our 9-field email form and our office will check the inbox within 3 to 5 business days.", link: ["/demos/", "See the full roofing demos"] },
-  auto: { title: "Old Memphis Auto & Muffler Shop", copy: "Welcome to our repair shop website. Call our landline during shop hours and hope nobody is running an impact wrench, or leave a voicemail after the beep.", link: ["/demos/effective-automotive/", "Open the full Effective Automotive demo"] },
+  roofing: { title: "Generic Mid-South Roofing Co.", copy: "We pride ourselves on quality roofs. If you have hail damage or a roof leak, please fill out our 9-field email form and our office will check the inbox within 3 to 5 business days.", link: ["/demos/", "See the sample demos"] },
+  auto: { title: "Old Memphis Auto & Muffler Shop", copy: "Welcome to our repair shop website. Call our landline during shop hours and hope nobody is running an impact wrench, or leave a voicemail after the beep.", link: ["/demos/", "See the sample demos"] },
 };
 
 export function initSlider() {

@@ -16,6 +16,7 @@
 # Each demo is a self-contained site (some use inline code and Google Fonts), so the strict policy is for our own pages only
 /demos/*/*
   ! Content-Security-Policy
+  X-Robots-Tag: noindex, follow
 
 # Content-hashed files never change under the same name
 /assets/css/*

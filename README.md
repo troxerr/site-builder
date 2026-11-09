@@ -1,8 +1,7 @@
 # bartlettwebsitedesign.online
 
-The full static site for Bartlett Website Design: the homepage (`index.html`: dark design with a before/after slider), the 23 demos under `demos/`, the dental-office landing page under `dental/`, six city pages (`bartlett/`, `memphis/`, `germantown/`, `cordova/`, `arlington/`, `lakeland/`), `thanks/` and `thanks/booking-agent/` pages, a branded `404.html`, and their assets. Cloudflare Workers Builds deploys it to production automatically on every push to `homepage-conversion-pass` (the production branch set in the Worker's build settings); other branches get preview builds, using `wrangler.jsonc` to serve the folder as static assets (`.assetsignore` keeps the README and config private).
+The full static site for Bartlett Website Design: the homepage (`index.html`: dark design with a before/after slider), the 23 demo folders under `demos/` (only the invented-business ones are public, see below), the dental-office landing page under `dental/`, six city pages (`bartlett/`, `memphis/`, `germantown/`, `cordova/`, `arlington/`, `lakeland/`), `thanks/` and `thanks/booking-agent/` pages, a branded `404.html`, and their assets. Cloudflare Workers Builds deploys it to production automatically on every push to `homepage-conversion-pass` (the production branch set in the Worker's build settings); other branches get preview builds, using `wrangler.jsonc` to serve the folder as static assets (`.assetsignore` keeps the README and config private).
 
-- `?preview` on the URL shows the dashed testimonial placeholders that visitors don't see.
 - Cloudflare adds its email obfuscation and bot-check scripts when it serves pages, so they aren't in these files.
 - `_headers` sets security headers on every response and a one-week cache on `assets/` (images aren't hashed, so a replaced image can take up to a week to refresh for repeat visitors).
 - `wrangler.jsonc` uses `"not_found_handling": "404-page"`, so unknown paths get `404.html`. It uses root-relative links because it can be served at any path.
@@ -52,3 +51,8 @@ node tools/new-demo.mjs <slug> <folder> --name "Business Name" --type "Roofing Â
 ```
 
 It copies the site to `demos/<slug>/`, adds the "Demo site" bar and `noindex` to every page, removes any canonical, adds link-preview tags, makes the card thumbnails (`assets/work/`) and the 1200Ã—630 preview (`assets/og/`), adds the record to `src/data/demos.json` and rebuilds. Then add `/demos/<slug>/` to `tests/url-contract.json`, run `npm test` and commit. A demo must not claim to be the business: no canonical, `og:url` pointing off-site, or structured data with the business's URL. The optional `city` and `home` objects in the record put the demo on a city page or in the homepage's random pool.
+
+## Public vs unlisted demos, and testimonials
+
+- Only demos with `"public": true` in `src/data/demos.json` are shown or linked on our pages (the demos gallery, homepage, city pages). Today that is the five invented ones: Summit Roofing, Linen & Lark, Cedar & Hickory, the Bright Smile Dental missed-call demo, and the Castle showcase. Demos of real businesses are **unlisted**: the folder and URL still work (so the link you sent the owner keeps working), they stay `noindex` (meta tag and `X-Robots-Tag` header), but no page of ours links to them. `tests/demos.test.mjs` enforces this. To show one publicly, get the owner's written OK and flip its flag.
+- Real client quotes go in `src/data/testimonials.json` as `{ "quote", "name", "business", "town" }`. The "What clients say" block appears on the homepage once there is at least one, and not before. `tests/claims.test.mjs` fails the build if placeholder text or "hand-coded" claims show up on a page.

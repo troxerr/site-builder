@@ -30,8 +30,6 @@
 }
 .no-select{-webkit-user-select:none;user-select:none}
 .slide-anim{transition:all .3s ease}
-.ph-only{display:none}
-.preview .ph-only{display:block}
 .mobile-bar{transition:transform .25s ease}
 .mobile-bar.is-hidden{transform:translateY(110%)}
 @media (max-width:1023px){

@@ -76,8 +76,8 @@ ${intakeActive() ? `      <p class="mt-5 max-w-2xl rounded-xl border border-ambe
       </div>
       <div class="rounded-3xl border border-slate-800 bg-slate-900 p-6">
         <p class="font-display text-lg font-extrabold">Need the website too?</p>
-        <p class="mt-2 text-sm text-slate-400">I build fast websites for bail bond offices, with the phone number up top and tap to call. See two samples:</p>
-        <p class="mt-4 flex flex-wrap gap-3"><a class="btn btn-dark" href="/demos/aa-bail-bonds/">A&amp;A Bail Bonds demo</a><a class="btn btn-dark" href="/demos/ace-bonding/">Ace Bonding demo</a></p>
+        <p class="mt-2 text-sm text-slate-400">I build fast websites for local service businesses, with the phone number up top and tap to call.</p>
+        <p class="mt-4"><a class="btn btn-dark" href="/#pricing">See website pricing</a></p>
       </div>
     </div>
   </section>

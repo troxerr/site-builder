@@ -67,7 +67,7 @@ ${c.founding.hero}
 
           <div id="after-roofing" class="after-pane flex flex-1 flex-col justify-between overflow-hidden bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 p-5 sm:p-8">
             <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800/80 pb-4">
-              <div class="flex items-center gap-3"><span class="grid h-10 w-10 place-items-center rounded-xl bg-blue-600 font-display text-sm font-extrabold">R&amp;R</span><span><span class="block font-display text-[15px] font-extrabold leading-none">ROCK &amp; ROLL ROOFING</span><span class="mt-1 block text-xs text-blue-300">Roofing &amp; renovations &middot; Memphis</span></span></div>
+              <div class="flex items-center gap-3"><span class="grid h-10 w-10 place-items-center rounded-xl bg-blue-600 font-display text-sm font-extrabold">SR</span><span><span class="block font-display text-[15px] font-extrabold leading-none">SUMMIT ROOFING CO.</span><span class="mt-1 block text-xs text-blue-300">Roofing &amp; repairs &middot; Memphis area</span></span></div>
               <div class="flex items-center gap-2"><span class="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/15 px-3 py-1.5 text-xs font-semibold text-blue-200"><span class="h-2 w-2 rounded-full bg-blue-400 motion-safe:animate-ping" aria-hidden="true"></span>Storm mode on</span><span class="hidden rounded-lg bg-blue-600 px-4 py-2 text-xs font-semibold shadow-md sm:inline-flex">&#128222; Call now</span></div>
             </div>
             <div class="my-auto grid grid-cols-1 items-center gap-6 py-4 lg:grid-cols-12 lg:gap-8">
@@ -81,7 +81,7 @@ ${c.founding.hero}
                 <div class="mb-3 flex items-center justify-between border-b border-slate-800 pb-2.5"><span class="flex items-center gap-2 text-xs font-semibold text-slate-200"><span class="h-2.5 w-2.5 rounded-full bg-blue-400" aria-hidden="true"></span>Missed-call text-back</span><span class="font-mono text-[11px] text-blue-300">Example</span></div>
                 <div class="space-y-2.5 text-xs">
                   <div class="flex items-center justify-between rounded-lg border border-slate-800 bg-slate-900 px-3 py-2 text-slate-400"><span>&#128245; Missed call &middot; (901) 555-0142</span><span class="text-[10px]">2:14 PM</span></div>
-                  <div class="rounded-xl rounded-bl-none bg-blue-600 px-3 py-2.5 font-medium shadow-md">&ldquo;Hi, this is Rock &amp; Roll Roofing. Sorry we missed you, the crew's up on a roof. Is this about a leak or an inspection?&rdquo;</div>
+                  <div class="rounded-xl rounded-bl-none bg-blue-600 px-3 py-2.5 font-medium shadow-md">&ldquo;Hi, this is Summit Roofing. Sorry we missed you, the crew's up on a roof. Is this about a leak or an inspection?&rdquo;</div>
                   <div class="ml-6 rounded-xl rounded-br-none border border-slate-700 bg-slate-800 px-3 py-2">&ldquo;Shingles blew off near Stage Rd. Need an estimate.&rdquo;</div>
                   <p class="flex items-center gap-1 pt-1 text-[11px] font-semibold text-blue-300">&check; Lead saved and sent to the owner</p>
                 </div>
@@ -92,7 +92,7 @@ ${c.founding.hero}
 
           <div id="after-auto" class="after-pane hidden flex-1 flex-col justify-between overflow-hidden bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 p-5 sm:p-8">
             <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800/80 pb-4">
-              <div class="flex items-center gap-3"><span class="grid h-10 w-10 place-items-center rounded-xl bg-sky-400 font-display text-sm font-extrabold text-slate-950">EAR</span><span><span class="block font-display text-[15px] font-extrabold leading-none">EFFECTIVE AUTOMOTIVE REPAIR</span><span class="mt-1 block text-xs text-sky-300">Auto repair &middot; Memphis</span></span></div>
+              <div class="flex items-center gap-3"><span class="grid h-10 w-10 place-items-center rounded-xl bg-sky-400 font-display text-sm font-extrabold text-slate-950">PAR</span><span><span class="block font-display text-[15px] font-extrabold leading-none">PARKVIEW AUTO REPAIR</span><span class="mt-1 block text-xs text-sky-300">Auto repair &middot; Memphis</span></span></div>
               <div class="flex items-center gap-2"><span class="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/15 px-3 py-1.5 text-xs font-semibold text-sky-200"><span class="h-2 w-2 rounded-full bg-sky-400" aria-hidden="true"></span>Book a drop-off</span><span class="hidden rounded-lg bg-sky-400 px-4 py-2 text-xs font-semibold text-slate-950 shadow-md sm:inline-flex">&#128222; Call the shop</span></div>
             </div>
             <div class="my-auto grid grid-cols-1 items-center gap-6 py-4 lg:grid-cols-12 lg:gap-8">
@@ -106,7 +106,7 @@ ${c.founding.hero}
                 <div class="mb-3 flex items-center justify-between border-b border-slate-800 pb-2.5"><span class="flex items-center gap-2 text-xs font-semibold text-slate-200"><span class="h-2.5 w-2.5 rounded-full bg-sky-400" aria-hidden="true"></span>Missed-call text-back</span><span class="font-mono text-[11px] text-sky-300">Example</span></div>
                 <div class="space-y-2.5 text-xs">
                   <div class="flex items-center justify-between rounded-lg border border-slate-800 bg-slate-900 px-3 py-2 text-slate-400"><span>&#128245; Missed call while techs are in the bay</span><span class="text-[10px]">10:05 AM</span></div>
-                  <div class="rounded-xl rounded-bl-none bg-sky-400 px-3 py-2.5 font-medium text-slate-950 shadow-md">&ldquo;Hi, this is Effective Automotive Repair. Our hands are under a hood right now. What year, make and model, and what's it doing?&rdquo;</div>
+                  <div class="rounded-xl rounded-bl-none bg-sky-400 px-3 py-2.5 font-medium text-slate-950 shadow-md">&ldquo;Hi, this is Parkview Auto Repair. Our hands are under a hood right now. What year, make and model, and what's it doing?&rdquo;</div>
                   <div class="ml-6 rounded-xl rounded-br-none border border-slate-700 bg-slate-800 px-3 py-2">&ldquo;2018 F-150, grinding brakes when I stop.&rdquo;</div>
                   <p class="flex items-center gap-1 pt-1 text-[11px] font-semibold text-sky-300">&check; Details sent to the shop for a call back</p>
                 </div>
@@ -149,7 +149,7 @@ ${c.founding.hero}
           <span class="grid h-12 w-12 place-items-center rounded-full border-4 border-slate-950 bg-blue-600 text-lg font-extrabold text-white shadow-xl shadow-black/60 transition-transform group-hover:scale-110 group-focus-visible:ring-4 group-focus-visible:ring-sky-300" aria-hidden="true">&harr;</span>
         </div>
       </div>
-      <p class="mx-auto mt-4 max-w-4xl text-center text-xs text-slate-400">The &ldquo;before&rdquo; side is a made-up example, not either business's real website. The &ldquo;after&rdquo; side is a sample layout using their names; prices, details and the text conversation are examples. <a class="link" id="showcase-link" href="/demos/">See the full roofing demos</a>.</p>
+      <p class="mx-auto mt-4 max-w-4xl text-center text-xs text-slate-400">Both sides are made-up examples, not any real business's website. Prices, details and the text conversation are examples. <a class="link" id="showcase-link" href="/demos/">See the sample demos</a>.</p>
     </div>
   </section>
 
@@ -189,7 +189,7 @@ ${c.founding.hero}
       <div class="max-w-3xl">
         <p class="kicker">Live demos</p>
         <h2 id="work-title" class="h2">Working examples, built the way I'll build yours.</h2>
-        <p class="mt-4 text-lg text-slate-400">Roofers, plumbers, clinics, salons and shops: each demo is a full, working site with its own look. Open one on your phone and tap around.</p>
+        <p class="mt-4 text-lg text-slate-400">Roofers, clinics, salons and restaurants: each demo is a full, working site with its own look. Open one on your phone and tap around.</p>
       </div>
       <ul class="work mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 ${c.demoPool}
@@ -200,7 +200,7 @@ ${c.demoPool}
           <span class="mt-5 inline-flex items-center gap-1.5 font-semibold text-blue-400">Get my free draft<svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-arrow"/></svg></span></a></li>
       </ul>
       <p class="mt-10 text-center"><a class="btn btn-primary" href="/demos/">See all ${c.demoCount} live demos<svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
-      <p class="mx-auto mt-4 max-w-3xl text-center text-sm text-slate-400">A different mix every visit. Demos of real businesses aren't their official websites, and Linen &amp; Lark and Summit Roofing are made-up businesses.</p>
+      <p class="mx-auto mt-4 max-w-3xl text-center text-sm text-slate-400">A different mix every visit. Every business here is a sample I made up to show what's possible.</p>
     </div>
   </section>
 
@@ -303,7 +303,7 @@ ${c.founding.banner}
         <p class="kicker">About</p>
         <h2 id="about-title" class="h2">Hi, I'm Austin.</h2>
         <p class="mt-4 text-lg leading-relaxed text-slate-300">I was born in Memphis and have lived in Bartlett for over 15 years. I build websites for the kinds of local businesses I grew up around: contractors, shops, groomers, clinics and salons.</p>
-        <p class="mt-4 text-lg leading-relaxed text-slate-300">I built my first fully working website at age 10, in fifth grade. Now, at 23, I still code every site by hand, so it loads fast and does exactly what your customers need.</p>
+        <p class="mt-4 text-lg leading-relaxed text-slate-300">I built my first fully working website at age 10, in fifth grade. Now, at 23, I build custom sites for local businesses, designed to load fast and do exactly what your customers need.</p>
         <p class="mt-4 text-lg leading-relaxed text-slate-300">When you call or text, you get me. There's no sales team and no call center, and I reply within one business day.</p>
         <div class="mt-7 flex flex-col gap-3 sm:flex-row"><a class="btn btn-primary" href="#contact">Get my free draft<svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="btn btn-dark" href="tel:+19013210023"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-phone"/></svg>Call or text me</a></div>
       </div>
@@ -311,8 +311,8 @@ ${c.founding.banner}
         <div class="rounded-2xl border border-slate-800 bg-slate-900 p-6">
           <h3 class="font-display text-lg font-extrabold">Check it yourself</h3>
           <ul class="mt-4 space-y-3 text-sm text-slate-300">
-            <li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span><b class="text-white">Try a live demo.</b> Open <a class="link" href="/demos/jim-fields-plumbing/">Jim Fields Plumbing</a> or <a class="link" href="/demos/storm-front-roofing/">Storm Front Roofing</a> on your phone and see how fast it loads.</span></li>
-            <li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span><b class="text-white">Hand-built, not a template.</b> Every site is coded from scratch for that business.</span></li>
+            <li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span><b class="text-white">Try a live demo.</b> Open <a class="link" href="/demos/summit-roofing/">Summit Roofing</a> or <a class="link" href="/demos/cedar-and-hickory-bbq/">Cedar &amp; Hickory BBQ</a> on your phone and see how fast it loads.</span></li>
+            <li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span><b class="text-white">Custom-built, not a template.</b> Every site is designed around your business, your services and your customers.</span></li>
             <li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span><b class="text-white">Local.</b> Based in Bartlett, so we can meet in person if you'd like.</span></li>
             <li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span><b class="text-white">Everything stays in your name.</b> Your domain, your files, your accounts.</span></li>
           </ul>
@@ -323,10 +323,7 @@ ${c.founding.banner}
         </div>
       </div>
     </div>
-    <div class="ph-only mx-auto mt-10 max-w-6xl rounded-2xl border-2 border-dashed border-amber-500/60 p-6">
-      <p class="text-sm font-semibold text-amber-300">Placeholder: real client testimonials go here (name, business, town). Never fill with made-up quotes.</p>
-      <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3 text-sm text-slate-400"><blockquote class="rounded-xl border border-slate-700 p-4">&ldquo;Client quote about the free draft or how fast it went live.&rdquo;<footer class="mt-2 text-xs">Owner name &middot; Business, Town</footer></blockquote><blockquote class="rounded-xl border border-slate-700 p-4">&ldquo;Client quote about calls or bookings since launch.&rdquo;<footer class="mt-2 text-xs">Owner name &middot; Business, Town</footer></blockquote><blockquote class="rounded-xl border border-slate-700 p-4">Link to your Google Business Profile reviews once you have some.<footer class="mt-2 text-xs">Google reviews link</footer></blockquote></div>
-    </div>
+${c.testimonials}
   </section>
 
   <!-- FAQ -->
