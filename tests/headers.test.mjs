@@ -54,7 +54,12 @@ test("header file parser follows the host's rules (joining, splats, removal)", (
   assert.deepEqual(headersFor(r, "/a/b"), { "x-two": "a, b" });
 });
 
-test("demos are noindex by header as well as by meta tag; the demos index is not", () => {
-  assert.match(at("/demos/jim-fields-plumbing/")["x-robots-tag"], /noindex/);
-  assert.equal(at("/demos/")["x-robots-tag"], undefined);
+test("every first-party page has the CSP, and nothing under /demos/ (each demo is a self-contained site) does", async () => {
+  const { FIRST_PARTY } = await import("../tools/lib/pages.mjs");
+  for (const path of FIRST_PARTY) assert.ok(at(path)["content-security-policy"], `${path} has the CSP`);
+  for (const path of ["/demos/jim-fields-plumbing/", "/demos/summit-roofing/index.html", "/demos/summit-roofing/assets/site.css", "/assets/work/x.webp"]) {
+    const h = at(path)["content-security-policy"];
+    assert.ok(path.startsWith("/assets/") || !h, `${path} must not get the first-party CSP (it would block the demo's inline styles and fonts)`);
+  }
+  assert.ok(!at("/*")["content-security-policy"], "the CSP is never set on /*");
 });
