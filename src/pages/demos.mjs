@@ -1,4 +1,4 @@
-// The demos page. Data: src/data/demos.json. The order is shuffled on every visit by src/js/demos.js.
+// The demos page. Data: src/data/demos.json. A curated set of five, shown in a fixed order.
 import { ic, HL, publicDemos as demos, demoPageCard, site, DEMO_CATEGORIES } from "../lib/ui.mjs";
 
 const TEL = `tel:${site.phone.tel}`, PHONE = site.phone.display;
@@ -9,9 +9,9 @@ export default (c) => c.shell(`
     <div class="mx-auto max-w-6xl">
       <p class="text-sm text-slate-400"><a class="link" href="/">Home</a> &rsaquo; Website demos</p>
       <p class="kicker mt-6">Website demos</p>
-      <h1 id="pg-title" class="mt-2 max-w-4xl font-display text-[2.3rem] font-extrabold leading-[1.08] tracking-tight sm:text-6xl">Live demos, built the same way I'll build ${HL}yours.</span></h1>
-      <p class="mt-6 max-w-3xl text-lg leading-relaxed text-slate-300">Every demo below is a full website you can scroll, tap and try on your phone. Each one has its own logo, colors and layout, built around how that business actually gets customers.</p>
-      <p class="mt-6 flex max-w-3xl gap-3 rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-sm text-slate-300">${ic("eye", "w-5 h-5 shrink-0 text-blue-400")}<span>These are demos I built to show what's possible. Every business here, including Cedar &amp; Hickory BBQ, Linen &amp; Lark Salon, Summit Roofing and Bright Smile Dental, is a sample I made up.</span></p>
+      <h1 id="pg-title" class="mt-2 max-w-4xl font-display text-[2.3rem] font-extrabold leading-[1.08] tracking-tight sm:text-6xl">Five selected demos. ${HL}Five distinct approaches.</span></h1>
+      <p class="mt-6 max-w-3xl text-lg leading-relaxed text-slate-300">Three business websites, a booking workflow and an interactive 3D study. Selected for their visual identity, clear hierarchy and useful interactions. Open each one and try it for yourself.</p>
+      <p class="mt-6 flex max-w-3xl gap-3 rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-sm text-slate-300">${ic("eye", "w-5 h-5 shrink-0 text-blue-400")}<span>Interactive concept builds and design studies, customizable for your business. The businesses and conversations are fictional; these are examples of the work, not client results.</span></p>
     </div>
   </section>
 
@@ -32,3 +32,4 @@ ${demos.map(demoPageCard).join("")}      </ul>
   </section>
 </main>
 `);
+

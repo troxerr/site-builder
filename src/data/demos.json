@@ -1,5 +1,153 @@
 [
   {
+    "id": "summit-roofing",
+    "href": "summit-roofing/",
+    "thumb": "demo-summit-roofing",
+    "alt": "Summit Roofing demo homepage with an orange Get Free Estimate button beside a house photo",
+    "name": "Summit Roofing Co.",
+    "type": "Roofing · Bartlett (sample business)",
+    "what": "Shows a ballpark roof price with a live slider, then books a free inspection.",
+    "chips": [
+      "Sample",
+      "Price estimator"
+    ],
+    "home": {
+      "name": "Summit Roofing Co. (sample)",
+      "type": "Roofing · Bartlett",
+      "alt": "Summit Roofing demo homepage with an orange Get Free Estimate button beside a house photo",
+      "outcome": "Gives homeowners a ballpark roof price before anyone knocks.",
+      "built": "Live price slider and before-and-after photo comparison",
+      "chip": "Sample",
+      "order": 1
+    },
+    "category": "building",
+    "public": true,
+    "city": {
+      "key": "summit",
+      "name": "Summit Roofing Co.",
+      "type": "Roofing &middot; Bartlett (sample business)",
+      "what": "Shows a ballpark roof price with a live slider, then books a free inspection.",
+      "chip": "Sample"
+    }
+  },
+  {
+    "id": "linen-and-lark-salon",
+    "href": "linen-and-lark-salon/",
+    "thumb": "demo-linen-and-lark-salon",
+    "alt": "Linen &amp; Lark sample salon homepage with an open or closed badge, Request an appointment button and price callout",
+    "name": "Linen &amp; Lark Salon",
+    "type": "Hair salon · Sample business",
+    "what": "Shows every price and stylist up front, then takes appointment requests without a phone call.",
+    "chips": [
+      "Sample",
+      "Booking + price menu"
+    ],
+    "city": {
+      "key": "linen",
+      "name": "Linen &amp; Lark Salon",
+      "type": "Hair salon · Sample business",
+      "what": "Shows every price and stylist up front, then books appointments without phone tag.",
+      "chip": "Sample"
+    },
+    "home": {
+      "name": "Linen &amp; Lark Salon",
+      "type": "Hair salon · Sample business",
+      "alt": "Linen &amp; Lark sample salon homepage with an open or closed badge, Request an appointment button and a price callout",
+      "outcome": "Shows every price and stylist up front, then books appointments without phone tag.",
+      "built": "Live open or closed status and &ldquo;book with this stylist&rdquo; buttons",
+      "chip": "Sample",
+      "order": 2
+    },
+    "category": "food",
+    "public": true
+  },
+  {
+    "id": "cedar-and-hickory-bbq",
+    "href": "cedar-and-hickory-bbq/",
+    "thumb": "demo-cedar-and-hickory-bbq",
+    "alt": "Cedar &amp; Hickory BBQ sample restaurant homepage",
+    "name": "Cedar &amp; Hickory BBQ",
+    "type": "Restaurant · Sample business",
+    "what": "Answers &ldquo;what's on the menu?&rdquo; before anyone calls, and brings in catering leads with a quote form.",
+    "chips": [
+      "Sample",
+      "Menu + catering"
+    ],
+    "city": {
+      "key": "cedar",
+      "name": "Cedar &amp; Hickory BBQ",
+      "type": "Restaurant · Sample business",
+      "what": "Answers &ldquo;what&rsquo;s on the menu?&rdquo; before anyone calls, and brings in catering leads.",
+      "chip": "Sample"
+    },
+    "category": "food",
+    "public": true,
+    "home": {
+      "name": "Cedar &amp; Hickory BBQ",
+      "type": "Restaurant &middot; Sample business",
+      "alt": "Cedar &amp; Hickory BBQ sample restaurant homepage",
+      "outcome": "Answers &ldquo;what's on the menu?&rdquo; before anyone calls, and brings in catering leads.",
+      "built": "Menu, catering quote form and one-tap directions",
+      "chip": "Sample",
+      "order": 3
+    }
+  },
+  {
+    "id": "missed-call-booking-agent",
+    "href": "missed-call-booking-agent/",
+    "thumb": "demo-missed-call-booking-agent",
+    "alt": "Missed-call booking agent demo: a text conversation on a phone, a seven-step behind-the-scenes checklist and a calendar with Thursday 8 AM booked",
+    "name": "Missed-Call Booking Agent",
+    "type": "Dental office · Sample practice",
+    "what": "Texts back a missed call, offers real open times and books the patient in under a minute. Urgent requests go straight to a person.",
+    "chips": [
+      "Live demo",
+      "Text-back booking"
+    ],
+    "category": "health",
+    "public": true,
+    "city": {
+      "key": "bright",
+      "name": "Bright Smile Dental (sample)",
+      "type": "Dental office &middot; Sample practice",
+      "what": "Texts back a missed call, offers real open times and books the patient in under a minute.",
+      "chip": "Sample"
+    },
+    "home": {
+      "name": "Bright Smile Dental (sample)",
+      "type": "Dental office &middot; Sample practice",
+      "alt": "Missed-call booking agent demo: a text conversation on a phone, a seven-step behind-the-scenes checklist and a calendar with Thursday 8 AM booked",
+      "outcome": "Texts back a missed call and books the patient in under a minute.",
+      "built": "Text-back booking with a calendar and an urgent hand-off",
+      "chip": "Sample",
+      "order": 4
+    }
+  },
+  {
+    "id": "castle-above-clouds",
+    "href": "castle-above-clouds/",
+    "thumb": "demo-castle-above-clouds",
+    "alt": "Castle Above Clouds interactive 3D scene of a castle on a floating island",
+    "name": "Castle Above Clouds",
+    "type": "Interactive 3D showcase",
+    "what": "A castle on a floating island that you can drag to look around, with dawn, noon and dusk skies. It runs right in the browser.",
+    "chips": [
+      "Showcase",
+      "3D + animation"
+    ],
+    "category": "showcase",
+    "public": true,
+    "home": {
+      "name": "Castle Above Clouds",
+      "type": "Interactive design study",
+      "alt": "Castle Above Clouds interactive 3D scene of a castle on a floating island",
+      "outcome": "A browser-based 3D environment with drag-to-orbit controls and three lighting settings.",
+      "built": "Interactive 3D, responsive controls and art direction",
+      "chip": "Design study",
+      "order": 5
+    }
+  },
+  {
     "id": "summer-avenue-animal-hospital",
     "href": "summer-avenue-animal-hospital/",
     "thumb": "demo-summer-avenue-animal-hospital",
@@ -62,37 +210,6 @@
     "public": false
   },
   {
-    "id": "linen-and-lark-salon",
-    "href": "linen-and-lark-salon/",
-    "thumb": "demo-linen-and-lark-salon",
-    "alt": "Linen &amp; Lark sample salon homepage with an open or closed badge, Request an appointment button and price callout",
-    "name": "Linen &amp; Lark Salon",
-    "type": "Hair salon · Sample business",
-    "what": "Shows every price and stylist up front, then takes appointment requests without a phone call.",
-    "chips": [
-      "Sample",
-      "Booking + price menu"
-    ],
-    "city": {
-      "key": "linen",
-      "name": "Linen &amp; Lark Salon",
-      "type": "Hair salon · Sample business",
-      "what": "Shows every price and stylist up front, then books appointments without phone tag.",
-      "chip": "Sample"
-    },
-    "home": {
-      "name": "Linen &amp; Lark Salon",
-      "type": "Hair salon · Sample business",
-      "alt": "Linen &amp; Lark sample salon homepage with an open or closed badge, Request an appointment button and a price callout",
-      "outcome": "Shows every price and stylist up front, then books appointments without phone tag.",
-      "built": "Live open or closed status and &ldquo;book with this stylist&rdquo; buttons",
-      "chip": "Sample",
-      "order": 3
-    },
-    "category": "food",
-    "public": true
-  },
-  {
     "id": "reedy-company",
     "href": "reedy-company/",
     "thumb": "demo-reedy-company",
@@ -122,37 +239,6 @@
     },
     "category": "property",
     "public": false
-  },
-  {
-    "id": "cedar-and-hickory-bbq",
-    "href": "cedar-and-hickory-bbq/",
-    "thumb": "demo-cedar-and-hickory-bbq",
-    "alt": "Cedar &amp; Hickory BBQ sample restaurant homepage",
-    "name": "Cedar &amp; Hickory BBQ",
-    "type": "Restaurant · Sample business",
-    "what": "Answers &ldquo;what's on the menu?&rdquo; before anyone calls, and brings in catering leads with a quote form.",
-    "chips": [
-      "Sample",
-      "Menu + catering"
-    ],
-    "city": {
-      "key": "cedar",
-      "name": "Cedar &amp; Hickory BBQ",
-      "type": "Restaurant · Sample business",
-      "what": "Answers &ldquo;what&rsquo;s on the menu?&rdquo; before anyone calls, and brings in catering leads.",
-      "chip": "Sample"
-    },
-    "category": "food",
-    "public": true,
-    "home": {
-      "name": "Cedar &amp; Hickory BBQ",
-      "type": "Restaurant &middot; Sample business",
-      "alt": "Cedar &amp; Hickory BBQ sample restaurant homepage",
-      "outcome": "Answers &ldquo;what's on the menu?&rdquo; before anyone calls, and brings in catering leads.",
-      "built": "Menu, catering quote form and one-tap directions",
-      "chip": "Sample",
-      "order": 11
-    }
   },
   {
     "id": "lynns-dog-house",
@@ -230,37 +316,6 @@
     "public": false
   },
   {
-    "id": "missed-call-booking-agent",
-    "href": "missed-call-booking-agent/",
-    "thumb": "demo-missed-call-booking-agent",
-    "alt": "Missed-call booking agent demo: a text conversation on a phone, a seven-step behind-the-scenes checklist and a calendar with Thursday 8 AM booked",
-    "name": "Missed-Call Booking Agent",
-    "type": "Dental office · Sample practice",
-    "what": "Texts back a missed call, offers real open times and books the patient in under a minute. Urgent requests go straight to a person.",
-    "chips": [
-      "Live demo",
-      "Text-back booking"
-    ],
-    "category": "health",
-    "public": true,
-    "city": {
-      "key": "bright",
-      "name": "Bright Smile Dental (sample)",
-      "type": "Dental office &middot; Sample practice",
-      "what": "Texts back a missed call, offers real open times and books the patient in under a minute.",
-      "chip": "Sample"
-    },
-    "home": {
-      "name": "Bright Smile Dental (sample)",
-      "type": "Dental office &middot; Sample practice",
-      "alt": "Missed-call booking agent demo: a text conversation on a phone, a seven-step behind-the-scenes checklist and a calendar with Thursday 8 AM booked",
-      "outcome": "Texts back a missed call and books the patient in under a minute.",
-      "built": "Text-back booking with a calendar and an urgent hand-off",
-      "chip": "Sample",
-      "order": 12
-    }
-  },
-  {
     "id": "waggles-stay-n-play",
     "href": "https://waggles-stay-n-play.com/",
     "thumb": "waggles-stay-n-play-desktop",
@@ -289,21 +344,6 @@
     ],
     "category": "property",
     "public": false
-  },
-  {
-    "id": "castle-above-clouds",
-    "href": "castle-above-clouds/",
-    "thumb": "demo-castle-above-clouds",
-    "alt": "Castle Above Clouds interactive 3D scene of a castle on a floating island",
-    "name": "Castle Above Clouds",
-    "type": "Interactive 3D showcase",
-    "what": "A castle on a floating island that you can drag to look around, with dawn, noon and dusk skies. It runs right in the browser.",
-    "chips": [
-      "Showcase",
-      "3D + animation"
-    ],
-    "category": "showcase",
-    "public": true
   },
   {
     "id": "effective-automotive",
@@ -397,37 +437,6 @@
     },
     "category": "building",
     "public": false
-  },
-  {
-    "id": "summit-roofing",
-    "href": "summit-roofing/",
-    "thumb": "demo-summit-roofing",
-    "alt": "Summit Roofing demo homepage with an orange Get Free Estimate button beside a house photo",
-    "name": "Summit Roofing Co.",
-    "type": "Roofing · Bartlett (sample business)",
-    "what": "Shows a ballpark roof price with a live slider, then books a free inspection.",
-    "chips": [
-      "Sample",
-      "Price estimator"
-    ],
-    "home": {
-      "name": "Summit Roofing Co. (sample)",
-      "type": "Roofing · Bartlett",
-      "alt": "Summit Roofing demo homepage with an orange Get Free Estimate button beside a house photo",
-      "outcome": "Gives homeowners a ballpark roof price before anyone knocks.",
-      "built": "Live price slider and before-and-after photo comparison",
-      "chip": "Sample",
-      "order": 9
-    },
-    "category": "building",
-    "public": true,
-    "city": {
-      "key": "summit",
-      "name": "Summit Roofing Co.",
-      "type": "Roofing &middot; Bartlett (sample business)",
-      "what": "Shows a ballpark roof price with a live slider, then books a free inspection.",
-      "chip": "Sample"
-    }
   },
   {
     "id": "elite-roofing-solutions",

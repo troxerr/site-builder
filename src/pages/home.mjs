@@ -7,22 +7,26 @@ ${c.top}
   <span id="top"></span>
 
   <!-- HERO -->
-  <section class="relative overflow-hidden bg-gradient-to-b from-brand/25 via-slate-950 to-slate-950 px-4 pb-16 pt-8 sm:px-6 sm:pt-20 lg:px-8 lg:pb-24 lg:pt-24" aria-labelledby="hero-title">
+  <section class="studio-hero relative overflow-hidden bg-gradient-to-b from-brand/25 via-slate-950 to-slate-950 px-4 pb-16 pt-8 sm:px-6 sm:pt-20 lg:px-8 lg:pb-24 lg:pt-24" aria-labelledby="hero-title">
     <div class="pointer-events-none absolute left-1/2 top-1/3 h-[350px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/10 blur-[150px]" aria-hidden="true"></div>
-    <div class="relative z-10 mx-auto max-w-5xl text-center">
+    <div class="hero-layout relative z-10 mx-auto max-w-5xl text-center">
+      <div class="hero-copy">
       <p class="mb-4 hidden items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-3.5 py-1.5 sm:mb-6 sm:inline-flex text-xs font-semibold uppercase tracking-wider text-blue-300"><span class="h-2 w-2 rounded-full bg-blue-400 motion-safe:animate-pulse" aria-hidden="true"></span>Free draft before you pay &bull; No long-term contracts</p>
-      <h1 id="hero-title" class="font-display text-[2.1rem] font-extrabold leading-[1.08] sm:text-[2.4rem] tracking-tight sm:text-6xl lg:text-7xl">Websites &amp; instant <span class="whitespace-nowrap">text-back</span> that turn missed calls into <span class="bg-gradient-to-r from-blue-400 via-sky-300 to-white bg-clip-text text-transparent">booked jobs.</span></h1>
-      <p class="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-slate-300 sm:mt-6 sm:text-xl">You don't need an award-winning design. You need a fast site that works on a phone, and a text-back that answers when you're on a roof, under a hood or with a customer.<span class="hidden sm:inline"> I'm Austin, and I build both here in Bartlett.</span></p>
+      <h1 id="hero-title" class="font-display text-[2.1rem] font-extrabold leading-[1.08] sm:text-[2.4rem] tracking-tight sm:text-6xl lg:text-7xl">A better website.<br>A clearer path to <span class="bg-gradient-to-r from-blue-400 via-sky-300 to-white bg-clip-text text-transparent"><span class="whitespace-nowrap">booked jobs.</span></span></h1>
+      <p class="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-slate-300 sm:mt-6 sm:text-xl">Fast, custom websites and missed-call text-back for Memphis-area businesses.<span class="hidden sm:inline"> I'm Austin, your web designer here in Bartlett. You work directly with me, from the first draft to launch.</span></p>
       <div class="mt-6 flex flex-col items-center justify-center gap-3 sm:mt-8 sm:flex-row">
         <a class="btn btn-primary btn-lg w-full sm:w-auto" href="#contact">Get my free draft<svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <a class="btn btn-dark btn-lg w-full sm:w-auto" href="#showcase">Drag the before &amp; after &darr;</a>
+        <a class="btn btn-dark btn-lg w-full sm:w-auto" href="#showcase">See the difference &darr;</a>
       </div>
-      <p class="mt-4 text-sm text-slate-400">Or call or text <a class="link font-semibold text-white" href="tel:+19013210023">(901) 321-0023</a>. It reaches me directly, and I reply within one business day.</p>
-      <div class="mx-auto mt-10 flex max-w-2xl items-start gap-4 rounded-2xl border border-blue-500/30 bg-blue-500/10 p-5 text-left">
+      <p class="mt-4 text-sm text-slate-400">Or call or text <a class="link font-semibold text-white" href="tel:+19013210023">(901) 321-0023</a>. It reaches me directly, and I reply within 1–3 business days.</p>
+      </div>
+      <div class="hero-aside">
+      <div class="draft-panel mx-auto mt-10 flex max-w-2xl items-start gap-4 rounded-2xl border border-blue-500/30 bg-blue-500/10 p-5 text-left">
         <span class="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-blue-600 font-display text-lg font-extrabold" aria-hidden="true">$0</span>
         <div><p class="font-display font-extrabold text-white">See a free working draft of your site before you pay.</p><p class="mt-1 text-sm text-slate-300">Send me a few details and I'll build a real, clickable draft with your name, services and hours in 2&ndash;3 days. Love it, then we talk price. Don't, and you owe nothing. No deposit, no card.</p></div>
       </div>
 ${c.founding.hero}
+      </div>
       <ul class="mt-12 grid grid-cols-2 gap-4 border-t border-slate-800 pt-8 text-sm font-semibold text-slate-300 md:grid-cols-4">
         <li class="flex items-center justify-center gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg>Built in Bartlett</li>
         <li class="flex items-center justify-center gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg>Missed-call text-back</li>
@@ -188,8 +192,8 @@ ${c.founding.hero}
     <div class="mx-auto max-w-6xl">
       <div class="max-w-3xl">
         <p class="kicker">Live demos</p>
-        <h2 id="work-title" class="h2">Working examples, built the way I'll build yours.</h2>
-        <p class="mt-4 text-lg text-slate-400">Roofers, clinics, salons and restaurants: each demo is a full, working site with its own look. Open one on your phone and tap around.</p>
+        <h2 id="work-title" class="h2">Five designs. Five different approaches.</h2>
+        <p class="mt-4 text-lg text-slate-400">Selected for clear layouts, distinctive typography and useful interactions. Explore three business websites, a booking workflow and an interactive 3D study.</p>
       </div>
       <ul class="work mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 ${c.demoPool}
@@ -200,7 +204,7 @@ ${c.demoPool}
           <span class="mt-5 inline-flex items-center gap-1.5 font-semibold text-blue-400">Get my free draft<svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-arrow"/></svg></span></a></li>
       </ul>
       <p class="mt-10 text-center"><a class="btn btn-primary" href="/demos/">See all ${c.demoCount} live demos<svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
-      <p class="mx-auto mt-4 max-w-3xl text-center text-sm text-slate-400">A different mix every visit. Every business here is a sample I made up to show what's possible.</p>
+      <p class="mx-auto mt-4 max-w-3xl text-center text-sm text-slate-400">Five selected concepts, each showing a different approach to design and interaction. Sample businesses and design studies; customizable for your brand.</p>
     </div>
   </section>
 
@@ -213,9 +217,9 @@ ${c.demoPool}
         <p class="mt-4 text-lg text-slate-400">You see a real, clickable draft before you spend a dime. No deposit and no card on file.</p>
       </div>
       <ol class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        <li class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><p class="text-xs font-semibold uppercase tracking-wider text-blue-400">Day 1 &middot; Free</p><h3 class="mt-1 font-display text-lg font-extrabold">Quick chat</h3><p class="mt-2 text-sm text-slate-400">I reply within one business day with a couple of quick questions. A 15-minute call or a few texts, your pick.</p></li>
-        <li class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><p class="text-xs font-semibold uppercase tracking-wider text-blue-400">Days 2&ndash;3 &middot; Free</p><h3 class="mt-1 font-display text-lg font-extrabold">Your draft</h3><p class="mt-2 text-sm text-slate-400">I build a working draft with your name, services, hours and a custom look, and text you the link.</p></li>
-        <li class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><p class="text-xs font-semibold uppercase tracking-wider text-blue-400">Days 4&ndash;7</p><h3 class="mt-1 font-display text-lg font-extrabold">Tweak and launch</h3><p class="mt-2 text-sm text-slate-400">Tell me what to change. Once you love it, you pay, I connect your domain in your name, and you're live.</p></li>
+        <li class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><p class="text-xs font-semibold uppercase tracking-wider text-blue-400">1&ndash;3 business days &middot; Free</p><h3 class="mt-1 font-display text-lg font-extrabold">Quick chat</h3><p class="mt-2 text-sm text-slate-400">I reply within 1–3 business days with a couple of quick questions. A 15-minute call or a few texts, your pick.</p></li>
+        <li class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><p class="text-xs font-semibold uppercase tracking-wider text-blue-400">After our chat &middot; Free</p><h3 class="mt-1 font-display text-lg font-extrabold">Your draft</h3><p class="mt-2 text-sm text-slate-400">I build a working draft with your name, services, hours and a custom look, and text you the link.</p></li>
+        <li class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><p class="text-xs font-semibold uppercase tracking-wider text-blue-400">Once approved</p><h3 class="mt-1 font-display text-lg font-extrabold">Tweak and launch</h3><p class="mt-2 text-sm text-slate-400">Tell me what to change. Once you love it, you pay, I connect your domain in your name, and you're live.</p></li>
         <li class="rounded-2xl border border-slate-800 bg-slate-950 p-6"><p class="text-xs font-semibold uppercase tracking-wider text-blue-400">After launch</p><h3 class="mt-1 font-display text-lg font-extrabold">Stay current</h3><p class="mt-2 text-sm text-slate-400">New prices, hours or photos? Text them to me, the same person who built your site.</p></li>
       </ol>
     </div>
@@ -304,7 +308,7 @@ ${c.founding.banner}
         <h2 id="about-title" class="h2">Hi, I'm Austin.</h2>
         <p class="mt-4 text-lg leading-relaxed text-slate-300">I was born in Memphis and have lived in Bartlett for over 15 years. I build websites for the kinds of local businesses I grew up around: contractors, shops, groomers, clinics and salons.</p>
         <p class="mt-4 text-lg leading-relaxed text-slate-300">I built my first fully working website at age 10, in fifth grade. Now, at 23, I build custom sites for local businesses, designed to load fast and do exactly what your customers need.</p>
-        <p class="mt-4 text-lg leading-relaxed text-slate-300">When you call or text, you get me. There's no sales team and no call center, and I reply within one business day.</p>
+        <p class="mt-4 text-lg leading-relaxed text-slate-300">When you call or text, you get me. There's no sales team and no call center, and I reply within 1–3 business days.</p>
         <div class="mt-7 flex flex-col gap-3 sm:flex-row"><a class="btn btn-primary" href="#contact">Get my free draft<svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="btn btn-dark" href="tel:+19013210023"><svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-phone"/></svg>Call or text me</a></div>
       </div>
       <div class="space-y-5">
@@ -349,7 +353,7 @@ ${c.faqItems}
         <p class="mt-4 text-lg text-slate-400">Tell me a little about your business and I'll build a free, clickable draft. No payment, no card and no obligation.</p>
         <h3 class="mt-8 font-display font-extrabold">What happens next</h3>
         <ol class="mt-4 space-y-4 text-sm text-slate-300">
-          <li class="flex gap-3"><span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-blue-600 font-display text-xs font-extrabold">1</span><span><b class="block text-white">I reply within one business day</b>By text or email, with a couple of quick questions.</span></li>
+          <li class="flex gap-3"><span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-blue-600 font-display text-xs font-extrabold">1</span><span><b class="block text-white">I reply within 1–3 business days</b>By text or email, with a couple of quick questions.</span></li>
           <li class="flex gap-3"><span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-blue-600 font-display text-xs font-extrabold">2</span><span><b class="block text-white">You get a link to your draft in 2&ndash;3 days</b>A real, working site you can open on your phone and share.</span></li>
           <li class="flex gap-3"><span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-blue-600 font-display text-xs font-extrabold">3</span><span><b class="block text-white">You decide</b>Love it, and we agree on a price before you pay. If not, you owe nothing.</span></li>
         </ol>
@@ -386,3 +390,4 @@ ${c.scripts}
 </body>
 </html>
 `;
+

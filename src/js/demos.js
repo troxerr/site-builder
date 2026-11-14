@@ -1,9 +1,6 @@
-import { shuffle } from "./shuffle.js";
-
 const list = document.querySelector(".demo-list");
 if (list) {
-  // Fresh order on every visit; without JS the list keeps its HTML order
-  shuffle([...list.children]).forEach((li) => list.appendChild(li));
+  // The selected collection keeps its editorial order, including without JavaScript.
 
   // Industry filter. The chips are hidden in the HTML, so without JS visitors just see every demo.
   const bar = document.getElementById("demo-filter"), count = document.getElementById("demo-count");
@@ -20,3 +17,4 @@ if (list) {
     });
   }
 }
+

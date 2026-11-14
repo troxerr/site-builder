@@ -57,7 +57,7 @@ export function head(meta) {
   const { title, description, path, robots, ld = [], ogImage = "/assets/og-image.png" } = meta;
   const ogTitle = meta.ogTitle ?? title, ogDescription = meta.ogDescription ?? description, image = `${SITE_URL}${ogImage}`;
   const lines = [
-    "<!doctype html>", '<html lang="en" class="motion-safe:scroll-smooth">', "<head>",
+    "<!doctype html>", '<html lang="en" class="motion-safe:scroll-smooth studio-site">', "<head>",
     '<meta charset="utf-8">', '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">',
     `<title>${esc(title)}</title>`, `<meta name="description" content="${esc(description)}">`,
     robots && `<meta name="robots" content="${robots}">`,
@@ -73,7 +73,9 @@ export function head(meta) {
     '<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>',
     ...ld.map(ldTag),
     '<link rel="stylesheet" href="{{CSS}}">',
+    '<link rel="stylesheet" href="/assets/studio-20261114.css">',
     "</head>",
   ];
   return lines.filter(Boolean).join("\n");
 }
+
