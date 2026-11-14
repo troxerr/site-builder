@@ -65,7 +65,7 @@ test("every first-party page shares one stylesheet and loads only hashed scripts
   assert.match([...sheets][0], /^\/assets\/css\/site\.[0-9a-f]{10}\.css$/);
   assert.ok(scripts.every((s) => /^\/assets\/js\/[a-z-]+\.[0-9a-f]{10}\.js$/.test(s)), "scripts are content-hashed");
   const css = shipped.find((f) => f.rel === [...sheets][0].slice(1));
-  assert.ok(css && css.size <= 45 * 1024, "stylesheet over 45 KB");
+  assert.ok(css && css.size <= 55 * 1024, "stylesheet over 55 KB (includes the editorial design layer)");
   for (const f of shipped.filter((f) => f.rel.startsWith("assets/js/"))) assert.ok(f.size <= 8 * 1024, `${f.rel} over 8 KB`);
 });
 
@@ -74,3 +74,4 @@ test("no stale generated files are left in assets/css or assets/js", () => {
   const onDisk = shipped.filter((f) => /^assets\/(css|js)\//.test(f.rel)).map((f) => f.rel);
   assert.deepEqual(onDisk.filter((f) => !used.has(f)), []);
 });
+

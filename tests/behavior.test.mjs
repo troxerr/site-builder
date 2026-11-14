@@ -137,21 +137,21 @@ test("before/after slider: keyboard, buttons, drag and trade tabs", async () => 
   await page.context().close();
 });
 
-test("homepage shows the public demos in a random order", async () => {
+test("homepage shows the curated five demos in a fixed order", async () => {
   const { page } = await pageWithForm();
   const orders = new Set();
   for (let i = 0; i < 6; i++) {
     await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
     const shown = await page.$$eval(".work > .work-item:not([hidden]):not(.wide) h3", (hs) => hs.map((h) => h.textContent));
-    assert.equal(shown.length, 4, "the four invented businesses with a homepage card");
-    assert.equal(new Set(shown).size, 4, "no repeats");
+    assert.equal(shown.length, 5, "the five curated public concepts");
+    assert.equal(new Set(shown).size, 5, "no repeats");
     orders.add(shown.join("|"));
   }
-  assert.ok(orders.size > 1, "order changes between visits");
+  assert.equal(orders.size, 1, "curated order stays stable between visits");
   await page.context().close();
 });
 
-test("demos page lists the public demos and shuffles", async () => {
+test("demos page lists the curated five in a fixed order", async () => {
   const { page } = await pageWithForm();
   const orders = new Set();
   for (let i = 0; i < 5; i++) {
@@ -161,7 +161,7 @@ test("demos page lists the public demos and shuffles", async () => {
     assert.equal(new Set(names).size, 5);
     orders.add(names.join("|"));
   }
-  assert.ok(orders.size > 1);
+  assert.equal(orders.size, 1, "curated order stays stable between visits");
   await page.context().close();
 });
 
@@ -170,7 +170,7 @@ test("phone first screen (375×667): headline and both buttons sit above the sti
   await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
   const barTop = await page.locator(".mobile-bar").evaluate((el) => el.getBoundingClientRect().top);
   assert.ok(await page.locator("h1").evaluate((el) => el.getBoundingClientRect().top) < 300, "headline near the top");
-  for (const label of ["Get my free draft", "Drag the before & after"]) {
+  for (const label of ["Get my free draft", "See the difference"]) {
     const bottom = await page.locator("main a.btn", { hasText: label }).first().evaluate((el) => el.getBoundingClientRect().bottom);
     assert.ok(bottom <= barTop, `"${label}" ends at ${Math.round(bottom)}px, but the call bar starts at ${Math.round(barTop)}px`);
   }
@@ -221,3 +221,4 @@ test("bail-bonds form sends the lead and lands on the booking-agent thanks page"
   assert.match(sent[0].plan, /Bail bond intake assistant/);
   await page.context().close();
 });
+

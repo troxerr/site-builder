@@ -103,7 +103,9 @@ function buildCss(pages) {
     const out = join(tmp, "out.css");
     execFileSync(TAILWIND, ["-c", src("css/tailwind.config.js"), "-i", src("css/input.css"), "-o", out, "--minify"],
       { stdio: ["ignore", "ignore", "pipe"], env: { ...process.env, SITE_CONTENT: [...files, join(src("js"), "*.js")].join(",") } });
-    return readFileSync(out);
+    // The editorial layer is bundled into the same fingerprinted stylesheet.
+    const editorial = esbuild.transformSync(readFileSync(src("css/editorial.css"), "utf8"), { loader: "css", minify: true }).code;
+    return Buffer.concat([readFileSync(out), Buffer.from(editorial)]);
   } finally { rmSync(tmp, { recursive: true, force: true }); }
 }
 
@@ -164,3 +166,4 @@ export async function build() {
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) await build();
+
