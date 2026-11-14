@@ -52,7 +52,7 @@ for (const page of FIRST_PARTY) {
       walk(block);
       if (block["@type"] === "FAQPage") {
         const asked = block.mainEntity.map((q) => decode(q.name));
-        const shown = [...html.matchAll(/<details[^>]*><summary[^>]*>([\s\S]*?)<(?:span|svg)/g)].map((m) => decode(text(m[1])));
+        const shown = [...html.matchAll(/<details class="group[^"]*"[^>]*><summary[^>]*>([\s\S]*?)<(?:span|svg)/g)].map((m) => decode(text(m[1])));
         assert.deepEqual(asked, shown, "FAQ structured data matches the questions on the page");
       }
     }
@@ -112,3 +112,4 @@ for (const page of demoPages) {
     }
   });
 }
+

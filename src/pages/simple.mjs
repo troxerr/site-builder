@@ -30,16 +30,26 @@ export const notFound = (c) => simple(c, {
 
 export const thanks = (c) => simple(c, {
   pill: "Sent &middot; your request", h1: "Got it, thanks!", lede: "Here's what happens next:",
-  steps: [["I reply within one business day", "By text or email, with a couple of quick questions about your business."],
-    ["You get a link to your draft in 2&ndash;3 days", "A real, working site you can open on your phone and share."],
+  steps: [["I reply in 1–3 business days", "By text or email, with a couple of quick questions about your business."],
+    ["Your draft follows once details are confirmed", "Usually 2–3 days after I have your business details. Open it on your phone and share your feedback."],
     ["You decide", "Love it, and we agree on a price before you pay. If not, you owe nothing."]],
   buttons: `<a class="btn btn-primary" href="${TEL}">${ic("phone")}Call or text ${PHONE}</a><a class="btn btn-dark" href="/demos/">Browse live demos</a>`,
 });
 
 export const thanksAgent = (c) => simple(c, {
   pill: "Sent &middot; your booking agent request", h1: "Got it, thanks!", lede: "Here's what happens next:",
-  steps: [["I reply within one business day", "By text or email, to set up a short call."],
+  steps: [["I reply in 1–3 business days", "By text or email, to set up a short call."],
     ["We check your phones and calendar", "I confirm your scheduling software can connect before you pay anything."],
     ["You decide", "The price is in writing before setup starts. No long-term contract."]],
   buttons: `<a class="btn btn-primary" href="${TEL}">${ic("phone")}Call or text ${PHONE}</a><a class="btn btn-dark" href="/demos/missed-call-booking-agent/">Watch the demo again</a>`,
 });
+
+export const thanksTextback = (c) => simple(c, {
+  pill: "Sent &middot; your text-back demo request", h1: "Your demo request is in.",
+  lede: "I’ll reply in 1–3 business days to discuss your missed calls and phone setup.",
+  steps: [["We check your phone setup", "I confirm compatibility and explain the number arrangements."],
+    ["You see how follow-up works", "We walk through the automatic reply, customer message and owner’s inbox."],
+    ["You decide", "Usage, any extra charges and cancellation steps are confirmed before paid work starts."]],
+  buttons: `<a class="btn btn-primary" href="sms:${site.phone.tel}">Text Austin</a><a class="btn btn-dark" href="/#booking-agent">Review the text-back example</a>`,
+});
+

@@ -26,7 +26,8 @@ calc();
 
 leadForm({
   idle: "See if it fits my office",
-  success: "Got it, thanks! I'll reply within one business day to set up a short call about your phones and calendar.",
+  success: "Got it, thanks! I'll reply in 1–3 business days to set up a short call about your phones and calendar.",
   subject: (f) => "Booking agent inquiry: " + f.business.value + " (" + f.software.value + ")",
   redirect: () => "/thanks/booking-agent/",
 });
+

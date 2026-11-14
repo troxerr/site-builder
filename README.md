@@ -11,7 +11,7 @@ The full static site for Bartlett Website Design: the homepage (`index.html`: da
   - `src/partials/`: header, footer, mobile bar and the icon sprite. `src/lib/`: the shared HTML helpers, `<head>` and structured data.
   - `src/css/`: Tailwind 3 config and component styles, compiled **once** for every page into `assets/css/site.<hash>.css`. `src/js/`: small scripts bundled with esbuild into `assets/js/<name>.<hash>.js`. The hash changes only when the content does, so browsers can cache them for a long time.
 - Demo pages under `demos/` are self-contained sites and are not generated (see "Adding a demo").
-- After a successful form send, the homepage goes to `/thanks/`, so each website lead shows up as a `/thanks/` page view in Cloudflare Web Analytics. Booking-agent leads (the `/dental/` form, or the homepage form with the booking-agent plan) go to `/thanks/booking-agent/` instead, so they count separately. Text-back leads go to `/thanks/` with a "Text-back inquiry" email subject.
+- After a successful form send, the homepage goes to `/thanks/`, so each website lead shows up as a `/thanks/` page view in Cloudflare Web Analytics. Booking-agent leads (the `/dental/` form, or the homepage form with the booking-agent plan) go to `/thanks/booking-agent/` instead, so they count separately. Text-back leads go to `/thanks/text-back/` with a "Text-back inquiry" email subject.
 - The city pages link back to the homepage's `#showcase`, `#work`, `#booking-agent`, `#pricing`, `#about`, `#faq` and `#contact` sections, so keep those ids.
 - Cloudflare Web Analytics (cookieless) is the one `static.cloudflareinsights.com/beacon.min.js` tag before `</body>`, on the homepage, city pages, dental page, demos page and 404.
 
@@ -36,7 +36,7 @@ Sandbox note: in a sandbox that needs a proxy, set `CHROMIUM_PATH` to a Chromium
 
 ## Founding-client deal
 
-The first 3 website clients get $100 off (Starter $250, Business $850). In return, if they're happy, they're asked for a Google review, a short quote and permission to show their site.
+The first 3 website clients get $100 off (Starter $250, Business $850). After launch, feedback and permission to feature the site may be requested; the discount does not depend on a review.
 
 - **When a spot is taken:** lower `founding.spotsLeft` in `src/data/site.json`, run `npm run build`, push. Every "N of 3 spots left", price, plan name and FAQ entry follows.
 - **At 0:** the deal, the founding prices, the plan labels and the FAQ entry (and its structured data) all disappear on the next build. `tests/founding.test.mjs` checks 3, 1 and 0.
@@ -56,3 +56,8 @@ It copies the site to `demos/<slug>/`, adds the "Demo site" bar and `noindex` to
 
 - Only demos with `"public": true` in `src/data/demos.json` are shown or linked on our pages (the demos gallery, homepage, city pages). Today that is the five invented ones: Summit Roofing, Linen & Lark, Cedar & Hickory, the Bright Smile Dental missed-call demo, and the Castle showcase. Demos of real businesses are **unlisted**: the folder and URL still work (so the link you sent the owner keeps working), they stay `noindex` (meta tag and `X-Robots-Tag` header), but no page of ours links to them. `tests/demos.test.mjs` enforces this. To show one publicly, get the owner's written OK and flip its flag.
 - Real client quotes go in `src/data/testimonials.json` as `{ "quote", "name", "business", "town" }`. The "What clients say" block appears on the homepage once there is at least one, and not before. `tests/claims.test.mjs` fails the build if placeholder text or "hand-coded" claims show up on a page.
+
+
+## Homepage inquiry paths
+
+The homepage leads with website design and three fixed public Industry Blueprints. Website, text-back, booking-agent and care inquiries share the existing Web3Forms delivery route, with matching form copy and subjects. Optional package details are collapsed. Text-back requests have a dedicated noindex confirmation page for separate conversion counts. The text-back conversation is a local simulation; it sends no messages. The fee-coverage example uses profit per additional job and the current text-back price from site.json. Reply copy is 1–3 business days.

@@ -10,13 +10,15 @@ export function leadForm({ subject, redirect, success, idle }) {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const btn = form.querySelector("button[type=submit]"), data = new FormData(form);
-    data.append("subject", subject(form.elements));
+    data.set("subject", subject(form.elements));
+    const destination = redirect(form.elements);
+    const idleLabel = typeof idle === "function" ? idle() : idle;
     btn.disabled = true; btn.textContent = "Sending...";
     fetch(form.action, { method: "POST", body: data, headers: { Accept: "application/json" } })
       .then((r) => r.json())
       .then((res) => {
         if (!res.success) throw new Error(res.message);
-        const to = redirect(form.elements);
+        const to = destination;
         form.reset();
         status.className = "text-sm font-semibold text-emerald-300 sm:col-span-2";
         status.textContent = success;
@@ -25,9 +27,10 @@ export function leadForm({ subject, redirect, success, idle }) {
         window.location.assign(to);
       })
       .catch(() => {
-        btn.disabled = false; btn.textContent = idle;
+        btn.disabled = false; btn.textContent = idleLabel;
         status.className = "text-sm font-semibold text-red-300 sm:col-span-2";
         status.innerHTML = `Something went wrong. Please call or text <a class="link" href="tel:${tel}">${phone}</a> or email <a class="link" href="mailto:${email}">${email}</a>.`;
       });
   });
 }
+

@@ -37,7 +37,7 @@ const fPrice = (reg) => reg - F.discount;
 export const founding = {
   hero: () => foundingActive() ? `      <p class="mx-auto mt-4 max-w-2xl rounded-xl border border-amber-400/40 bg-amber-400/10 px-4 py-3 text-sm text-amber-100"><b class="text-white">Founding-client deal:</b> ${money(F.discount)} off any website for my first ${F.of} clients &middot; <b class="text-white">${spotsText()}</b> &middot; <a class="link font-semibold" href="/#founding">See the terms</a></p>` : "",
   banner: () => foundingActive() ? `      <div id="founding" class="mt-12 flex flex-col gap-5 rounded-3xl border-2 border-amber-400/50 bg-gradient-to-r from-amber-500/15 via-slate-900 to-slate-900 p-7 lg:flex-row lg:items-center lg:justify-between">
-        <div class="max-w-3xl"><p class="text-xs font-semibold uppercase tracking-wider text-amber-300">Founding-client deal</p><p class="mt-1 font-display text-2xl font-extrabold">${money(F.discount)} off any website for my first ${F.of} clients.</p><p class="mt-2 text-sm leading-relaxed text-slate-300">I'm just getting started, so I'm trading a lower price for help getting my first reviews and examples. If you're happy with your site, I'll ask for three things: an honest Google review, a sentence or two I can show on my site, and permission to show your site as my work.</p></div>
+        <div class="max-w-3xl"><p class="text-xs font-semibold uppercase tracking-wider text-amber-300">Founding-client deal</p><p class="mt-1 font-display text-2xl font-extrabold">${money(F.discount)} off any website for my first ${F.of} clients.</p><p class="mt-2 text-sm leading-relaxed text-slate-300">The discount applies to the first three website clients. After launch, I may ask for honest feedback and permission to feature your site. Your discount does not depend on a review.</p></div>
         <div class="shrink-0 lg:text-right"><p class="font-display text-3xl font-extrabold text-amber-200">${spotsText()}</p><p class="mt-1 text-sm text-slate-300">Starter ${money(fPrice(P.starter))} &middot; Business ${money(fPrice(P.business))}</p></div>
       </div>` : "",
   /** Price line on a pricing card. */
@@ -130,7 +130,7 @@ export function demoHomeCard(d) {
 
 export const promise = () => `<div class="mt-8 flex max-w-2xl items-start gap-4 rounded-2xl border border-blue-500/30 bg-blue-500/10 p-5">
         <span class="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-blue-600 font-display text-lg font-extrabold" aria-hidden="true">$0</span>
-        <div><p class="font-display font-extrabold text-white">See a free working draft of your site before you pay.</p><p class="mt-1 text-sm text-slate-300">Send me a few details and I'll build a real, clickable draft with your name, services and hours in 2&ndash;3 days. Love it, then we talk price. Don't, and you owe nothing.</p></div>
+        <div><p class="font-display font-extrabold text-white">See a free working draft of your site before you pay.</p><p class="mt-1 text-sm text-slate-300">Send me a few details and I'll build a real, clickable draft with your name, services and hours in 2&ndash;3 days. Your package and any extras are confirmed before paid work starts. Don't, and you owe nothing.</p></div>
       </div>`;
 
 // ---------- real client quotes (src/data/testimonials.json: [{ quote, name, business, town }]). Renders nothing until there is one. ----------
@@ -139,3 +139,4 @@ export const testimonials = () => testimonialData.length === 0 ? "" : `    <div 
       <ul class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">${testimonialData.map((t) => `<li><figure class="h-full rounded-2xl border border-slate-800 bg-slate-900 p-5"><blockquote class="text-slate-200">&ldquo;${t.quote}&rdquo;</blockquote><figcaption class="mt-3 text-sm text-slate-400">${t.name} &middot; ${t.business}, ${t.town}</figcaption></figure></li>`).join("")}</ul>
     </div>
 `;
+

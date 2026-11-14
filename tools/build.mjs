@@ -22,7 +22,7 @@ const { default: dental } = await import(pathToFileURL(src("pages/dental.mjs")))
 const { default: bailBonds, intakeFaqs, homeCard: intakeCard } = await import(pathToFileURL(src("pages/bail-bonds.mjs")));
 const { default: city, cityFaqs } = await import(pathToFileURL(src("pages/city.mjs")));
 const { default: demosPage } = await import(pathToFileURL(src("pages/demos.mjs")));
-const { notFound, thanks, thanksAgent } = await import(pathToFileURL(src("pages/simple.mjs")));
+const { notFound, thanks, thanksAgent, thanksTextback } = await import(pathToFileURL(src("pages/simple.mjs")));
 const { site, cities, areas, demos, publicDemos, testimonials, faqEntries, faqDetails, founding, planOptions, attr, demoHomeCard } = ui;
 
 const partial = (name) => readFileSync(src("partials", name), "utf8").trimEnd();
@@ -83,6 +83,7 @@ const defs = [
     render: (c) => city(c, slug, ct), ld: structuredData.city(slug, ct, cityFaqs(ct)),
   })),
   { path: "/thanks/", out: "thanks/index.html", robots: "noindex", bar: false, render: thanks, title: "Thanks | Bartlett Website Design", description: "Your free draft request was sent." },
+  { path: "/thanks/text-back/", out: "thanks/text-back/index.html", robots: "noindex", bar: false, render: thanksTextback, title: "Text-back request sent | Bartlett Website Design", description: "Your text-back demo request was sent." },
   { path: "/thanks/booking-agent/", out: "thanks/booking-agent/index.html", robots: "noindex", bar: false, render: thanksAgent, title: "Thanks | Bartlett Website Design", description: "Your booking agent request was sent." },
   { path: "/404.html", out: "404.html", robots: "noindex", render: notFound, title: "Page not found | Bartlett Website Design", description: "That page doesn't exist. See live website demos or get a free draft of your site." },
 ];
@@ -112,7 +113,7 @@ async function buildJs() {
   const res = await esbuild.build({
     entryPoints: Object.fromEntries(["site", "home", "dental", "demos", "bail-bonds"].map((n) => [n, src("js", `${n}.js`)])),
     bundle: true, minify: true, format: "iife", target: "es2019", write: false, outdir: "out", legalComments: "none",
-    define: { __CONTACT__: JSON.stringify(contact) },
+    define: { __CONTACT__: JSON.stringify(contact), __TEXTBACK_MONTHLY__: String(site.pricing.textback) },
   });
   return Object.fromEntries(res.outputFiles.map((f) => [f.path.split("/").pop().replace(/\.js$/, ""), Buffer.from(f.contents)]));
 }
@@ -164,3 +165,4 @@ export async function build() {
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) await build();
+

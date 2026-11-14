@@ -47,6 +47,7 @@ test("homepage form: a website plan sends the request and lands on /thanks/", as
 test("homepage form: the booking agent plan is counted separately", async () => {
   const { page, sent } = await pageWithForm();
   await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
+  await page.locator("#extra-details summary").click();
   await page.selectOption("#plan", { index: 6 });
   await fillAndSend(page);
   await page.waitForURL(/\/thanks\/booking-agent\/$/);
@@ -59,7 +60,7 @@ test("homepage form: the text-back plan is labelled in the email subject", async
   await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
   await page.locator('a[data-plan^="Missed-call text-back"]').first().click();
   await fillAndSend(page);
-  await page.waitForURL(/\/thanks\/$/);
+  await page.waitForURL(/\/thanks\/text-back\/$/);
   assert.match(sent[0].subject, /^Text-back inquiry: Test Shop/);
   await page.context().close();
 });
@@ -137,18 +138,20 @@ test("before/after slider: keyboard, buttons, drag and trade tabs", async () => 
   await page.context().close();
 });
 
-test("homepage shows the public demos in a random order", async () => {
+test("homepage blueprints are visible in a stable order, including without JavaScript", async () => {
   const { page } = await pageWithForm();
-  const orders = new Set();
-  for (let i = 0; i < 6; i++) {
-    await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
-    const shown = await page.$$eval(".work > .work-item:not([hidden]):not(.wide) h3", (hs) => hs.map((h) => h.textContent));
-    assert.equal(shown.length, 4, "the four invented businesses with a homepage card");
-    assert.equal(new Set(shown).size, 4, "no repeats");
-    orders.add(shown.join("|"));
-  }
-  assert.ok(orders.size > 1, "order changes between visits");
+  await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
+  const names = await page.locator(".cro-blueprint h3").allTextContents();
+  assert.equal(names.length, 3);
+  assert.match(names[0], /estimate/);
+  await page.reload({ waitUntil: "networkidle" });
+  assert.deepEqual(await page.locator(".cro-blueprint h3").allTextContents(), names);
   await page.context().close();
+  const ctx = await env.browser.newContext({ javaScriptEnabled: false });
+  const noJs = await ctx.newPage();
+  await noJs.goto(env.site.url + "/");
+  assert.equal(await noJs.locator(".cro-blueprint:visible").count(), 3);
+  await ctx.close();
 });
 
 test("demos page lists the public demos and shuffles", async () => {
@@ -170,7 +173,7 @@ test("phone first screen (375×667): headline and both buttons sit above the sti
   await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
   const barTop = await page.locator(".mobile-bar").evaluate((el) => el.getBoundingClientRect().top);
   assert.ok(await page.locator("h1").evaluate((el) => el.getBoundingClientRect().top) < 300, "headline near the top");
-  for (const label of ["Get my free draft", "Drag the before & after"]) {
+  for (const label of ["Get my free website draft", "See example websites"]) {
     const bottom = await page.locator("main a.btn", { hasText: label }).first().evaluate((el) => el.getBoundingClientRect().bottom);
     assert.ok(bottom <= barTop, `"${label}" ends at ${Math.round(bottom)}px, but the call bar starts at ${Math.round(barTop)}px`);
   }
@@ -219,5 +222,49 @@ test("bail-bonds form sends the lead and lands on the booking-agent thanks page"
   assert.equal(sent.length, 1);
   assert.equal(sent[0].subject, "Bail bond assistant inquiry: Test Bonding Co");
   assert.match(sent[0].plan, /Bail bond intake assistant/);
+  await page.context().close();
+});
+
+
+test("automation CTA changes the inquiry, button and next steps without requesting a website draft", async () => {
+  const { page } = await pageWithForm();
+  await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
+  await page.locator('a[data-plan^="Missed-call text-back"]').first().click();
+  assert.equal(await page.inputValue("#inquiry-type"), "textback");
+  assert.match(await page.textContent("#contact-title"), /missed-call follow-up/);
+  assert.match(await page.textContent('#contact-form button[type="submit"]'), /text-back demo/);
+  assert.doesNotMatch(await page.textContent("#contact-next"), /working draft/);
+  await page.selectOption("#inquiry-type", "website");
+  assert.equal(await page.inputValue("#plan"), "Not sure yet");
+  assert.match(await page.textContent('#contact-form button[type="submit"]'), /free website draft/);
+  await page.context().close();
+});
+
+test("a failed automation inquiry preserves the correct retry label", async () => {
+  const { page } = await pageWithForm({ reply: { success: false } });
+  await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
+  await page.selectOption("#inquiry-type", "textback");
+  await fillAndSend(page);
+  await page.waitForFunction(() => document.querySelector('#contact-form button[type="submit"]').disabled === false);
+  assert.match(await page.textContent('#contact-form button[type="submit"]'), /text-back demo/);
+  assert.equal(await page.inputValue('#contact-form [name="business"]'), "Test Shop");
+  await page.context().close();
+});
+
+test("the text-back example advances locally, resets, and estimates profit-based fee coverage", async () => {
+  const { page, sent } = await pageWithForm();
+  await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
+  assert.equal(await page.locator('[data-demo-step="1"]').isVisible(), false);
+  await page.click("#textback-next");
+  assert.equal(await page.locator('[data-demo-step="1"]').isVisible(), true);
+  await page.click("#textback-next");
+  assert.equal(await page.locator('[data-demo-step="2"]').isVisible(), true);
+  await page.click("#textback-next");
+  assert.equal(await page.locator('[data-demo-step="1"]').isVisible(), false);
+  await page.fill("#job-profit", "100");
+  assert.match(await page.textContent("#profit-result"), /3 additional jobs/);
+  await page.fill("#job-profit", "0");
+  assert.match(await page.textContent("#profit-result"), /greater than zero/);
+  assert.equal(sent.length, 0);
   await page.context().close();
 });
