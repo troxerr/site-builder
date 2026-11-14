@@ -73,7 +73,7 @@ export function head(meta) {
     '<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>',
     ...ld.map(ldTag),
     '<link rel="stylesheet" href="{{CSS}}">',
-    '<link rel="stylesheet" href="/assets/studio-20261114.css">',
+    '<link rel="stylesheet" href="/assets/studio-editorial.7dbc2ba9c1.css">',
     "</head>",
   ];
   return lines.filter(Boolean).join("\n");

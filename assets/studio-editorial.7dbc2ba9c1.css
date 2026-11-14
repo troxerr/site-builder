@@ -16,11 +16,11 @@
 .studio-site main>section{border-color:var(--studio-line)}
 .studio-site main>section:not(.studio-hero){padding-top:80px;padding-bottom:80px}
 .studio-site main>section>div{max-width:1160px}
-.studio-site main>section:not(.studio-hero) [class*="bg-gradient"]:not(#comparison-stage *){background-image:none;background-color:var(--studio-panel)}
+.studio-site main>section:not(.studio-hero) [class*="bg-gradient"]:not(:where(#comparison-stage *)){background-image:none;background-color:var(--studio-panel)}
 .studio-site main :is(h1,h2) [class*="bg-clip-text"]{background:none;color:inherit;-webkit-text-fill-color:currentColor}
-.studio-site main [class*="rounded-3xl"]:not(#comparison-stage *){border-radius:7px;box-shadow:none}
-.studio-site main [class*="rounded-2xl"]:not(#comparison-stage *){border-radius:7px;box-shadow:none}
-.studio-site main :is(.text-slate-400,.text-slate-300):not(#comparison-stage *){color:var(--studio-muted)}
+.studio-site main [class*="rounded-3xl"]:not(:where(#comparison-stage *)){border-radius:7px;box-shadow:none}
+.studio-site main [class*="rounded-2xl"]:not(:where(#comparison-stage *)){border-radius:7px;box-shadow:none}
+.studio-site main :is(.text-slate-400,.text-slate-300):not(:where(#comparison-stage *)){color:var(--studio-muted)}
 .studio-site .studio-hero{background:var(--studio-paper);background-image:none;color:#142536;padding-top:78px;padding-bottom:32px}
 .studio-site .studio-hero>.pointer-events-none{display:none}
 .studio-site .hero-layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(280px,1fr);column-gap:72px;text-align:left;align-items:center}
