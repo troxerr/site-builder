@@ -144,7 +144,7 @@ export default (c) => c.shell(`
         <h2 id="contact-title" class="h2">See if it fits your office.</h2>
         <p class="mt-4 text-lg text-slate-400">Tell me a little about your practice. There's no cost and no obligation to ask.</p>
         <ol class="mt-8 space-y-4 text-sm text-slate-300">
-          <li class="flex gap-3"><span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-blue-600 font-display text-xs font-extrabold">1</span><span><b class="block text-white">I reply within one business day</b>By text or email, to set up a short call.</span></li>
+          <li class="flex gap-3"><span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-blue-600 font-display text-xs font-extrabold">1</span><span><b class="block text-white">I reply within 1–3 business days</b>By text or email, to set up a short call.</span></li>
           <li class="flex gap-3"><span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-blue-600 font-display text-xs font-extrabold">2</span><span><b class="block text-white">We check your phones and calendar</b>I confirm your scheduling software can connect before you pay anything.</span></li>
           <li class="flex gap-3"><span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-blue-600 font-display text-xs font-extrabold">3</span><span><b class="block text-white">You decide</b>If it's a fit, you get the price in writing before setup starts.</span></li>
         </ol>
@@ -175,3 +175,4 @@ export default (c) => c.shell(`
   </section>
 </main>
 `);
+

@@ -30,7 +30,7 @@ export const notFound = (c) => simple(c, {
 
 export const thanks = (c) => simple(c, {
   pill: "Sent &middot; your request", h1: "Got it, thanks!", lede: "Here's what happens next:",
-  steps: [["I reply within one business day", "By text or email, with a couple of quick questions about your business."],
+  steps: [["I reply within 1–3 business days", "By text or email, with a couple of quick questions about your business."],
     ["You get a link to your draft in 2&ndash;3 days", "A real, working site you can open on your phone and share."],
     ["You decide", "Love it, and we agree on a price before you pay. If not, you owe nothing."]],
   buttons: `<a class="btn btn-primary" href="${TEL}">${ic("phone")}Call or text ${PHONE}</a><a class="btn btn-dark" href="/demos/">Browse live demos</a>`,
@@ -38,8 +38,9 @@ export const thanks = (c) => simple(c, {
 
 export const thanksAgent = (c) => simple(c, {
   pill: "Sent &middot; your booking agent request", h1: "Got it, thanks!", lede: "Here's what happens next:",
-  steps: [["I reply within one business day", "By text or email, to set up a short call."],
+  steps: [["I reply within 1–3 business days", "By text or email, to set up a short call."],
     ["We check your phones and calendar", "I confirm your scheduling software can connect before you pay anything."],
     ["You decide", "The price is in writing before setup starts. No long-term contract."]],
   buttons: `<a class="btn btn-primary" href="${TEL}">${ic("phone")}Call or text ${PHONE}</a><a class="btn btn-dark" href="/demos/missed-call-booking-agent/">Watch the demo again</a>`,
 });
+

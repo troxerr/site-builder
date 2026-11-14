@@ -57,7 +57,7 @@ export function head(meta) {
   const { title, description, path, robots, ld = [], ogImage = "/assets/og-image.png" } = meta;
   const ogTitle = meta.ogTitle ?? title, ogDescription = meta.ogDescription ?? description, image = `${SITE_URL}${ogImage}`;
   const lines = [
-    "<!doctype html>", '<html lang="en" class="motion-safe:scroll-smooth">', "<head>",
+    "<!doctype html>", '<html lang="en" class="motion-safe:scroll-smooth studio-site">', "<head>",
     '<meta charset="utf-8">', '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">',
     `<title>${esc(title)}</title>`, `<meta name="description" content="${esc(description)}">`,
     robots && `<meta name="robots" content="${robots}">`,
@@ -77,3 +77,4 @@ export function head(meta) {
   ];
   return lines.filter(Boolean).join("\n");
 }
+
