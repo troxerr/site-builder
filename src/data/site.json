@@ -21,9 +21,9 @@
     }
   },
   "pricing": {
-    "starter": 350,
-    "business": 950,
-    "care": 45,
+    "starter": 795,
+    "business": 1495,
+    "care": 59,
     "textback": 297,
     "suite": {
       "monthly": 497,
@@ -38,7 +38,9 @@
       "founding": 147,
       "lockMonths": 12,
       "trialDays": 14
-    }
+    },
+    "businessPro": 2495,
+    "careMax": 99
   },
   "intakeDemo": {
     "phone": {

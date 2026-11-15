@@ -1,5 +1,5 @@
 // A city landing page ("Website design in Bartlett"). Data: src/data/cities.json
-import { ic, HL, CHECK, plain, founding, foundingActive, publicDemos as demos, demoCityCard, faqDetails, promise, areas, money, site } from "../lib/ui.mjs";
+import { ic, HL, CHECK, plain, founding, foundingActive, publicDemos as demos, demoCityCard, faqDetails, promise, areas, money, careRange, site } from "../lib/ui.mjs";
 
 const P = site.pricing, TEL = `tel:${site.phone.tel}`, PHONE = site.phone.display;
 const price = (name, amt, unit, what) => `<li class="rounded-2xl border border-slate-800 bg-slate-900/90 p-6"><p class="text-xs font-semibold uppercase tracking-wider text-blue-400">${name}</p><p class="mt-1 font-display text-3xl font-extrabold">${amt}<span class="ml-1 font-sans text-sm font-normal text-slate-400">${unit}</span></p><p class="mt-2 text-sm text-slate-400">${what}</p></li>`;
@@ -47,8 +47,8 @@ ${cards}      </ul>
       ${founding.cityNote("mt-6 max-w-3xl")}
       <ul class="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
         ${price("Starter", founding.cityPrice("starter"), "one time", "A polished one-page site with services, hours, map and tap to call.")}
-        ${price("Business", founding.cityPrice("business"), "one time", "Custom logo, online booking or price list, Google Business Profile setup.")}
-        ${price("Care plan", money(P.care), "/ month", "Optional. Text me changes any time. Cancel any time.")}
+        ${price("Business", founding.cityPrice("business"), "one time", "A 5-page website with custom logo, booking link or price list, and Google Business Profile setup.")}
+        ${price("Care plan", careRange(), "/ month", "Optional. Text me changes any time. Cancel any time.")}
       </ul>
       <p class="mt-6 rounded-2xl border border-blue-900/50 bg-blue-950/30 p-5 text-sm text-slate-300"><b class="text-white">Contractors and shops:</b> missed-call text-back is ${money(P.textback)}/month, or get a website with text-back built in for ${money(P.suite.monthly)}/month + ${money(P.suite.setup)} setup. Month to month, no long-term contract.</p>
       <p class="mt-6"><a class="link font-semibold" href="/#pricing">See everything included &rarr;</a></p>

@@ -20,6 +20,7 @@ export const decode = (s) => s.replace(/&(#x?[0-9a-f]+|[a-z]+);/gi, (m, e) => {
 /** Plain text of an HTML snippet (for structured data). */
 export const plain = (html) => decode(html.replace(/<[^>]+>/g, ""));
 export const money = (n) => "$" + n.toLocaleString("en-US");
+export const careRange = () => `${money(site.pricing.care)}–${money(site.pricing.careMax)}`;
 export const attr = (s) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
 
 // ---------- icons ----------
@@ -38,14 +39,12 @@ export const founding = {
   hero: () => foundingActive() ? `      <p class="mx-auto mt-4 max-w-2xl rounded-xl border border-amber-400/40 bg-amber-400/10 px-4 py-3 text-sm text-amber-100"><b class="text-white">Founding-client deal:</b> ${money(F.discount)} off any website for my first ${F.of} clients &middot; <b class="text-white">${spotsText()}</b> &middot; <a class="link font-semibold" href="/#founding">See the terms</a></p>` : "",
   banner: () => foundingActive() ? `      <div id="founding" class="mt-12 flex flex-col gap-5 rounded-3xl border-2 border-amber-400/50 bg-gradient-to-r from-amber-500/15 via-slate-900 to-slate-900 p-7 lg:flex-row lg:items-center lg:justify-between">
         <div class="max-w-3xl"><p class="text-xs font-semibold uppercase tracking-wider text-amber-300">Founding-client deal</p><p class="mt-1 font-display text-2xl font-extrabold">${money(F.discount)} off any website for my first ${F.of} clients.</p><p class="mt-2 text-sm leading-relaxed text-slate-300">I'm just getting started, so I'm trading a lower price for help getting my first reviews and examples. If you're happy with your site, I'll ask for three things: an honest Google review, a sentence or two I can show on my site, and permission to show your site as my work.</p></div>
-        <div class="shrink-0 lg:text-right"><p class="font-display text-3xl font-extrabold text-amber-200">${spotsText()}</p><p class="mt-1 text-sm text-slate-300">Starter ${money(fPrice(P.starter))} &middot; Business ${money(fPrice(P.business))}</p></div>
+        <div class="shrink-0 lg:text-right"><p class="font-display text-3xl font-extrabold text-amber-200">${spotsText()}</p><p class="mt-1 text-sm text-slate-300">Starter ${money(fPrice(P.starter))} &middot; Business ${money(fPrice(P.business))} &middot; Business Pro ${money(fPrice(P.businessPro))}</p></div>
       </div>` : "",
   /** Price line on a pricing card. */
-  card: (key) => foundingActive()
-    ? `<p class="mt-2 font-display text-4xl font-extrabold text-white"><span><s class="mr-2 text-2xl font-bold text-slate-500">${money(P[key])}</s>${money(fPrice(P[key]))}</span><span class="ml-1 font-sans text-base font-normal text-slate-400">one time</span></p><p class="mt-1 text-sm font-semibold text-amber-200">Founding price for my first ${F.of} clients</p>`
-    : `<p class="mt-2 font-display text-4xl font-extrabold text-white">${money(P[key])}<span class="ml-1 font-sans text-base font-normal text-slate-400">one time</span></p>`,
+  card: (key) => `<p class="mt-2 font-display text-4xl font-extrabold text-white">${money(P[key])}<span class="ml-1 font-sans text-base font-normal text-slate-400">one time</span></p>${foundingActive() ? `<p class="mt-1 text-sm font-semibold text-amber-200">Eligible for the ${money(F.discount)} founding-client discount</p>` : ""}`,
   /** The plan name the form sends, and that a pricing button preselects. */
-  plan: (key) => foundingActive() ? `${{ starter: "Starter", business: "Business" }[key]} (${money(fPrice(P[key]))} founding price)` : `${{ starter: "Starter", business: "Business" }[key]} (${money(P[key])})`,
+  plan: (key) => foundingActive() ? `${{ starter: "Starter", business: "Business", businessPro: "Business Pro" }[key]} (${money(fPrice(P[key]))} founding price)` : `${{ starter: "Starter", business: "Business", businessPro: "Business Pro" }[key]} (${money(P[key])})`,
   /** Starter/business price shown in the city pages' price cards. */
   cityPrice: (key) => foundingActive() ? `<s class="mr-2 text-xl font-bold text-slate-500">${money(P[key])}</s>${money(fPrice(P[key]))}` : money(P[key]),
   cityNote: (cls = "") => foundingActive() ? `<p class="${cls} rounded-xl border border-amber-400/40 bg-amber-400/10 px-4 py-3 text-sm text-amber-100"><b class="text-white">Founding-client deal:</b> ${money(F.discount)} off any website for my first ${F.of} clients &middot; <b class="text-white">${spotsText()}</b> &middot; <a class="link font-semibold" href="/#founding">See the terms</a></p>` : "",
@@ -61,8 +60,8 @@ export const intake = {
   price: () => (intakeActive() ? PI.founding : PI.monthly),
 };
 export const planOptions = () => [
-  "Not sure yet", founding.plan("starter"), founding.plan("business"),
-  `Care plan (${money(P.care)}/mo)`, `Missed-call text-back (${money(P.textback)}/mo)`,
+  "Not sure yet", founding.plan("starter"), founding.plan("business"), founding.plan("businessPro"),
+  `Care plan (${careRange()}/mo)`, `Missed-call text-back (${money(P.textback)}/mo)`,
   `Website + text-back (${money(P.suite.monthly)}/mo + ${money(P.suite.setup)} setup)`,
   `Missed-call booking agent (${money(P.agent.setup)} setup + ${money(P.agent.monthly)}/mo)`,
 ].map((o) => `<option>${o}</option>`).join("");

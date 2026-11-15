@@ -1,5 +1,5 @@
 // <head> and structured data (JSON-LD). Everything here is derived from src/data so it can't drift from the page text.
-import { site, areas, faqEntries, faqJsonLd, money, intake } from "./ui.mjs";
+import { site, areas, faqEntries, faqJsonLd, money, careRange, intake } from "./ui.mjs";
 
 export const SITE_URL = site.url;
 const P = site.pricing;
@@ -17,11 +17,11 @@ export const structuredData = {
       logo: `${SITE_URL}/assets/logo-mark-512.png`, image: `${SITE_URL}/assets/og-image.png`,
       telephone: site.phone.e164, email: site.email,
       description: "Website design and missed-call text-back for small businesses and contractors in Bartlett, Memphis and the Mid-South. See a free draft before you pay.",
-      founder: { "@type": "Person", name: "Austin" }, priceRange: `${money(P.textback)}–${money(P.agent.setup)}`,
+      founder: { "@type": "Person", name: "Austin" }, priceRange: `${money(P.care)}–${money(P.businessPro)}`,
       areaServed: areas.map(([, n]) => `${n}, TN`),
       address,
       makesOffer: [
-        offer("Starter website", P.starter), offer("Business website", P.business), offer("Care plan", P.care, "Per month, optional"),
+        offer("Starter website", P.starter), offer("Business website — 5 pages", P.business), offer("Business Pro website — 8–10 pages", P.businessPro), offer("Care plan", P.care, `Optional, ${careRange()} per month depending on site and update needs`),
         offer("Missed-call text-back", P.textback, "Per month. No long-term contract."),
         offer("Website + text-back", P.suite.monthly, `Per month, plus ${money(P.suite.setup)} one-time setup. No long-term contract.`),
         offer("Missed-call booking agent", P.agent.setup, `One-time setup, then ${money(P.agent.monthly)} per month. No long-term contract.`),
@@ -47,7 +47,7 @@ export const structuredData = {
       { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
       { "@type": "ListItem", position: 2, name: `Website design in ${city.name}`, item: `${SITE_URL}/${slug}/` }] },
     { "@context": "https://schema.org", "@type": "ProfessionalService", name: site.name, url: `${SITE_URL}/`, telephone: site.phone.e164, email: site.email,
-      priceRange: `${money(P.textback)}–${money(P.agent.setup)}`, address, areaServed: area(city.name) },
+      priceRange: `${money(P.care)}–${money(P.businessPro)}`, address, areaServed: area(city.name) },
     faqJsonLd(faqs),
   ],
 };

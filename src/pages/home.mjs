@@ -1,3 +1,5 @@
+import { site, careRange, attr } from "../lib/ui.mjs";
+
 // Homepage. Dynamic parts come from tools/build.mjs (c = page context); everything else is the page itself.
 export default (c) => `${c.head}
 <body class="bg-slate-950 font-sans text-white antialiased selection:bg-blue-600 selection:text-white">
@@ -238,24 +240,30 @@ ${c.founding.banner}
       <h3 class="mt-12 font-display text-xl font-extrabold">Websites <span class="mt-1 block text-sm font-sans font-normal text-slate-400 sm:ml-2 sm:mt-0 sm:inline sm:align-middle">Pay once, after you approve your draft</span></h3>
       <ul class="mt-5 grid grid-cols-1 gap-6 md:grid-cols-3">
         <li class="relative flex flex-col rounded-3xl border border-slate-800 bg-slate-900/90 p-7">
-          <p class="text-xs font-semibold uppercase tracking-wider text-blue-400">Starter</p>
+          <p class="text-xs font-semibold uppercase tracking-wider text-blue-400">Starter · 1-page website</p>
           ${c.card.starter}
           <p class="mt-3 text-sm text-slate-400">A polished one-page site to get you found.</p>
           <ul class="mt-5 mb-7 space-y-2.5 text-sm text-slate-300"><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Custom one-page design</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Services, hours, map and tap to call</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Mobile-first and fast</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Domain and free hosting setup</span></li></ul>
           <a class="btn btn-dark mt-auto w-full" href="#contact" ${c.attr.starter}>Start with a free draft</a></li>
         <li class="relative flex flex-col rounded-3xl border-2 border-blue-600 bg-gradient-to-b from-blue-950/50 via-slate-900 to-slate-900 shadow-2xl shadow-blue-600/10 p-7"><span class="absolute -top-3 right-6 rounded-full bg-blue-600 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-white">Most popular</span>
-          <p class="text-xs font-semibold uppercase tracking-wider text-blue-400">Business</p>
+          <p class="text-xs font-semibold uppercase tracking-wider text-blue-400">Business · 5-page website</p>
           ${c.card.business}
-          <p class="mt-3 text-sm text-slate-400">Everything in Starter, plus the extras that bring in customers.</p>
+          <p class="mt-3 text-sm text-slate-400">Everything in Starter, across 5 pages for your business.</p>
           <ul class="mt-5 mb-7 space-y-2.5 text-sm text-slate-300"><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Custom logo design</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Online booking or price list</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Google Business Profile setup</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Matching email address</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>3 rounds of changes</span></li></ul>
           <a class="btn btn-primary mt-auto w-full" href="#contact" ${c.attr.business}>Get my free draft</a></li>
         <li class="relative flex flex-col rounded-3xl border border-slate-800 bg-slate-900/90 p-7">
-          <p class="text-xs font-semibold uppercase tracking-wider text-blue-400">Care plan</p>
-          <p class="mt-2 font-display text-4xl font-extrabold text-white">$45<span class="ml-1 font-sans text-base font-normal text-slate-400">/ month</span></p>
-          <p class="mt-3 text-sm text-slate-400">Optional. For owners who'd rather not think about it.</p>
-          <ul class="mt-5 mb-7 space-y-2.5 text-sm text-slate-300"><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Text me changes any time</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Hours, prices and photo updates</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Domain renewals handled</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Cancel any time</span></li></ul>
-          <a class="btn btn-dark mt-auto w-full" href="#contact" data-plan="Care plan ($45/mo)">Ask about care</a></li>
+          <p class="text-xs font-semibold uppercase tracking-wider text-blue-400">Business Pro · 8–10 pages</p>
+          ${c.card.businessPro}
+          <p class="mt-3 text-sm text-slate-400">More room for a growing business with several services.</p>
+          <ul class="mt-5 mb-7 space-y-2.5 text-sm text-slate-300">${["Everything in Business", "8–10 custom-designed pages", "Dedicated service or location pages", "Clear call, quote and booking links"].map(t => `<li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>${t}</span></li>`).join("")}</ul>
+          <a class="btn btn-dark mt-auto w-full" href="#contact" ${c.attr.businessPro}>Get my free draft</a></li>
       </ul>
+
+      <div class="mt-6 rounded-3xl border border-slate-800 bg-slate-900/90 p-7">
+        <p class="font-display text-xl font-extrabold">Optional website maintenance · ${careRange()}/month</p>
+        <p class="mt-3 text-sm text-slate-400">Hours, prices and photo updates, plus domain renewal handling. Your monthly rate depends on your site and update needs. We agree on the scope before work starts. Cancel any time.</p>
+        <a class="btn btn-dark mt-5" href="#contact" data-plan="${attr(`Care plan (${careRange()}/mo)`)}">Ask about maintenance</a>
+      </div>
 
       <h3 class="mt-14 font-display text-xl font-extrabold">Monthly plans for contractors <span class="mt-1 block text-sm font-sans font-normal text-slate-400 sm:ml-2 sm:mt-0 sm:inline sm:align-middle">Month to month, cancel any time</span></h3>
       <ul class="mt-5 grid grid-cols-1 gap-6 md:grid-cols-2">

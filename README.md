@@ -36,7 +36,7 @@ Sandbox note: in a sandbox that needs a proxy, set `CHROMIUM_PATH` to a Chromium
 
 ## Founding-client deal
 
-The first 3 website clients get $100 off (Starter $250, Business $850). In return, if they're happy, they're asked for a Google review, a short quote and permission to show their site.
+The first 3 website clients get $100 off (Starter $695, Business $1,395, Business Pro $2,395). In return, if they're happy, they're asked for a Google review, a short quote and permission to show their site.
 
 - **When a spot is taken:** lower `founding.spotsLeft` in `src/data/site.json`, run `npm run build`, push. Every "N of 3 spots left", price, plan name and FAQ entry follows.
 - **At 0:** the deal, the founding prices, the plan labels and the FAQ entry (and its structured data) all disappear on the next build. `tests/founding.test.mjs` checks 3, 1 and 0.
@@ -56,3 +56,7 @@ It copies the site to `demos/<slug>/`, adds the "Demo site" bar and `noindex` to
 
 - Only demos with `"public": true` in `src/data/demos.json` are shown or linked on our pages (the demos gallery, homepage, city pages). Today that is the five invented ones: Summit Roofing, Linen & Lark, Cedar & Hickory, the Bright Smile Dental missed-call demo, and the Castle showcase. Demos of real businesses are **unlisted**: the folder and URL still work (so the link you sent the owner keeps working), they stay `noindex` (meta tag and `X-Robots-Tag` header), but no page of ours links to them. `tests/demos.test.mjs` enforces this. To show one publicly, get the owner's written OK and flip its flag.
 - Real client quotes go in `src/data/testimonials.json` as `{ "quote", "name", "business", "town" }`. The "What clients say" block appears on the homepage once there is at least one, and not before. `tests/claims.test.mjs` fails the build if placeholder text or "hand-coded" claims show up on a page.
+
+## Website pricing
+
+Standard one-time prices: Starter (1 page) $795; Business (5 pages) $1,495; Business Pro (8–10 pages) $2,495. Optional maintenance is $59–$99/month depending on site and update needs. The $100 founding-client offer remains separate from the standard prices displayed on homepage cards.

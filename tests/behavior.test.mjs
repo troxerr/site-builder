@@ -47,7 +47,8 @@ test("homepage form: a website plan sends the request and lands on /thanks/", as
 test("homepage form: the booking agent plan is counted separately", async () => {
   const { page, sent } = await pageWithForm();
   await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
-  await page.selectOption("#plan", { index: 6 });
+  const bookingPlan = await page.locator('#plan option').filter({ hasText: "Missed-call booking agent" }).textContent();
+  await page.selectOption("#plan", { label: bookingPlan });
   await fillAndSend(page);
   await page.waitForURL(/\/thanks\/booking-agent\/$/);
   assert.match(sent[0].subject, /^Booking agent inquiry: Test Shop/);
