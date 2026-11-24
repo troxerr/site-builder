@@ -34,6 +34,7 @@ test("homepage form: a website plan sends the request and lands on /thanks/", as
   const { page, sent } = await pageWithForm();
   await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
   await page.locator('a[data-plan^="Starter"]').click();
+  assert.equal(await page.locator("#sms-consent").isChecked(), false);
   await fillAndSend(page);
   await page.waitForURL(/\/thanks\/$/);
   assert.equal(sent.length, 1);
@@ -41,6 +42,33 @@ test("homepage form: a website plan sends the request and lands on /thanks/", as
   assert.equal(sent[0].business, "Test Shop");
   assert.equal(sent[0].from_name, "bartlettwebsitedesign.online");
   assert.ok(sent[0].access_key, "has the form key");
+  assert.equal(sent[0].sms_consent, "no");
+  assert.equal(sent[0].sms_mobile, undefined);
+  assert.equal(sent[0].sms_consent_at, undefined);
+  await page.context().close();
+});
+
+test("homepage form: optional SMS requires a valid mobile and includes consent evidence", async () => {
+  const { page, sent } = await pageWithForm();
+  await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
+  await page.locator("#sms-consent").check();
+  await fillAndSend(page);
+  const mobile = page.locator("#sms-mobile");
+  assert.equal(await mobile.evaluate((input) => input.validity.valueMissing), true);
+  await mobile.fill("123");
+  assert.equal(await mobile.evaluate((input) => input.validity.customError), true);
+  assert.equal(sent.length, 0);
+
+  await mobile.fill("(901) 555-0123");
+  await page.click("#contact-form button[type=submit]");
+  await page.waitForURL(/\/thanks\/$/);
+  assert.equal(sent.length, 1);
+  assert.equal(sent[0].sms_consent, "yes");
+  assert.equal(sent[0].sms_mobile, "+19015550123");
+  assert.equal(sent[0].sms_source, "https://bartlettwebsitedesign.online/#contact");
+  assert.equal(sent[0].sms_disclosure_version, "bwd-website-care-2026-11-15");
+  assert.match(sent[0].sms_disclosure, /Reply STOP to opt out or HELP for help/);
+  assert.ok(Number.isFinite(Date.parse(sent[0].sms_consent_at)));
   await page.context().close();
 });
 

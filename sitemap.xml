@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bartlettwebsitedesign.online/</loc>
-    <lastmod>2026-11-15</lastmod>
+    <lastmod>2026-11-24</lastmod>
   </url>
   <url>
     <loc>https://bartlettwebsitedesign.online/dental/</loc>
@@ -39,5 +39,13 @@
   <url>
     <loc>https://bartlettwebsitedesign.online/lakeland/</loc>
     <lastmod>2026-11-15</lastmod>
+  </url>
+  <url>
+    <loc>https://bartlettwebsitedesign.online/privacy/</loc>
+    <lastmod>2026-11-24</lastmod>
+  </url>
+  <url>
+    <loc>https://bartlettwebsitedesign.online/terms/</loc>
+    <lastmod>2026-11-24</lastmod>
   </url>
 </urlset>

@@ -1,5 +1,7 @@
 import { site, careRange, attr } from "../lib/ui.mjs";
 
+const smsDisclosure = "I agree to receive one automated missed-call follow-up text from Bartlett Website Design about my website-design inquiry at the mobile number I provide. Further service replies are only in response to my messages. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is optional and is not a condition of purchase.";
+
 // Homepage. Dynamic parts come from tools/build.mjs (c = page context); everything else is the page itself.
 export default (c) => `${c.head}
 <body class="bg-slate-950 font-sans text-white antialiased selection:bg-blue-600 selection:text-white">
@@ -384,8 +386,21 @@ ${c.faqItems}
           <select name="plan" id="plan">${c.planOptions}</select>
         </label>
         <label class="field sm:col-span-2"><span>Anything else? <span class="font-normal text-slate-400">(optional)</span></span><textarea name="message" rows="4" placeholder="Your trade, your website or Facebook page if you have one, and what customers should be able to do"></textarea></label>
+        <fieldset class="min-w-0 space-y-3 rounded-2xl border border-slate-700 p-4 text-sm text-slate-300 sm:col-span-2">
+          <legend class="px-2 font-semibold text-white">Optional text follow-up</legend>
+          <label class="field" for="sms-mobile">Mobile number for SMS<input id="sms-mobile" name="sms_mobile" type="tel" autocomplete="tel" placeholder="e.g. (901) 555-0123" aria-describedby="sms-help"></label>
+          <p id="sms-help">Enter a mobile number you own if you opt in. You can submit your inquiry without SMS.</p>
+          <label class="flex items-start gap-3">
+            <input id="sms-consent" class="mt-1 h-5 w-5 shrink-0" type="checkbox" name="sms_consent" value="yes" disabled>
+            <span>${smsDisclosure}</span>
+          </label>
+          <p><a class="link" href="/privacy/">Privacy Policy</a> · <a class="link" href="/terms/">SMS Terms</a></p>
+          <input type="hidden" name="sms_disclosure_version" value="bwd-website-care-2026-11-15">
+          <input type="hidden" name="sms_disclosure" value="${attr(smsDisclosure)}">
+          <input type="hidden" name="sms_source" value="${site.url}/#contact">
+        </fieldset>
         <button class="btn btn-primary btn-lg sm:col-span-2" type="submit">Get my free draft</button>
-        <p class="flex items-center gap-2 text-xs text-slate-400 sm:col-span-2"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-lock"/></svg>I only use your details to reply about your website. No mailing lists, never shared.</p>
+        <p class="flex items-center gap-2 text-xs text-slate-400 sm:col-span-2"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-lock"/></svg>I use your details to reply about your website. Our form provider delivers your inquiry.</p>
         <p class="text-sm text-slate-400 sm:col-span-2" id="form-status" role="status" aria-live="polite">No payment or card needed. Prefer to talk? Call or text <a class="link" href="tel:+19013210023">(901) 321-0023</a>.</p>
       </form>
     </div>

@@ -23,6 +23,7 @@ const { default: bailBonds, intakeFaqs, homeCard: intakeCard } = await import(pa
 const { default: city, cityFaqs } = await import(pathToFileURL(src("pages/city.mjs")));
 const { default: demosPage } = await import(pathToFileURL(src("pages/demos.mjs")));
 const { notFound, thanks, thanksAgent } = await import(pathToFileURL(src("pages/simple.mjs")));
+const { privacy, smsTerms } = await import(pathToFileURL(src("pages/policies.mjs")));
 const { site, cities, areas, demos, publicDemos, testimonials, faqEntries, faqDetails, founding, planOptions, attr, demoHomeCard } = ui;
 
 const partial = (name) => readFileSync(src("partials", name), "utf8").trimEnd();
@@ -82,6 +83,10 @@ const defs = [
     path: `/${slug}/`, out: `${slug}/index.html`, indexable: true, title: ct.title, description: ct.desc,
     render: (c) => city(c, slug, ct), ld: structuredData.city(slug, ct, cityFaqs(ct)),
   })),
+  { path: "/privacy/", out: "privacy/index.html", indexable: true, render: privacy,
+    title: "Privacy Policy | Bartlett Website Design", description: "How Bartlett Website Design handles website inquiries, mobile numbers, and SMS consent." },
+  { path: "/terms/", out: "terms/index.html", indexable: true, render: smsTerms,
+    title: "SMS Terms | Bartlett Website Design", description: "Terms for optional missed-call follow-up texts, including how to opt in, get help, and stop messages." },
   { path: "/thanks/", out: "thanks/index.html", robots: "noindex", bar: false, render: thanks, title: "Thanks | Bartlett Website Design", description: "Your free draft request was sent." },
   { path: "/thanks/booking-agent/", out: "thanks/booking-agent/index.html", robots: "noindex", bar: false, render: thanksAgent, title: "Thanks | Bartlett Website Design", description: "Your booking agent request was sent." },
   { path: "/404.html", out: "404.html", robots: "noindex", render: notFound, title: "Page not found | Bartlett Website Design", description: "That page doesn't exist. See live website demos or get a free draft of your site." },

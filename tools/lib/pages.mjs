@@ -11,7 +11,7 @@ export const CITIES = ["bartlett", "memphis", "germantown", "cordova", "arlingto
 export const FIRST_PARTY = [
   "/", "/dental/", "/bail-bonds/", "/demos/",
   ...CITIES.map((c) => `/${c}/`),
-  "/thanks/", "/thanks/booking-agent/", "/404.html",
+  "/privacy/", "/terms/", "/thanks/", "/thanks/booking-agent/", "/404.html",
 ];
 
 /** First-party pages that Google should index (the rest are noindex). */
