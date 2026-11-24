@@ -87,9 +87,28 @@ test("homepage form: the text-back plan is labelled in the email subject", async
   const { page, sent } = await pageWithForm();
   await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
   await page.locator('a[data-plan^="Missed-call text-back"]').first().click();
+  assert.equal(await page.locator("#contact-form-title").textContent(), "Request a text-back demo");
+  assert.equal(await page.locator("#contact-website-steps").isVisible(), false);
+  assert.equal(await page.locator("#contact-textback-steps").isVisible(), true);
   await fillAndSend(page);
   await page.waitForURL(/\/thanks\/$/);
   assert.match(sent[0].subject, /^Text-back inquiry: Test Shop/);
+  await page.context().close();
+});
+
+test("homepage text-back preview switches industries on mobile", async () => {
+  const { page, sent } = await pageWithForm({ width: 375 });
+  await page.goto(env.site.url + "/", { waitUntil: "networkidle" });
+  const auto = page.getByRole("button", { name: "Auto repair", exact: true });
+  const contractor = page.getByRole("button", { name: "Contractor", exact: true });
+  assert.equal(await auto.getAttribute("aria-pressed"), "true");
+  assert.equal(await page.getByText(/2018 Honda Civic/).isVisible(), true);
+  await contractor.focus();
+  await contractor.press("Enter");
+  assert.equal(await contractor.getAttribute("aria-pressed"), "true");
+  assert.equal(await page.getByText(/roof leak in Bartlett/).isVisible(), true);
+  assert.equal(await page.getByText(/2018 Honda Civic/).isVisible(), false);
+  assert.equal(sent.length, 0);
   await page.context().close();
 });
 

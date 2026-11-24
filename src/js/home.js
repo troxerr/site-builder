@@ -8,7 +8,47 @@ document.querySelectorAll(".work-item:not(.wide)").forEach((li) => { li.hidden =
 
 // Plan buttons preselect the plan in the form
 const plan = document.getElementById("plan");
-document.querySelectorAll("[data-plan]").forEach((a) => a.addEventListener("click", () => { plan.value = a.getAttribute("data-plan"); }));
+const formTitle = document.getElementById("contact-form-title");
+const contactTitle = document.getElementById("contact-title");
+const contactKicker = document.getElementById("contact-kicker");
+const contactIntro = document.getElementById("contact-intro");
+const websiteSteps = document.getElementById("contact-website-steps");
+const textbackSteps = document.getElementById("contact-textback-steps");
+const submit = plan.form.querySelector('button[type="submit"]');
+const websiteIntro = contactIntro.textContent;
+
+function updateInquiry() {
+  const textback = plan.value.startsWith("Missed-call text-back");
+  const booking = plan.value.startsWith("Missed-call booking agent");
+  const phoneService = textback || booking;
+  const service = booking ? "booking agent" : "text-back";
+  contactKicker.textContent = phoneService ? "Phone workflow" : "Website design";
+  contactTitle.textContent = phoneService ? `See how ${service} would work for you.` : "Get your free working draft.";
+  contactIntro.textContent = phoneService ? "Tell me how your business handles calls today. I’ll show you a realistic example and check what would work with your setup." : websiteIntro;
+  formTitle.textContent = phoneService ? `Request a ${service} demo` : "Request my free draft";
+  if (!submit.disabled) submit.textContent = phoneService ? `Request my ${service} demo` : "Get my free draft";
+  websiteSteps.hidden = phoneService;
+  textbackSteps.hidden = !phoneService;
+}
+
+plan.addEventListener("change", updateInquiry);
+window.addEventListener("pageshow", updateInquiry);
+document.querySelectorAll("[data-plan]").forEach((link) => link.addEventListener("click", () => {
+  plan.value = link.dataset.plan;
+  updateInquiry();
+}));
+updateInquiry();
+
+const exampleControls = document.querySelector(".textback-switch");
+const examples = exampleControls.querySelectorAll("button");
+const transcripts = document.querySelectorAll("[data-textback-transcript]");
+exampleControls.hidden = false;
+examples.forEach((button) => button.addEventListener("click", () => {
+  examples.forEach((example) => example.setAttribute("aria-pressed", String(example === button)));
+  transcripts.forEach((transcript) => {
+    transcript.hidden = transcript.dataset.textbackTranscript !== button.dataset.textbackExample;
+  });
+}));
 
 const consent = document.getElementById("sms-consent");
 const mobile = document.getElementById("sms-mobile");

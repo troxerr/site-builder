@@ -10,6 +10,7 @@ export function leadForm({ subject, redirect, success, idle }) {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const btn = form.querySelector("button[type=submit]"), data = new FormData(form);
+    const buttonLabel = btn.textContent.trim() || idle;
     data.append("subject", subject(form.elements));
     btn.disabled = true; btn.textContent = "Sending...";
     fetch(form.action, { method: "POST", body: data, headers: { Accept: "application/json" } })
@@ -25,7 +26,7 @@ export function leadForm({ subject, redirect, success, idle }) {
         window.location.assign(to);
       })
       .catch(() => {
-        btn.disabled = false; btn.textContent = idle;
+        btn.disabled = false; btn.textContent = buttonLabel;
         status.className = "text-sm font-semibold text-red-300 sm:col-span-2";
         status.innerHTML = `Something went wrong. Please call or text <a class="link" href="tel:${tel}">${phone}</a> or email <a class="link" href="mailto:${email}">${email}</a>.`;
       });

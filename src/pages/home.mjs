@@ -1,4 +1,6 @@
-import { site, careRange, attr } from "../lib/ui.mjs";
+import { site, careRange, attr, money } from "../lib/ui.mjs";
+
+const textBackPlan = `Missed-call text-back (${money(site.pricing.textback)}/mo)`;
 
 const smsDisclosure = "I agree to receive one automated missed-call follow-up text from Bartlett Website Design about my website-design inquiry at the mobile number I provide. Further service replies are only in response to my messages. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is optional and is not a condition of purchase.";
 
@@ -20,7 +22,7 @@ ${c.top}
       <p class="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-slate-300 sm:mt-6 sm:text-xl">Fast, custom websites and missed-call text-back for Memphis-area businesses.<span class="hidden sm:inline"> I'm Austin, your web designer here in Bartlett. You work directly with me, from the first draft to launch.</span></p>
       <div class="mt-6 flex flex-col items-center justify-center gap-3 sm:mt-8 sm:flex-row">
         <a class="btn btn-primary btn-lg w-full sm:w-auto" href="#contact">Get my free draft<svg class="icon w-5 h-5" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <a class="btn btn-dark btn-lg w-full sm:w-auto" href="#showcase">See the difference &darr;</a>
+        <a class="btn btn-dark btn-lg w-full sm:w-auto" href="#booking-agent">See how text-back works</a>
       </div>
       <p class="mt-4 text-sm text-slate-400">Or call or text <a class="link font-semibold text-white" href="tel:+19013210023">(901) 321-0023</a>. It reaches me directly, and I reply within 1–3 business days.</p>
       </div>
@@ -38,6 +40,52 @@ ${c.founding.hero}
         <li class="flex items-center justify-center gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg>Text me directly</li>
       </ul>
       <p class="mt-6 flex items-center justify-center gap-2 text-sm text-slate-400"><svg class="icon w-4 h-4 text-blue-400" aria-hidden="true"><use href="#i-pin"/></svg><span>Serving <a class="link" href="/bartlett/">Bartlett</a>, <a class="link" href="/memphis/">Memphis</a>, <a class="link" href="/cordova/">Cordova</a>, <a class="link" href="/germantown/">Germantown</a>, <a class="link" href="/arlington/">Arlington</a> &amp; <a class="link" href="/lakeland/">Lakeland</a></span></p>
+    </div>
+  </section>
+
+  <section id="booking-agent" class="textback-section px-4 lg:px-8" aria-labelledby="textback-title">
+    <div class="mx-auto">
+      <div class="textback-layout">
+        <div class="textback-copy">
+          <h2 id="textback-title" class="h2">Miss a call.<br>Give the customer a way to reply.</h2>
+          <p class="textback-intro">When your crew is on a job or your service desk is tied up, missed-call text-back gives eligible callers a way to tell you what they need. Their reply reaches your team so you can follow up with the details in hand.</p>
+          <ul class="textback-scope">
+            <li>One business line, with a message written for your shop</li>
+            <li>Replies forwarded to your team for a personal follow-up</li>
+            <li>Setup, testing and ongoing monitoring</li>
+          </ul>
+          <div class="textback-offer">
+            <p><strong>${money(site.pricing.textback)}</strong> / month</p>
+            <a class="btn btn-primary" href="#contact" data-plan="${attr(textBackPlan)}">Request a text-back demo</a>
+          </div>
+          <p class="textback-note">Month to month. I'll check your phone setup and confirm usage costs before you commit.</p>
+        </div>
+        <section class="textback-preview" aria-labelledby="textback-preview-title">
+          <div class="textback-preview-header">
+            <h3 id="textback-preview-title">Example conversation</h3>
+            <p>Interactive preview. No text is sent.</p>
+            <div class="textback-switch" role="group" aria-label="Example business" hidden>
+              <button type="button" aria-pressed="true" data-textback-example="auto">Auto repair</button>
+              <button type="button" aria-pressed="false" data-textback-example="contractor">Contractor</button>
+            </div>
+          </div>
+          <div class="textback-transcript" aria-live="polite" aria-atomic="true">
+            <div data-textback-transcript="auto">
+              <p class="textback-event">Missed call at an auto repair shop</p>
+              <p class="textback-message"><span>Shop · automated text</span>Sorry we missed your call. What vehicle are you bringing in, and what’s going on with it?</p>
+              <p class="textback-message textback-message-reply"><span>Customer</span>2018 Honda Civic. The brakes squeal when I slow down. Can you take a look this week?</p>
+              <p class="textback-result"><strong>Service desk receives</strong> Vehicle, issue and requested timing.</p>
+            </div>
+            <div data-textback-transcript="contractor" hidden>
+              <p class="textback-event">Missed call while the crew is on a job</p>
+              <p class="textback-message"><span>Contractor · automated text</span>Sorry we missed you. What kind of work do you need, and where is the job?</p>
+              <p class="textback-message textback-message-reply"><span>Customer</span>We’ve got a roof leak in Bartlett. Could someone come by this week?</p>
+              <p class="textback-result"><strong>Crew receives</strong> Job type, location and requested timing.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <p class="textback-next">Need customers to book directly into your calendar? <a class="link" href="/demos/missed-call-booking-agent/">See the booking agent demo</a>.</p>
     </div>
   </section>
 
@@ -161,36 +209,6 @@ ${c.founding.hero}
     </div>
   </section>
 
-  <!-- TEXT-BACK + BOOKING AGENT (id kept for links from other pages) -->
-  <section id="booking-agent" class="px-4 py-16 sm:px-6 sm:py-20 lg:px-8" aria-labelledby="math-title">
-    <div class="mx-auto max-w-6xl rounded-3xl border border-blue-900/40 bg-gradient-to-r from-blue-950/40 via-slate-900 to-slate-900 p-7 sm:p-12">
-      <div class="max-w-3xl">
-        <p class="kicker">The real math</p>
-        <h2 id="math-title" class="h2">One saved job can pay for a year of text-back.</h2>
-        <p class="mt-4 text-base leading-relaxed text-slate-300 sm:text-lg">When you miss a call, most people don't leave a voicemail. They call the next business on Google. A text-back replies within a minute, so the job doesn't walk away. At $297 a month, that's $3,564 a year, and for a roofer or remodeler one saved job is often worth more than that.</p>
-      </div>
-      <ol class="mt-8 grid grid-cols-1 gap-5 md:grid-cols-3">
-        <li class="rounded-2xl border border-slate-800 bg-slate-950/80 p-6"><p class="text-xs font-semibold uppercase tracking-wider text-blue-400">Step 1</p><h3 class="mt-1 font-display text-xl font-extrabold text-white">You miss a call</h3><p class="mt-2 text-sm text-slate-400">You're on a job site or with a customer and can't pick up.</p></li>
-        <li class="rounded-2xl border border-slate-800 bg-slate-950/80 p-6"><p class="text-xs font-semibold uppercase tracking-wider text-blue-400">Step 2</p><h3 class="mt-1 font-display text-xl font-extrabold text-white">They get a text right away</h3><p class="mt-2 text-sm text-slate-400">&ldquo;Sorry we missed you. Are you looking for an estimate?&rdquo; It goes out from your business within a minute.</p></li>
-        <li class="rounded-2xl border border-slate-800 bg-slate-950/80 p-6"><p class="text-xs font-semibold uppercase tracking-wider text-blue-400">Step 3</p><h3 class="mt-1 font-display text-xl font-extrabold text-white">You call back a warm lead</h3><p class="mt-2 text-sm text-slate-400">They reply with details or photos, and you get it all before they call anyone else.</p></li>
-      </ol>
-      <div class="mt-8 grid grid-cols-1 gap-5 lg:grid-cols-2">
-        <div class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6">
-          <p class="text-xs font-semibold uppercase tracking-wider text-blue-400">For contractors &amp; shops</p>
-          <h3 class="mt-1 font-display text-xl font-extrabold">Missed-call text-back &middot; $297/mo</h3>
-          <p class="mt-2 text-sm text-slate-400">Texts every missed caller back, asks what they need and sends their reply to you. Includes Google review requests after a job and one inbox for every lead.</p>
-          <a class="btn btn-dark mt-5" href="#contact" data-plan="Missed-call text-back ($297/mo)">Ask about text-back</a>
-        </div>
-        <div class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6">
-          <p class="text-xs font-semibold uppercase tracking-wider text-blue-400">For offices that book appointments</p>
-          <h3 class="mt-1 font-display text-xl font-extrabold">Booking agent &middot; $1,500 setup + $1,000/mo</h3>
-          <p class="mt-2 text-sm text-slate-400">Goes a step further: offers times that are really open and books the appointment into your calendar. It always says it's automated, and callers can reply STAFF to reach a person.</p>
-          <div class="mt-5 flex flex-wrap gap-3"><a class="btn btn-dark" href="/demos/missed-call-booking-agent/">Try the live demo<svg class="icon w-4 h-4" aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="link self-center text-sm" href="/dental/">How it works for dental offices</a></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- DEMOS -->
   <section id="work" class="border-t border-slate-900 px-4 py-16 sm:px-6 sm:py-20 lg:px-8" aria-labelledby="work-title">
     <div class="mx-auto max-w-6xl">
@@ -267,19 +285,19 @@ ${c.founding.banner}
         <a class="btn btn-dark mt-5" href="#contact" data-plan="${attr(`Care plan (${careRange()}/mo)`)}">Ask about maintenance</a>
       </div>
 
-      <h3 class="mt-14 font-display text-xl font-extrabold">Monthly plans for contractors <span class="mt-1 block text-sm font-sans font-normal text-slate-400 sm:ml-2 sm:mt-0 sm:inline sm:align-middle">Month to month, cancel any time</span></h3>
+      <h3 class="mt-14 font-display text-xl font-extrabold">Monthly plans for contractors and shops <span class="mt-1 block text-sm font-sans font-normal text-slate-400 sm:ml-2 sm:mt-0 sm:inline sm:align-middle">Month to month, cancel any time</span></h3>
       <ul class="mt-5 grid grid-cols-1 gap-6 md:grid-cols-2">
         <li class="relative flex flex-col rounded-3xl border border-slate-800 bg-slate-900/90 p-7">
-          <p class="text-xs font-semibold uppercase tracking-wider text-blue-400">Lead recovery</p>
+          <p class="text-xs font-semibold uppercase tracking-wider text-blue-400">Missed-call text-back</p>
           <p class="mt-2 font-display text-4xl font-extrabold text-white">$297<span class="ml-1 font-sans text-base font-normal text-slate-400">/ month</span></p>
-          <p class="mt-3 text-sm text-slate-400">For established businesses that already have a website and want to stop losing calls to voicemail.</p>
-          <ul class="mt-5 mb-7 space-y-2.5 text-sm text-slate-300"><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Missed-call text-back, day and night</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Google review requests after each job</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>One inbox for every lead</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>No long-term contract</span></li></ul>
-          <a class="btn btn-dark mt-auto w-full" href="#contact" data-plan="Missed-call text-back ($297/mo)">Get started</a></li>
+          <p class="mt-3 text-sm text-slate-400">For shops and crews that want a way to follow up when they can’t answer the phone.</p>
+          <ul class="mt-5 mb-7 space-y-2.5 text-sm text-slate-300"><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Follow-up texts for eligible missed calls</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Customer replies forwarded to your team</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Setup and ongoing monitoring</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>No long-term contract</span></li></ul>
+          <a class="btn btn-dark mt-auto w-full" href="#contact" data-plan="${attr(textBackPlan)}">Request a text-back demo</a></li>
         <li class="relative flex flex-col rounded-3xl border-2 border-blue-600 bg-gradient-to-b from-blue-950/50 via-slate-900 to-slate-900 shadow-2xl shadow-blue-600/10 p-7"><span class="absolute -top-3 right-6 rounded-full bg-blue-600 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-white">Best for contractors</span>
           <p class="text-xs font-semibold uppercase tracking-wider text-blue-400">Website + text-back</p>
           <p class="mt-2 font-display text-4xl font-extrabold text-white">$497<span class="ml-1 font-sans text-base font-normal text-slate-400">/ month</span></p><p class="mt-1 text-sm font-semibold text-blue-300">+ $497 one-time setup, paid after you approve your draft</p>
           <p class="mt-3 text-sm text-slate-400">A fast custom site for your trade, with the text-back built in.</p>
-          <ul class="mt-5 mb-7 space-y-2.5 text-sm text-slate-300"><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Custom site built for your trade</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Quote, booking and call buttons up front</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Missed-call text-back, day and night</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Local search and Google Business Profile setup</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Updates by text, straight to me</span></li></ul>
+          <ul class="mt-5 mb-7 space-y-2.5 text-sm text-slate-300"><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Custom site built for your trade</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Quote, booking and call buttons up front</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Follow-up texts for eligible missed calls</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Local search and Google Business Profile setup</span></li><li class="flex gap-2"><svg class="icon w-4 h-4 shrink-0 mt-1 text-blue-400" aria-hidden="true"><use href="#i-check"/></svg><span>Updates by text, straight to me</span></li></ul>
           <a class="btn btn-primary mt-auto w-full" href="#contact" data-plan="Website + text-back ($497/mo + $497 setup)">Start with a free draft</a></li>
       </ul>
 
@@ -358,20 +376,25 @@ ${c.faqItems}
   <section id="contact" class="border-t border-slate-900 px-4 py-16 sm:px-6 sm:py-20 lg:px-8" aria-labelledby="contact-title">
     <div class="mx-auto grid max-w-6xl grid-cols-1 gap-10 lg:grid-cols-[1fr_1.15fr]">
       <div>
-        <p class="kicker">Zero risk</p>
+        <p id="contact-kicker" class="kicker">Website design</p>
         <h2 id="contact-title" class="h2">Get your free working draft.</h2>
-        <p class="mt-4 text-lg text-slate-400">Tell me a little about your business and I'll build a free, clickable draft. No payment, no card and no obligation.</p>
+        <p id="contact-intro" class="mt-4 text-lg text-slate-400">Tell me a little about your business and I'll build a free, clickable draft. No payment, no card and no obligation.</p>
         <h3 class="mt-8 font-display font-extrabold">What happens next</h3>
-        <ol class="mt-4 space-y-4 text-sm text-slate-300">
+        <ol id="contact-website-steps" class="mt-4 space-y-4 text-sm text-slate-300">
           <li class="flex gap-3"><span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-blue-600 font-display text-xs font-extrabold">1</span><span><b class="block text-white">I reply within 1–3 business days</b>By text or email, with a couple of quick questions.</span></li>
           <li class="flex gap-3"><span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-blue-600 font-display text-xs font-extrabold">2</span><span><b class="block text-white">You get a link to your draft in 2&ndash;3 days</b>A real, working site you can open on your phone and share.</span></li>
           <li class="flex gap-3"><span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-blue-600 font-display text-xs font-extrabold">3</span><span><b class="block text-white">You decide</b>Love it, and we agree on a price before you pay. If not, you owe nothing.</span></li>
+        </ol>
+        <ol id="contact-textback-steps" class="mt-4 list-decimal space-y-3 pl-5 text-sm text-slate-300" hidden>
+          <li>I reply within 1–3 business days to learn how your calls are handled.</li>
+          <li>We walk through an example for your business and check whether your phone setup can connect.</li>
+          <li>You get the price and scope in writing before deciding.</li>
         </ol>
         <a class="mt-8 flex items-center gap-4 rounded-2xl border border-slate-800 bg-slate-900 p-5 transition hover:border-blue-600" href="tel:+19013210023"><span class="grid h-12 w-12 place-items-center rounded-xl bg-blue-600"><svg class="icon w-6 h-6" aria-hidden="true"><use href="#i-phone"/></svg></span><span><small class="block text-sm text-slate-400">Rather talk? Call or text Austin</small><b class="font-display text-2xl font-extrabold">(901) 321-0023</b></span></a>
         <p class="mt-4 flex items-center gap-2 text-sm text-slate-400"><svg class="icon w-4 h-4 text-blue-400" aria-hidden="true"><use href="#i-mail"/></svg><a class="link" href="mailto:bartlett.website.design@gmail.com">bartlett.website.design@gmail.com</a></p>
       </div>
       <form id="contact-form" class="grid grid-cols-1 gap-4 rounded-3xl border border-blue-900/50 bg-slate-900 p-6 shadow-2xl sm:grid-cols-2 sm:p-8" action="https://api.web3forms.com/submit" method="POST">
-        <h3 class="font-display text-xl font-extrabold sm:col-span-2">Request my free draft</h3>
+        <h3 id="contact-form-title" class="font-display text-xl font-extrabold sm:col-span-2">Request my free draft</h3>
         <p class="-mt-2 text-sm text-slate-400 sm:col-span-2">Takes about a minute. Only your name, business and a way to reach you are required.</p>
         <input type="hidden" name="access_key" value="20844a35-5000-46b3-997a-be5114bb4edf">
         <input type="hidden" name="from_name" value="bartlettwebsitedesign.online">
