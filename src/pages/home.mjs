@@ -85,6 +85,17 @@ ${c.founding.hero}
           </div>
         </section>
       </div>
+      <figure class="textback-video">
+        <div class="textback-video-copy">
+          <h3>Watch the missed-call flow in 40 seconds</h3>
+          <p id="textback-video-note">A short animation of the missed call, the automatic text and the handoff to your team. It is an illustration; no real customer or business is shown.</p>
+        </div>
+        <video controls preload="none" playsinline width="960" height="540" poster="/assets/video/missed-call-text-back.jpg" aria-describedby="textback-video-note">
+          <source src="/assets/video/missed-call-text-back.mp4" type="video/mp4">
+          <track kind="captions" src="/assets/video/missed-call-text-back.vtt" srclang="en" label="English">
+          Your browser can't play this video. <a class="link" href="/assets/video/missed-call-text-back.mp4">Open the video file</a>.
+        </video>
+      </figure>
       <p class="textback-next">Need customers to book directly into your calendar? <a class="link" href="/demos/missed-call-booking-agent/">See the booking agent demo</a>.</p>
     </div>
   </section>

@@ -30,7 +30,8 @@ test("deployed asset count and sizes are inside the host's limits", () => {
 });
 
 test("no oversized images or media", () => {
-  const big = shipped.filter((f) => /\.(png|jpe?g|webp|gif|mp4)$/i.test(f.rel) && f.size > 400 * 1024);
+  // The text-back explainer video is the one deliberate exception (preload="none", so it only downloads on play).
+  const big = shipped.filter((f) => /\.(png|jpe?g|webp|gif|mp4)$/i.test(f.rel) && f.size > (f.rel === "assets/video/missed-call-text-back.mp4" ? 500 : 400) * 1024);
   assert.deepEqual(big.map((f) => `${f.rel} (${Math.round(f.size / 1024)} KB)`), []);
 });
 

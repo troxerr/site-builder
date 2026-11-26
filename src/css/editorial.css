@@ -112,8 +112,14 @@
 .textback-message-reply { margin: .65rem 0 .85rem auto; border-radius: 12px 5px 12px 12px; background: #e4e7da; }
 .textback-result { border-top: 1px solid #c9d4dc; padding-top: .65rem; font-size: .8rem; }
 .textback-result strong { display: block; }
+.textback-video { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); align-items: center; gap: clamp(1.5rem, 5vw, 4rem); margin-top: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid #425467; padding-top: clamp(2rem, 5vw, 3.5rem); }
+.textback-video h3 { color: #fff; font-size: 1.25rem; font-weight: 650; letter-spacing: -.02em; }
+.textback-video-copy p { max-width: 42ch; margin-top: .6rem; color: #c4d2e0; font-size: .88rem; line-height: 1.65; }
+.textback-video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 8px; background: #0f1a2e; }
+.textback-video video:focus-visible { outline: 2px solid #93b7ed; outline-offset: 3px; }
 @media (max-width: 760px) {
   .textback-layout { grid-template-columns: minmax(0, 1fr); }
+  .textback-video { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 400px) {
   .textback-offer { align-items: flex-start; flex-direction: column; gap: .45rem; }
